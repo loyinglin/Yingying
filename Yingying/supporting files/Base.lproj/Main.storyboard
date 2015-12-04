@@ -393,6 +393,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F39-gz-Aou">
+                                <rect key="frame" x="85" y="212" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onAdd:" destination="Vxo-Yb-ex5" eventType="touchUpInside" id="R32-3p-9ez"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -415,6 +422,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="myImageView" destination="ASC-j6-BXf" id="fX9-oF-DIk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWZ-ch-1pM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -786,15 +796,15 @@
                                     <segue destination="JjL-a9-Iam" kind="push" id="NVB-nb-Wye"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell4" textLabel="lRH-2C-rTs" rowHeight="54" style="IBUITableViewCellStyleDefault" id="bsp-2z-st2">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell4" textLabel="lRH-2C-rTs" rowHeight="54" style="IBUITableViewCellStyleDefault" id="bsp-2z-st2">
                                 <rect key="frame" x="0.0" y="371" width="320" height="54"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bsp-2z-st2" id="V60-7w-caI">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="53.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="53.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="我的理财" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lRH-2C-rTs">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="53.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="270" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -802,6 +812,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="cih-rS-Pyv" kind="push" id="TtJ-HX-Y8x"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell5" textLabel="P44-aU-272" rowHeight="54" style="IBUITableViewCellStyleDefault" id="aKI-zs-YUk">
                                 <rect key="frame" x="0.0" y="425" width="320" height="54"/>
@@ -959,6 +972,120 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UXo-zV-tGk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1266" y="2578"/>
+        </scene>
+        <!--我的投资-->
+        <scene sceneID="Xtu-dY-x7c">
+            <objects>
+                <viewController id="cih-rS-Pyv" customClass="MyInvestmentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NyJ-eN-hp5"/>
+                        <viewControllerLayoutGuide type="bottom" id="uW2-XP-zaR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zId-xf-sGt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfh-iw-G00">
+                                <rect key="frame" x="0.0" y="92" width="320" height="427"/>
+                                <connections>
+                                    <segue destination="e03-hC-2t4" kind="embed" id="EHO-ax-iog"/>
+                                </connections>
+                            </containerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sFl-Qy-scK">
+                                <rect key="frame" x="0.0" y="64" width="320" height="29"/>
+                                <segments>
+                                    <segment title="盈计划"/>
+                                    <segment title="盈盈贷"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onSelect:" destination="cih-rS-Pyv" eventType="valueChanged" id="HRr-tX-egX"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Dfh-iw-G00" firstAttribute="top" secondItem="sFl-Qy-scK" secondAttribute="bottom" id="590-cf-AcR"/>
+                            <constraint firstItem="sFl-Qy-scK" firstAttribute="leading" secondItem="zId-xf-sGt" secondAttribute="leading" id="Keh-YC-9eR"/>
+                            <constraint firstAttribute="trailing" secondItem="sFl-Qy-scK" secondAttribute="trailing" id="V52-8C-mPZ"/>
+                            <constraint firstItem="Dfh-iw-G00" firstAttribute="leading" secondItem="zId-xf-sGt" secondAttribute="leading" id="f3s-43-MlE"/>
+                            <constraint firstAttribute="trailing" secondItem="Dfh-iw-G00" secondAttribute="trailing" id="iM8-cb-62J"/>
+                            <constraint firstItem="uW2-XP-zaR" firstAttribute="top" secondItem="Dfh-iw-G00" secondAttribute="bottom" id="iUp-bQ-r3J"/>
+                            <constraint firstItem="sFl-Qy-scK" firstAttribute="top" secondItem="NyJ-eN-hp5" secondAttribute="bottom" id="rMc-yF-Umm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="我的投资" id="JkC-d6-m8X"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bGx-sx-ed7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1265" y="3328"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="uam-sE-fTC">
+            <objects>
+                <viewController id="pDW-7v-cwl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MT6-cD-omv"/>
+                        <viewControllerLayoutGuide type="bottom" id="y5k-5h-Xz8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LlX-s0-CkQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="427"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="xfw-s2-bGn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r9i-1l-2SY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2182" y="3636"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="dDo-Ru-T92">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hhg-YO-shA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="KNK-H1-qzh" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o7C-aA-SFQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="IT5-Tc-ObE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gCH-r1-GPv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="427"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是盈计划" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZU0-aB-dNu">
+                                <rect key="frame" x="117.5" y="203.5" width="85" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZU0-aB-dNu" firstAttribute="centerY" secondItem="gCH-r1-GPv" secondAttribute="centerY" id="osD-Fh-Dcg"/>
+                            <constraint firstItem="ZU0-aB-dNu" firstAttribute="centerX" secondItem="gCH-r1-GPv" secondAttribute="centerX" id="vvX-ax-dTY"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="mJ6-NG-Za1"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2182" y="3007.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="vv2-0t-7QU">
+            <objects>
+                <tabBarController id="e03-hC-2t4" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="fLf-Ue-lHS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="KNK-H1-qzh" kind="relationship" relationship="viewControllers" id="k0P-p7-8ED"/>
+                        <segue destination="pDW-7v-cwl" kind="relationship" relationship="viewControllers" id="Mrb-Af-k4j"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bfo-8X-vKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1642" y="3322"/>
         </scene>
         <!--转账到该好友账户-->
         <scene sceneID="RPD-fX-uoR">

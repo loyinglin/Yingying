@@ -45,6 +45,7 @@
 		FD29B3DD1C1177D200B68C6C /* MyCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FD29B3E01C1194CC00B68C6C /* MyCashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3DF1C1194CC00B68C6C /* MyCashViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FD4BA8BE1C119D2D00A69F90 /* MyTransferTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8BD1C119D2D00A69F90 /* MyTransferTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,8 @@
 		FD29B3DF1C1194CC00B68C6C /* MyCashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCashViewController.m; sourceTree = "<group>"; };
 		FD4BA8BC1C119D2D00A69F90 /* MyTransferTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTransferTableViewController.h; sourceTree = "<group>"; };
 		FD4BA8BD1C119D2D00A69F90 /* MyTransferTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTransferTableViewController.m; sourceTree = "<group>"; };
+		FD4BA8C31C11C5DE00A69F90 /* MyInvestmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInvestmentViewController.h; sourceTree = "<group>"; };
+		FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInvestmentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,6 +436,7 @@
 		FD29B3DA1C1177A800B68C6C /* myCenter */ = {
 			isa = PBXGroup;
 			children = (
+				FD4BA8C21C11C5D300A69F90 /* investment */,
 				FD29B3DB1C1177D200B68C6C /* MyCenterTableViewController.h */,
 				FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */,
 				FD29B3DE1C1194CC00B68C6C /* MyCashViewController.h */,
@@ -441,6 +445,15 @@
 				FD4BA8BD1C119D2D00A69F90 /* MyTransferTableViewController.m */,
 			);
 			path = myCenter;
+			sourceTree = "<group>";
+		};
+		FD4BA8C21C11C5D300A69F90 /* investment */ = {
+			isa = PBXGroup;
+			children = (
+				FD4BA8C31C11C5DE00A69F90 /* MyInvestmentViewController.h */,
+				FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */,
+			);
+			path = investment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -631,6 +644,7 @@
 				FD29B37E1C112FDC00B68C6C /* UIScrollView+MJRefresh.m in Sources */,
 				FD29B37A1C112FDC00B68C6C /* MJRefreshConst.m in Sources */,
 				FD29B3E01C1194CC00B68C6C /* MyCashViewController.m in Sources */,
+				FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */,
 				FD29B3C21C1159D800B68C6C /* AroundDetailController.m in Sources */,
 				FD29B3751C112FDC00B68C6C /* LYTypeEncoding.m in Sources */,
 				FD29B3591C111C4A00B68C6C /* FirstViewController.m in Sources */,
