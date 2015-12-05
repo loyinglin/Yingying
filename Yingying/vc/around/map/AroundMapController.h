@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>
 
-@interface AroundMapController : UIViewController<BMKMapViewDelegate>
+@interface AroundMapController : UIViewController<BMKMapViewDelegate, BMKLocationServiceDelegate>
 
 @end

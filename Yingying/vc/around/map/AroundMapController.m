@@ -11,6 +11,7 @@
 
 @interface AroundMapController ()
 @property (nonatomic , strong) IBOutlet BMKMapView* myMapView;
+@property (nonatomic , strong) BMKLocationService* myLocationService;
 @end
 
 @implementation AroundMapController {
@@ -25,6 +26,10 @@
     
     [self addPointAnnotation];
 //    [self addAnimatedAnnotation];
+    self.myLocationService = [[BMKLocationService alloc] init];
+    self.myLocationService.delegate = self;
+    
+    [self.myLocationService startUserLocationService];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,11 +52,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.myMapView.delegate = self;
+    self.myLocationService.delegate = self;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.myMapView.delegate = nil;
+    self.myLocationService.delegate = nil;
 }
 #pragma mark - ibaction
 
@@ -73,7 +80,27 @@
     [self.myMapView showAnnotations:myPoints animated:YES];
 }
 
-#pragma mark - delegate
+#pragma mark - delegate - location
+
+//实现相关delegate 处理位置信息更新
+//处理方向变更信息
+- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
+{
+    NSLog(@"heading is %@",userLocation.heading);
+}
+
+//处理位置坐标更新
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    
+//    self.myMapView.showsUserLocation = YES;
+//    [self.myMapView updateLocationData:userLocation];
+    [self.myMapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+}
+
+
+#pragma mark - delegate - map
 
 - (void)mapViewDidFinishLoading:(BMKMapView *)mapView {
     NSLog(@"map load end");

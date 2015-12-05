@@ -19,11 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.mySearchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.mySearchController.automaticallyAdjustsScrollViewInsets = NO;
     self.mySearchController.dimsBackgroundDuringPresentation = NO;
@@ -31,6 +26,27 @@
 
     self.tableView.tableHeaderView = self.mySearchController.searchBar;
     [self.mySearchController.searchBar sizeToFit];
+    
+    NSMutableString *lin = [[NSMutableString alloc] initWithString:@"什么鬼"];
+    if (CFStringTransform((__bridge CFMutableStringRef)lin, 0, kCFStringTransformMandarinLatin, NO)) {
+        NSLog(@"%@ ", lin);
+    }
+    
+    if (CFStringTransform((__bridge CFMutableStringRef)lin, 0, kCFStringTransformStripDiacritics, NO)) {
+        NSLog(@"%@ ", lin);
+    }
+//    NSComparisonResult result = [lin compare:omg];
+//    NSLog(@"compare %ld", (long)result);
+    
+    NSMutableString *ms = [[NSMutableString alloc] initWithString:@"拼发的音"];
+    if (CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformMandarinLatin, NO))
+    {
+        NSLog(@"Pingying: %@", lin);
+    }
+    if (CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformStripDiacritics, NO))
+    {
+        NSLog(@"Pingying: %@", ms);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -102,7 +118,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"y %f", scrollView.contentOffset.y);
+//    NSLog(@"y %f", scrollView.contentOffset.y);
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {

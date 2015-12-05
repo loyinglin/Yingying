@@ -44,7 +44,6 @@
 		FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3D81C1173B500B68C6C /* YingPlanTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FD29B3DD1C1177D200B68C6C /* MyCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FD29B3E01C1194CC00B68C6C /* MyCashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3DF1C1194CC00B68C6C /* MyCashViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FD4BA8BE1C119D2D00A69F90 /* MyTransferTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8BD1C119D2D00A69F90 /* MyTransferTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FD4BA8C81C127E6700A69F90 /* MyMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8C71C127E6700A69F90 /* MyMessageTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FD4BA8CC1C12834400A69F90 /* MyLoanController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8CB1C12834400A69F90 /* MyLoanController.m */; settings = {ASSET_TAGS = (); }; };
@@ -53,6 +52,9 @@
 		FD4BA8D61C12F54800A69F90 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8D51C12F54800A69F90 /* MineViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FD4BA8D91C12F5B500A69F90 /* NSObject+LYUITipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8D81C12F5B400A69F90 /* NSObject+LYUITipsView.m */; settings = {ASSET_TAGS = (); }; };
 		FD4BA8DC1C13075A00A69F90 /* AroundMessageDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8DB1C13075A00A69F90 /* AroundMessageDetailController.m */; settings = {ASSET_TAGS = (); }; };
+		FD4BA8E01C13135500A69F90 /* MyTransferTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8DF1C13135500A69F90 /* MyTransferTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FD4BA8E31C13139C00A69F90 /* MyTransferViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8E21C13139C00A69F90 /* MyTransferViewModel.m */; settings = {ASSET_TAGS = (); }; };
+		FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8E51C13141B00A69F90 /* Yingying.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,8 +156,6 @@
 		FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCenterTableViewController.m; sourceTree = "<group>"; };
 		FD29B3DE1C1194CC00B68C6C /* MyCashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCashViewController.h; sourceTree = "<group>"; };
 		FD29B3DF1C1194CC00B68C6C /* MyCashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCashViewController.m; sourceTree = "<group>"; };
-		FD4BA8BC1C119D2D00A69F90 /* MyTransferTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTransferTableViewController.h; sourceTree = "<group>"; };
-		FD4BA8BD1C119D2D00A69F90 /* MyTransferTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTransferTableViewController.m; sourceTree = "<group>"; };
 		FD4BA8C31C11C5DE00A69F90 /* MyInvestmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInvestmentViewController.h; sourceTree = "<group>"; };
 		FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInvestmentViewController.m; sourceTree = "<group>"; };
 		FD4BA8C61C127E6700A69F90 /* MyMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMessageTableViewController.h; sourceTree = "<group>"; };
@@ -172,6 +172,12 @@
 		FD4BA8D81C12F5B400A69F90 /* NSObject+LYUITipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LYUITipsView.m"; sourceTree = "<group>"; };
 		FD4BA8DA1C13075A00A69F90 /* AroundMessageDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMessageDetailController.h; sourceTree = "<group>"; };
 		FD4BA8DB1C13075A00A69F90 /* AroundMessageDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMessageDetailController.m; sourceTree = "<group>"; };
+		FD4BA8DE1C13135500A69F90 /* MyTransferTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTransferTableViewController.h; sourceTree = "<group>"; };
+		FD4BA8DF1C13135500A69F90 /* MyTransferTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTransferTableViewController.m; sourceTree = "<group>"; };
+		FD4BA8E11C13139C00A69F90 /* MyTransferViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTransferViewModel.h; sourceTree = "<group>"; };
+		FD4BA8E21C13139C00A69F90 /* MyTransferViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTransferViewModel.m; sourceTree = "<group>"; };
+		FD4BA8E41C13141B00A69F90 /* Yingying.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yingying.h; sourceTree = "<group>"; };
+		FD4BA8E51C13141B00A69F90 /* Yingying.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Yingying.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +304,8 @@
 				FD29B3AC1C113B6F00B68C6C /* base */,
 				FD29B3801C1130BC00B68C6C /* BaseModel.h */,
 				FD29B3811C1130BC00B68C6C /* BaseModel.m */,
+				FD4BA8E41C13141B00A69F90 /* Yingying.h */,
+				FD4BA8E51C13141B00A69F90 /* Yingying.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -463,6 +471,7 @@
 		FD29B3DA1C1177A800B68C6C /* myCenter */ = {
 			isa = PBXGroup;
 			children = (
+				FD4BA8DD1C13135500A69F90 /* transfer */,
 				FD4BA8D01C128F2100A69F90 /* setting */,
 				FD4BA8C91C1282C800A69F90 /* loan */,
 				FD4BA8C21C11C5D300A69F90 /* investment */,
@@ -470,8 +479,6 @@
 				FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */,
 				FD29B3DE1C1194CC00B68C6C /* MyCashViewController.h */,
 				FD29B3DF1C1194CC00B68C6C /* MyCashViewController.m */,
-				FD4BA8BC1C119D2D00A69F90 /* MyTransferTableViewController.h */,
-				FD4BA8BD1C119D2D00A69F90 /* MyTransferTableViewController.m */,
 				FD4BA8C61C127E6700A69F90 /* MyMessageTableViewController.h */,
 				FD4BA8C71C127E6700A69F90 /* MyMessageTableViewController.m */,
 			);
@@ -505,6 +512,17 @@
 				FD4BA8D21C128F3C00A69F90 /* MySettingTableViewController.m */,
 			);
 			path = setting;
+			sourceTree = "<group>";
+		};
+		FD4BA8DD1C13135500A69F90 /* transfer */ = {
+			isa = PBXGroup;
+			children = (
+				FD4BA8DE1C13135500A69F90 /* MyTransferTableViewController.h */,
+				FD4BA8DF1C13135500A69F90 /* MyTransferTableViewController.m */,
+				FD4BA8E11C13139C00A69F90 /* MyTransferViewModel.h */,
+				FD4BA8E21C13139C00A69F90 /* MyTransferViewModel.m */,
+			);
+			path = transfer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -689,6 +707,7 @@
 				FD29B3551C111C4A00B68C6C /* AppDelegate.m in Sources */,
 				FD4BA8D31C128F3C00A69F90 /* MySettingTableViewController.m in Sources */,
 				FD29B38F1C1135DC00B68C6C /* AroundViewController.m in Sources */,
+				FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */,
 				FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */,
 				FD29B35B1C111C4A00B68C6C /* main.m in Sources */,
 				FD29B3CA1C11657200B68C6C /* DistributionMoodController.m in Sources */,
@@ -706,10 +725,11 @@
 				FD4BA8CF1C12841700A69F90 /* MyLoanDetailController.m in Sources */,
 				FD29B3591C111C4A00B68C6C /* FirstViewController.m in Sources */,
 				FD4BA8D61C12F54800A69F90 /* MineViewController.m in Sources */,
-				FD4BA8BE1C119D2D00A69F90 /* MyTransferTableViewController.m in Sources */,
+				FD4BA8E01C13135500A69F90 /* MyTransferTableViewController.m in Sources */,
 				FD29B3761C112FDC00B68C6C /* NSDictionary+LYDictToObject.m in Sources */,
 				FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */,
 				FD29B3B21C113BC600B68C6C /* ForMap.mm in Sources */,
+				FD4BA8E31C13139C00A69F90 /* MyTransferViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
