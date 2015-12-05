@@ -6,14 +6,15 @@
 //  Copyright © 2015年 林伟池. All rights reserved.
 //
 
-#import "AroundDetailController.h"
+#import "AroundMessageController.h"
+#import "LYNotifyCenter.h"
 #import "MJRefresh.h"
 
-@interface AroundDetailController ()
+@interface AroundMessageController ()
 @property (nonatomic , strong) IBOutlet UITableView* myTableView;
 @end
 
-@implementation AroundDetailController
+@implementation AroundMessageController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,6 +65,12 @@
     return cell;
 }
 
+-(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_OPEN_AROUND_DETAIL_BOARD object:nil];
+    
+    return nil;
+}
 #pragma mark - notify
 
 

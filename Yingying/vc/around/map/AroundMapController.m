@@ -63,13 +63,14 @@
     for (int i = 0; i < 5; ++i) {
         BMKPointAnnotation* pointAnnotation = [[BMKPointAnnotation alloc]init];
         CLLocationCoordinate2D coor;
-        coor.latitude = 39 + i * 0.3;
-        coor.longitude = 116 + i * 0.3;
+        coor.latitude = 39 + i * 0.2;
+        coor.longitude = 116 + i * 0.2;
         pointAnnotation.coordinate = coor;
         [arr addObject:pointAnnotation];
     }
     myPoints = arr;
     [self.myMapView addAnnotations:myPoints];
+    [self.myMapView showAnnotations:myPoints animated:YES];
 }
 
 #pragma mark - delegate
@@ -97,10 +98,10 @@
             annotationView.draggable = YES;
             
             annotationView.image = [UIImage imageNamed:@"first"];
-            [annotationView setFrame:CGRectMake(0, 0, 50, 50)];
+            [annotationView setFrame:CGRectMake(0, 0, 30, 30)];
             
             UIImageView* img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"second"]];
-            [img setFrame:CGRectMake(0, 0, 50, 50)];
+            [img setFrame:CGRectMake(0, 0, 30, 30)];
             annotationView.paopaoView = [[BMKActionPaopaoView alloc] initWithCustomView:img];
             
             UIView* view = [[[NSBundle mainBundle] loadNibNamed:@"CustomMapView" owner:nil options:nil] lastObject];
@@ -140,6 +141,7 @@
 }
 
 - (void)mapView:(BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view {
+    [mapView deselectAnnotation:view.annotation animated:YES];
     NSLog(@"click ");
 }
 #pragma mark - notify

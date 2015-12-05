@@ -33,7 +33,7 @@
 		FD29B39C1C113AD700B68C6C /* libPods-AFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29B39A1C113AD700B68C6C /* libPods-AFNetworking.a */; };
 		FD29B39D1C113AD700B68C6C /* libPods-ReactiveCocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29B39B1C113AD700B68C6C /* libPods-ReactiveCocoa.a */; };
 		FD29B3B21C113BC600B68C6C /* ForMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3B11C113BC600B68C6C /* ForMap.mm */; settings = {ASSET_TAGS = (); }; };
-		FD29B3C21C1159D800B68C6C /* AroundDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3BD1C1159D800B68C6C /* AroundDetailController.m */; settings = {ASSET_TAGS = (); }; };
+		FD29B3C21C1159D800B68C6C /* AroundMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3BD1C1159D800B68C6C /* AroundMessageController.m */; settings = {ASSET_TAGS = (); }; };
 		FD29B3C31C1159D800B68C6C /* AroundMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3C01C1159D800B68C6C /* AroundMapController.m */; settings = {ASSET_TAGS = (); }; };
 		FD29B3C41C1159D800B68C6C /* CustomMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD29B3C11C1159D800B68C6C /* CustomMapView.xib */; settings = {ASSET_TAGS = (); }; };
 		FD29B3C71C1161F400B68C6C /* ModelDistributionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3C61C1161F400B68C6C /* ModelDistributionController.m */; settings = {ASSET_TAGS = (); }; };
@@ -46,6 +46,13 @@
 		FD29B3E01C1194CC00B68C6C /* MyCashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3DF1C1194CC00B68C6C /* MyCashViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FD4BA8BE1C119D2D00A69F90 /* MyTransferTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8BD1C119D2D00A69F90 /* MyTransferTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FD4BA8C81C127E6700A69F90 /* MyMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8C71C127E6700A69F90 /* MyMessageTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FD4BA8CC1C12834400A69F90 /* MyLoanController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8CB1C12834400A69F90 /* MyLoanController.m */; settings = {ASSET_TAGS = (); }; };
+		FD4BA8CF1C12841700A69F90 /* MyLoanDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8CE1C12841700A69F90 /* MyLoanDetailController.m */; settings = {ASSET_TAGS = (); }; };
+		FD4BA8D31C128F3C00A69F90 /* MySettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8D21C128F3C00A69F90 /* MySettingTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FD4BA8D61C12F54800A69F90 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8D51C12F54800A69F90 /* MineViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FD4BA8D91C12F5B500A69F90 /* NSObject+LYUITipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8D81C12F5B400A69F90 /* NSObject+LYUITipsView.m */; settings = {ASSET_TAGS = (); }; };
+		FD4BA8DC1C13075A00A69F90 /* AroundMessageDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8DB1C13075A00A69F90 /* AroundMessageDetailController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,8 +133,8 @@
 		FD29B3B31C113C1000B68C6C /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		FD29B3B51C113C2000B68C6C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FD29B3B71C113C3000B68C6C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		FD29B3BC1C1159D800B68C6C /* AroundDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundDetailController.h; sourceTree = "<group>"; };
-		FD29B3BD1C1159D800B68C6C /* AroundDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundDetailController.m; sourceTree = "<group>"; };
+		FD29B3BC1C1159D800B68C6C /* AroundMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMessageController.h; sourceTree = "<group>"; };
+		FD29B3BD1C1159D800B68C6C /* AroundMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMessageController.m; sourceTree = "<group>"; };
 		FD29B3BF1C1159D800B68C6C /* AroundMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMapController.h; sourceTree = "<group>"; };
 		FD29B3C01C1159D800B68C6C /* AroundMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMapController.m; sourceTree = "<group>"; };
 		FD29B3C11C1159D800B68C6C /* CustomMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomMapView.xib; sourceTree = "<group>"; };
@@ -151,6 +158,20 @@
 		FD4BA8BD1C119D2D00A69F90 /* MyTransferTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTransferTableViewController.m; sourceTree = "<group>"; };
 		FD4BA8C31C11C5DE00A69F90 /* MyInvestmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInvestmentViewController.h; sourceTree = "<group>"; };
 		FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInvestmentViewController.m; sourceTree = "<group>"; };
+		FD4BA8C61C127E6700A69F90 /* MyMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMessageTableViewController.h; sourceTree = "<group>"; };
+		FD4BA8C71C127E6700A69F90 /* MyMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMessageTableViewController.m; sourceTree = "<group>"; };
+		FD4BA8CA1C12834400A69F90 /* MyLoanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLoanController.h; sourceTree = "<group>"; };
+		FD4BA8CB1C12834400A69F90 /* MyLoanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLoanController.m; sourceTree = "<group>"; };
+		FD4BA8CD1C12841700A69F90 /* MyLoanDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLoanDetailController.h; sourceTree = "<group>"; };
+		FD4BA8CE1C12841700A69F90 /* MyLoanDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLoanDetailController.m; sourceTree = "<group>"; };
+		FD4BA8D11C128F3C00A69F90 /* MySettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingTableViewController.h; sourceTree = "<group>"; };
+		FD4BA8D21C128F3C00A69F90 /* MySettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingTableViewController.m; sourceTree = "<group>"; };
+		FD4BA8D41C12F54800A69F90 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		FD4BA8D51C12F54800A69F90 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		FD4BA8D71C12F5B400A69F90 /* NSObject+LYUITipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LYUITipsView.h"; sourceTree = "<group>"; };
+		FD4BA8D81C12F5B400A69F90 /* NSObject+LYUITipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LYUITipsView.m"; sourceTree = "<group>"; };
+		FD4BA8DA1C13075A00A69F90 /* AroundMessageDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMessageDetailController.h; sourceTree = "<group>"; };
+		FD4BA8DB1C13075A00A69F90 /* AroundMessageDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMessageDetailController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +347,8 @@
 		FD29B35D1C112FDC00B68C6C /* LYCategory */ = {
 			isa = PBXGroup;
 			children = (
+				FD4BA8D71C12F5B400A69F90 /* NSObject+LYUITipsView.h */,
+				FD4BA8D81C12F5B400A69F90 /* NSObject+LYUITipsView.m */,
 				FD29B35E1C112FDC00B68C6C /* LYTypeEncoding.h */,
 				FD29B35F1C112FDC00B68C6C /* LYTypeEncoding.m */,
 				FD29B3601C112FDC00B68C6C /* NSDictionary+LYDictToObject.h */,
@@ -382,14 +405,16 @@
 		FD29B3BB1C1159D800B68C6C /* detail */ = {
 			isa = PBXGroup;
 			children = (
-				FD29B3BC1C1159D800B68C6C /* AroundDetailController.h */,
-				FD29B3BD1C1159D800B68C6C /* AroundDetailController.m */,
+				FD29B3BC1C1159D800B68C6C /* AroundMessageController.h */,
+				FD29B3BD1C1159D800B68C6C /* AroundMessageController.m */,
 				FD29B3C51C1161F400B68C6C /* ModelDistributionController.h */,
 				FD29B3C61C1161F400B68C6C /* ModelDistributionController.m */,
 				FD29B3C81C11657200B68C6C /* DistributionMoodController.h */,
 				FD29B3C91C11657200B68C6C /* DistributionMoodController.m */,
 				FD29B3CB1C1168C700B68C6C /* DistributionResController.h */,
 				FD29B3CC1C1168C700B68C6C /* DistributionResController.m */,
+				FD4BA8DA1C13075A00A69F90 /* AroundMessageDetailController.h */,
+				FD4BA8DB1C13075A00A69F90 /* AroundMessageDetailController.m */,
 			);
 			path = detail;
 			sourceTree = "<group>";
@@ -400,6 +425,8 @@
 				FD29B3BF1C1159D800B68C6C /* AroundMapController.h */,
 				FD29B3C01C1159D800B68C6C /* AroundMapController.m */,
 				FD29B3C11C1159D800B68C6C /* CustomMapView.xib */,
+				FD4BA8D41C12F54800A69F90 /* MineViewController.h */,
+				FD4BA8D51C12F54800A69F90 /* MineViewController.m */,
 			);
 			path = map;
 			sourceTree = "<group>";
@@ -436,6 +463,8 @@
 		FD29B3DA1C1177A800B68C6C /* myCenter */ = {
 			isa = PBXGroup;
 			children = (
+				FD4BA8D01C128F2100A69F90 /* setting */,
+				FD4BA8C91C1282C800A69F90 /* loan */,
 				FD4BA8C21C11C5D300A69F90 /* investment */,
 				FD29B3DB1C1177D200B68C6C /* MyCenterTableViewController.h */,
 				FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */,
@@ -443,6 +472,8 @@
 				FD29B3DF1C1194CC00B68C6C /* MyCashViewController.m */,
 				FD4BA8BC1C119D2D00A69F90 /* MyTransferTableViewController.h */,
 				FD4BA8BD1C119D2D00A69F90 /* MyTransferTableViewController.m */,
+				FD4BA8C61C127E6700A69F90 /* MyMessageTableViewController.h */,
+				FD4BA8C71C127E6700A69F90 /* MyMessageTableViewController.m */,
 			);
 			path = myCenter;
 			sourceTree = "<group>";
@@ -454,6 +485,26 @@
 				FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */,
 			);
 			path = investment;
+			sourceTree = "<group>";
+		};
+		FD4BA8C91C1282C800A69F90 /* loan */ = {
+			isa = PBXGroup;
+			children = (
+				FD4BA8CA1C12834400A69F90 /* MyLoanController.h */,
+				FD4BA8CB1C12834400A69F90 /* MyLoanController.m */,
+				FD4BA8CD1C12841700A69F90 /* MyLoanDetailController.h */,
+				FD4BA8CE1C12841700A69F90 /* MyLoanDetailController.m */,
+			);
+			path = loan;
+			sourceTree = "<group>";
+		};
+		FD4BA8D01C128F2100A69F90 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				FD4BA8D11C128F3C00A69F90 /* MySettingTableViewController.h */,
+				FD4BA8D21C128F3C00A69F90 /* MySettingTableViewController.m */,
+			);
+			path = setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -636,18 +687,25 @@
 				FD29B3D11C116DF600B68C6C /* FinanceViewController.m in Sources */,
 				FD29B3791C112FDC00B68C6C /* MJRefreshBaseView.m in Sources */,
 				FD29B3551C111C4A00B68C6C /* AppDelegate.m in Sources */,
+				FD4BA8D31C128F3C00A69F90 /* MySettingTableViewController.m in Sources */,
 				FD29B38F1C1135DC00B68C6C /* AroundViewController.m in Sources */,
 				FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */,
 				FD29B35B1C111C4A00B68C6C /* main.m in Sources */,
 				FD29B3CA1C11657200B68C6C /* DistributionMoodController.m in Sources */,
+				FD4BA8C81C127E6700A69F90 /* MyMessageTableViewController.m in Sources */,
 				FD29B3C31C1159D800B68C6C /* AroundMapController.m in Sources */,
 				FD29B37E1C112FDC00B68C6C /* UIScrollView+MJRefresh.m in Sources */,
+				FD4BA8CC1C12834400A69F90 /* MyLoanController.m in Sources */,
 				FD29B37A1C112FDC00B68C6C /* MJRefreshConst.m in Sources */,
 				FD29B3E01C1194CC00B68C6C /* MyCashViewController.m in Sources */,
 				FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */,
-				FD29B3C21C1159D800B68C6C /* AroundDetailController.m in Sources */,
+				FD29B3C21C1159D800B68C6C /* AroundMessageController.m in Sources */,
+				FD4BA8D91C12F5B500A69F90 /* NSObject+LYUITipsView.m in Sources */,
+				FD4BA8DC1C13075A00A69F90 /* AroundMessageDetailController.m in Sources */,
 				FD29B3751C112FDC00B68C6C /* LYTypeEncoding.m in Sources */,
+				FD4BA8CF1C12841700A69F90 /* MyLoanDetailController.m in Sources */,
 				FD29B3591C111C4A00B68C6C /* FirstViewController.m in Sources */,
+				FD4BA8D61C12F54800A69F90 /* MineViewController.m in Sources */,
 				FD4BA8BE1C119D2D00A69F90 /* MyTransferTableViewController.m in Sources */,
 				FD29B3761C112FDC00B68C6C /* NSDictionary+LYDictToObject.m in Sources */,
 				FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */,

@@ -30,6 +30,11 @@
     self.myTabbarController = self.childViewControllers[0];
     [self.myTabbarController.tabBar setHidden:YES];
     
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} forState:UIControlStateNormal];
+    
+//    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} forState:UIControlStateSelected];
+    
+
     [self setupNotify];
 }
 
@@ -125,6 +130,11 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_DISTRIBUTION_RES object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         @strongify(self);
         [self performSegueWithIdentifier:@"open_distribution_res_board" sender:self];
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_OPEN_AROUND_DETAIL_BOARD object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        [self performSegueWithIdentifier:@"open_around_detail_board" sender:self];
     }];
 }
 
