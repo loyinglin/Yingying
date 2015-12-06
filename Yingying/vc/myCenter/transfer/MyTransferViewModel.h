@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
+#import "Yingying.h"
 
 @interface MyTransferViewModel : NSObject
 
+@property (nonatomic , strong) NSArray<Friend *>* myFriends;
 
 
 #pragma mark - init
@@ -23,6 +25,13 @@
 
 #pragma mark - get
 
+- (long)getSectionsCount;
+
+- (long)getFriendsCountBySection:(long)section;
+
+- (NSArray<NSString *> *)getIndexsArray;
+
+- (Friend *)getFriendByIndex:(long)index Section:(long)section;
 
 
 #pragma mark - update

@@ -8,3 +8,8 @@
 
 #import "Yingying.h"
 
+@implementation Friend
+
+
+
+@end

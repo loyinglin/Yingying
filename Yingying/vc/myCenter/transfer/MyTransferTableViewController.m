@@ -7,17 +7,20 @@
 //
 
 #import "MyTransferTableViewController.h"
+#import "MyTransferViewModel.h"
 
 @interface MyTransferTableViewController ()
 
 @property (nonatomic , strong) UISearchController* mySearchController;
 
+@property (nonatomic , strong) MyTransferViewModel* myViewModel;
 @end
 
 @implementation MyTransferTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.myViewModel = [MyTransferViewModel new];
     
     self.mySearchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.mySearchController.automaticallyAdjustsScrollViewInsets = NO;
@@ -27,26 +30,6 @@
     self.tableView.tableHeaderView = self.mySearchController.searchBar;
     [self.mySearchController.searchBar sizeToFit];
     
-    NSMutableString *lin = [[NSMutableString alloc] initWithString:@"什么鬼"];
-    if (CFStringTransform((__bridge CFMutableStringRef)lin, 0, kCFStringTransformMandarinLatin, NO)) {
-        NSLog(@"%@ ", lin);
-    }
-    
-    if (CFStringTransform((__bridge CFMutableStringRef)lin, 0, kCFStringTransformStripDiacritics, NO)) {
-        NSLog(@"%@ ", lin);
-    }
-//    NSComparisonResult result = [lin compare:omg];
-//    NSLog(@"compare %ld", (long)result);
-    
-    NSMutableString *ms = [[NSMutableString alloc] initWithString:@"拼发的音"];
-    if (CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformMandarinLatin, NO))
-    {
-        NSLog(@"Pingying: %@", lin);
-    }
-    if (CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformStripDiacritics, NO))
-    {
-        NSLog(@"Pingying: %@", ms);
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,17 +40,19 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 26;
+    return [self.myViewModel getSectionsCount];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return [self.myViewModel getFriendsCountBySection:section];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
+    Friend* item = [self.myViewModel getFriendByIndex:indexPath.row Section:indexPath.section];
+    cell.textLabel.text = item.name;
     // Configure the cell...
     
     return cell;
@@ -75,19 +60,15 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"head"];
-    cell.textLabel.text = [NSString stringWithFormat:@"%c", (char)('A' + section)];
+    NSArray* arr = [self.myViewModel getIndexsArray];
+    
+    cell.textLabel.text = arr[section];
     
     return cell;
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    NSMutableArray* arr = [NSMutableArray array];
-//    [arr addObject:UITableViewIndexSearch];
-    for (int i = 0; i < 26; ++i) {
-        NSString* item = [NSString stringWithFormat:@"%c", (char)('A' + i)];
-        [arr addObject:item];
-    }
-    return arr;
+    return [self.myViewModel getIndexsArray];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
