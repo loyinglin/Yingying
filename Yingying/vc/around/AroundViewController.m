@@ -30,7 +30,9 @@
     self.myTabbarController = self.childViewControllers[0];
     [self.myTabbarController.tabBar setHidden:YES];
     
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} forState:UIControlStateNormal];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
+    [self.navigationItem.rightBarButtonItem setTitlePositionAdjustment:UIOffsetMake(-10, 0) forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationItem.rightBarButtonItem setBackgroundVerticalPositionAdjustment:<#(CGFloat)#> forBarMetrics:<#(UIBarMetrics)#>]
     
 //    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} forState:UIControlStateSelected];
     
@@ -111,7 +113,13 @@
         [self presentViewController:controller animated:YES completion:nil];        
     }
     else {
-        [self performSegueWithIdentifier:@"modal_distribution_board" sender:self];
+        UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"modal_distribution_board"];
+        
+
+        if (self.tabBarController) {
+//            self.tabBarController.modalPresentationStyle = UIModalPresentationCurrentContext;
+            [self.tabBarController presentViewController:controller animated:NO completion:nil];
+        }
     }
 }
 #pragma mark - ui

@@ -54,6 +54,7 @@
 		FD4BA8E31C13139C00A69F90 /* MyTransferViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8E21C13139C00A69F90 /* MyTransferViewModel.m */; settings = {ASSET_TAGS = (); }; };
 		FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8E51C13141B00A69F90 /* Yingying.m */; settings = {ASSET_TAGS = (); }; };
 		FD61602B1C15210E00B73304 /* MapInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD61602A1C15210E00B73304 /* MapInfoModel.m */; settings = {ASSET_TAGS = (); }; };
+		FD90EF561C158975005545DF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD90EF551C158975005545DF /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532221C13C5F900B779E6 /* DistributionMoodController.m */; settings = {ASSET_TAGS = (); }; };
 		FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532241C13C5F900B779E6 /* DistributionResController.m */; settings = {ASSET_TAGS = (); }; };
 		FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */; settings = {ASSET_TAGS = (); }; };
@@ -178,6 +179,8 @@
 		FD4BA8E51C13141B00A69F90 /* Yingying.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Yingying.m; sourceTree = "<group>"; };
 		FD6160291C15210E00B73304 /* MapInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapInfoModel.h; sourceTree = "<group>"; };
 		FD61602A1C15210E00B73304 /* MapInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapInfoModel.m; sourceTree = "<group>"; };
+		FD90EF541C158975005545DF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		FD90EF551C158975005545DF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FDF532211C13C5F900B779E6 /* DistributionMoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionMoodController.h; sourceTree = "<group>"; };
 		FDF532221C13C5F900B779E6 /* DistributionMoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionMoodController.m; sourceTree = "<group>"; };
 		FDF532231C13C5F900B779E6 /* DistributionResController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionResController.h; sourceTree = "<group>"; };
@@ -352,6 +355,7 @@
 		FD29B3541C111C4A00B68C6C /* vc */ = {
 			isa = PBXGroup;
 			children = (
+				FD90EF531C15895F005545DF /* login */,
 				FD29B3DA1C1177A800B68C6C /* myCenter */,
 				FD29B34C1C111C4A00B68C6C /* Main.storyboard */,
 				FD29B3CE1C116DCD00B68C6C /* finance */,
@@ -528,6 +532,15 @@
 				FD4BA8E21C13139C00A69F90 /* MyTransferViewModel.m */,
 			);
 			path = transfer;
+			sourceTree = "<group>";
+		};
+		FD90EF531C15895F005545DF /* login */ = {
+			isa = PBXGroup;
+			children = (
+				FD90EF541C158975005545DF /* LoginViewController.h */,
+				FD90EF551C158975005545DF /* LoginViewController.m */,
+			);
+			path = login;
 			sourceTree = "<group>";
 		};
 		FDF532201C13C5F900B779E6 /* distribute */ = {
@@ -729,6 +742,7 @@
 				FD29B38F1C1135DC00B68C6C /* AroundViewController.m in Sources */,
 				FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */,
 				FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */,
+				FD90EF561C158975005545DF /* LoginViewController.m in Sources */,
 				FD29B35B1C111C4A00B68C6C /* main.m in Sources */,
 				FD4BA8C81C127E6700A69F90 /* MyMessageTableViewController.m in Sources */,
 				FD29B3C31C1159D800B68C6C /* AroundMapController.m in Sources */,
@@ -841,7 +855,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -878,7 +892,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
