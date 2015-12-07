@@ -9,10 +9,12 @@
 
 #import "DistributionMoodController.h"
 #import "DistributionMoodViewModel.h"
+#import "MapInfoModel.h"
 
 @interface DistributionMoodController ()
 
 @property (nonatomic , strong) IBOutlet UICollectionView* myImages;
+@property (nonatomic , strong) IBOutlet UILabel*        myAddressLabel;
 
 @property (nonatomic , strong) DistributionMoodViewModel* myViewModel;
 
@@ -29,6 +31,9 @@
         [self.myImages reloadData];
         [self performSelector:@selector(updateCollectionLayout) withObject:nil afterDelay:0.1]; //update yanchi
     }];
+    
+    
+    RAC(self.myAddressLabel, text) = RACObserve([MapInfoModel instance], myAddress);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,6 +41,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    NSLog(@"dealloc message");
+}
 /*
 #pragma mark - Navigation
 

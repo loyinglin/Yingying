@@ -53,6 +53,7 @@
 		FD4BA8E01C13135500A69F90 /* MyTransferTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8DF1C13135500A69F90 /* MyTransferTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FD4BA8E31C13139C00A69F90 /* MyTransferViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8E21C13139C00A69F90 /* MyTransferViewModel.m */; settings = {ASSET_TAGS = (); }; };
 		FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8E51C13141B00A69F90 /* Yingying.m */; settings = {ASSET_TAGS = (); }; };
+		FD61602B1C15210E00B73304 /* MapInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD61602A1C15210E00B73304 /* MapInfoModel.m */; settings = {ASSET_TAGS = (); }; };
 		FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532221C13C5F900B779E6 /* DistributionMoodController.m */; settings = {ASSET_TAGS = (); }; };
 		FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532241C13C5F900B779E6 /* DistributionResController.m */; settings = {ASSET_TAGS = (); }; };
 		FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */; settings = {ASSET_TAGS = (); }; };
@@ -175,6 +176,8 @@
 		FD4BA8E21C13139C00A69F90 /* MyTransferViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTransferViewModel.m; sourceTree = "<group>"; };
 		FD4BA8E41C13141B00A69F90 /* Yingying.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yingying.h; sourceTree = "<group>"; };
 		FD4BA8E51C13141B00A69F90 /* Yingying.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Yingying.m; sourceTree = "<group>"; };
+		FD6160291C15210E00B73304 /* MapInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapInfoModel.h; sourceTree = "<group>"; };
+		FD61602A1C15210E00B73304 /* MapInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapInfoModel.m; sourceTree = "<group>"; };
 		FDF532211C13C5F900B779E6 /* DistributionMoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionMoodController.h; sourceTree = "<group>"; };
 		FDF532221C13C5F900B779E6 /* DistributionMoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionMoodController.m; sourceTree = "<group>"; };
 		FDF532231C13C5F900B779E6 /* DistributionResController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionResController.h; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 				FD29B3811C1130BC00B68C6C /* BaseModel.m */,
 				FD4BA8E41C13141B00A69F90 /* Yingying.h */,
 				FD4BA8E51C13141B00A69F90 /* Yingying.m */,
+				FD6160291C15210E00B73304 /* MapInfoModel.h */,
+				FD61602A1C15210E00B73304 /* MapInfoModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -709,6 +714,7 @@
 				FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */,
 				FD29B3C71C1161F400B68C6C /* ModelDistributionController.m in Sources */,
 				FD29B35C1C111C4A00B68C6C /* SecondViewController.m in Sources */,
+				FD61602B1C15210E00B73304 /* MapInfoModel.m in Sources */,
 				FD29B3DD1C1177D200B68C6C /* MyCenterTableViewController.m in Sources */,
 				FD29B3771C112FDC00B68C6C /* NSObject+LYTypeConversion.m in Sources */,
 				FD29B3821C1130BC00B68C6C /* BaseModel.m in Sources */,

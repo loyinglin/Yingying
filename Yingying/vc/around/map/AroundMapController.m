@@ -7,11 +7,13 @@
 //
 
 #import "AroundMapController.h"
+#import "MapInfoModel.h"
 
 
 @interface AroundMapController ()
 @property (nonatomic , strong) IBOutlet BMKMapView* myMapView;
 @property (nonatomic , strong) BMKLocationService* myLocationService;
+@property (nonatomic , strong) BMKGeoCodeSearch* mySearchService;
 @end
 
 @implementation AroundMapController {
@@ -28,6 +30,9 @@
 //    [self addAnimatedAnnotation];
     self.myLocationService = [[BMKLocationService alloc] init];
     self.myLocationService.delegate = self;
+    
+    self.mySearchService = [[BMKGeoCodeSearch alloc] init];
+    self.mySearchService.delegate = self;
     
     [self.myLocationService startUserLocationService];
 }
@@ -53,12 +58,14 @@
     [super viewWillAppear:animated];
     self.myMapView.delegate = self;
     self.myLocationService.delegate = self;
+    self.mySearchService.delegate = self;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.myMapView.delegate = nil;
     self.myLocationService.delegate = nil;
+    self.mySearchService.delegate = nil;
 }
 #pragma mark - ibaction
 
@@ -97,6 +104,13 @@
 //    self.myMapView.showsUserLocation = YES;
 //    [self.myMapView updateLocationData:userLocation];
     [self.myMapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+    [self.myLocationService stopUserLocationService];
+    BMKReverseGeoCodeOption* option = [[BMKReverseGeoCodeOption alloc] init];
+    option.reverseGeoPoint = userLocation.location.coordinate;
+    
+    [[MapInfoModel instance] updatecurrentLocationWith:userLocation.location.coordinate];
+    
+    [self.mySearchService reverseGeoCode:option];
 }
 
 
@@ -171,6 +185,22 @@
     [mapView deselectAnnotation:view.annotation animated:YES];
     NSLog(@"click ");
 }
+
+#pragma mark - delegate - search
+
+- (void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error {
+    if (error == BMK_SEARCH_NO_ERROR) {
+        NSLog(@"%@", [result.addressDetail description]);
+        NSLog(@"address %@", [result address]);
+        [[MapInfoModel instance] updateCurrentPositionWithAddress:result.address];
+    }
+    else {
+        NSLog(@"error");
+    }
+}
+
+
+
 #pragma mark - notify
 
 

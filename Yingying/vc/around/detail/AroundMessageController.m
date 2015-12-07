@@ -9,9 +9,12 @@
 #import "AroundMessageController.h"
 #import "LYNotifyCenter.h"
 #import "MJRefresh.h"
+#import <ReactiveCocoa.h>
+#import <ReactiveCocoa/RACEXTScope.h>
 
 @interface AroundMessageController ()
 @property (nonatomic , strong) IBOutlet UITableView* myTableView;
+
 @end
 
 @implementation AroundMessageController
@@ -20,12 +23,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+    @weakify(self);
     [self.myTableView addHeaderWithCallback:^{
         NSLog(@"back");
+        @strongify(self);
         [self.myTableView headerEndRefreshing];
     }];
-    
+        
     self.myTableView.estimatedRowHeight = 140;
     self.myTableView.rowHeight = UITableViewAutomaticDimension;
 }
@@ -34,6 +38,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

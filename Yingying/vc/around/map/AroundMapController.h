@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
+#import <BaiduMapAPI_Search/BMKGeocodeSearch.h>
 
-@interface AroundMapController : UIViewController<BMKMapViewDelegate, BMKLocationServiceDelegate>
+@interface AroundMapController : UIViewController<BMKMapViewDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate>
 
 @end
