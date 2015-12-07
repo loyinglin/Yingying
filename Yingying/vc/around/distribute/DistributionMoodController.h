@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DistributionMoodController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface DistributionMoodController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end

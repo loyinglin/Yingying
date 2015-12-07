@@ -6,11 +6,15 @@
 //  Copyright © 2015年 林伟池. All rights reserved.
 //
 
+
 #import "DistributionMoodController.h"
+#import "DistributionMoodViewModel.h"
 
 @interface DistributionMoodController ()
 
-@property (nonatomic , strong) IBOutlet UIImageView* myImageView;
+@property (nonatomic , strong) IBOutlet UICollectionView* myImages;
+
+@property (nonatomic , strong) DistributionMoodViewModel* myViewModel;
 
 @end
 
@@ -19,6 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.myViewModel = [DistributionMoodViewModel new];
+    
+    [RACObserve(self.myViewModel, myImagesArr) subscribeNext:^(id x) {
+        [self.myImages reloadData];
+        [self performSelector:@selector(updateCollectionLayout) withObject:nil afterDelay:0.1]; //update yanchi
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,6 +47,22 @@
 */
 
 #pragma mark - view init
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+
+- (void)updateCollectionLayout {
+    for (NSLayoutConstraint* constraint in self.myImages.constraints) {
+        if ([constraint.identifier isEqualToString:@"height"]) {
+            if (self.myImages.contentSize.height) {
+                constraint.constant = self.myImages.contentSize.height;
+            }
+        }
+    }
+    [self.view setNeedsLayout];
+}
 
 #pragma mark - ibaction
 
@@ -133,7 +159,9 @@
         //关闭相册界面
         [picker dismissViewControllerAnimated:YES completion:nil];
         
-        self.myImageView.image = image;
+        [self.myViewModel updateAddImage:image];
+//        self.myImageView.image = image;
+
         
     }
     
@@ -145,6 +173,29 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark - delegate
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.myViewModel.myImagesArr.count;
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    
+    UIImageView* img = (UIImageView *)[cell viewWithTag:10];
+    if (img) {
+        [img setImage:[self.myViewModel.myImagesArr objectAtIndex:indexPath.row]];
+    }
+    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row + 1 == self.myViewModel.myImagesArr.count) {
+        [self onAdd:nil];
+    }
+    NSLog(@"click %ld", indexPath.row);
+}
 
 #pragma mark - notify
 

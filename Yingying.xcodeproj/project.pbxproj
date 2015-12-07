@@ -37,8 +37,6 @@
 		FD29B3C31C1159D800B68C6C /* AroundMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3C01C1159D800B68C6C /* AroundMapController.m */; settings = {ASSET_TAGS = (); }; };
 		FD29B3C41C1159D800B68C6C /* CustomMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD29B3C11C1159D800B68C6C /* CustomMapView.xib */; settings = {ASSET_TAGS = (); }; };
 		FD29B3C71C1161F400B68C6C /* ModelDistributionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3C61C1161F400B68C6C /* ModelDistributionController.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B3CA1C11657200B68C6C /* DistributionMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3C91C11657200B68C6C /* DistributionMoodController.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B3CD1C1168C700B68C6C /* DistributionResController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3CC1C1168C700B68C6C /* DistributionResController.m */; settings = {ASSET_TAGS = (); }; };
 		FD29B3D11C116DF600B68C6C /* FinanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3D01C116DF600B68C6C /* FinanceViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3D51C11727600B68C6C /* FinanceBillController.m */; settings = {ASSET_TAGS = (); }; };
 		FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3D81C1173B500B68C6C /* YingPlanTableViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -55,6 +53,9 @@
 		FD4BA8E01C13135500A69F90 /* MyTransferTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8DF1C13135500A69F90 /* MyTransferTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FD4BA8E31C13139C00A69F90 /* MyTransferViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8E21C13139C00A69F90 /* MyTransferViewModel.m */; settings = {ASSET_TAGS = (); }; };
 		FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8E51C13141B00A69F90 /* Yingying.m */; settings = {ASSET_TAGS = (); }; };
+		FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532221C13C5F900B779E6 /* DistributionMoodController.m */; settings = {ASSET_TAGS = (); }; };
+		FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532241C13C5F900B779E6 /* DistributionResController.m */; settings = {ASSET_TAGS = (); }; };
+		FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,10 +143,6 @@
 		FD29B3C11C1159D800B68C6C /* CustomMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomMapView.xib; sourceTree = "<group>"; };
 		FD29B3C51C1161F400B68C6C /* ModelDistributionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelDistributionController.h; sourceTree = "<group>"; };
 		FD29B3C61C1161F400B68C6C /* ModelDistributionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelDistributionController.m; sourceTree = "<group>"; };
-		FD29B3C81C11657200B68C6C /* DistributionMoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionMoodController.h; sourceTree = "<group>"; };
-		FD29B3C91C11657200B68C6C /* DistributionMoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionMoodController.m; sourceTree = "<group>"; };
-		FD29B3CB1C1168C700B68C6C /* DistributionResController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionResController.h; sourceTree = "<group>"; };
-		FD29B3CC1C1168C700B68C6C /* DistributionResController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionResController.m; sourceTree = "<group>"; };
 		FD29B3CF1C116DF600B68C6C /* FinanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceViewController.h; sourceTree = "<group>"; };
 		FD29B3D01C116DF600B68C6C /* FinanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceViewController.m; sourceTree = "<group>"; };
 		FD29B3D41C11727600B68C6C /* FinanceBillController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FinanceBillController.h; path = Yingying/vc/finance/FinanceBillController.h; sourceTree = SOURCE_ROOT; };
@@ -178,6 +175,12 @@
 		FD4BA8E21C13139C00A69F90 /* MyTransferViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTransferViewModel.m; sourceTree = "<group>"; };
 		FD4BA8E41C13141B00A69F90 /* Yingying.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yingying.h; sourceTree = "<group>"; };
 		FD4BA8E51C13141B00A69F90 /* Yingying.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Yingying.m; sourceTree = "<group>"; };
+		FDF532211C13C5F900B779E6 /* DistributionMoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionMoodController.h; sourceTree = "<group>"; };
+		FDF532221C13C5F900B779E6 /* DistributionMoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionMoodController.m; sourceTree = "<group>"; };
+		FDF532231C13C5F900B779E6 /* DistributionResController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionResController.h; sourceTree = "<group>"; };
+		FDF532241C13C5F900B779E6 /* DistributionResController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionResController.m; sourceTree = "<group>"; };
+		FDF532271C1435C000B779E6 /* DistributionMoodViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionMoodViewModel.h; sourceTree = "<group>"; };
+		FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionMoodViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +396,7 @@
 		FD29B38C1C1135B200B68C6C /* around */ = {
 			isa = PBXGroup;
 			children = (
+				FDF532201C13C5F900B779E6 /* distribute */,
 				FD29B3BB1C1159D800B68C6C /* detail */,
 				FD29B3BE1C1159D800B68C6C /* map */,
 				FD29B38D1C1135DC00B68C6C /* AroundViewController.h */,
@@ -417,10 +421,6 @@
 				FD29B3BD1C1159D800B68C6C /* AroundMessageController.m */,
 				FD29B3C51C1161F400B68C6C /* ModelDistributionController.h */,
 				FD29B3C61C1161F400B68C6C /* ModelDistributionController.m */,
-				FD29B3C81C11657200B68C6C /* DistributionMoodController.h */,
-				FD29B3C91C11657200B68C6C /* DistributionMoodController.m */,
-				FD29B3CB1C1168C700B68C6C /* DistributionResController.h */,
-				FD29B3CC1C1168C700B68C6C /* DistributionResController.m */,
 				FD4BA8DA1C13075A00A69F90 /* AroundMessageDetailController.h */,
 				FD4BA8DB1C13075A00A69F90 /* AroundMessageDetailController.m */,
 			);
@@ -523,6 +523,19 @@
 				FD4BA8E21C13139C00A69F90 /* MyTransferViewModel.m */,
 			);
 			path = transfer;
+			sourceTree = "<group>";
+		};
+		FDF532201C13C5F900B779E6 /* distribute */ = {
+			isa = PBXGroup;
+			children = (
+				FDF532211C13C5F900B779E6 /* DistributionMoodController.h */,
+				FDF532221C13C5F900B779E6 /* DistributionMoodController.m */,
+				FDF532231C13C5F900B779E6 /* DistributionResController.h */,
+				FDF532241C13C5F900B779E6 /* DistributionResController.m */,
+				FDF532271C1435C000B779E6 /* DistributionMoodViewModel.h */,
+				FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */,
+			);
+			path = distribute;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -692,8 +705,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD29B3CD1C1168C700B68C6C /* DistributionResController.m in Sources */,
 				FD29B37D1C112FDC00B68C6C /* UIScrollView+MJExtension.m in Sources */,
+				FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */,
 				FD29B3C71C1161F400B68C6C /* ModelDistributionController.m in Sources */,
 				FD29B35C1C111C4A00B68C6C /* SecondViewController.m in Sources */,
 				FD29B3DD1C1177D200B68C6C /* MyCenterTableViewController.m in Sources */,
@@ -703,6 +716,7 @@
 				FD29B37C1C112FDC00B68C6C /* MJRefreshHeaderView.m in Sources */,
 				FD29B37B1C112FDC00B68C6C /* MJRefreshFooterView.m in Sources */,
 				FD29B3D11C116DF600B68C6C /* FinanceViewController.m in Sources */,
+				FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */,
 				FD29B3791C112FDC00B68C6C /* MJRefreshBaseView.m in Sources */,
 				FD29B3551C111C4A00B68C6C /* AppDelegate.m in Sources */,
 				FD4BA8D31C128F3C00A69F90 /* MySettingTableViewController.m in Sources */,
@@ -710,11 +724,11 @@
 				FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */,
 				FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */,
 				FD29B35B1C111C4A00B68C6C /* main.m in Sources */,
-				FD29B3CA1C11657200B68C6C /* DistributionMoodController.m in Sources */,
 				FD4BA8C81C127E6700A69F90 /* MyMessageTableViewController.m in Sources */,
 				FD29B3C31C1159D800B68C6C /* AroundMapController.m in Sources */,
 				FD29B37E1C112FDC00B68C6C /* UIScrollView+MJRefresh.m in Sources */,
 				FD4BA8CC1C12834400A69F90 /* MyLoanController.m in Sources */,
+				FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */,
 				FD29B37A1C112FDC00B68C6C /* MJRefreshConst.m in Sources */,
 				FD29B3E01C1194CC00B68C6C /* MyCashViewController.m in Sources */,
 				FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */,

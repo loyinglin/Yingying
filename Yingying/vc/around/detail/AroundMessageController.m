@@ -25,6 +25,9 @@
         NSLog(@"back");
         [self.myTableView headerEndRefreshing];
     }];
+    
+    self.myTableView.estimatedRowHeight = 140;
+    self.myTableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +53,17 @@
 
 #pragma mark - delegate
 
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    static UITableViewCell* cell;
+//    if (!cell) {
+//        cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+//    }
+//    CGSize ret;
+//    ret = [cell systemLayoutSizeFittingSize:ret];
+//    
+//
+//    return ret.height;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
