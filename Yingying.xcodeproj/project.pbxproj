@@ -10,54 +10,55 @@
 		97C4B00BAF4207E79EA7381E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2A61BE728174A0287C24BD /* libPods.a */; };
 		FD29B32A1C111B9100B68C6C /* YingyingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3291C111B9100B68C6C /* YingyingTests.m */; };
 		FD29B3351C111B9100B68C6C /* YingyingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3341C111B9100B68C6C /* YingyingUITests.m */; };
-		FD29B3551C111C4A00B68C6C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3481C111C4A00B68C6C /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B3561C111C4A00B68C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD29B3491C111C4A00B68C6C /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		FD29B3571C111C4A00B68C6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD29B34A1C111C4A00B68C6C /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		FD29B3581C111C4A00B68C6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD29B34C1C111C4A00B68C6C /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
-		FD29B3591C111C4A00B68C6C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B34F1C111C4A00B68C6C /* FirstViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B35B1C111C4A00B68C6C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3511C111C4A00B68C6C /* main.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B35C1C111C4A00B68C6C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3531C111C4A00B68C6C /* SecondViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B3751C112FDC00B68C6C /* LYTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B35F1C112FDC00B68C6C /* LYTypeEncoding.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B3761C112FDC00B68C6C /* NSDictionary+LYDictToObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3611C112FDC00B68C6C /* NSDictionary+LYDictToObject.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B3771C112FDC00B68C6C /* NSObject+LYTypeConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3631C112FDC00B68C6C /* NSObject+LYTypeConversion.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B3781C112FDC00B68C6C /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FD29B3651C112FDC00B68C6C /* MJRefresh.bundle */; settings = {ASSET_TAGS = (); }; };
-		FD29B3791C112FDC00B68C6C /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3681C112FDC00B68C6C /* MJRefreshBaseView.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B37A1C112FDC00B68C6C /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B36A1C112FDC00B68C6C /* MJRefreshConst.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B37B1C112FDC00B68C6C /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B36C1C112FDC00B68C6C /* MJRefreshFooterView.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B37C1C112FDC00B68C6C /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B36E1C112FDC00B68C6C /* MJRefreshHeaderView.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B37D1C112FDC00B68C6C /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3701C112FDC00B68C6C /* UIScrollView+MJExtension.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B37E1C112FDC00B68C6C /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3721C112FDC00B68C6C /* UIScrollView+MJRefresh.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B37F1C112FDC00B68C6C /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3741C112FDC00B68C6C /* UIView+MJExtension.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B3821C1130BC00B68C6C /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3811C1130BC00B68C6C /* BaseModel.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B38F1C1135DC00B68C6C /* AroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B38E1C1135DC00B68C6C /* AroundViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FD29B3551C111C4A00B68C6C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3481C111C4A00B68C6C /* AppDelegate.m */; };
+		FD29B3561C111C4A00B68C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD29B3491C111C4A00B68C6C /* Assets.xcassets */; };
+		FD29B3571C111C4A00B68C6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD29B34A1C111C4A00B68C6C /* LaunchScreen.storyboard */; };
+		FD29B3581C111C4A00B68C6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD29B34C1C111C4A00B68C6C /* Main.storyboard */; };
+		FD29B3591C111C4A00B68C6C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B34F1C111C4A00B68C6C /* FirstViewController.m */; };
+		FD29B35B1C111C4A00B68C6C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3511C111C4A00B68C6C /* main.m */; };
+		FD29B35C1C111C4A00B68C6C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3531C111C4A00B68C6C /* SecondViewController.m */; };
+		FD29B3751C112FDC00B68C6C /* LYTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B35F1C112FDC00B68C6C /* LYTypeEncoding.m */; };
+		FD29B3761C112FDC00B68C6C /* NSDictionary+LYDictToObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3611C112FDC00B68C6C /* NSDictionary+LYDictToObject.m */; };
+		FD29B3771C112FDC00B68C6C /* NSObject+LYTypeConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3631C112FDC00B68C6C /* NSObject+LYTypeConversion.m */; };
+		FD29B3781C112FDC00B68C6C /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FD29B3651C112FDC00B68C6C /* MJRefresh.bundle */; };
+		FD29B3791C112FDC00B68C6C /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3681C112FDC00B68C6C /* MJRefreshBaseView.m */; };
+		FD29B37A1C112FDC00B68C6C /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B36A1C112FDC00B68C6C /* MJRefreshConst.m */; };
+		FD29B37B1C112FDC00B68C6C /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B36C1C112FDC00B68C6C /* MJRefreshFooterView.m */; };
+		FD29B37C1C112FDC00B68C6C /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B36E1C112FDC00B68C6C /* MJRefreshHeaderView.m */; };
+		FD29B37D1C112FDC00B68C6C /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3701C112FDC00B68C6C /* UIScrollView+MJExtension.m */; };
+		FD29B37E1C112FDC00B68C6C /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3721C112FDC00B68C6C /* UIScrollView+MJRefresh.m */; };
+		FD29B37F1C112FDC00B68C6C /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3741C112FDC00B68C6C /* UIView+MJExtension.m */; };
+		FD29B3821C1130BC00B68C6C /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3811C1130BC00B68C6C /* BaseModel.m */; };
+		FD29B38F1C1135DC00B68C6C /* AroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B38E1C1135DC00B68C6C /* AroundViewController.m */; };
 		FD29B39C1C113AD700B68C6C /* libPods-AFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29B39A1C113AD700B68C6C /* libPods-AFNetworking.a */; };
 		FD29B39D1C113AD700B68C6C /* libPods-ReactiveCocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29B39B1C113AD700B68C6C /* libPods-ReactiveCocoa.a */; };
-		FD29B3B21C113BC600B68C6C /* ForMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3B11C113BC600B68C6C /* ForMap.mm */; settings = {ASSET_TAGS = (); }; };
-		FD29B3C21C1159D800B68C6C /* AroundMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3BD1C1159D800B68C6C /* AroundMessageController.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B3C31C1159D800B68C6C /* AroundMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3C01C1159D800B68C6C /* AroundMapController.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B3C41C1159D800B68C6C /* CustomMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD29B3C11C1159D800B68C6C /* CustomMapView.xib */; settings = {ASSET_TAGS = (); }; };
-		FD29B3C71C1161F400B68C6C /* ModelDistributionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3C61C1161F400B68C6C /* ModelDistributionController.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B3D11C116DF600B68C6C /* FinanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3D01C116DF600B68C6C /* FinanceViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3D51C11727600B68C6C /* FinanceBillController.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3D81C1173B500B68C6C /* YingPlanTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B3DD1C1177D200B68C6C /* MyCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FD29B3E01C1194CC00B68C6C /* MyCashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3DF1C1194CC00B68C6C /* MyCashViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FD4BA8C81C127E6700A69F90 /* MyMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8C71C127E6700A69F90 /* MyMessageTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FD4BA8CC1C12834400A69F90 /* MyLoanController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8CB1C12834400A69F90 /* MyLoanController.m */; settings = {ASSET_TAGS = (); }; };
-		FD4BA8CF1C12841700A69F90 /* MyLoanDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8CE1C12841700A69F90 /* MyLoanDetailController.m */; settings = {ASSET_TAGS = (); }; };
-		FD4BA8D31C128F3C00A69F90 /* MySettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8D21C128F3C00A69F90 /* MySettingTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FD4BA8D61C12F54800A69F90 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8D51C12F54800A69F90 /* MineViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FD4BA8D91C12F5B500A69F90 /* NSObject+LYUITipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8D81C12F5B400A69F90 /* NSObject+LYUITipsView.m */; settings = {ASSET_TAGS = (); }; };
-		FD4BA8DC1C13075A00A69F90 /* AroundMessageDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8DB1C13075A00A69F90 /* AroundMessageDetailController.m */; settings = {ASSET_TAGS = (); }; };
-		FD4BA8E01C13135500A69F90 /* MyTransferTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8DF1C13135500A69F90 /* MyTransferTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FD4BA8E31C13139C00A69F90 /* MyTransferViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8E21C13139C00A69F90 /* MyTransferViewModel.m */; settings = {ASSET_TAGS = (); }; };
-		FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8E51C13141B00A69F90 /* Yingying.m */; settings = {ASSET_TAGS = (); }; };
-		FD61602B1C15210E00B73304 /* MapInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD61602A1C15210E00B73304 /* MapInfoModel.m */; settings = {ASSET_TAGS = (); }; };
-		FD90EF561C158975005545DF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD90EF551C158975005545DF /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532221C13C5F900B779E6 /* DistributionMoodController.m */; settings = {ASSET_TAGS = (); }; };
-		FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532241C13C5F900B779E6 /* DistributionResController.m */; settings = {ASSET_TAGS = (); }; };
-		FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */; settings = {ASSET_TAGS = (); }; };
+		FD29B3B21C113BC600B68C6C /* ForMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3B11C113BC600B68C6C /* ForMap.mm */; };
+		FD29B3C21C1159D800B68C6C /* AroundMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3BD1C1159D800B68C6C /* AroundMessageController.m */; };
+		FD29B3C31C1159D800B68C6C /* AroundMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3C01C1159D800B68C6C /* AroundMapController.m */; };
+		FD29B3C41C1159D800B68C6C /* CustomMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD29B3C11C1159D800B68C6C /* CustomMapView.xib */; };
+		FD29B3C71C1161F400B68C6C /* ModelDistributionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3C61C1161F400B68C6C /* ModelDistributionController.m */; };
+		FD29B3D11C116DF600B68C6C /* FinanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3D01C116DF600B68C6C /* FinanceViewController.m */; };
+		FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3D51C11727600B68C6C /* FinanceBillController.m */; };
+		FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3D81C1173B500B68C6C /* YingPlanTableViewController.m */; };
+		FD29B3DD1C1177D200B68C6C /* MyCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */; };
+		FD29B3E01C1194CC00B68C6C /* MyCashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3DF1C1194CC00B68C6C /* MyCashViewController.m */; };
+		FD405F2E1C16C23D00DB6F0A /* PersonalHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405F2D1C16C23D00DB6F0A /* PersonalHomePageController.m */; };
+		FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */; };
+		FD4BA8C81C127E6700A69F90 /* MyMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8C71C127E6700A69F90 /* MyMessageTableViewController.m */; };
+		FD4BA8CC1C12834400A69F90 /* MyLoanController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8CB1C12834400A69F90 /* MyLoanController.m */; };
+		FD4BA8CF1C12841700A69F90 /* MyLoanDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8CE1C12841700A69F90 /* MyLoanDetailController.m */; };
+		FD4BA8D31C128F3C00A69F90 /* MySettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8D21C128F3C00A69F90 /* MySettingTableViewController.m */; };
+		FD4BA8D61C12F54800A69F90 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8D51C12F54800A69F90 /* MineViewController.m */; };
+		FD4BA8D91C12F5B500A69F90 /* NSObject+LYUITipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8D81C12F5B400A69F90 /* NSObject+LYUITipsView.m */; };
+		FD4BA8DC1C13075A00A69F90 /* AroundMessageDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8DB1C13075A00A69F90 /* AroundMessageDetailController.m */; };
+		FD4BA8E01C13135500A69F90 /* MyTransferTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8DF1C13135500A69F90 /* MyTransferTableViewController.m */; };
+		FD4BA8E31C13139C00A69F90 /* MyTransferViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8E21C13139C00A69F90 /* MyTransferViewModel.m */; };
+		FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8E51C13141B00A69F90 /* Yingying.m */; };
+		FD61602B1C15210E00B73304 /* MapInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD61602A1C15210E00B73304 /* MapInfoModel.m */; };
+		FD90EF561C158975005545DF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD90EF551C158975005545DF /* LoginViewController.m */; };
+		FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532221C13C5F900B779E6 /* DistributionMoodController.m */; };
+		FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532241C13C5F900B779E6 /* DistributionResController.m */; };
+		FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,8 @@
 		FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCenterTableViewController.m; sourceTree = "<group>"; };
 		FD29B3DE1C1194CC00B68C6C /* MyCashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCashViewController.h; sourceTree = "<group>"; };
 		FD29B3DF1C1194CC00B68C6C /* MyCashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCashViewController.m; sourceTree = "<group>"; };
+		FD405F2C1C16C23D00DB6F0A /* PersonalHomePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHomePageController.h; sourceTree = "<group>"; };
+		FD405F2D1C16C23D00DB6F0A /* PersonalHomePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHomePageController.m; sourceTree = "<group>"; };
 		FD4BA8C31C11C5DE00A69F90 /* MyInvestmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInvestmentViewController.h; sourceTree = "<group>"; };
 		FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInvestmentViewController.m; sourceTree = "<group>"; };
 		FD4BA8C61C127E6700A69F90 /* MyMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMessageTableViewController.h; sourceTree = "<group>"; };
@@ -355,6 +358,7 @@
 		FD29B3541C111C4A00B68C6C /* vc */ = {
 			isa = PBXGroup;
 			children = (
+				FD405F2B1C16C22700DB6F0A /* common */,
 				FD90EF531C15895F005545DF /* login */,
 				FD29B3DA1C1177A800B68C6C /* myCenter */,
 				FD29B34C1C111C4A00B68C6C /* Main.storyboard */,
@@ -492,6 +496,15 @@
 				FD4BA8C71C127E6700A69F90 /* MyMessageTableViewController.m */,
 			);
 			path = myCenter;
+			sourceTree = "<group>";
+		};
+		FD405F2B1C16C22700DB6F0A /* common */ = {
+			isa = PBXGroup;
+			children = (
+				FD405F2C1C16C23D00DB6F0A /* PersonalHomePageController.h */,
+				FD405F2D1C16C23D00DB6F0A /* PersonalHomePageController.m */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 		FD4BA8C21C11C5D300A69F90 /* investment */ = {
@@ -742,6 +755,7 @@
 				FD29B38F1C1135DC00B68C6C /* AroundViewController.m in Sources */,
 				FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */,
 				FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */,
+				FD405F2E1C16C23D00DB6F0A /* PersonalHomePageController.m in Sources */,
 				FD90EF561C158975005545DF /* LoginViewController.m in Sources */,
 				FD29B35B1C111C4A00B68C6C /* main.m in Sources */,
 				FD4BA8C81C127E6700A69F90 /* MyMessageTableViewController.m in Sources */,

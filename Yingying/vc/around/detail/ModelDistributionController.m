@@ -44,4 +44,8 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_DISTRIBUTION_RES object:nil];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
+
+- (IBAction)onDismiss:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

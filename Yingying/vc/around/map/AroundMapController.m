@@ -7,6 +7,7 @@
 //
 
 #import "AroundMapController.h"
+#import "PersonalHomePageController.h"
 #import "MapInfoModel.h"
 
 
@@ -124,7 +125,6 @@
 // 根据anntation生成对应的View
 - (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation
 {
-    NSLog(@"normal");
     //普通annotation
     if ([myPoints containsObject:annotation]) {
         NSString *AnnotationViewID = @"renameMark";
@@ -184,6 +184,8 @@
 - (void)mapView:(BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view {
     [mapView deselectAnnotation:view.annotation animated:YES];
     NSLog(@"click ");
+    PersonalHomePageController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 #pragma mark - delegate - search
