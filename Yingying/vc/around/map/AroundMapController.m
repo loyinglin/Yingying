@@ -8,6 +8,7 @@
 
 #import "AroundMapController.h"
 #import "PersonalHomePageController.h"
+#import "LYAnnotationView.h"
 #import "MapInfoModel.h"
 
 
@@ -27,7 +28,6 @@
     // Do any additional setup after loading the view.
     self.myMapView.delegate = self;
     
-    [self addPointAnnotation];
 //    [self addAnimatedAnnotation];
     self.myLocationService = [[BMKLocationService alloc] init];
     self.myLocationService.delegate = self;
@@ -72,15 +72,16 @@
 
 #pragma mark - ui
 
-- (void)addPointAnnotation
+- (void)addPointAnnotationWithCenter:(CLLocationCoordinate2D)center
 {
     NSMutableArray* arr = [NSMutableArray array];
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 1; i < 5; ++i) {
         BMKPointAnnotation* pointAnnotation = [[BMKPointAnnotation alloc]init];
         CLLocationCoordinate2D coor;
-        coor.latitude = 39 + i * 0.2;
-        coor.longitude = 116 + i * 0.2;
+        coor.latitude = center.latitude + i * 0.02;
+        coor.longitude = center.longitude + i * 0.02;
         pointAnnotation.coordinate = coor;
+        pointAnnotation.title = @"查看详情";
         [arr addObject:pointAnnotation];
     }
     myPoints = arr;
@@ -100,16 +101,26 @@
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
+    [self addPointAnnotationWithCenter:userLocation.location.coordinate];
+    
     NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     
-//    self.myMapView.showsUserLocation = YES;
-//    [self.myMapView updateLocationData:userLocation];
+    BMKLocationViewDisplayParam* param = [[BMKLocationViewDisplayParam alloc] init];
+    param.locationViewImgName = @"map_myself_location";
+    param.isAccuracyCircleShow = NO;
+    
+    self.myMapView.showsUserLocation = YES;
+    [self.myMapView updateLocationViewWithParam:param];
+    [self.myMapView updateLocationData:userLocation];
+    
     [self.myMapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
     [self.myLocationService stopUserLocationService];
     BMKReverseGeoCodeOption* option = [[BMKReverseGeoCodeOption alloc] init];
     option.reverseGeoPoint = userLocation.location.coordinate;
     
     [[MapInfoModel instance] updatecurrentLocationWith:userLocation.location.coordinate];
+    
+    
     
     [self.mySearchService reverseGeoCode:option];
 }
@@ -128,29 +139,31 @@
     //普通annotation
     if ([myPoints containsObject:annotation]) {
         NSString *AnnotationViewID = @"renameMark";
-        BMKPinAnnotationView *annotationView = (BMKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:AnnotationViewID];
+        LYAnnotationView *annotationView = (LYAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:AnnotationViewID];
         if (annotationView == nil) {
-            annotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
+            annotationView = [[LYAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
             // 设置颜色
-            annotationView.pinColor = BMKPinAnnotationColorPurple;
+//            annotationView.pinColor = BMKPinAnnotationColorPurple;
             // 从天上掉下效果
-            annotationView.animatesDrop = YES;
+//            annotationView.animatesDrop = YES;
             // 设置可拖拽
-            annotationView.draggable = YES;
+//            annotationView.draggable = YES;
             
-            annotationView.image = [UIImage imageNamed:@"first"];
-            [annotationView setFrame:CGRectMake(0, 0, 30, 30)];
+//
+//            CGRect rect = view.frame;
+//            rect.origin.x = - (rect.size.width / 2);
+//            rect.origin.y = - (rect.size.height / 2);
+//            view.frame = rect;
+//            [annotationView addSubview:view];
             
-            UIImageView* img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"second"]];
-            [img setFrame:CGRectMake(0, 0, 30, 30)];
-            annotationView.paopaoView = [[BMKActionPaopaoView alloc] initWithCustomView:img];
+//            annotationView.image = [UIImage imageNamed:@"map_avatar"];
+//            annotationView.centerOffset = CGPointMake(-100, -75);
             
-            UIView* view = [[[NSBundle mainBundle] loadNibNamed:@"CustomMapView" owner:nil options:nil] lastObject];
+//            UIImageView* img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"map_avatar"]];
+//            annotationView.paopaoView = [[BMKActionPaopaoView alloc] initWithCustomView:img];
             
-            
-            UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(select:)];
-            [annotationView.paopaoView addGestureRecognizer:tap];
-//            annotationView.paopaoView = [[BMKActionPaopaoView alloc] init];
+//            UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(select:)];
+//            [annotationView addGestureRecognizer:tap];
         }
         return annotationView;
     }
@@ -171,10 +184,24 @@
     
 }
 
+-(UIImage *)getImageFromView:(UIView *)theView
+{
+//    UIGraphicsBeginImageContext(theView.bounds.size);
+    UIGraphicsBeginImageContextWithOptions(theView.bounds.size, YES, theView.layer.contentsScale);
+    [theView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image=UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return image;
+}
+
 
 // 当点击annotation view弹出的泡泡时，调用此接口
 - (void)mapView:(BMKMapView *)mapView annotationViewForBubble:(BMKAnnotationView *)view {
     NSLog(@"paopaoclick");
+    UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
+    [self presentViewController:controller animated:YES completion:nil];
+
 }
 
 - (void)select:(id)sender {
@@ -182,10 +209,10 @@
 }
 
 - (void)mapView:(BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view {
-    [mapView deselectAnnotation:view.annotation animated:YES];
-    NSLog(@"click ");
-    PersonalHomePageController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
-    [self presentViewController:controller animated:YES completion:nil];
+//    [mapView deselectAnnotation:view.annotation animated:YES];
+//    NSLog(@"click ");
+//    UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
+//    [self presentViewController:controller animated:YES completion:nil];
 }
 
 #pragma mark - delegate - search

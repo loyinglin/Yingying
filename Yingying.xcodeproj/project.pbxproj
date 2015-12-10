@@ -43,6 +43,18 @@
 		FD29B3DD1C1177D200B68C6C /* MyCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */; };
 		FD29B3E01C1194CC00B68C6C /* MyCashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3DF1C1194CC00B68C6C /* MyCashViewController.m */; };
 		FD405F2E1C16C23D00DB6F0A /* PersonalHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405F2D1C16C23D00DB6F0A /* PersonalHomePageController.m */; };
+		FD405F311C182E2A00DB6F0A /* PersonalHomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405F301C182E2A00DB6F0A /* PersonalHomePageViewModel.m */; };
+		FD405F341C1903A600DB6F0A /* LYBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405F331C1903A600DB6F0A /* LYBaseNavigationController.m */; };
+		FD405F371C19061A00DB6F0A /* LYBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405F361C19061A00DB6F0A /* LYBaseTabBarController.m */; };
+		FD405F501C190B6600DB6F0A /* tab_chat_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FD405F4E1C190B6600DB6F0A /* tab_chat_normal.png */; };
+		FD405F5A1C190CCB00DB6F0A /* tab_around_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FD405F521C190CCB00DB6F0A /* tab_around_normal.png */; };
+		FD405F5C1C190CCB00DB6F0A /* tab_finance_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FD405F541C190CCB00DB6F0A /* tab_finance_normal.png */; };
+		FD405F5E1C190CCB00DB6F0A /* tab_mycenter_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FD405F561C190CCB00DB6F0A /* tab_mycenter_normal.png */; };
+		FD405F6A1C19163C00DB6F0A /* tab_around_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD405F661C19163C00DB6F0A /* tab_around_normal@2x.png */; };
+		FD405F6B1C19163C00DB6F0A /* tab_chat_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD405F671C19163C00DB6F0A /* tab_chat_normal@2x.png */; };
+		FD405F6C1C19163C00DB6F0A /* tab_finance_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD405F681C19163C00DB6F0A /* tab_finance_normal@2x.png */; };
+		FD405F6D1C19163C00DB6F0A /* tab_mycenter_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD405F691C19163C00DB6F0A /* tab_mycenter_normal@2x.png */; };
+		FD405F701C1917C100DB6F0A /* LYColor.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405F6F1C1917C100DB6F0A /* LYColor.m */; };
 		FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */; };
 		FD4BA8C81C127E6700A69F90 /* MyMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8C71C127E6700A69F90 /* MyMessageTableViewController.m */; };
 		FD4BA8CC1C12834400A69F90 /* MyLoanController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8CB1C12834400A69F90 /* MyLoanController.m */; };
@@ -56,6 +68,14 @@
 		FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8E51C13141B00A69F90 /* Yingying.m */; };
 		FD61602B1C15210E00B73304 /* MapInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD61602A1C15210E00B73304 /* MapInfoModel.m */; };
 		FD90EF561C158975005545DF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD90EF551C158975005545DF /* LoginViewController.m */; };
+		FD9A8EE21C191F1900D9EC9C /* icon_map_leading.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8EE01C191F1900D9EC9C /* icon_map_leading.png */; };
+		FD9A8EE31C191F1900D9EC9C /* icon_map_mining.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8EE11C191F1900D9EC9C /* icon_map_mining.png */; };
+		FD9A8EE81C1920C900D9EC9C /* map_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8EE41C1920C900D9EC9C /* map_avatar.png */; };
+		FD9A8EE91C1920C900D9EC9C /* map_man_location.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8EE51C1920C900D9EC9C /* map_man_location.png */; };
+		FD9A8EEA1C1920C900D9EC9C /* map_myself_location.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8EE61C1920C900D9EC9C /* map_myself_location.png */; };
+		FD9A8EEB1C1920C900D9EC9C /* map_woman_location.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8EE71C1920C900D9EC9C /* map_woman_location.png */; };
+		FD9A8EED1C19347B00D9EC9C /* test_white.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8EEC1C19347B00D9EC9C /* test_white.png */; };
+		FD9A8EF01C193B5B00D9EC9C /* LYAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8EEF1C193B5B00D9EC9C /* LYAnnotationView.m */; };
 		FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532221C13C5F900B779E6 /* DistributionMoodController.m */; };
 		FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532241C13C5F900B779E6 /* DistributionResController.m */; };
 		FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */; };
@@ -158,6 +178,22 @@
 		FD29B3DF1C1194CC00B68C6C /* MyCashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCashViewController.m; sourceTree = "<group>"; };
 		FD405F2C1C16C23D00DB6F0A /* PersonalHomePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHomePageController.h; sourceTree = "<group>"; };
 		FD405F2D1C16C23D00DB6F0A /* PersonalHomePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHomePageController.m; sourceTree = "<group>"; };
+		FD405F2F1C182E2A00DB6F0A /* PersonalHomePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHomePageViewModel.h; sourceTree = "<group>"; };
+		FD405F301C182E2A00DB6F0A /* PersonalHomePageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHomePageViewModel.m; sourceTree = "<group>"; };
+		FD405F321C1903A600DB6F0A /* LYBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseNavigationController.h; sourceTree = "<group>"; };
+		FD405F331C1903A600DB6F0A /* LYBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseNavigationController.m; sourceTree = "<group>"; };
+		FD405F351C19061A00DB6F0A /* LYBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseTabBarController.h; sourceTree = "<group>"; };
+		FD405F361C19061A00DB6F0A /* LYBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseTabBarController.m; sourceTree = "<group>"; };
+		FD405F4E1C190B6600DB6F0A /* tab_chat_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_chat_normal.png; sourceTree = "<group>"; };
+		FD405F521C190CCB00DB6F0A /* tab_around_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_around_normal.png; sourceTree = "<group>"; };
+		FD405F541C190CCB00DB6F0A /* tab_finance_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_finance_normal.png; sourceTree = "<group>"; };
+		FD405F561C190CCB00DB6F0A /* tab_mycenter_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_mycenter_normal.png; sourceTree = "<group>"; };
+		FD405F661C19163C00DB6F0A /* tab_around_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_around_normal@2x.png"; sourceTree = "<group>"; };
+		FD405F671C19163C00DB6F0A /* tab_chat_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_chat_normal@2x.png"; sourceTree = "<group>"; };
+		FD405F681C19163C00DB6F0A /* tab_finance_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_finance_normal@2x.png"; sourceTree = "<group>"; };
+		FD405F691C19163C00DB6F0A /* tab_mycenter_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_mycenter_normal@2x.png"; sourceTree = "<group>"; };
+		FD405F6E1C1917C100DB6F0A /* LYColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYColor.h; sourceTree = "<group>"; };
+		FD405F6F1C1917C100DB6F0A /* LYColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYColor.m; sourceTree = "<group>"; };
 		FD4BA8C31C11C5DE00A69F90 /* MyInvestmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInvestmentViewController.h; sourceTree = "<group>"; };
 		FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInvestmentViewController.m; sourceTree = "<group>"; };
 		FD4BA8C61C127E6700A69F90 /* MyMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMessageTableViewController.h; sourceTree = "<group>"; };
@@ -184,6 +220,15 @@
 		FD61602A1C15210E00B73304 /* MapInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapInfoModel.m; sourceTree = "<group>"; };
 		FD90EF541C158975005545DF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FD90EF551C158975005545DF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		FD9A8EE01C191F1900D9EC9C /* icon_map_leading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_map_leading.png; sourceTree = "<group>"; };
+		FD9A8EE11C191F1900D9EC9C /* icon_map_mining.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_map_mining.png; sourceTree = "<group>"; };
+		FD9A8EE41C1920C900D9EC9C /* map_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_avatar.png; sourceTree = "<group>"; };
+		FD9A8EE51C1920C900D9EC9C /* map_man_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_man_location.png; sourceTree = "<group>"; };
+		FD9A8EE61C1920C900D9EC9C /* map_myself_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_myself_location.png; sourceTree = "<group>"; };
+		FD9A8EE71C1920C900D9EC9C /* map_woman_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_woman_location.png; sourceTree = "<group>"; };
+		FD9A8EEC1C19347B00D9EC9C /* test_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_white.png; sourceTree = "<group>"; };
+		FD9A8EEE1C193B5B00D9EC9C /* LYAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYAnnotationView.h; sourceTree = "<group>"; };
+		FD9A8EEF1C193B5B00D9EC9C /* LYAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYAnnotationView.m; sourceTree = "<group>"; };
 		FDF532211C13C5F900B779E6 /* DistributionMoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionMoodController.h; sourceTree = "<group>"; };
 		FDF532221C13C5F900B779E6 /* DistributionMoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionMoodController.m; sourceTree = "<group>"; };
 		FDF532231C13C5F900B779E6 /* DistributionResController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionResController.h; sourceTree = "<group>"; };
@@ -335,6 +380,21 @@
 		FD29B3451C111C4A00B68C6C /* img */ = {
 			isa = PBXGroup;
 			children = (
+				FD9A8EEC1C19347B00D9EC9C /* test_white.png */,
+				FD9A8EE41C1920C900D9EC9C /* map_avatar.png */,
+				FD9A8EE51C1920C900D9EC9C /* map_man_location.png */,
+				FD9A8EE61C1920C900D9EC9C /* map_myself_location.png */,
+				FD9A8EE71C1920C900D9EC9C /* map_woman_location.png */,
+				FD9A8EE01C191F1900D9EC9C /* icon_map_leading.png */,
+				FD9A8EE11C191F1900D9EC9C /* icon_map_mining.png */,
+				FD405F661C19163C00DB6F0A /* tab_around_normal@2x.png */,
+				FD405F671C19163C00DB6F0A /* tab_chat_normal@2x.png */,
+				FD405F681C19163C00DB6F0A /* tab_finance_normal@2x.png */,
+				FD405F691C19163C00DB6F0A /* tab_mycenter_normal@2x.png */,
+				FD405F521C190CCB00DB6F0A /* tab_around_normal.png */,
+				FD405F4E1C190B6600DB6F0A /* tab_chat_normal.png */,
+				FD405F541C190CCB00DB6F0A /* tab_finance_normal.png */,
+				FD405F561C190CCB00DB6F0A /* tab_mycenter_normal.png */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -371,6 +431,8 @@
 		FD29B35D1C112FDC00B68C6C /* LYCategory */ = {
 			isa = PBXGroup;
 			children = (
+				FD405F6E1C1917C100DB6F0A /* LYColor.h */,
+				FD405F6F1C1917C100DB6F0A /* LYColor.m */,
 				FD4BA8D71C12F5B400A69F90 /* NSObject+LYUITipsView.h */,
 				FD4BA8D81C12F5B400A69F90 /* NSObject+LYUITipsView.m */,
 				FD29B35E1C112FDC00B68C6C /* LYTypeEncoding.h */,
@@ -448,6 +510,8 @@
 				FD29B3C11C1159D800B68C6C /* CustomMapView.xib */,
 				FD4BA8D41C12F54800A69F90 /* MineViewController.h */,
 				FD4BA8D51C12F54800A69F90 /* MineViewController.m */,
+				FD9A8EEE1C193B5B00D9EC9C /* LYAnnotationView.h */,
+				FD9A8EEF1C193B5B00D9EC9C /* LYAnnotationView.m */,
 			);
 			path = map;
 			sourceTree = "<group>";
@@ -501,8 +565,14 @@
 		FD405F2B1C16C22700DB6F0A /* common */ = {
 			isa = PBXGroup;
 			children = (
+				FD405F321C1903A600DB6F0A /* LYBaseNavigationController.h */,
+				FD405F331C1903A600DB6F0A /* LYBaseNavigationController.m */,
+				FD405F351C19061A00DB6F0A /* LYBaseTabBarController.h */,
+				FD405F361C19061A00DB6F0A /* LYBaseTabBarController.m */,
 				FD405F2C1C16C23D00DB6F0A /* PersonalHomePageController.h */,
 				FD405F2D1C16C23D00DB6F0A /* PersonalHomePageController.m */,
+				FD405F2F1C182E2A00DB6F0A /* PersonalHomePageViewModel.h */,
+				FD405F301C182E2A00DB6F0A /* PersonalHomePageViewModel.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -674,11 +744,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD405F6A1C19163C00DB6F0A /* tab_around_normal@2x.png in Resources */,
 				FD29B3581C111C4A00B68C6C /* Main.storyboard in Resources */,
 				FD29B3561C111C4A00B68C6C /* Assets.xcassets in Resources */,
+				FD405F5A1C190CCB00DB6F0A /* tab_around_normal.png in Resources */,
+				FD405F5C1C190CCB00DB6F0A /* tab_finance_normal.png in Resources */,
 				FD29B3781C112FDC00B68C6C /* MJRefresh.bundle in Resources */,
+				FD9A8EE31C191F1900D9EC9C /* icon_map_mining.png in Resources */,
+				FD405F501C190B6600DB6F0A /* tab_chat_normal.png in Resources */,
 				FD29B3C41C1159D800B68C6C /* CustomMapView.xib in Resources */,
+				FD405F6C1C19163C00DB6F0A /* tab_finance_normal@2x.png in Resources */,
+				FD9A8EE91C1920C900D9EC9C /* map_man_location.png in Resources */,
+				FD405F6D1C19163C00DB6F0A /* tab_mycenter_normal@2x.png in Resources */,
+				FD9A8EE21C191F1900D9EC9C /* icon_map_leading.png in Resources */,
 				FD29B3571C111C4A00B68C6C /* LaunchScreen.storyboard in Resources */,
+				FD9A8EE81C1920C900D9EC9C /* map_avatar.png in Resources */,
+				FD9A8EEA1C1920C900D9EC9C /* map_myself_location.png in Resources */,
+				FD9A8EEB1C1920C900D9EC9C /* map_woman_location.png in Resources */,
+				FD9A8EED1C19347B00D9EC9C /* test_white.png in Resources */,
+				FD405F5E1C190CCB00DB6F0A /* tab_mycenter_normal.png in Resources */,
+				FD405F6B1C19163C00DB6F0A /* tab_chat_normal@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,6 +840,8 @@
 				FD29B38F1C1135DC00B68C6C /* AroundViewController.m in Sources */,
 				FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */,
 				FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */,
+				FD405F341C1903A600DB6F0A /* LYBaseNavigationController.m in Sources */,
+				FD405F701C1917C100DB6F0A /* LYColor.m in Sources */,
 				FD405F2E1C16C23D00DB6F0A /* PersonalHomePageController.m in Sources */,
 				FD90EF561C158975005545DF /* LoginViewController.m in Sources */,
 				FD29B35B1C111C4A00B68C6C /* main.m in Sources */,
@@ -767,8 +854,10 @@
 				FD29B3E01C1194CC00B68C6C /* MyCashViewController.m in Sources */,
 				FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */,
 				FD29B3C21C1159D800B68C6C /* AroundMessageController.m in Sources */,
+				FD9A8EF01C193B5B00D9EC9C /* LYAnnotationView.m in Sources */,
 				FD4BA8D91C12F5B500A69F90 /* NSObject+LYUITipsView.m in Sources */,
 				FD4BA8DC1C13075A00A69F90 /* AroundMessageDetailController.m in Sources */,
+				FD405F311C182E2A00DB6F0A /* PersonalHomePageViewModel.m in Sources */,
 				FD29B3751C112FDC00B68C6C /* LYTypeEncoding.m in Sources */,
 				FD4BA8CF1C12841700A69F90 /* MyLoanDetailController.m in Sources */,
 				FD29B3591C111C4A00B68C6C /* FirstViewController.m in Sources */,
@@ -777,6 +866,7 @@
 				FD29B3761C112FDC00B68C6C /* NSDictionary+LYDictToObject.m in Sources */,
 				FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */,
 				FD29B3B21C113BC600B68C6C /* ForMap.mm in Sources */,
+				FD405F371C19061A00DB6F0A /* LYBaseTabBarController.m in Sources */,
 				FD4BA8E31C13139C00A69F90 /* MyTransferViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

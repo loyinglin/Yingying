@@ -8,6 +8,7 @@
 
 #import "AroundViewController.h"
 #import "LYNotifyCenter.h"
+#import "LYColor.h"
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
 
@@ -15,10 +16,8 @@
 
 @property (nonatomic , strong) UITabBarController* myTabbarController;
 
-
-@property (nonatomic , strong) IBOutlet UIButton* myMapButton;
-@property (nonatomic , strong) IBOutlet UIButton* myAroundButton;
-@property (nonatomic , strong) IBOutlet UIButton* myMineButton;
+@property (nonatomic , strong) IBOutlet UIView* myAroundUnderline;
+@property (nonatomic , strong) IBOutlet UIView* myMapUnderline;
 
 @end
 
@@ -30,11 +29,12 @@
     self.myTabbarController = self.childViewControllers[0];
     [self.myTabbarController.tabBar setHidden:YES];
     
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14], NSForegroundColorAttributeName:UIColorFromRGB(0x778c93)} forState:UIControlStateNormal];
     [self.navigationItem.rightBarButtonItem setTitlePositionAdjustment:UIOffsetMake(-10, 0) forBarMetrics:UIBarMetricsDefault];
 //    [self.navigationItem.rightBarButtonItem setBackgroundVerticalPositionAdjustment:<#(CGFloat)#> forBarMetrics:<#(UIBarMetrics)#>]
     
 //    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} forState:UIControlStateSelected];
+    
     
 
     [self setupNotify];
@@ -61,16 +61,21 @@
 
 - (IBAction)onSelectMap:(id)sender {
     [self.myTabbarController setSelectedIndex:0];
-    self.myMineButton.hidden = NO;
     self.navigationItem.rightBarButtonItem.image = nil;
     self.navigationItem.rightBarButtonItem.title = @"筛选";
+    
+    self.myAroundUnderline.hidden = YES;
+    self.myMapUnderline.hidden = NO;
 }
 
 - (IBAction)onSelectAround:(id)sender {
     [self.myTabbarController setSelectedIndex:1];
-    self.myMineButton.hidden = YES;
     self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"first"];
     self.navigationItem.rightBarButtonItem.title = nil;
+    
+    self.myAroundUnderline.hidden = NO;
+    self.myMapUnderline.hidden = YES;
+
 }
 
 - (IBAction)onRightButton:(id)sender {
