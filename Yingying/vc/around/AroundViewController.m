@@ -19,6 +19,7 @@
 @property (nonatomic , strong) IBOutlet UIView* myAroundUnderline;
 @property (nonatomic , strong) IBOutlet UIView* myMapUnderline;
 
+@property (nonatomic , strong) IBOutlet UIButton* myRightButton;
 @end
 
 @implementation AroundViewController
@@ -30,7 +31,7 @@
     [self.myTabbarController.tabBar setHidden:YES];
     
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14], NSForegroundColorAttributeName:UIColorFromRGB(0x778c93)} forState:UIControlStateNormal];
-    [self.navigationItem.rightBarButtonItem setTitlePositionAdjustment:UIOffsetMake(-10, 0) forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationItem.rightBarButtonItem setTitlePositionAdjustment:UIOffsetMake(0, 0) forBarMetrics:UIBarMetricsDefault];
 //    [self.navigationItem.rightBarButtonItem setBackgroundVerticalPositionAdjustment:<#(CGFloat)#> forBarMetrics:<#(UIBarMetrics)#>]
     
 //    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} forState:UIControlStateSelected];
@@ -61,8 +62,8 @@
 
 - (IBAction)onSelectMap:(id)sender {
     [self.myTabbarController setSelectedIndex:0];
-    self.navigationItem.rightBarButtonItem.image = nil;
-    self.navigationItem.rightBarButtonItem.title = @"筛选";
+    [self.myRightButton setBackgroundImage:nil forState:UIControlStateNormal];
+    [self.myRightButton setTitle:@"筛选" forState:UIControlStateNormal];
     
     self.myAroundUnderline.hidden = YES;
     self.myMapUnderline.hidden = NO;
@@ -70,8 +71,9 @@
 
 - (IBAction)onSelectAround:(id)sender {
     [self.myTabbarController setSelectedIndex:1];
-    self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"first"];
-    self.navigationItem.rightBarButtonItem.title = nil;
+    
+    [self.myRightButton setBackgroundImage:[UIImage imageNamed:@"first"] forState:UIControlStateNormal];
+    [self.myRightButton setTitle:nil forState:UIControlStateNormal];
     
     self.myAroundUnderline.hidden = NO;
     self.myMapUnderline.hidden = YES;
