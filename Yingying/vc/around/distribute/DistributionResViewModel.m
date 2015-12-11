@@ -6,9 +6,9 @@
 //  Copyright © 2015年 林伟池. All rights reserved.
 //
 
-#import "DistributionMoodViewModel.h"
+#import "DistributionResViewModel.h"
 
-@implementation DistributionMoodViewModel
+@implementation DistributionResViewModel
 
 
 

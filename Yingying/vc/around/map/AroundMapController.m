@@ -70,6 +70,11 @@
 }
 #pragma mark - ibaction
 
+- (IBAction)onMine:(id)sender {
+    UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"mine_view_controller"];
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
 #pragma mark - ui
 
 - (void)addPointAnnotationWithCenter:(CLLocationCoordinate2D)center
@@ -107,7 +112,7 @@
     
     BMKLocationViewDisplayParam* param = [[BMKLocationViewDisplayParam alloc] init];
     param.locationViewImgName = @"map_myself_location";
-    param.isAccuracyCircleShow = NO;
+    param.isAccuracyCircleShow = YES;
     
     self.myMapView.showsUserLocation = YES;
     [self.myMapView updateLocationViewWithParam:param];

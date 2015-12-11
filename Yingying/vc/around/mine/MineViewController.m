@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +45,9 @@
     [self presentMessageTips:@"挖空了"];
 }
 
+- (IBAction)onBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark - ui
 
 #pragma mark - delegate

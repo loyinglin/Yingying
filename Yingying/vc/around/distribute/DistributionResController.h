@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DistributionResController : UIViewController
+@interface DistributionResController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end

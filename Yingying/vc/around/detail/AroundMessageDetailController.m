@@ -48,8 +48,18 @@
 
 
 #pragma mark - view init
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (self.tabBarController) {
+        [self.tabBarController.tabBar setHidden:YES];
+    }
+}
 
 #pragma mark - ibaction
+
+- (IBAction)onPay:(id)sender {
+    [self performSegueWithIdentifier:@"open_message_detail_pay_board" sender:self];
+}
 
 #pragma mark - ui
 
@@ -105,7 +115,7 @@
         
         //获取键盘高度，在不同设备上，以及中英文下是不同的
         CGFloat kbHeight = [[note.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
-        NSLog(@"kb height %f", kbHeight);
+//        NSLog(@"kb height %f", kbHeight); 
         
         
         //计算出键盘顶端到inputTextView panel底端的距离(加上自定义的缓冲距离INTERVAL_KEYBOARD)

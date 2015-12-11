@@ -72,7 +72,7 @@
 - (IBAction)onSelectAround:(id)sender {
     [self.myTabbarController setSelectedIndex:1];
     
-    [self.myRightButton setBackgroundImage:[UIImage imageNamed:@"first"] forState:UIControlStateNormal];
+    [self.myRightButton setBackgroundImage:[UIImage imageNamed:@"icon_distribution"] forState:UIControlStateNormal];
     [self.myRightButton setTitle:nil forState:UIControlStateNormal];
     
     self.myAroundUnderline.hidden = NO;
