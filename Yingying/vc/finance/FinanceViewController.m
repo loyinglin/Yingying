@@ -18,6 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tableView.tableHeaderView = [self.tableView dequeueReusableCellWithIdentifier:@"head"];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 120;
+    self.tableView.estimatedSectionHeaderHeight = 30;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,6 +42,10 @@
 #pragma mark - view init
 
 #pragma mark - ibaction
+
+- (IBAction)onBid:(id)sender {
+    [self performSegueWithIdentifier:@"open_finance_bid_board" sender:sender];
+}
 
 #pragma mark - ui
 

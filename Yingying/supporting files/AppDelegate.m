@@ -35,7 +35,7 @@
     [CDChatManager manager].userDelegate = [[CDUserFactory alloc] init];
     
 #ifdef DEBUG
-    [AVOSCloud setAllLogsEnabled:YES];
+//    [AVOSCloud setAllLogsEnabled:YES];
 #endif
     
     
