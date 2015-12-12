@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		97C4B00BAF4207E79EA7381E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2A61BE728174A0287C24BD /* libPods.a */; };
+		FD21CFA31C1BBFCC00CF8550 /* CDUserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFA01C1BBFCC00CF8550 /* CDUserFactory.m */; };
+		FD21CFA61C1BC09200CF8550 /* ChatListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFA51C1BC09200CF8550 /* ChatListController.m */; };
 		FD29B32A1C111B9100B68C6C /* YingyingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3291C111B9100B68C6C /* YingyingTests.m */; };
 		FD29B3351C111B9100B68C6C /* YingyingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3341C111B9100B68C6C /* YingyingUITests.m */; };
 		FD29B3551C111C4A00B68C6C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3481C111C4A00B68C6C /* AppDelegate.m */; };
@@ -30,8 +32,6 @@
 		FD29B37F1C112FDC00B68C6C /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3741C112FDC00B68C6C /* UIView+MJExtension.m */; };
 		FD29B3821C1130BC00B68C6C /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3811C1130BC00B68C6C /* BaseModel.m */; };
 		FD29B38F1C1135DC00B68C6C /* AroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B38E1C1135DC00B68C6C /* AroundViewController.m */; };
-		FD29B39C1C113AD700B68C6C /* libPods-AFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29B39A1C113AD700B68C6C /* libPods-AFNetworking.a */; };
-		FD29B39D1C113AD700B68C6C /* libPods-ReactiveCocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29B39B1C113AD700B68C6C /* libPods-ReactiveCocoa.a */; };
 		FD29B3B21C113BC600B68C6C /* ForMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3B11C113BC600B68C6C /* ForMap.mm */; };
 		FD29B3C21C1159D800B68C6C /* AroundMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3BD1C1159D800B68C6C /* AroundMessageController.m */; };
 		FD29B3C31C1159D800B68C6C /* AroundMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3C01C1159D800B68C6C /* AroundMapController.m */; };
@@ -121,6 +121,10 @@
 		2E25BA45A4DE8BEE871D6E1F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		560E10B102FADF679D47C07C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CC2A61BE728174A0287C24BD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD21CF9F1C1BBFCC00CF8550 /* CDUserFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserFactory.h; sourceTree = "<group>"; };
+		FD21CFA01C1BBFCC00CF8550 /* CDUserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserFactory.m; sourceTree = "<group>"; };
+		FD21CFA41C1BC09200CF8550 /* ChatListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListController.h; sourceTree = "<group>"; };
+		FD21CFA51C1BC09200CF8550 /* ChatListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListController.m; sourceTree = "<group>"; };
 		FD29B3091C111B9100B68C6C /* Yingying.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yingying.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD29B3251C111B9100B68C6C /* YingyingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YingyingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD29B3291C111B9100B68C6C /* YingyingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YingyingTests.m; sourceTree = "<group>"; };
@@ -284,8 +288,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD29B39C1C113AD700B68C6C /* libPods-AFNetworking.a in Frameworks */,
-				FD29B39D1C113AD700B68C6C /* libPods-ReactiveCocoa.a in Frameworks */,
 				97C4B00BAF4207E79EA7381E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,6 +336,41 @@
 				2E25BA45A4DE8BEE871D6E1F /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FD21CF9D1C1BBFCC00CF8550 /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				FD21CF9E1C1BBFCC00CF8550 /* base */,
+				FD21CFA11C1BBFCC00CF8550 /* detail */,
+				FD21CFA21C1BBFCC00CF8550 /* list */,
+			);
+			path = chat;
+			sourceTree = "<group>";
+		};
+		FD21CF9E1C1BBFCC00CF8550 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				FD21CF9F1C1BBFCC00CF8550 /* CDUserFactory.h */,
+				FD21CFA01C1BBFCC00CF8550 /* CDUserFactory.m */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		FD21CFA11C1BBFCC00CF8550 /* detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = detail;
+			sourceTree = "<group>";
+		};
+		FD21CFA21C1BBFCC00CF8550 /* list */ = {
+			isa = PBXGroup;
+			children = (
+				FD21CFA41C1BC09200CF8550 /* ChatListController.h */,
+				FD21CFA51C1BC09200CF8550 /* ChatListController.m */,
+			);
+			path = list;
 			sourceTree = "<group>";
 		};
 		FD29B3001C111B9000B68C6C = {
@@ -475,10 +512,11 @@
 		FD29B3541C111C4A00B68C6C /* vc */ = {
 			isa = PBXGroup;
 			children = (
+				FD29B34C1C111C4A00B68C6C /* Main.storyboard */,
+				FD21CF9D1C1BBFCC00CF8550 /* chat */,
 				FD405F2B1C16C22700DB6F0A /* common */,
 				FD90EF531C15895F005545DF /* login */,
 				FD29B3DA1C1177A800B68C6C /* myCenter */,
-				FD29B34C1C111C4A00B68C6C /* Main.storyboard */,
 				FD29B3CE1C116DCD00B68C6C /* finance */,
 				FD29B38C1C1135B200B68C6C /* around */,
 			);
@@ -943,8 +981,10 @@
 				FD90EF561C158975005545DF /* LoginViewController.m in Sources */,
 				FD29B35B1C111C4A00B68C6C /* main.m in Sources */,
 				FD4BA8C81C127E6700A69F90 /* MyMessageTableViewController.m in Sources */,
+				FD21CFA61C1BC09200CF8550 /* ChatListController.m in Sources */,
 				FD29B3C31C1159D800B68C6C /* AroundMapController.m in Sources */,
 				FD29B37E1C112FDC00B68C6C /* UIScrollView+MJRefresh.m in Sources */,
+				FD21CFA31C1BBFCC00CF8550 /* CDUserFactory.m in Sources */,
 				FD4BA8CC1C12834400A69F90 /* MyLoanController.m in Sources */,
 				FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */,
 				FD29B37A1C112FDC00B68C6C /* MJRefreshConst.m in Sources */,

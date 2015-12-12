@@ -4,3 +4,5 @@ pod 'ReactiveCocoa'
 pod 'AFNetworking'
 
 pod 'BaiduMapKit'
+
+pod 'LeanChatLib' , :path => './'

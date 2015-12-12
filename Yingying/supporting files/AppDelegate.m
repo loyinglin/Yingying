@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import "CDUserFactory.h"
 
 @interface AppDelegate ()
 @property (nonatomic , strong) BMKMapManager* myMapManager;
@@ -28,6 +29,15 @@
     else {
         NSLog(@"baiduMap init failed");
     }
+    
+    /***************     chat            *************/
+    [AVOSCloud setApplicationId:@"xcalhck83o10dntwh8ft3z5kvv0xc25p6t3jqbe5zlkkdsib" clientKey:@"m9fzwse7od89gvcnk1dmdq4huprjvghjtiug1u2zu073zn99"];
+    [CDChatManager manager].userDelegate = [[CDUserFactory alloc] init];
+    
+#ifdef DEBUG
+    [AVOSCloud setAllLogsEnabled:YES];
+#endif
+    
     
     return YES;
 }

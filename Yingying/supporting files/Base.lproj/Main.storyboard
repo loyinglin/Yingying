@@ -7,21 +7,59 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--聊天-->
         <scene sceneID="R6r-y4-rB3">
             <objects>
-                <tableViewController id="fzn-OS-9ax" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nCN-bJ-PoX">
+                <tableViewController id="fzn-OS-9ax" customClass="ChatListController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="nCN-bJ-PoX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wLK-YO-xh7">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="wLK-YO-xh7">
+                                <rect key="frame" x="0.0" y="92" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wLK-YO-xh7" id="lZf-x2-GwT">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avator.png" translatesAutoresizingMaskIntoConstraints="NO" id="SYx-Bp-x1b">
+                                            <rect key="frame" x="16" y="15" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="U9w-Lm-Tqm"/>
+                                                <constraint firstAttribute="width" constant="30" id="Uko-kK-spR"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="郭大伟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKz-Sj-zPp">
+                                            <rect key="frame" x="54" y="12" width="42" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="福 建男" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPx-Td-caI">
+                                            <rect key="frame" x="54" y="31" width="43" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="40" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="福 建男" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0i-K4-fa3">
+                                            <rect key="frame" x="263" y="22" width="43" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="SYx-Bp-x1b" firstAttribute="centerY" secondItem="lZf-x2-GwT" secondAttribute="centerY" id="3G2-eC-Iqx"/>
+                                        <constraint firstItem="SYx-Bp-x1b" firstAttribute="leading" secondItem="lZf-x2-GwT" secondAttribute="leadingMargin" constant="8" id="Aia-Qa-V8Z"/>
+                                        <constraint firstItem="KKz-Sj-zPp" firstAttribute="top" secondItem="SYx-Bp-x1b" secondAttribute="top" constant="-3" id="Cdd-1C-BfK"/>
+                                        <constraint firstItem="KKz-Sj-zPp" firstAttribute="leading" secondItem="SYx-Bp-x1b" secondAttribute="trailing" constant="8" id="CwX-fd-4jc"/>
+                                        <constraint firstItem="n0i-K4-fa3" firstAttribute="centerY" secondItem="lZf-x2-GwT" secondAttribute="centerY" id="crt-Pj-bno"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="n0i-K4-fa3" secondAttribute="trailing" constant="6" id="n90-lc-xby"/>
+                                        <constraint firstItem="HPx-Td-caI" firstAttribute="top" secondItem="KKz-Sj-zPp" secondAttribute="bottom" constant="2" id="qp7-X4-2GU"/>
+                                        <constraint firstItem="HPx-Td-caI" firstAttribute="leading" secondItem="SYx-Bp-x1b" secondAttribute="trailing" constant="8" id="vlF-cP-rVE"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -30,11 +68,11 @@
                             <outlet property="delegate" destination="fzn-OS-9ax" id="NfE-sn-1Vc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="tad-dn-V2c"/>
+                    <navigationItem key="navigationItem" title="聊天" id="tad-dn-V2c"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDU-r0-Obd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="730.66666666666663" y="-3.7866666666666666"/>
+            <point key="canvasLocation" x="730" y="-4"/>
         </scene>
         <!--聊天-->
         <scene sceneID="Se1-R9-R0l">
@@ -2808,6 +2846,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="avator.png" width="50" height="50"/>
         <image name="distribution_add_button.png" width="160" height="160"/>
         <image name="distribution_cancel.png" width="32" height="33"/>
         <image name="distribution_location.png" width="25" height="35"/>
