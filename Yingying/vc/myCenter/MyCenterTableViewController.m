@@ -27,6 +27,9 @@
         NSLog(@"show login");
         [self.tabBarController presentViewController:controller animated:YES completion:nil];
     }
+    
+    self.tableView.estimatedRowHeight = 50;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,15 +55,6 @@
     
     
     return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        return 117;
-    }
-    else {
-        return 54;
-    }
 }
 
 /*
