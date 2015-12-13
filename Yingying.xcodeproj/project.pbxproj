@@ -99,6 +99,7 @@
 		FD41BAB01C1C635700B4A074 /* finance_progress_track.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41BAAF1C1C635700B4A074 /* finance_progress_track.png */; };
 		FD41BAB31C1C6A4100B4A074 /* finance_icon_bet.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41BAB11C1C6A4100B4A074 /* finance_icon_bet.png */; };
 		FD41BAB41C1C6A4100B4A074 /* finance_icon_company.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41BAB21C1C6A4100B4A074 /* finance_icon_company.png */; };
+		FD41BAB71C1D09A400B4A074 /* YingLoanController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD41BAB61C1D09A400B4A074 /* YingLoanController.m */; };
 		FD4799ED1C1A73B200ED3D62 /* distribution_add_button.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4799EB1C1A73B200ED3D62 /* distribution_add_button.png */; };
 		FD4799EE1C1A73B200ED3D62 /* distribution_location.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4799EC1C1A73B200ED3D62 /* distribution_location.png */; };
 		FD4799F11C1A78DE00ED3D62 /* LYBaseImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4799F01C1A78DE00ED3D62 /* LYBaseImageViewController.m */; };
@@ -308,6 +309,8 @@
 		FD41BAAF1C1C635700B4A074 /* finance_progress_track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finance_progress_track.png; sourceTree = "<group>"; };
 		FD41BAB11C1C6A4100B4A074 /* finance_icon_bet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finance_icon_bet.png; sourceTree = "<group>"; };
 		FD41BAB21C1C6A4100B4A074 /* finance_icon_company.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finance_icon_company.png; sourceTree = "<group>"; };
+		FD41BAB51C1D09A400B4A074 /* YingLoanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YingLoanController.h; sourceTree = "<group>"; };
+		FD41BAB61C1D09A400B4A074 /* YingLoanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YingLoanController.m; sourceTree = "<group>"; };
 		FD4799EB1C1A73B200ED3D62 /* distribution_add_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distribution_add_button.png; sourceTree = "<group>"; };
 		FD4799EC1C1A73B200ED3D62 /* distribution_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distribution_location.png; sourceTree = "<group>"; };
 		FD4799EF1C1A78DE00ED3D62 /* LYBaseImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseImageViewController.h; sourceTree = "<group>"; };
@@ -761,6 +764,8 @@
 		FD29B3D31C116E4300B68C6C /* yingLoan */ = {
 			isa = PBXGroup;
 			children = (
+				FD41BAB51C1D09A400B4A074 /* YingLoanController.h */,
+				FD41BAB61C1D09A400B4A074 /* YingLoanController.m */,
 			);
 			path = yingLoan;
 			sourceTree = "<group>";
@@ -1182,6 +1187,7 @@
 				FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */,
 				FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */,
 				FD405F341C1903A600DB6F0A /* LYBaseNavigationController.m in Sources */,
+				FD41BAB71C1D09A400B4A074 /* YingLoanController.m in Sources */,
 				FD405F701C1917C100DB6F0A /* LYColor.m in Sources */,
 				FD405F2E1C16C23D00DB6F0A /* PersonalHomePageController.m in Sources */,
 				FD90EF561C158975005545DF /* LoginViewController.m in Sources */,

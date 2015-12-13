@@ -47,6 +47,9 @@
     [self performSegueWithIdentifier:@"open_finance_bid_board" sender:sender];
 }
 
+- (IBAction)onLoad:(id)sender {
+    [self performSegueWithIdentifier:@"open_finance_loan_board" sender:sender];
+}
 #pragma mark - ui
 
 #pragma mark - delegate
