@@ -45,7 +45,7 @@
             break;
         case XHBubbleMessageMediaTypeText:
         case XHBubbleMessageMediaTypeVoice:
-            messageTypeString = [messageTypeString stringByAppendingString:@"_LeanChat"];
+            messageTypeString = [messageTypeString stringByAppendingString:@"_Yingying"];
             break;
         default:
             break;

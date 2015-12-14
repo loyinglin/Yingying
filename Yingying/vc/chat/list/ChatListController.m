@@ -196,6 +196,8 @@
 //    [self performSegueWithIdentifier:@"open_chat_detail_board" sender:indexPath];
     ChatDetailController* controller = [[ChatDetailController alloc] initWithConv:self.conversations[indexPath.row]];
     controller.hidesBottomBarWhenPushed = YES;
+    controller.allowsSendMultiMedia = NO;
+    controller.allowsSendVoice = NO;
     [self.navigationController pushViewController:controller animated:YES];
     
     

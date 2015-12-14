@@ -13,7 +13,7 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self=[super initWithFrame:frame];
     if(self){
-        //self.backgroundColor=[UIColor redColor];
+//        self.backgroundColor = [UIColor colorWithRed:0x50/255.0 green:0xC0/255.0 blue:0xF2/255.0 alpha:1];
         _indicatorView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         CGPoint centerPoint=self.center;
         CGFloat x=self.bounds.size.width-_indicatorView.bounds.size.width+(_indicatorView.bounds.size.width/2)-kXHStatusViewPadding;
@@ -31,8 +31,8 @@
         _sentView.layer.masksToBounds=YES;
 
         //[_sentView sizeToFit];
-        [_sentView setText:@"sent"];
-        [_sentView setBackgroundColor:[UIColor colorWithRed:249/255.0 green:140/255.0 blue:140/255.0 alpha:1]];
+        [_sentView setText:@"送达"];
+        [_sentView setBackgroundColor:[UIColor colorWithRed:0x50/255.0 green:0xC0/255.0 blue:0xF2/255.0 alpha:1]];
         //[_sentView setBackgroundColor:[UIColor greenColor]];
         [_sentView setTextColor:[UIColor whiteColor]];
         [self addSubview:_sentView];

@@ -18,8 +18,6 @@
 		FD21CFC51C1C091900CF8550 /* 图片个人主页.png in Resources */ = {isa = PBXBuildFile; fileRef = FD21CFB11C1C091900CF8550 /* 图片个人主页.png */; };
 		FD21CFC61C1C091900CF8550 /* 图片动态.png in Resources */ = {isa = PBXBuildFile; fileRef = FD21CFB21C1C091900CF8550 /* 图片动态.png */; };
 		FD21CFC71C1C091900CF8550 /* 头像-1.png in Resources */ = {isa = PBXBuildFile; fileRef = FD21CFB31C1C091900CF8550 /* 头像-1.png */; };
-		FD21CFC81C1C091900CF8550 /* 对话气泡.png in Resources */ = {isa = PBXBuildFile; fileRef = FD21CFB41C1C091900CF8550 /* 对话气泡.png */; };
-		FD21CFC91C1C091900CF8550 /* 对话气泡2.png in Resources */ = {isa = PBXBuildFile; fileRef = FD21CFB51C1C091900CF8550 /* 对话气泡2.png */; };
 		FD21CFCA1C1C091900CF8550 /* 弹出框删除好友.png in Resources */ = {isa = PBXBuildFile; fileRef = FD21CFB61C1C091900CF8550 /* 弹出框删除好友.png */; };
 		FD21CFCB1C1C091900CF8550 /* 弹出框转账.png in Resources */ = {isa = PBXBuildFile; fileRef = FD21CFB71C1C091900CF8550 /* 弹出框转账.png */; };
 		FD21CFCC1C1C091900CF8550 /* 搜索联系人.png in Resources */ = {isa = PBXBuildFile; fileRef = FD21CFB81C1C091900CF8550 /* 搜索联系人.png */; };
@@ -222,8 +220,6 @@
 		FD21CFB11C1C091900CF8550 /* 图片个人主页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片个人主页.png"; sourceTree = "<group>"; };
 		FD21CFB21C1C091900CF8550 /* 图片动态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片动态.png"; sourceTree = "<group>"; };
 		FD21CFB31C1C091900CF8550 /* 头像-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "头像-1.png"; sourceTree = "<group>"; };
-		FD21CFB41C1C091900CF8550 /* 对话气泡.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "对话气泡.png"; sourceTree = "<group>"; };
-		FD21CFB51C1C091900CF8550 /* 对话气泡2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "对话气泡2.png"; sourceTree = "<group>"; };
 		FD21CFB61C1C091900CF8550 /* 弹出框删除好友.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹出框删除好友.png"; sourceTree = "<group>"; };
 		FD21CFB71C1C091900CF8550 /* 弹出框转账.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹出框转账.png"; sourceTree = "<group>"; };
 		FD21CFB81C1C091900CF8550 /* 搜索联系人.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "搜索联系人.png"; sourceTree = "<group>"; };
@@ -566,8 +562,6 @@
 				FD21CFB11C1C091900CF8550 /* 图片个人主页.png */,
 				FD21CFB21C1C091900CF8550 /* 图片动态.png */,
 				FD21CFB31C1C091900CF8550 /* 头像-1.png */,
-				FD21CFB41C1C091900CF8550 /* 对话气泡.png */,
-				FD21CFB51C1C091900CF8550 /* 对话气泡2.png */,
 				FD21CFB61C1C091900CF8550 /* 弹出框删除好友.png */,
 				FD21CFB71C1C091900CF8550 /* 弹出框转账.png */,
 				FD21CFB81C1C091900CF8550 /* 搜索联系人.png */,
@@ -1226,7 +1220,6 @@
 				FD29B3561C111C4A00B68C6C /* Assets.xcassets in Resources */,
 				FD21CFD71C1C097600CF8550 /* chat_message_tips.png in Resources */,
 				FD41BA901C1C250400B4A074 /* finance_avatar2.png in Resources */,
-				FD21CFC91C1C091900CF8550 /* 对话气泡2.png in Resources */,
 				FD41BA991C1C250500B4A074 /* finance_mining.png in Resources */,
 				FD29B3781C112FDC00B68C6C /* MJRefresh.bundle in Resources */,
 				FD41BAE61C1D13A600B4A074 /* icon代收本金.png in Resources */,
@@ -1246,7 +1239,6 @@
 				FD21CFD41C1C091900CF8550 /* 评论添加图片.png in Resources */,
 				FD41BB4A1C1D87FA00B4A074 /* test_white.png in Resources */,
 				FD41BAEA1C1D13A600B4A074 /* my_icon_cash.png in Resources */,
-				FD21CFC81C1C091900CF8550 /* 对话气泡.png in Resources */,
 				FD41BB3B1C1D87FA00B4A074 /* icon_message_detail_pay.png in Resources */,
 				FD21CFD01C1C091900CF8550 /* 添加好友.png in Resources */,
 				FD41BB3F1C1D87FA00B4A074 /* map_man_location.png in Resources */,
