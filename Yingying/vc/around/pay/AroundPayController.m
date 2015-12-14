@@ -33,6 +33,7 @@
 
 - (IBAction)onSelectCoupon:(id)sender {
     NSLog(@"selected coupon");
+    [self performSegueWithIdentifier:@"open_my_coupon_board" sender:self];
 }
 
 #pragma mark - ui
