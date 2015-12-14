@@ -22,7 +22,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    if (NO) { //未登录
+    if (YES) { //未登录
         UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"login_view_controller"];
         NSLog(@"show login");
         [self.tabBarController presentViewController:controller animated:YES completion:nil];
