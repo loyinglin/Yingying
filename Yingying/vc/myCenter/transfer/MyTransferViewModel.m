@@ -12,6 +12,8 @@
 
 @property (nonatomic , strong) NSMutableDictionary* myFriendDict;
 
+@property (nonatomic , strong) NSMutableDictionary* mySearchDict;
+
 @end
 
 @implementation MyTransferViewModel
@@ -23,6 +25,7 @@
 - (instancetype)init {
     self = [super init];
     self.myFriendDict = [NSMutableDictionary dictionary];
+    self.mySearchDict = [NSMutableDictionary dictionary];
     
     NSArray *stringsToSort=[NSArray arrayWithObjects:
                             @"￥hhh, .$",@" ￥Chin ese ",@"开源中国 ",@"www.oschina.net",
@@ -121,6 +124,50 @@
     return ret;
 }
 
+// search
+
+- (long)getSearchSectionsCount {
+    long ret;
+    ret = [self.mySearchDict allKeys].count;
+    return ret;
+}
+
+- (long)getSearchFriendsCountBySection:(long)section {
+    long ret = 0;
+    NSArray* arr = [self getSearchIndexsArray];
+    if (section >= 0 && section < arr.count) {
+        NSString* key = arr[section];
+        NSMutableArray* friendArr = [self.mySearchDict objectForKey:key];
+        ret = friendArr.count;
+    }
+    return ret;
+}
+
+- (NSArray<NSString *> *)getSearchIndexsArray {
+    NSArray* arr = [self.mySearchDict allKeys];
+    arr = [arr sortedArrayUsingComparator:^NSComparisonResult(NSString* obj1, NSString* obj2) {
+        return [obj1 compare:obj2];
+    }];
+    
+    return arr;
+}
+
+- (Friend *)getSearchFriendByIndex:(long)index Section:(long)section {
+    Friend* ret;
+    NSArray* arr = [self getSearchIndexsArray];
+    if (section >= 0 && section < arr.count) {
+        NSString* key = arr[section];
+        NSMutableArray* friendArr = [self.mySearchDict objectForKey:key];
+        if (friendArr && friendArr.count > index) {
+            ret = [friendArr objectAtIndex:index];
+        }
+    }
+    return ret;
+}
+
+
+
+
 - (NSString *)getPinyinWithStr:(NSString *)str {
     
     NSString* ret;
@@ -150,7 +197,20 @@
 
 #pragma mark - update
 
-
+- (void)searchWithText:(NSString *)text {
+    NSArray* allKey = [self.myFriendDict allKeys];
+    self.mySearchDict = [NSMutableDictionary dictionary];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"SELF.name LIKE[cd] '*%@*'", text]];
+    
+    for (NSString* key in allKey) {
+        NSArray* arr = [self.myFriendDict objectForKey:key];
+        
+        arr = [arr filteredArrayUsingPredicate:predicate];
+        if (arr.count > 0) {
+            [self.mySearchDict setObject:arr forKey:key];
+        }
+    }
+}
 
 #pragma mark - message
 

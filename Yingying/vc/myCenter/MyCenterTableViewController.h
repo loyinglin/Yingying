@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, LYMYCENTER) {
+    my_total,
+    my_charge,
+    my_cash,
+    my_transfer,
+    my_finance,
+    my_loan,
+    my_setting
+};
+
+
 @interface MyCenterTableViewController : UITableViewController
 
 @end

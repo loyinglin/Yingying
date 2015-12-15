@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     
 //    [self.myTextView setBackgroundColor:[UIColor clearColor]];
@@ -32,6 +33,10 @@
 
 #pragma mark - view init
 
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
 #pragma mark - ibaction
 
 - (IBAction)onBack:(id)sender {

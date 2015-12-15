@@ -10,7 +10,10 @@
 
 @interface MyLoanController ()
 
+@property (nonatomic , strong) IBOutlet UIButton* myAgreeButton;
+
 @end
+
 
 @implementation MyLoanController
 
@@ -36,6 +39,11 @@
 
 #pragma mark - view init
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:YES];
+}
+
 #pragma mark - ibaction
 
 - (IBAction)onSure:(id)sender {
@@ -44,6 +52,15 @@
     }
 }
 
+- (IBAction)onAgree:(id)sender {
+    UIImage* selected = [UIImage imageNamed:@"my_loan_selected"];
+    if ([self.myAgreeButton.currentImage isEqual:selected]) {
+        [self.myAgreeButton setImage:nil forState:UIControlStateNormal];
+    }
+    else {
+        [self.myAgreeButton setImage:selected forState:UIControlStateNormal];
+    }
+}
 #pragma mark - ui
 
 - (BOOL)selectedButton {

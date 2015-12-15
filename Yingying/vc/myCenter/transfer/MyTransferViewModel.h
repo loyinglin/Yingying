@@ -34,9 +34,18 @@
 - (Friend *)getFriendByIndex:(long)index Section:(long)section;
 
 
+
+// search
+- (long)getSearchSectionsCount;
+
+- (long)getSearchFriendsCountBySection:(long)section;
+
+- (NSArray<NSString *> *)getSearchIndexsArray;
+
+- (Friend *)getSearchFriendByIndex:(long)index Section:(long)section;
 #pragma mark - update
 
-
+- (void)searchWithText:(NSString *)text;
 
 #pragma mark - message
 

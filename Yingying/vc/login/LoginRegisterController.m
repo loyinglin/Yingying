@@ -41,6 +41,10 @@
 
 #pragma mark - view init
 
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
 #pragma mark - ibaction
 
 - (IBAction)onBack:(id)sender {

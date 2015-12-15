@@ -22,14 +22,7 @@
     [super viewDidLoad];
     self.myViewModel = [MyTransferViewModel new];
     
-    self.mySearchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    self.mySearchController.automaticallyAdjustsScrollViewInsets = NO;
-    self.mySearchController.dimsBackgroundDuringPresentation = NO;
-    self.mySearchController.searchResultsUpdater = self;
-
-    self.tableView.tableHeaderView = self.mySearchController.searchBar;
-    [self.mySearchController.searchBar sizeToFit];
-    
+    [self customView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,19 +33,43 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.myViewModel getSectionsCount];
+    
+    long ret;
+    if ([self.mySearchController isActive]) {
+        ret = [self.myViewModel getSearchSectionsCount];
+    }
+    else {
+        ret = [self.myViewModel getSectionsCount];
+    }
+    
+    return ret;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.myViewModel getFriendsCountBySection:section];
+    
+    if ([self.mySearchController isActive]) {
+        return [self.myViewModel getSearchFriendsCountBySection:section];
+    }
+    else {
+        return [self.myViewModel getFriendsCountBySection:section];
+    }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    Friend* item = [self.myViewModel getFriendByIndex:indexPath.row Section:indexPath.section];
-    cell.textLabel.text = item.name;
+    Friend* item;
+    
+    if ([self.mySearchController isActive]) {
+        item = [self.myViewModel getSearchFriendByIndex:indexPath.row Section:indexPath.section];
+    }
+    else {
+        item = [self.myViewModel getFriendByIndex:indexPath.row Section:indexPath.section];
+    }
+    
+    UILabel* nameLabel = (UILabel *)[cell viewWithTag:10];
+    nameLabel.text = item.name;
     // Configure the cell...
     
     return cell;
@@ -60,7 +77,14 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"head"];
-    NSArray* arr = [self.myViewModel getIndexsArray];
+    NSArray* arr;
+    
+    if ([self.mySearchController isActive]) {
+        arr = [self.myViewModel getSearchIndexsArray];
+    }
+    else {
+        arr = [self.myViewModel getIndexsArray];
+    }
     
     cell.textLabel.text = arr[section];
     
@@ -68,7 +92,13 @@
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    return [self.myViewModel getIndexsArray];
+    
+    if ([self.mySearchController isActive]) {
+        return [self.myViewModel getSearchIndexsArray];
+    }
+    else {
+        return [self.myViewModel getIndexsArray];   
+    }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
@@ -88,6 +118,21 @@
 
 #pragma mark - view init
 
+- (void)customView {
+    
+    self.mySearchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.mySearchController.automaticallyAdjustsScrollViewInsets = NO;
+    self.mySearchController.dimsBackgroundDuringPresentation = NO;
+    self.mySearchController.searchResultsUpdater = self;
+    
+    self.tableView.tableHeaderView = self.mySearchController.searchBar;
+    [self.mySearchController.searchBar sizeToFit];
+    
+    
+    
+    self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
+}
+
 #pragma mark - ibaction
 
 #pragma mark - ui
@@ -96,6 +141,8 @@
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     NSLog(@"text:%@", searchController.searchBar.text);
+    [self.myViewModel searchWithText:searchController.searchBar.text];
+    [self.tableView reloadData];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -103,6 +150,9 @@
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+//    [self.mySearchController dismissViewControllerAnimated:YES completion:nil];
+    [self.mySearchController setActive:NO];
     
     [self performSegueWithIdentifier:@"open_transfer_detail_board" sender:self];
     
