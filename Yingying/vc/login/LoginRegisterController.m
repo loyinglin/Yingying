@@ -12,6 +12,12 @@
 
 @property (nonatomic , strong) IBOutlet UISwitch* mySwitch;
 
+@property (nonatomic , strong) IBOutlet UILabel* myMaleLabel;
+
+@property (nonatomic , strong) IBOutlet UILabel* myFemaleLabel;
+
+@property (nonatomic , strong) IBOutlet UITextField* myInputTextField;
+
 @end
 
 @implementation LoginRegisterController
@@ -20,6 +26,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    self.navigationController.navigationBarHidden = NO;
+//    ((UILabel *)[[[[[[self.mySwitch subviews] lastObject] subviews] objectAtIndex:2] subviews] objectAtIndex:0]).text = @"Foo";
+//    ((UILabel *)[[[[[[self.mySwitch subviews] lastObject] subviews] objectAtIndex:2] subviews] objectAtIndex:1]).text = @"Bar";
+    [self.myInputTextField setBackgroundColor:[UIColor clearColor]];
+    NSString* str = self.myInputTextField.placeholder;
+    self.myInputTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:str attributes:@{NSForegroundColorAttributeName:[UIColor lightGrayColor]}];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,6 +47,14 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)onSwitch:(UISwitch *)sender {
+    self.myMaleLabel.hidden = !sender.on;
+    self.myFemaleLabel.hidden = sender.on;
+}
+
+- (IBAction)onRegister:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark - ui
 
 #pragma mark - delegate

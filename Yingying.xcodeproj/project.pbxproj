@@ -184,6 +184,7 @@
 		FD8068411C1ED42300111A0A /* login_icon_password@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD80683F1C1ED42300111A0A /* login_icon_password@2x.png */; };
 		FD8068441C1F1DA000111A0A /* LoginRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8068431C1F1DA000111A0A /* LoginRegisterController.m */; };
 		FD8068461C1F1E3B00111A0A /* login_arrow_left.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8068451C1F1E3B00111A0A /* login_arrow_left.png */; };
+		FD8068491C1FA2BC00111A0A /* LoginProtocalController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8068481C1FA2BC00111A0A /* LoginProtocalController.m */; };
 		FD90EF561C158975005545DF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD90EF551C158975005545DF /* LoginViewController.m */; };
 		FD9686DB1C1AE42800D7F778 /* AroundPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9686DA1C1AE42800D7F778 /* AroundPayController.m */; };
 		FD9686E11C1AEA8600D7F778 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9686E01C1AEA8600D7F778 /* MineViewController.m */; };
@@ -459,6 +460,8 @@
 		FD8068421C1F1DA000111A0A /* LoginRegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegisterController.h; sourceTree = "<group>"; };
 		FD8068431C1F1DA000111A0A /* LoginRegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisterController.m; sourceTree = "<group>"; };
 		FD8068451C1F1E3B00111A0A /* login_arrow_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_arrow_left.png; sourceTree = "<group>"; };
+		FD8068471C1FA2BC00111A0A /* LoginProtocalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginProtocalController.h; sourceTree = "<group>"; };
+		FD8068481C1FA2BC00111A0A /* LoginProtocalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginProtocalController.m; sourceTree = "<group>"; };
 		FD90EF541C158975005545DF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FD90EF551C158975005545DF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FD9686D91C1AE42800D7F778 /* AroundPayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundPayController.h; sourceTree = "<group>"; };
@@ -1069,6 +1072,8 @@
 				FD90EF551C158975005545DF /* LoginViewController.m */,
 				FD8068421C1F1DA000111A0A /* LoginRegisterController.h */,
 				FD8068431C1F1DA000111A0A /* LoginRegisterController.m */,
+				FD8068471C1FA2BC00111A0A /* LoginProtocalController.h */,
+				FD8068481C1FA2BC00111A0A /* LoginProtocalController.m */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -1414,6 +1419,7 @@
 				FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */,
 				FD29B3791C112FDC00B68C6C /* MJRefreshBaseView.m in Sources */,
 				FD29B3551C111C4A00B68C6C /* AppDelegate.m in Sources */,
+				FD8068491C1FA2BC00111A0A /* LoginProtocalController.m in Sources */,
 				FD4BA8D31C128F3C00A69F90 /* MySettingTableViewController.m in Sources */,
 				FD29B38F1C1135DC00B68C6C /* AroundViewController.m in Sources */,
 				FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */,
@@ -1605,7 +1611,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.Yingying;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0c7f1de5-c51e-4910-a78d-ac7715f1f85c";
 			};
 			name = Debug;
 		};
@@ -1627,7 +1633,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.Yingying;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0c7f1de5-c51e-4910-a78d-ac7715f1f85c";
 			};
 			name = Release;
 		};
