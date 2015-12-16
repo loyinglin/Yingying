@@ -10,6 +10,7 @@
 #import "DistributionMoodController.h"
 #import "DistributionMoodViewModel.h"
 #import "MapInfoModel.h"
+#import "LYColor.h"
 
 @interface DistributionMoodController ()
 
@@ -26,6 +27,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.myViewModel = [DistributionMoodViewModel new];
+    
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14], NSForegroundColorAttributeName:UIColorFromRGB(0x778c93)} forState:UIControlStateNormal];
     
     [RACObserve(self.myViewModel, myImagesArr) subscribeNext:^(id x) {
         [self.myImages reloadData];

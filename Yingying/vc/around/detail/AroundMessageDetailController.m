@@ -69,6 +69,7 @@
 - (IBAction)onComment:(id)sender {
     NSLog(@"comment");
     self.myInputTextField.text = @""; //评论完清空
+    [self.myInputTextField resignFirstResponder];
 }
 
 #pragma mark - ui

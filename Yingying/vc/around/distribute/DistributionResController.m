@@ -9,6 +9,7 @@
 #import "DistributionResController.h"
 #import "DistributionResViewModel.h"
 #import "LYBaseImageViewController.h"
+#import "LYColor.h"
 #import "MapInfoModel.h"
 
 @interface DistributionResController ()
@@ -28,8 +29,6 @@
 
 @implementation DistributionResController
 
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -47,6 +46,8 @@
     
     
     RAC(self.myAddressLabel, text) = RACObserve([MapInfoModel instance], myAddress);
+    
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14], NSForegroundColorAttributeName:UIColorFromRGB(0x778c93)} forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {
