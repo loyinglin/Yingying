@@ -13,16 +13,18 @@
 
 @interface DistributionResController ()
 
-@property (nonatomic , strong) IBOutlet UITextView* myResDesc;
+@property (nonatomic , strong) IBOutlet UITextView*         myResDesc;
 
 
-@property (nonatomic , strong) IBOutlet UICollectionView* myImages;
-@property (nonatomic , strong) IBOutlet UILabel*        myAddressLabel;
+@property (nonatomic , strong) IBOutlet UICollectionView*   myImages;
+@property (nonatomic , strong) IBOutlet UILabel*            myAddressLabel;
+@property (nonatomic , strong) IBOutlet UILabel*            myPlaceholderLabel;
 
-@property (nonatomic , strong) DistributionResViewModel* myViewModel;
+@property (nonatomic , strong) DistributionResViewModel*    myViewModel;
 
 @property (nonatomic , assign) long myImageIndex;
 @end
+
 
 @implementation DistributionResController
 
@@ -220,6 +222,22 @@
         [self.navigationController pushViewController:controller animated:YES];
     }
 }
+
+
+#pragma delegate - placeholder
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    self.myPlaceholderLabel.hidden = YES;
+    return YES;
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
+    if (textView.text.length == 0) {
+        self.myPlaceholderLabel.hidden = NO;
+    }
+    return YES;
+}
+
 
 #pragma mark - notify
 

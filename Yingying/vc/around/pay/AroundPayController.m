@@ -36,6 +36,10 @@
     [self performSegueWithIdentifier:@"open_my_coupon_board" sender:self];
 }
 
+- (IBAction)onSelectAddress:(id)sender {
+    [self performSegueWithIdentifier:@"open_around_address_board" sender:self];
+}
+
 #pragma mark - ui
 
 #pragma mark - delegate

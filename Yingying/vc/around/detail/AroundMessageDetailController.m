@@ -18,6 +18,7 @@
 
 @property (nonatomic , strong) IBOutlet NSLayoutConstraint* myConstraint;
 
+@property (nonatomic , strong) IBOutlet UIButton* myFavoriteButton;
 @end
 
 @implementation AroundMessageDetailController
@@ -59,6 +60,15 @@
 
 - (IBAction)onPay:(id)sender {
     [self performSegueWithIdentifier:@"open_message_detail_pay_board" sender:self];
+}
+
+- (IBAction)onFavorite:(id)sender {
+    NSLog(@"favorite");
+}
+
+- (IBAction)onComment:(id)sender {
+    NSLog(@"comment");
+    self.myInputTextField.text = @""; //评论完清空
 }
 
 #pragma mark - ui

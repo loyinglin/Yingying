@@ -186,6 +186,11 @@
 		FD80685B1C1FF91F00111A0A /* my_loan_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8068571C1FF91F00111A0A /* my_loan_selected.png */; };
 		FD80685C1C1FF91F00111A0A /* my_loan_submit.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8068581C1FF91F00111A0A /* my_loan_submit.png */; };
 		FD80685D1C1FF91F00111A0A /* my_loan_unselect.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8068591C1FF91F00111A0A /* my_loan_unselect.png */; };
+		FD8068601C20F27700111A0A /* AroundAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD80685F1C20F27700111A0A /* AroundAddressController.m */; };
+		FD8068631C20F59B00111A0A /* AroundModalAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8068621C20F59B00111A0A /* AroundModalAddressController.m */; };
+		FD8068661C21072900111A0A /* china.txt in Resources */ = {isa = PBXBuildFile; fileRef = FD8068651C21072900111A0A /* china.txt */; };
+		FD8068691C2107AA00111A0A /* LYCityPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8068681C2107AA00111A0A /* LYCityPicker.m */; };
+		FD80686C1C210A0D00111A0A /* AroundAddressViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD80686B1C210A0D00111A0A /* AroundAddressViewModel.m */; };
 		FD90EF561C158975005545DF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD90EF551C158975005545DF /* LoginViewController.m */; };
 		FD9686DB1C1AE42800D7F778 /* AroundPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9686DA1C1AE42800D7F778 /* AroundPayController.m */; };
 		FD9686E11C1AEA8600D7F778 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9686E01C1AEA8600D7F778 /* MineViewController.m */; };
@@ -465,6 +470,15 @@
 		FD8068571C1FF91F00111A0A /* my_loan_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_loan_selected.png; sourceTree = "<group>"; };
 		FD8068581C1FF91F00111A0A /* my_loan_submit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_loan_submit.png; sourceTree = "<group>"; };
 		FD8068591C1FF91F00111A0A /* my_loan_unselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_loan_unselect.png; sourceTree = "<group>"; };
+		FD80685E1C20F27700111A0A /* AroundAddressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundAddressController.h; sourceTree = "<group>"; };
+		FD80685F1C20F27700111A0A /* AroundAddressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundAddressController.m; sourceTree = "<group>"; };
+		FD8068611C20F59B00111A0A /* AroundModalAddressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundModalAddressController.h; sourceTree = "<group>"; };
+		FD8068621C20F59B00111A0A /* AroundModalAddressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundModalAddressController.m; sourceTree = "<group>"; };
+		FD8068651C21072900111A0A /* china.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = china.txt; sourceTree = "<group>"; };
+		FD8068671C2107AA00111A0A /* LYCityPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYCityPicker.h; sourceTree = "<group>"; };
+		FD8068681C2107AA00111A0A /* LYCityPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYCityPicker.m; sourceTree = "<group>"; };
+		FD80686A1C210A0D00111A0A /* AroundAddressViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundAddressViewModel.h; sourceTree = "<group>"; };
+		FD80686B1C210A0D00111A0A /* AroundAddressViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundAddressViewModel.m; sourceTree = "<group>"; };
 		FD90EF541C158975005545DF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FD90EF551C158975005545DF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FD9686D91C1AE42800D7F778 /* AroundPayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundPayController.h; sourceTree = "<group>"; };
@@ -657,6 +671,7 @@
 		FD29B3421C111C4A00B68C6C /* extension */ = {
 			isa = PBXGroup;
 			children = (
+				FD8068641C2106C700111A0A /* CityPicker */,
 				FD29B35D1C112FDC00B68C6C /* LYCategory */,
 				FD29B3641C112FDC00B68C6C /* MJRefresh */,
 			);
@@ -1078,6 +1093,16 @@
 			path = total;
 			sourceTree = "<group>";
 		};
+		FD8068641C2106C700111A0A /* CityPicker */ = {
+			isa = PBXGroup;
+			children = (
+				FD8068651C21072900111A0A /* china.txt */,
+				FD8068671C2107AA00111A0A /* LYCityPicker.h */,
+				FD8068681C2107AA00111A0A /* LYCityPicker.m */,
+			);
+			path = CityPicker;
+			sourceTree = "<group>";
+		};
 		FD90EF531C15895F005545DF /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -1098,6 +1123,12 @@
 				FD9686DA1C1AE42800D7F778 /* AroundPayController.m */,
 				FD41BB4D1C1D8AA600B4A074 /* AroundMyCouponController.h */,
 				FD41BB4E1C1D8AA600B4A074 /* AroundMyCouponController.m */,
+				FD80685E1C20F27700111A0A /* AroundAddressController.h */,
+				FD80685F1C20F27700111A0A /* AroundAddressController.m */,
+				FD8068611C20F59B00111A0A /* AroundModalAddressController.h */,
+				FD8068621C20F59B00111A0A /* AroundModalAddressController.m */,
+				FD80686A1C210A0D00111A0A /* AroundAddressViewModel.h */,
+				FD80686B1C210A0D00111A0A /* AroundAddressViewModel.m */,
 			);
 			path = pay;
 			sourceTree = "<group>";
@@ -1297,6 +1328,7 @@
 				FD41BB031C1D13A600B4A074 /* 评论.png in Resources */,
 				FD21CFD41C1C091900CF8550 /* 评论添加图片.png in Resources */,
 				FD80685C1C1FF91F00111A0A /* my_loan_submit.png in Resources */,
+				FD8068661C21072900111A0A /* china.txt in Resources */,
 				FD41BB4A1C1D87FA00B4A074 /* test_white.png in Resources */,
 				FD41BAEA1C1D13A600B4A074 /* my_icon_cash.png in Resources */,
 				FD41BB3B1C1D87FA00B4A074 /* icon_message_detail_pay.png in Resources */,
@@ -1416,6 +1448,7 @@
 				FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */,
 				FD29B3C71C1161F400B68C6C /* ModelDistributionController.m in Sources */,
 				FD41BB4F1C1D8AA600B4A074 /* AroundMyCouponController.m in Sources */,
+				FD8068691C2107AA00111A0A /* LYCityPicker.m in Sources */,
 				FD29B35C1C111C4A00B68C6C /* SecondViewController.m in Sources */,
 				FD21CFAC1C1C04A300CF8550 /* ChatDetailController.m in Sources */,
 				FD61602B1C15210E00B73304 /* MapInfoModel.m in Sources */,
@@ -1444,6 +1477,7 @@
 				FD90EF561C158975005545DF /* LoginViewController.m in Sources */,
 				FD29B35B1C111C4A00B68C6C /* main.m in Sources */,
 				FD4BA8C81C127E6700A69F90 /* MyMessageTableViewController.m in Sources */,
+				FD8068601C20F27700111A0A /* AroundAddressController.m in Sources */,
 				FD21CFA61C1BC09200CF8550 /* ChatListController.m in Sources */,
 				FD29B3C31C1159D800B68C6C /* AroundMapController.m in Sources */,
 				FD29B37E1C112FDC00B68C6C /* UIScrollView+MJRefresh.m in Sources */,
@@ -1460,11 +1494,13 @@
 				FD4BA8DC1C13075A00A69F90 /* AroundMessageDetailController.m in Sources */,
 				FD8068551C1FF33F00111A0A /* MyTotalController.m in Sources */,
 				FD405F311C182E2A00DB6F0A /* PersonalHomePageViewModel.m in Sources */,
+				FD8068631C20F59B00111A0A /* AroundModalAddressController.m in Sources */,
 				FDA679BD1C1A7D5100FC8D9F /* DistributionResViewModel.m in Sources */,
 				FD29B3751C112FDC00B68C6C /* LYTypeEncoding.m in Sources */,
 				FD4BA8CF1C12841700A69F90 /* MyLoanDetailController.m in Sources */,
 				FD29B3591C111C4A00B68C6C /* FirstViewController.m in Sources */,
 				FD4799F11C1A78DE00ED3D62 /* LYBaseImageViewController.m in Sources */,
+				FD80686C1C210A0D00111A0A /* AroundAddressViewModel.m in Sources */,
 				FD4BA8E01C13135500A69F90 /* MyTransferTableViewController.m in Sources */,
 				FD29B3761C112FDC00B68C6C /* NSDictionary+LYDictToObject.m in Sources */,
 				FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */,
