@@ -166,6 +166,10 @@
 		FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8E51C13141B00A69F90 /* Yingying.m */; };
 		FD54DDAC1C217828009A8AD5 /* base_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD54DDAA1C217828009A8AD5 /* base_avatar.png */; };
 		FD54DDAD1C217828009A8AD5 /* base_status_esay.png in Resources */ = {isa = PBXBuildFile; fileRef = FD54DDAB1C217828009A8AD5 /* base_status_esay.png */; };
+		FD54DDB81C2247D7009A8AD5 /* AddressMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDB01C22397E009A8AD5 /* AddressMessage.m */; };
+		FD54DDB91C2247D7009A8AD5 /* BaseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDB21C22397E009A8AD5 /* BaseMessage.m */; };
+		FD54DDBD1C22960B009A8AD5 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDBC1C22960B009A8AD5 /* UserModel.m */; };
+		FD54DDC01C229847009A8AD5 /* UserMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDBF1C229847009A8AD5 /* UserMessage.m */; };
 		FD61602B1C15210E00B73304 /* MapInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD61602A1C15210E00B73304 /* MapInfoModel.m */; };
 		FD8068351C1EC7EE00111A0A /* login_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FD80682E1C1EC7EE00111A0A /* login_background.png */; };
 		FD8068361C1EC7EE00111A0A /* login_get_code.png in Resources */ = {isa = PBXBuildFile; fileRef = FD80682F1C1EC7EE00111A0A /* login_get_code.png */; };
@@ -446,6 +450,15 @@
 		FD4BA8E51C13141B00A69F90 /* Yingying.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Yingying.m; sourceTree = "<group>"; };
 		FD54DDAA1C217828009A8AD5 /* base_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base_avatar.png; sourceTree = "<group>"; };
 		FD54DDAB1C217828009A8AD5 /* base_status_esay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base_status_esay.png; sourceTree = "<group>"; };
+		FD54DDAF1C22397E009A8AD5 /* AddressMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressMessage.h; sourceTree = "<group>"; };
+		FD54DDB01C22397E009A8AD5 /* AddressMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressMessage.m; sourceTree = "<group>"; };
+		FD54DDB11C22397E009A8AD5 /* BaseMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMessage.h; sourceTree = "<group>"; };
+		FD54DDB21C22397E009A8AD5 /* BaseMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMessage.m; sourceTree = "<group>"; };
+		FD54DDB51C2239F0009A8AD5 /* AllMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllMessage.h; sourceTree = "<group>"; };
+		FD54DDBB1C22960B009A8AD5 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		FD54DDBC1C22960B009A8AD5 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		FD54DDBE1C229847009A8AD5 /* UserMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMessage.h; sourceTree = "<group>"; };
+		FD54DDBF1C229847009A8AD5 /* UserMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMessage.m; sourceTree = "<group>"; };
 		FD6160291C15210E00B73304 /* MapInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapInfoModel.h; sourceTree = "<group>"; };
 		FD61602A1C15210E00B73304 /* MapInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapInfoModel.m; sourceTree = "<group>"; };
 		FD80682E1C1EC7EE00111A0A /* login_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_background.png; sourceTree = "<group>"; };
@@ -679,6 +692,7 @@
 		FD29B3431C111C4A00B68C6C /* model */ = {
 			isa = PBXGroup;
 			children = (
+				FD54DDAE1C22397E009A8AD5 /* message */,
 				FD29B3AC1C113B6F00B68C6C /* base */,
 				FD29B3801C1130BC00B68C6C /* BaseModel.h */,
 				FD29B3811C1130BC00B68C6C /* BaseModel.m */,
@@ -686,6 +700,8 @@
 				FD4BA8E51C13141B00A69F90 /* Yingying.m */,
 				FD6160291C15210E00B73304 /* MapInfoModel.h */,
 				FD61602A1C15210E00B73304 /* MapInfoModel.m */,
+				FD54DDBB1C22960B009A8AD5 /* UserModel.h */,
+				FD54DDBC1C22960B009A8AD5 /* UserModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1067,6 +1083,20 @@
 				FD4BA8E21C13139C00A69F90 /* MyTransferViewModel.m */,
 			);
 			path = transfer;
+			sourceTree = "<group>";
+		};
+		FD54DDAE1C22397E009A8AD5 /* message */ = {
+			isa = PBXGroup;
+			children = (
+				FD54DDAF1C22397E009A8AD5 /* AddressMessage.h */,
+				FD54DDB01C22397E009A8AD5 /* AddressMessage.m */,
+				FD54DDB11C22397E009A8AD5 /* BaseMessage.h */,
+				FD54DDB21C22397E009A8AD5 /* BaseMessage.m */,
+				FD54DDB51C2239F0009A8AD5 /* AllMessage.h */,
+				FD54DDBE1C229847009A8AD5 /* UserMessage.h */,
+				FD54DDBF1C229847009A8AD5 /* UserMessage.m */,
+			);
+			path = message;
 			sourceTree = "<group>";
 		};
 		FD80682D1C1EC7EE00111A0A /* login */ = {
@@ -1467,6 +1497,7 @@
 				FD29B3551C111C4A00B68C6C /* AppDelegate.m in Sources */,
 				FD8068491C1FA2BC00111A0A /* LoginProtocalController.m in Sources */,
 				FD4BA8D31C128F3C00A69F90 /* MySettingTableViewController.m in Sources */,
+				FD54DDC01C229847009A8AD5 /* UserMessage.m in Sources */,
 				FD29B38F1C1135DC00B68C6C /* AroundViewController.m in Sources */,
 				FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */,
 				FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */,
@@ -1497,12 +1528,15 @@
 				FD8068631C20F59B00111A0A /* AroundModalAddressController.m in Sources */,
 				FDA679BD1C1A7D5100FC8D9F /* DistributionResViewModel.m in Sources */,
 				FD29B3751C112FDC00B68C6C /* LYTypeEncoding.m in Sources */,
+				FD54DDB81C2247D7009A8AD5 /* AddressMessage.m in Sources */,
+				FD54DDBD1C22960B009A8AD5 /* UserModel.m in Sources */,
 				FD4BA8CF1C12841700A69F90 /* MyLoanDetailController.m in Sources */,
 				FD29B3591C111C4A00B68C6C /* FirstViewController.m in Sources */,
 				FD4799F11C1A78DE00ED3D62 /* LYBaseImageViewController.m in Sources */,
 				FD80686C1C210A0D00111A0A /* AroundAddressViewModel.m in Sources */,
 				FD4BA8E01C13135500A69F90 /* MyTransferTableViewController.m in Sources */,
 				FD29B3761C112FDC00B68C6C /* NSDictionary+LYDictToObject.m in Sources */,
+				FD54DDB91C2247D7009A8AD5 /* BaseMessage.m in Sources */,
 				FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */,
 				FD29B3B21C113BC600B68C6C /* ForMap.mm in Sources */,
 				FD405F371C19061A00DB6F0A /* LYBaseTabBarController.m in Sources */,

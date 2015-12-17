@@ -9,6 +9,9 @@
 #import "AroundViewController.h"
 #import "LYNotifyCenter.h"
 #import "LYColor.h"
+#import "UserModel.h"
+#import "AddressMessage.h"
+#import "UserMessage.h"
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
 
@@ -39,6 +42,7 @@
     
 
     [self setupNotify];
+    [self test];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,6 +50,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)test {
+//    [[AddressMessage instance] requestAddUserAddress:nil Address:nil];
+    [[UserModel instance] requestOauthLoginWithUserphone:@"13535107063" Password:@"12345678"];
+}
 /*
 #pragma mark - Navigation
 
