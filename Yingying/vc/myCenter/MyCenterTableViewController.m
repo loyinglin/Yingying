@@ -76,6 +76,12 @@
     else if (indexPath.row == my_loan) {
         [self performSegueWithIdentifier:@"open_my_loan_board" sender:self];
     }
+    else if (indexPath.row == my_charge) {
+        [self performSegueWithIdentifier:@"open_my_charge_board" sender:self];
+    }
+    else if (indexPath.row == my_cash) {
+        [self performSegueWithIdentifier:@"open_my_cash_board" sender:self];
+    }
     return nil;
 }
 #pragma mark - delegate

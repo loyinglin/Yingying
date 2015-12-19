@@ -8,8 +8,11 @@
 
 #import "MineViewController.h"
 #import "NSObject+LYUITipsView.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface MineViewController ()
+@interface MineViewController () <AVAudioPlayerDelegate>
+
+@property (nonatomic, strong) AVAudioPlayer*    myPlayer;
 
 @end
 
@@ -18,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self prepareToPlay];
+    [self playRecord];
 
 }
 
@@ -39,6 +44,11 @@
 
 #pragma mark - view init
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self stopPlay];
+}
+
 #pragma mark - ibaction
 
 - (IBAction)onMine:(id)sender {
@@ -50,7 +60,48 @@
 }
 #pragma mark - ui
 
+- (void)prepareToPlay {
+    [self stopPlay];
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"awake" ofType:@".mp3"];
+    if (path) {
+        NSURL* url = [[NSURL alloc] initWithString:path];
+        self.myPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        
+        [self.myPlayer setDelegate:self];
+        [self.myPlayer setEnableRate:YES];
+//        [self.myPlayer setRate:self.myPlayRate / 10.0];
+        [self.myPlayer setVolume:0.5];
+    }
+}
+
+
+- (void)stopPlay {
+    
+    if (self.myPlayer) {
+        [self.myPlayer stop];
+        AVAudioSession* session = [AVAudioSession sharedInstance];
+        [session setActive:NO error:nil];
+        self.myPlayer = nil;
+    }
+}
+
+- (void)playRecord {
+    AVAudioSession* session = [AVAudioSession sharedInstance];
+    [session setActive:YES error:nil];
+    [self.myPlayer play];
+}
+
 #pragma mark - delegate
+
+- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    NSLog(@"play end");
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setActive:NO error:nil];
+}
+
+- (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError * __nullable)error{
+    NSLog(@"%@", [error description]);
+}
 
 #pragma mark - notify
 

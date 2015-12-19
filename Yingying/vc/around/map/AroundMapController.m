@@ -204,6 +204,9 @@
 // 当点击annotation view弹出的泡泡时，调用此接口
 - (void)mapView:(BMKMapView *)mapView annotationViewForBubble:(BMKAnnotationView *)view {
     NSLog(@"paopaoclick");
+    if (![view.reuseIdentifier isEqualToString:@"renameMark"]) {
+        return ;
+    }
     UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
     [self presentViewController:controller animated:YES completion:nil];
 

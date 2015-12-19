@@ -59,11 +59,6 @@
 		FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3D51C11727600B68C6C /* FinanceBillController.m */; };
 		FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3D81C1173B500B68C6C /* YingPlanTableViewController.m */; };
 		FD29B3DD1C1177D200B68C6C /* MyCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */; };
-		FD29B3E01C1194CC00B68C6C /* MyCashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3DF1C1194CC00B68C6C /* MyCashViewController.m */; };
-		FD405F2E1C16C23D00DB6F0A /* PersonalHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405F2D1C16C23D00DB6F0A /* PersonalHomePageController.m */; };
-		FD405F311C182E2A00DB6F0A /* PersonalHomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405F301C182E2A00DB6F0A /* PersonalHomePageViewModel.m */; };
-		FD405F341C1903A600DB6F0A /* LYBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405F331C1903A600DB6F0A /* LYBaseNavigationController.m */; };
-		FD405F371C19061A00DB6F0A /* LYBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405F361C19061A00DB6F0A /* LYBaseTabBarController.m */; };
 		FD405F701C1917C100DB6F0A /* LYColor.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405F6F1C1917C100DB6F0A /* LYColor.m */; };
 		FD41BA8F1C1C250400B4A074 /* finance_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41BA771C1C250400B4A074 /* finance_avatar.png */; };
 		FD41BA901C1C250400B4A074 /* finance_avatar2.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41BA781C1C250400B4A074 /* finance_avatar2.png */; };
@@ -152,8 +147,6 @@
 		FD41BB4A1C1D87FA00B4A074 /* test_white.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41BB2C1C1D87FA00B4A074 /* test_white.png */; };
 		FD41BB4C1C1D892D00B4A074 /* around_my_coupon.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41BB4B1C1D892D00B4A074 /* around_my_coupon.png */; };
 		FD41BB4F1C1D8AA600B4A074 /* AroundMyCouponController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD41BB4E1C1D8AA600B4A074 /* AroundMyCouponController.m */; };
-		FD4799F11C1A78DE00ED3D62 /* LYBaseImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4799F01C1A78DE00ED3D62 /* LYBaseImageViewController.m */; };
-		FD4799F41C1A7A5100ED3D62 /* LYBaseSelectImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4799F31C1A7A5100ED3D62 /* LYBaseSelectImageView.m */; };
 		FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */; };
 		FD4BA8C81C127E6700A69F90 /* MyMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8C71C127E6700A69F90 /* MyMessageTableViewController.m */; };
 		FD4BA8CC1C12834400A69F90 /* MyLoanController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8CB1C12834400A69F90 /* MyLoanController.m */; };
@@ -170,6 +163,16 @@
 		FD54DDB91C2247D7009A8AD5 /* BaseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDB21C22397E009A8AD5 /* BaseMessage.m */; };
 		FD54DDBD1C22960B009A8AD5 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDBC1C22960B009A8AD5 /* UserModel.m */; };
 		FD54DDC01C229847009A8AD5 /* UserMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDBF1C229847009A8AD5 /* UserMessage.m */; };
+		FD54DDDA1C23B073009A8AD5 /* awake.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FD54DDD91C23B073009A8AD5 /* awake.mp3 */; };
+		FD54DDE91C23B923009A8AD5 /* LYBaseImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDDD1C23B923009A8AD5 /* LYBaseImageViewController.m */; };
+		FD54DDEA1C23B923009A8AD5 /* LYBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDDF1C23B923009A8AD5 /* LYBaseNavigationController.m */; };
+		FD54DDEB1C23B923009A8AD5 /* LYBaseSelectImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDE11C23B923009A8AD5 /* LYBaseSelectImageView.m */; };
+		FD54DDEC1C23B923009A8AD5 /* LYBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDE31C23B923009A8AD5 /* LYBaseTabBarController.m */; };
+		FD54DDED1C23B923009A8AD5 /* PersonalHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDE61C23B923009A8AD5 /* PersonalHomePageController.m */; };
+		FD54DDEE1C23B923009A8AD5 /* PersonalHomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDE81C23B923009A8AD5 /* PersonalHomePageViewModel.m */; };
+		FD54DDF21C2413F0009A8AD5 /* MyChargeController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDF11C2413F0009A8AD5 /* MyChargeController.m */; };
+		FD54DDF61C2461EE009A8AD5 /* MyCashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDF51C2461EE009A8AD5 /* MyCashViewController.m */; };
+		FD54DDF91C24E36D009A8AD5 /* ModalConfirmCashController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDF81C24E36D009A8AD5 /* ModalConfirmCashController.m */; };
 		FD61602B1C15210E00B73304 /* MapInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD61602A1C15210E00B73304 /* MapInfoModel.m */; };
 		FD8068351C1EC7EE00111A0A /* login_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FD80682E1C1EC7EE00111A0A /* login_background.png */; };
 		FD8068361C1EC7EE00111A0A /* login_get_code.png in Resources */ = {isa = PBXBuildFile; fileRef = FD80682F1C1EC7EE00111A0A /* login_get_code.png */; };
@@ -200,6 +203,7 @@
 		FD9686E11C1AEA8600D7F778 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9686E01C1AEA8600D7F778 /* MineViewController.m */; };
 		FD9A8EF01C193B5B00D9EC9C /* LYAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8EEF1C193B5B00D9EC9C /* LYAnnotationView.m */; };
 		FDA679BD1C1A7D5100FC8D9F /* DistributionResViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA679BC1C1A7D5100FC8D9F /* DistributionResViewModel.m */; };
+		FDD6D7CB1C24F4E400B03DF8 /* MyCashSwitchAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7CA1C24F4E400B03DF8 /* MyCashSwitchAccountController.m */; };
 		FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532221C13C5F900B779E6 /* DistributionMoodController.m */; };
 		FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532241C13C5F900B779E6 /* DistributionResController.m */; };
 		FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */; };
@@ -322,16 +326,6 @@
 		FD29B3D81C1173B500B68C6C /* YingPlanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YingPlanTableViewController.m; sourceTree = "<group>"; };
 		FD29B3DB1C1177D200B68C6C /* MyCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCenterTableViewController.h; sourceTree = "<group>"; };
 		FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCenterTableViewController.m; sourceTree = "<group>"; };
-		FD29B3DE1C1194CC00B68C6C /* MyCashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCashViewController.h; sourceTree = "<group>"; };
-		FD29B3DF1C1194CC00B68C6C /* MyCashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCashViewController.m; sourceTree = "<group>"; };
-		FD405F2C1C16C23D00DB6F0A /* PersonalHomePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHomePageController.h; sourceTree = "<group>"; };
-		FD405F2D1C16C23D00DB6F0A /* PersonalHomePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHomePageController.m; sourceTree = "<group>"; };
-		FD405F2F1C182E2A00DB6F0A /* PersonalHomePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHomePageViewModel.h; sourceTree = "<group>"; };
-		FD405F301C182E2A00DB6F0A /* PersonalHomePageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHomePageViewModel.m; sourceTree = "<group>"; };
-		FD405F321C1903A600DB6F0A /* LYBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseNavigationController.h; sourceTree = "<group>"; };
-		FD405F331C1903A600DB6F0A /* LYBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseNavigationController.m; sourceTree = "<group>"; };
-		FD405F351C19061A00DB6F0A /* LYBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseTabBarController.h; sourceTree = "<group>"; };
-		FD405F361C19061A00DB6F0A /* LYBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseTabBarController.m; sourceTree = "<group>"; };
 		FD405F6E1C1917C100DB6F0A /* LYColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYColor.h; sourceTree = "<group>"; };
 		FD405F6F1C1917C100DB6F0A /* LYColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYColor.m; sourceTree = "<group>"; };
 		FD41BA771C1C250400B4A074 /* finance_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finance_avatar.png; sourceTree = "<group>"; };
@@ -424,10 +418,6 @@
 		FD41BB4B1C1D892D00B4A074 /* around_my_coupon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = around_my_coupon.png; sourceTree = "<group>"; };
 		FD41BB4D1C1D8AA600B4A074 /* AroundMyCouponController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMyCouponController.h; sourceTree = "<group>"; };
 		FD41BB4E1C1D8AA600B4A074 /* AroundMyCouponController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMyCouponController.m; sourceTree = "<group>"; };
-		FD4799EF1C1A78DE00ED3D62 /* LYBaseImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseImageViewController.h; sourceTree = "<group>"; };
-		FD4799F01C1A78DE00ED3D62 /* LYBaseImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseImageViewController.m; sourceTree = "<group>"; };
-		FD4799F21C1A7A5100ED3D62 /* LYBaseSelectImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseSelectImageView.h; sourceTree = "<group>"; };
-		FD4799F31C1A7A5100ED3D62 /* LYBaseSelectImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseSelectImageView.m; sourceTree = "<group>"; };
 		FD4BA8C31C11C5DE00A69F90 /* MyInvestmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInvestmentViewController.h; sourceTree = "<group>"; };
 		FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInvestmentViewController.m; sourceTree = "<group>"; };
 		FD4BA8C61C127E6700A69F90 /* MyMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMessageTableViewController.h; sourceTree = "<group>"; };
@@ -459,6 +449,25 @@
 		FD54DDBC1C22960B009A8AD5 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		FD54DDBE1C229847009A8AD5 /* UserMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMessage.h; sourceTree = "<group>"; };
 		FD54DDBF1C229847009A8AD5 /* UserMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMessage.m; sourceTree = "<group>"; };
+		FD54DDD91C23B073009A8AD5 /* awake.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = awake.mp3; sourceTree = "<group>"; };
+		FD54DDDC1C23B923009A8AD5 /* LYBaseImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseImageViewController.h; sourceTree = "<group>"; };
+		FD54DDDD1C23B923009A8AD5 /* LYBaseImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseImageViewController.m; sourceTree = "<group>"; };
+		FD54DDDE1C23B923009A8AD5 /* LYBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseNavigationController.h; sourceTree = "<group>"; };
+		FD54DDDF1C23B923009A8AD5 /* LYBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseNavigationController.m; sourceTree = "<group>"; };
+		FD54DDE01C23B923009A8AD5 /* LYBaseSelectImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseSelectImageView.h; sourceTree = "<group>"; };
+		FD54DDE11C23B923009A8AD5 /* LYBaseSelectImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseSelectImageView.m; sourceTree = "<group>"; };
+		FD54DDE21C23B923009A8AD5 /* LYBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseTabBarController.h; sourceTree = "<group>"; };
+		FD54DDE31C23B923009A8AD5 /* LYBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseTabBarController.m; sourceTree = "<group>"; };
+		FD54DDE51C23B923009A8AD5 /* PersonalHomePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHomePageController.h; sourceTree = "<group>"; };
+		FD54DDE61C23B923009A8AD5 /* PersonalHomePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHomePageController.m; sourceTree = "<group>"; };
+		FD54DDE71C23B923009A8AD5 /* PersonalHomePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHomePageViewModel.h; sourceTree = "<group>"; };
+		FD54DDE81C23B923009A8AD5 /* PersonalHomePageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHomePageViewModel.m; sourceTree = "<group>"; };
+		FD54DDF01C2413F0009A8AD5 /* MyChargeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyChargeController.h; sourceTree = "<group>"; };
+		FD54DDF11C2413F0009A8AD5 /* MyChargeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyChargeController.m; sourceTree = "<group>"; };
+		FD54DDF41C2461EE009A8AD5 /* MyCashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCashViewController.h; sourceTree = "<group>"; };
+		FD54DDF51C2461EE009A8AD5 /* MyCashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCashViewController.m; sourceTree = "<group>"; };
+		FD54DDF71C24E36D009A8AD5 /* ModalConfirmCashController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalConfirmCashController.h; sourceTree = "<group>"; };
+		FD54DDF81C24E36D009A8AD5 /* ModalConfirmCashController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalConfirmCashController.m; sourceTree = "<group>"; };
 		FD6160291C15210E00B73304 /* MapInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapInfoModel.h; sourceTree = "<group>"; };
 		FD61602A1C15210E00B73304 /* MapInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapInfoModel.m; sourceTree = "<group>"; };
 		FD80682E1C1EC7EE00111A0A /* login_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_background.png; sourceTree = "<group>"; };
@@ -502,6 +511,8 @@
 		FD9A8EEF1C193B5B00D9EC9C /* LYAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYAnnotationView.m; sourceTree = "<group>"; };
 		FDA679BB1C1A7D5100FC8D9F /* DistributionResViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionResViewModel.h; sourceTree = "<group>"; };
 		FDA679BC1C1A7D5100FC8D9F /* DistributionResViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionResViewModel.m; sourceTree = "<group>"; };
+		FDD6D7C91C24F4E400B03DF8 /* MyCashSwitchAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCashSwitchAccountController.h; sourceTree = "<group>"; };
+		FDD6D7CA1C24F4E400B03DF8 /* MyCashSwitchAccountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCashSwitchAccountController.m; sourceTree = "<group>"; };
 		FDF532211C13C5F900B779E6 /* DistributionMoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionMoodController.h; sourceTree = "<group>"; };
 		FDF532221C13C5F900B779E6 /* DistributionMoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionMoodController.m; sourceTree = "<group>"; };
 		FDF532231C13C5F900B779E6 /* DistributionResController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionResController.h; sourceTree = "<group>"; };
@@ -709,6 +720,7 @@
 		FD29B3441C111C4A00B68C6C /* res */ = {
 			isa = PBXGroup;
 			children = (
+				FD54DDD81C23B073009A8AD5 /* sound */,
 				FD29B3451C111C4A00B68C6C /* img */,
 			);
 			path = res;
@@ -880,6 +892,8 @@
 		FD29B3DA1C1177A800B68C6C /* myCenter */ = {
 			isa = PBXGroup;
 			children = (
+				FD54DDF31C2461EE009A8AD5 /* cash */,
+				FD54DDEF1C2413DB009A8AD5 /* charge */,
 				FD8068521C1FF32B00111A0A /* total */,
 				FD4BA8DD1C13135500A69F90 /* transfer */,
 				FD4BA8D01C128F2100A69F90 /* setting */,
@@ -887,8 +901,6 @@
 				FD4BA8C21C11C5D300A69F90 /* investment */,
 				FD29B3DB1C1177D200B68C6C /* MyCenterTableViewController.h */,
 				FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */,
-				FD29B3DE1C1194CC00B68C6C /* MyCashViewController.h */,
-				FD29B3DF1C1194CC00B68C6C /* MyCashViewController.m */,
 				FD4BA8C61C127E6700A69F90 /* MyMessageTableViewController.h */,
 				FD4BA8C71C127E6700A69F90 /* MyMessageTableViewController.m */,
 			);
@@ -898,18 +910,8 @@
 		FD405F2B1C16C22700DB6F0A /* common */ = {
 			isa = PBXGroup;
 			children = (
-				FD405F321C1903A600DB6F0A /* LYBaseNavigationController.h */,
-				FD405F331C1903A600DB6F0A /* LYBaseNavigationController.m */,
-				FD405F351C19061A00DB6F0A /* LYBaseTabBarController.h */,
-				FD405F361C19061A00DB6F0A /* LYBaseTabBarController.m */,
-				FD405F2C1C16C23D00DB6F0A /* PersonalHomePageController.h */,
-				FD405F2D1C16C23D00DB6F0A /* PersonalHomePageController.m */,
-				FD405F2F1C182E2A00DB6F0A /* PersonalHomePageViewModel.h */,
-				FD405F301C182E2A00DB6F0A /* PersonalHomePageViewModel.m */,
-				FD4799EF1C1A78DE00ED3D62 /* LYBaseImageViewController.h */,
-				FD4799F01C1A78DE00ED3D62 /* LYBaseImageViewController.m */,
-				FD4799F21C1A7A5100ED3D62 /* LYBaseSelectImageView.h */,
-				FD4799F31C1A7A5100ED3D62 /* LYBaseSelectImageView.m */,
+				FD54DDDB1C23B923009A8AD5 /* base */,
+				FD54DDE41C23B923009A8AD5 /* personalHomePage */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -1097,6 +1099,62 @@
 				FD54DDBF1C229847009A8AD5 /* UserMessage.m */,
 			);
 			path = message;
+			sourceTree = "<group>";
+		};
+		FD54DDD81C23B073009A8AD5 /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				FD54DDD91C23B073009A8AD5 /* awake.mp3 */,
+			);
+			path = sound;
+			sourceTree = "<group>";
+		};
+		FD54DDDB1C23B923009A8AD5 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				FD54DDDC1C23B923009A8AD5 /* LYBaseImageViewController.h */,
+				FD54DDDD1C23B923009A8AD5 /* LYBaseImageViewController.m */,
+				FD54DDDE1C23B923009A8AD5 /* LYBaseNavigationController.h */,
+				FD54DDDF1C23B923009A8AD5 /* LYBaseNavigationController.m */,
+				FD54DDE01C23B923009A8AD5 /* LYBaseSelectImageView.h */,
+				FD54DDE11C23B923009A8AD5 /* LYBaseSelectImageView.m */,
+				FD54DDE21C23B923009A8AD5 /* LYBaseTabBarController.h */,
+				FD54DDE31C23B923009A8AD5 /* LYBaseTabBarController.m */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		FD54DDE41C23B923009A8AD5 /* personalHomePage */ = {
+			isa = PBXGroup;
+			children = (
+				FD54DDE51C23B923009A8AD5 /* PersonalHomePageController.h */,
+				FD54DDE61C23B923009A8AD5 /* PersonalHomePageController.m */,
+				FD54DDE71C23B923009A8AD5 /* PersonalHomePageViewModel.h */,
+				FD54DDE81C23B923009A8AD5 /* PersonalHomePageViewModel.m */,
+			);
+			path = personalHomePage;
+			sourceTree = "<group>";
+		};
+		FD54DDEF1C2413DB009A8AD5 /* charge */ = {
+			isa = PBXGroup;
+			children = (
+				FD54DDF01C2413F0009A8AD5 /* MyChargeController.h */,
+				FD54DDF11C2413F0009A8AD5 /* MyChargeController.m */,
+			);
+			path = charge;
+			sourceTree = "<group>";
+		};
+		FD54DDF31C2461EE009A8AD5 /* cash */ = {
+			isa = PBXGroup;
+			children = (
+				FD54DDF41C2461EE009A8AD5 /* MyCashViewController.h */,
+				FD54DDF51C2461EE009A8AD5 /* MyCashViewController.m */,
+				FD54DDF71C24E36D009A8AD5 /* ModalConfirmCashController.h */,
+				FD54DDF81C24E36D009A8AD5 /* ModalConfirmCashController.m */,
+				FDD6D7C91C24F4E400B03DF8 /* MyCashSwitchAccountController.h */,
+				FDD6D7CA1C24F4E400B03DF8 /* MyCashSwitchAccountController.m */,
+			);
+			path = cash;
 			sourceTree = "<group>";
 		};
 		FD80682D1C1EC7EE00111A0A /* login */ = {
@@ -1341,6 +1399,7 @@
 				FD54DDAD1C217828009A8AD5 /* base_status_esay.png in Resources */,
 				FD8068411C1ED42300111A0A /* login_icon_password@2x.png in Resources */,
 				FD80683B1C1EC7EE00111A0A /* login_register_button.png in Resources */,
+				FD54DDDA1C23B073009A8AD5 /* awake.mp3 in Resources */,
 				FD41BA991C1C250500B4A074 /* finance_mining.png in Resources */,
 				FD29B3781C112FDC00B68C6C /* MJRefresh.bundle in Resources */,
 				FD80684E1C1FCF5C00111A0A /* my_total_background.png in Resources */,
@@ -1499,49 +1558,52 @@
 				FD4BA8D31C128F3C00A69F90 /* MySettingTableViewController.m in Sources */,
 				FD54DDC01C229847009A8AD5 /* UserMessage.m in Sources */,
 				FD29B38F1C1135DC00B68C6C /* AroundViewController.m in Sources */,
+				FDD6D7CB1C24F4E400B03DF8 /* MyCashSwitchAccountController.m in Sources */,
 				FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */,
 				FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */,
-				FD405F341C1903A600DB6F0A /* LYBaseNavigationController.m in Sources */,
 				FD41BAB71C1D09A400B4A074 /* YingLoanController.m in Sources */,
 				FD405F701C1917C100DB6F0A /* LYColor.m in Sources */,
-				FD405F2E1C16C23D00DB6F0A /* PersonalHomePageController.m in Sources */,
 				FD90EF561C158975005545DF /* LoginViewController.m in Sources */,
 				FD29B35B1C111C4A00B68C6C /* main.m in Sources */,
 				FD4BA8C81C127E6700A69F90 /* MyMessageTableViewController.m in Sources */,
+				FD54DDED1C23B923009A8AD5 /* PersonalHomePageController.m in Sources */,
+				FD54DDEC1C23B923009A8AD5 /* LYBaseTabBarController.m in Sources */,
 				FD8068601C20F27700111A0A /* AroundAddressController.m in Sources */,
 				FD21CFA61C1BC09200CF8550 /* ChatListController.m in Sources */,
 				FD29B3C31C1159D800B68C6C /* AroundMapController.m in Sources */,
 				FD29B37E1C112FDC00B68C6C /* UIScrollView+MJRefresh.m in Sources */,
 				FD21CFA31C1BBFCC00CF8550 /* CDUserFactory.m in Sources */,
 				FD4BA8CC1C12834400A69F90 /* MyLoanController.m in Sources */,
+				FD54DDF21C2413F0009A8AD5 /* MyChargeController.m in Sources */,
 				FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */,
 				FD29B37A1C112FDC00B68C6C /* MJRefreshConst.m in Sources */,
 				FD9686DB1C1AE42800D7F778 /* AroundPayController.m in Sources */,
-				FD29B3E01C1194CC00B68C6C /* MyCashViewController.m in Sources */,
 				FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */,
 				FD29B3C21C1159D800B68C6C /* AroundMessageController.m in Sources */,
 				FD9A8EF01C193B5B00D9EC9C /* LYAnnotationView.m in Sources */,
 				FD4BA8D91C12F5B500A69F90 /* NSObject+LYUITipsView.m in Sources */,
 				FD4BA8DC1C13075A00A69F90 /* AroundMessageDetailController.m in Sources */,
+				FD54DDF91C24E36D009A8AD5 /* ModalConfirmCashController.m in Sources */,
 				FD8068551C1FF33F00111A0A /* MyTotalController.m in Sources */,
-				FD405F311C182E2A00DB6F0A /* PersonalHomePageViewModel.m in Sources */,
 				FD8068631C20F59B00111A0A /* AroundModalAddressController.m in Sources */,
+				FD54DDEB1C23B923009A8AD5 /* LYBaseSelectImageView.m in Sources */,
 				FDA679BD1C1A7D5100FC8D9F /* DistributionResViewModel.m in Sources */,
 				FD29B3751C112FDC00B68C6C /* LYTypeEncoding.m in Sources */,
 				FD54DDB81C2247D7009A8AD5 /* AddressMessage.m in Sources */,
 				FD54DDBD1C22960B009A8AD5 /* UserModel.m in Sources */,
 				FD4BA8CF1C12841700A69F90 /* MyLoanDetailController.m in Sources */,
 				FD29B3591C111C4A00B68C6C /* FirstViewController.m in Sources */,
-				FD4799F11C1A78DE00ED3D62 /* LYBaseImageViewController.m in Sources */,
+				FD54DDE91C23B923009A8AD5 /* LYBaseImageViewController.m in Sources */,
 				FD80686C1C210A0D00111A0A /* AroundAddressViewModel.m in Sources */,
+				FD54DDF61C2461EE009A8AD5 /* MyCashViewController.m in Sources */,
 				FD4BA8E01C13135500A69F90 /* MyTransferTableViewController.m in Sources */,
 				FD29B3761C112FDC00B68C6C /* NSDictionary+LYDictToObject.m in Sources */,
+				FD54DDEA1C23B923009A8AD5 /* LYBaseNavigationController.m in Sources */,
 				FD54DDB91C2247D7009A8AD5 /* BaseMessage.m in Sources */,
 				FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */,
 				FD29B3B21C113BC600B68C6C /* ForMap.mm in Sources */,
-				FD405F371C19061A00DB6F0A /* LYBaseTabBarController.m in Sources */,
-				FD4799F41C1A7A5100ED3D62 /* LYBaseSelectImageView.m in Sources */,
 				FD4BA8E31C13139C00A69F90 /* MyTransferViewModel.m in Sources */,
+				FD54DDEE1C23B923009A8AD5 /* PersonalHomePageViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1695,7 +1757,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.Yingying;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0c7f1de5-c51e-4910-a78d-ac7715f1f85c";
 			};
 			name = Debug;
 		};
@@ -1717,7 +1779,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.Yingying;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0c7f1de5-c51e-4910-a78d-ac7715f1f85c";
 			};
 			name = Release;
 		};
