@@ -7,6 +7,8 @@
 //
 
 #import "SettingNewPayPasswordController.h"
+#import "LYColor.h"
+#import "UIViewController+YingyingNavigationItem.h"
 #import "MySettingTableViewController.h"
 
 @interface SettingNewPayPasswordController ()
@@ -39,6 +41,10 @@
                         , self.myPasswordButton2, self.myPasswordButton3
                         , self.myPasswordButton4, self.myPasswordButton5
                         ,nil];
+    
+
+    [self setupLeftItem];
+  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,6 +62,10 @@
 }
 
 - (IBAction)onComplete:(id)sender {
+    [self onBackToSetting:sender];
+}
+
+- (IBAction)onBackToSetting:(id)sender {
     UIViewController* controller;
     NSArray* arr = self.navigationController.viewControllers;
     for (UIViewController* item in arr) {

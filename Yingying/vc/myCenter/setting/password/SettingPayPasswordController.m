@@ -59,6 +59,9 @@
     
 }
 
+- (IBAction)onForget:(id)sender {
+    [self performSegueWithIdentifier:@"open_setting_forget_pay_password_board" sender:self];
+}
 
 - (BOOL)checkPasswordOK {
     return YES;

@@ -3929,6 +3929,101 @@
             </objects>
             <point key="canvasLocation" x="355" y="2865"/>
         </scene>
+        <!--忘记密码-->
+        <scene sceneID="0ox-Vb-Aey">
+            <objects>
+                <viewController id="QUs-OO-nFx" customClass="SettingForgetPayPasswordController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oRr-6e-PNJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="5mk-UQ-XoL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ugk-Ok-JaK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mrF-Sv-OGq">
+                                <rect key="frame" x="30" y="94" width="260" height="30"/>
+                                <color key="textColor" red="0.34901960780000002" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wJs-P0-tZV">
+                                <rect key="frame" x="30" y="144" width="260" height="30"/>
+                                <color key="textColor" red="0.34901960780000002" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JaF-Rt-AnL">
+                                <rect key="frame" x="35" y="204" width="250" height="35"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.75294117650000003" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="sej-c8-61W"/>
+                                    <constraint firstAttribute="width" constant="250" id="tHJ-QP-vef"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="立即找回">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onClick:" destination="QUs-OO-nFx" eventType="touchUpInside" id="Fi2-T4-WHL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDD-iG-CEx">
+                                <rect key="frame" x="215" y="149" width="65" height="20"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.75294117650000003" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="CaM-ZX-jG4"/>
+                                    <constraint firstAttribute="width" constant="65" id="ZT4-Td-g2s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="获取验证码">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onGetCode:" destination="QUs-OO-nFx" eventType="touchUpInside" id="SIZ-DB-tIB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YDD-iG-CEx" firstAttribute="centerY" secondItem="wJs-P0-tZV" secondAttribute="centerY" id="6SV-ow-bEt"/>
+                            <constraint firstAttribute="trailing" secondItem="mrF-Sv-OGq" secondAttribute="trailing" constant="30" id="9cU-ha-t7T"/>
+                            <constraint firstItem="YDD-iG-CEx" firstAttribute="trailing" secondItem="wJs-P0-tZV" secondAttribute="trailing" constant="-10" id="HFZ-hj-T1W"/>
+                            <constraint firstItem="JaF-Rt-AnL" firstAttribute="centerX" secondItem="ugk-Ok-JaK" secondAttribute="centerX" id="IEr-0r-4Kj"/>
+                            <constraint firstItem="mrF-Sv-OGq" firstAttribute="top" secondItem="oRr-6e-PNJ" secondAttribute="bottom" constant="30" id="IrI-q3-oKo"/>
+                            <constraint firstItem="wJs-P0-tZV" firstAttribute="top" secondItem="mrF-Sv-OGq" secondAttribute="bottom" constant="20" id="K2F-Dh-xEx"/>
+                            <constraint firstItem="JaF-Rt-AnL" firstAttribute="top" secondItem="wJs-P0-tZV" secondAttribute="bottom" constant="30" id="heX-JQ-Ptp"/>
+                            <constraint firstItem="wJs-P0-tZV" firstAttribute="leading" secondItem="ugk-Ok-JaK" secondAttribute="leading" constant="30" id="pUr-O9-KDG"/>
+                            <constraint firstItem="mrF-Sv-OGq" firstAttribute="leading" secondItem="ugk-Ok-JaK" secondAttribute="leading" constant="30" id="sBo-4e-zEX"/>
+                            <constraint firstAttribute="trailing" secondItem="wJs-P0-tZV" secondAttribute="trailing" constant="30" id="xKC-5H-0j4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="忘记密码" id="W3D-Gd-GOH">
+                        <barButtonItem key="leftBarButtonItem" title="返回" id="zR9-w0-LOi">
+                            <connections>
+                                <action selector="onBackToSetting:" destination="QUs-OO-nFx" id="yhs-eg-eYz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="myCode" destination="wJs-P0-tZV" id="uBN-Lu-Rqj"/>
+                        <outlet property="myPhone" destination="mrF-Sv-OGq" id="Ipy-rR-BS3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Dc-EY-za5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="758" y="3037"/>
+        </scene>
         <!--设置-->
         <scene sceneID="Azs-eL-WoD">
             <objects>
@@ -4215,6 +4310,9 @@
                                         <state key="normal" title="忘记密码？">
                                             <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onForget:" destination="ScG-V5-ZCk" eventType="touchUpInside" id="4ZN-1g-F0g"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入原支付密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qnp-FZ-1LY">
                                         <rect key="frame" x="96" y="10" width="98" height="17"/>
@@ -4363,6 +4461,7 @@
                         <outlet property="myPasswordButton4" destination="rNM-Ph-gkF" id="et1-aX-bkg"/>
                         <outlet property="myPasswordButton5" destination="FPj-tP-UcQ" id="Bkg-EI-rCv"/>
                         <segue destination="yvb-8x-Nen" kind="push" identifier="open_setting_new_pay_password_board" id="cKJ-eW-Egt"/>
+                        <segue destination="QUs-OO-nFx" kind="push" identifier="open_setting_forget_pay_password_board" id="6mr-vc-25F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U7U-R6-job" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5928,7 +6027,13 @@
                             <constraint firstItem="PJ9-hl-cy2" firstAttribute="centerX" secondItem="WtE-nT-5ey" secondAttribute="centerX" id="z0k-sN-Chq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="支付密码修改2" id="lcx-Dh-suK"/>
+                    <navigationItem key="navigationItem" title="支付密码修改2" id="lcx-Dh-suK">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="MMD-5R-ci7">
+                            <connections>
+                                <action selector="onBackToSetting:" destination="yvb-8x-Nen" id="wTF-U8-02I"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="myEmptyTextField" destination="CqY-rB-IOw" id="GKO-Ml-fw2"/>
                         <outlet property="myPasswordButton0" destination="XBt-qk-nuQ" id="mzJ-TX-S9T"/>
