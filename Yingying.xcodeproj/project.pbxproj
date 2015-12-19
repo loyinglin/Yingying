@@ -204,7 +204,8 @@
 		FD9A8EF01C193B5B00D9EC9C /* LYAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8EEF1C193B5B00D9EC9C /* LYAnnotationView.m */; };
 		FDA679BD1C1A7D5100FC8D9F /* DistributionResViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA679BC1C1A7D5100FC8D9F /* DistributionResViewModel.m */; };
 		FDD6D7CB1C24F4E400B03DF8 /* MyCashSwitchAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7CA1C24F4E400B03DF8 /* MyCashSwitchAccountController.m */; };
-		FDD6D7CE1C252B1400B03DF8 /* SettingPayPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7CD1C252B1400B03DF8 /* SettingPayPasswordController.m */; };
+		FDD6D7D21C25A41100B03DF8 /* SettingPayPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7D11C25A41100B03DF8 /* SettingPayPasswordController.m */; };
+		FDD6D7D51C25A45900B03DF8 /* SettingNewPayPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7D41C25A45900B03DF8 /* SettingNewPayPasswordController.m */; };
 		FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532221C13C5F900B779E6 /* DistributionMoodController.m */; };
 		FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532241C13C5F900B779E6 /* DistributionResController.m */; };
 		FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */; };
@@ -514,8 +515,10 @@
 		FDA679BC1C1A7D5100FC8D9F /* DistributionResViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionResViewModel.m; sourceTree = "<group>"; };
 		FDD6D7C91C24F4E400B03DF8 /* MyCashSwitchAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCashSwitchAccountController.h; sourceTree = "<group>"; };
 		FDD6D7CA1C24F4E400B03DF8 /* MyCashSwitchAccountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCashSwitchAccountController.m; sourceTree = "<group>"; };
-		FDD6D7CC1C252B1400B03DF8 /* SettingPayPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingPayPasswordController.h; sourceTree = "<group>"; };
-		FDD6D7CD1C252B1400B03DF8 /* SettingPayPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingPayPasswordController.m; sourceTree = "<group>"; };
+		FDD6D7D01C25A41100B03DF8 /* SettingPayPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingPayPasswordController.h; sourceTree = "<group>"; };
+		FDD6D7D11C25A41100B03DF8 /* SettingPayPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingPayPasswordController.m; sourceTree = "<group>"; };
+		FDD6D7D31C25A45900B03DF8 /* SettingNewPayPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingNewPayPasswordController.h; sourceTree = "<group>"; };
+		FDD6D7D41C25A45900B03DF8 /* SettingNewPayPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingNewPayPasswordController.m; sourceTree = "<group>"; };
 		FDF532211C13C5F900B779E6 /* DistributionMoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionMoodController.h; sourceTree = "<group>"; };
 		FDF532221C13C5F900B779E6 /* DistributionMoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionMoodController.m; sourceTree = "<group>"; };
 		FDF532231C13C5F900B779E6 /* DistributionResController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionResController.h; sourceTree = "<group>"; };
@@ -1073,10 +1076,9 @@
 		FD4BA8D01C128F2100A69F90 /* setting */ = {
 			isa = PBXGroup;
 			children = (
+				FDD6D7CF1C25A41100B03DF8 /* password */,
 				FD4BA8D11C128F3C00A69F90 /* MySettingTableViewController.h */,
 				FD4BA8D21C128F3C00A69F90 /* MySettingTableViewController.m */,
-				FDD6D7CC1C252B1400B03DF8 /* SettingPayPasswordController.h */,
-				FDD6D7CD1C252B1400B03DF8 /* SettingPayPasswordController.m */,
 			);
 			path = setting;
 			sourceTree = "<group>";
@@ -1233,6 +1235,17 @@
 				FD9686E01C1AEA8600D7F778 /* MineViewController.m */,
 			);
 			path = mine;
+			sourceTree = "<group>";
+		};
+		FDD6D7CF1C25A41100B03DF8 /* password */ = {
+			isa = PBXGroup;
+			children = (
+				FDD6D7D01C25A41100B03DF8 /* SettingPayPasswordController.h */,
+				FDD6D7D11C25A41100B03DF8 /* SettingPayPasswordController.m */,
+				FDD6D7D31C25A45900B03DF8 /* SettingNewPayPasswordController.h */,
+				FDD6D7D41C25A45900B03DF8 /* SettingNewPayPasswordController.m */,
+			);
+			path = password;
 			sourceTree = "<group>";
 		};
 		FDF532201C13C5F900B779E6 /* distribute */ = {
@@ -1576,7 +1589,8 @@
 				FD8068601C20F27700111A0A /* AroundAddressController.m in Sources */,
 				FD21CFA61C1BC09200CF8550 /* ChatListController.m in Sources */,
 				FD29B3C31C1159D800B68C6C /* AroundMapController.m in Sources */,
-				FDD6D7CE1C252B1400B03DF8 /* SettingPayPasswordController.m in Sources */,
+				FDD6D7D51C25A45900B03DF8 /* SettingNewPayPasswordController.m in Sources */,
+				FDD6D7D21C25A41100B03DF8 /* SettingPayPasswordController.m in Sources */,
 				FD29B37E1C112FDC00B68C6C /* UIScrollView+MJRefresh.m in Sources */,
 				FD21CFA31C1BBFCC00CF8550 /* CDUserFactory.m in Sources */,
 				FD4BA8CC1C12834400A69F90 /* MyLoanController.m in Sources */,

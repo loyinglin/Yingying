@@ -3932,7 +3932,7 @@
         <!--设置-->
         <scene sceneID="Azs-eL-WoD">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="kuH-SC-PxT" customClass="MySettingTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="my_setting_controller" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kuH-SC-PxT" customClass="MySettingTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KrZ-Mu-f5l">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4197,7 +4197,7 @@
         <!--支付密码修改-->
         <scene sceneID="cNf-1N-bgl">
             <objects>
-                <viewController id="ScG-V5-ZCk" sceneMemberID="viewController">
+                <viewController id="ScG-V5-ZCk" customClass="SettingPayPasswordController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="db5-Vg-o1x"/>
                         <viewControllerLayoutGuide type="bottom" id="ujW-kB-Fp3"/>
@@ -4205,11 +4205,172 @@
                     <view key="view" contentMode="scaleToFill" id="kQE-Bs-6zR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88Z-aH-Ngc">
+                                <rect key="frame" x="15" y="84" width="290" height="150"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tpb-a5-lWk">
+                                        <rect key="frame" x="215" y="112" width="65" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="忘记密码？">
+                                            <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入原支付密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qnp-FZ-1LY">
+                                        <rect key="frame" x="96" y="10" width="98" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.34901960780000002" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmZ-Je-Ym4">
+                                        <rect key="frame" x="30" y="50" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="nQz-Jy-ACB"/>
+                                            <constraint firstAttribute="width" constant="25" id="xa1-mc-6LA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" backgroundImage="my_loan_unselect.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKq-rD-s6K">
+                                        <rect key="frame" x="70" y="50" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="m23-5h-nlT"/>
+                                            <constraint firstAttribute="width" constant="25" id="ym4-PU-jGA"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="my_loan_unselect.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOs-0o-2Xm">
+                                        <rect key="frame" x="110" y="50" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="QH9-0L-qvw"/>
+                                            <constraint firstAttribute="width" constant="25" id="zYi-XM-U4i"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="my_loan_unselect.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQU-ov-cNy">
+                                        <rect key="frame" x="150" y="50" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="eNH-DY-NYQ"/>
+                                            <constraint firstAttribute="height" constant="25" id="sed-DL-X4j"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="my_loan_unselect.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNM-Ph-gkF">
+                                        <rect key="frame" x="190" y="50" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="8j0-F2-htN"/>
+                                            <constraint firstAttribute="width" constant="25" id="Zq5-rp-AO5"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="my_loan_unselect.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPj-tP-UcQ">
+                                        <rect key="frame" x="230" y="50" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="DRY-Rw-5PO"/>
+                                            <constraint firstAttribute="width" constant="25" id="TBH-TF-ndH"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="my_loan_unselect.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="rNM-Ph-gkF" firstAttribute="centerY" secondItem="JQU-ov-cNy" secondAttribute="centerY" id="5Mq-Ih-HjL"/>
+                                    <constraint firstAttribute="bottom" secondItem="Tpb-a5-lWk" secondAttribute="bottom" constant="10" id="9xZ-xD-4TP"/>
+                                    <constraint firstItem="oOs-0o-2Xm" firstAttribute="centerY" secondItem="WKq-rD-s6K" secondAttribute="centerY" id="ATx-HP-dY3"/>
+                                    <constraint firstItem="WKq-rD-s6K" firstAttribute="centerY" secondItem="WmZ-Je-Ym4" secondAttribute="centerY" id="AlZ-de-GXQ"/>
+                                    <constraint firstAttribute="width" constant="290" id="Bym-EZ-2ga"/>
+                                    <constraint firstItem="Qnp-FZ-1LY" firstAttribute="top" secondItem="88Z-aH-Ngc" secondAttribute="top" constant="10" id="DpU-If-B6r"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tpb-a5-lWk" secondAttribute="trailing" constant="10" id="E6b-Kr-Gel"/>
+                                    <constraint firstItem="JQU-ov-cNy" firstAttribute="centerY" secondItem="oOs-0o-2Xm" secondAttribute="centerY" id="EIM-Sb-Ir9"/>
+                                    <constraint firstItem="oOs-0o-2Xm" firstAttribute="leading" secondItem="WKq-rD-s6K" secondAttribute="trailing" constant="15" id="LtG-ao-ptF"/>
+                                    <constraint firstAttribute="height" constant="150" id="P8b-tw-Uoy"/>
+                                    <constraint firstItem="WKq-rD-s6K" firstAttribute="leading" secondItem="WmZ-Je-Ym4" secondAttribute="trailing" constant="15" id="PBm-vO-8lu"/>
+                                    <constraint firstItem="FPj-tP-UcQ" firstAttribute="leading" secondItem="rNM-Ph-gkF" secondAttribute="trailing" constant="15" id="dlB-ov-VJq"/>
+                                    <constraint firstItem="rNM-Ph-gkF" firstAttribute="leading" secondItem="JQU-ov-cNy" secondAttribute="trailing" constant="15" id="eJ3-iG-anx"/>
+                                    <constraint firstItem="WmZ-Je-Ym4" firstAttribute="leading" secondItem="88Z-aH-Ngc" secondAttribute="leading" constant="30" id="iiS-G9-gUB"/>
+                                    <constraint firstItem="Qnp-FZ-1LY" firstAttribute="centerX" secondItem="88Z-aH-Ngc" secondAttribute="centerX" id="mnH-wB-2UA"/>
+                                    <constraint firstItem="FPj-tP-UcQ" firstAttribute="centerY" secondItem="rNM-Ph-gkF" secondAttribute="centerY" id="n5o-er-RG3"/>
+                                    <constraint firstItem="JQU-ov-cNy" firstAttribute="leading" secondItem="oOs-0o-2Xm" secondAttribute="trailing" constant="15" id="uBK-b1-ut5"/>
+                                    <constraint firstItem="WmZ-Je-Ym4" firstAttribute="top" secondItem="88Z-aH-Ngc" secondAttribute="top" constant="50" id="ySo-dK-JNq"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="XLD-fL-cjX" appends="YES" id="6Nl-P5-cGb"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hui-Ii-yRd">
+                                <rect key="frame" x="35" y="254" width="250" height="35"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.75294117650000003" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="9qj-4c-6Za"/>
+                                    <constraint firstAttribute="width" constant="250" id="IQd-qP-qeU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="下一步">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onNext:" destination="ScG-V5-ZCk" eventType="touchUpInside" id="qcS-gH-dY1"/>
+                                </connections>
+                            </button>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MWq-KI-wZl">
+                                <rect key="frame" x="110" y="297" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Hzc-Kh-BlD"/>
+                                    <constraint firstAttribute="height" constant="30" id="o5J-Xn-b0H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ScG-V5-ZCk" id="YAL-rf-x1b"/>
+                                </connections>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MWq-KI-wZl" firstAttribute="top" secondItem="hui-Ii-yRd" secondAttribute="bottom" constant="8" id="9kW-dK-NYp"/>
+                            <constraint firstItem="88Z-aH-Ngc" firstAttribute="centerX" secondItem="kQE-Bs-6zR" secondAttribute="centerX" id="Ha1-02-usd"/>
+                            <constraint firstItem="MWq-KI-wZl" firstAttribute="centerX" secondItem="kQE-Bs-6zR" secondAttribute="centerX" id="J29-dM-i48"/>
+                            <constraint firstItem="88Z-aH-Ngc" firstAttribute="top" secondItem="db5-Vg-o1x" secondAttribute="bottom" constant="20" id="ToS-wT-9sU"/>
+                            <constraint firstItem="hui-Ii-yRd" firstAttribute="centerX" secondItem="kQE-Bs-6zR" secondAttribute="centerX" id="UMl-yN-oPM"/>
+                            <constraint firstItem="hui-Ii-yRd" firstAttribute="top" secondItem="88Z-aH-Ngc" secondAttribute="bottom" constant="20" id="ojE-Ez-aeK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="支付密码修改" id="skZ-WI-HAE"/>
+                    <connections>
+                        <outlet property="myEmptyTextField" destination="MWq-KI-wZl" id="VNP-ht-hl2"/>
+                        <outlet property="myPasswordButton0" destination="WmZ-Je-Ym4" id="aPV-yX-DYK"/>
+                        <outlet property="myPasswordButton1" destination="WKq-rD-s6K" id="Tfj-l8-j8Y"/>
+                        <outlet property="myPasswordButton2" destination="oOs-0o-2Xm" id="jBF-bZ-cji"/>
+                        <outlet property="myPasswordButton3" destination="JQU-ov-cNy" id="PGS-Ze-qNp"/>
+                        <outlet property="myPasswordButton4" destination="rNM-Ph-gkF" id="et1-aX-bkg"/>
+                        <outlet property="myPasswordButton5" destination="FPj-tP-UcQ" id="Bkg-EI-rCv"/>
+                        <segue destination="yvb-8x-Nen" kind="push" identifier="open_setting_new_pay_password_board" id="cKJ-eW-Egt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U7U-R6-job" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="XLD-fL-cjX">
+                    <connections>
+                        <action selector="onTap:" destination="ScG-V5-ZCk" id="JnA-yB-JAJ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="355" y="3670"/>
         </scene>
@@ -4884,7 +5045,7 @@
                                             <constraint firstAttribute="height" constant="40" id="Bg0-4Q-cev"/>
                                             <constraint firstAttribute="width" constant="290" id="fuO-zA-wNq"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="确认转账">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -5616,6 +5777,176 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2524" y="1768"/>
+        </scene>
+        <!--支付密码修改2-->
+        <scene sceneID="O7u-SW-jMV">
+            <objects>
+                <viewController id="yvb-8x-Nen" customClass="SettingNewPayPasswordController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="apr-Mb-W6M"/>
+                        <viewControllerLayoutGuide type="bottom" id="i8l-a1-5iO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WtE-nT-5ey">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJ9-hl-cy2">
+                                <rect key="frame" x="15" y="84" width="290" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入新支付密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Uy-Cs-HQH">
+                                        <rect key="frame" x="96" y="10" width="98" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.34901960780000002" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBt-qk-nuQ">
+                                        <rect key="frame" x="30" y="50" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="6Df-5g-tg4"/>
+                                            <constraint firstAttribute="width" constant="25" id="roY-gk-cju"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" backgroundImage="my_loan_unselect.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgZ-wV-Qr5">
+                                        <rect key="frame" x="70" y="50" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="0lJ-OI-iF9"/>
+                                            <constraint firstAttribute="width" constant="25" id="WTW-EI-IUa"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="my_loan_unselect.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHe-wa-unI">
+                                        <rect key="frame" x="110" y="50" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="eM3-8c-in7"/>
+                                            <constraint firstAttribute="height" constant="25" id="fQy-7u-I2g"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="my_loan_unselect.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIh-e7-des">
+                                        <rect key="frame" x="150" y="50" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="7JS-3K-gnr"/>
+                                            <constraint firstAttribute="height" constant="25" id="eqZ-wN-GzR"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="my_loan_unselect.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQi-sk-mbJ">
+                                        <rect key="frame" x="190" y="50" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="js8-ry-pT6"/>
+                                            <constraint firstAttribute="width" constant="25" id="waA-Se-HCu"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="my_loan_unselect.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aS-3U-y7d">
+                                        <rect key="frame" x="230" y="50" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="Anq-SY-i82"/>
+                                            <constraint firstAttribute="height" constant="25" id="Yb6-5o-ldb"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="my_loan_unselect.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="QQi-sk-mbJ" firstAttribute="leading" secondItem="JIh-e7-des" secondAttribute="trailing" constant="15" id="E5u-8o-yRA"/>
+                                    <constraint firstItem="8Uy-Cs-HQH" firstAttribute="top" secondItem="PJ9-hl-cy2" secondAttribute="top" constant="10" id="K2k-gl-mbB"/>
+                                    <constraint firstItem="8Uy-Cs-HQH" firstAttribute="centerX" secondItem="PJ9-hl-cy2" secondAttribute="centerX" id="LHH-lC-ZQ7"/>
+                                    <constraint firstItem="XBt-qk-nuQ" firstAttribute="top" secondItem="PJ9-hl-cy2" secondAttribute="top" constant="50" id="Nv6-Ph-eKC"/>
+                                    <constraint firstItem="QQi-sk-mbJ" firstAttribute="centerY" secondItem="JIh-e7-des" secondAttribute="centerY" id="THp-eJ-n7S"/>
+                                    <constraint firstItem="JIh-e7-des" firstAttribute="centerY" secondItem="ZHe-wa-unI" secondAttribute="centerY" id="UBn-nq-fT5"/>
+                                    <constraint firstItem="1aS-3U-y7d" firstAttribute="centerY" secondItem="QQi-sk-mbJ" secondAttribute="centerY" id="YU1-LV-otG"/>
+                                    <constraint firstItem="cgZ-wV-Qr5" firstAttribute="leading" secondItem="XBt-qk-nuQ" secondAttribute="trailing" constant="15" id="bBj-A6-MR6"/>
+                                    <constraint firstItem="JIh-e7-des" firstAttribute="leading" secondItem="ZHe-wa-unI" secondAttribute="trailing" constant="15" id="eUz-PE-eZ2"/>
+                                    <constraint firstItem="ZHe-wa-unI" firstAttribute="leading" secondItem="cgZ-wV-Qr5" secondAttribute="trailing" constant="15" id="gJg-aF-CU5"/>
+                                    <constraint firstAttribute="height" constant="150" id="gwp-IH-flv"/>
+                                    <constraint firstItem="cgZ-wV-Qr5" firstAttribute="centerY" secondItem="XBt-qk-nuQ" secondAttribute="centerY" id="hk8-mS-51o"/>
+                                    <constraint firstItem="1aS-3U-y7d" firstAttribute="leading" secondItem="QQi-sk-mbJ" secondAttribute="trailing" constant="15" id="ll0-Uo-QUi"/>
+                                    <constraint firstItem="ZHe-wa-unI" firstAttribute="centerY" secondItem="cgZ-wV-Qr5" secondAttribute="centerY" id="ovJ-GB-UCA"/>
+                                    <constraint firstAttribute="width" constant="290" id="qxK-N2-jjC"/>
+                                    <constraint firstItem="XBt-qk-nuQ" firstAttribute="leading" secondItem="PJ9-hl-cy2" secondAttribute="leading" constant="30" id="uGO-Kf-juR"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="F5C-5i-mx3" appends="YES" id="4ly-7z-BOE"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsF-dV-k77">
+                                <rect key="frame" x="35" y="254" width="250" height="35"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.75294117650000003" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="GN8-A4-DXa"/>
+                                    <constraint firstAttribute="height" constant="35" id="t5b-pl-PEL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="完成">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onComplete:" destination="yvb-8x-Nen" eventType="touchUpInside" id="XQK-7y-57e"/>
+                                </connections>
+                            </button>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CqY-rB-IOw">
+                                <rect key="frame" x="110" y="297" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="coK-WJ-KYO"/>
+                                    <constraint firstAttribute="height" constant="30" id="enR-8h-69T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yvb-8x-Nen" id="Pyp-qI-45d"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xsF-dV-k77" firstAttribute="centerX" secondItem="WtE-nT-5ey" secondAttribute="centerX" id="BBF-sV-Li9"/>
+                            <constraint firstItem="CqY-rB-IOw" firstAttribute="top" secondItem="xsF-dV-k77" secondAttribute="bottom" constant="8" id="UBW-jZ-4e9"/>
+                            <constraint firstItem="xsF-dV-k77" firstAttribute="top" secondItem="PJ9-hl-cy2" secondAttribute="bottom" constant="20" id="oej-wn-yG0"/>
+                            <constraint firstItem="CqY-rB-IOw" firstAttribute="centerX" secondItem="WtE-nT-5ey" secondAttribute="centerX" id="q5n-Om-6OU"/>
+                            <constraint firstItem="PJ9-hl-cy2" firstAttribute="top" secondItem="apr-Mb-W6M" secondAttribute="bottom" constant="20" id="wnr-6p-cPK"/>
+                            <constraint firstItem="PJ9-hl-cy2" firstAttribute="centerX" secondItem="WtE-nT-5ey" secondAttribute="centerX" id="z0k-sN-Chq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="支付密码修改2" id="lcx-Dh-suK"/>
+                    <connections>
+                        <outlet property="myEmptyTextField" destination="CqY-rB-IOw" id="GKO-Ml-fw2"/>
+                        <outlet property="myPasswordButton0" destination="XBt-qk-nuQ" id="mzJ-TX-S9T"/>
+                        <outlet property="myPasswordButton1" destination="cgZ-wV-Qr5" id="0bv-S3-z7l"/>
+                        <outlet property="myPasswordButton2" destination="ZHe-wa-unI" id="fPD-Gk-irj"/>
+                        <outlet property="myPasswordButton3" destination="JIh-e7-des" id="SEn-AS-frc"/>
+                        <outlet property="myPasswordButton4" destination="QQi-sk-mbJ" id="F0D-4P-Uau"/>
+                        <outlet property="myPasswordButton5" destination="1aS-3U-y7d" id="UvD-Gs-WOr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eHT-vo-tfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="F5C-5i-mx3">
+                    <connections>
+                        <action selector="onTap:" destination="yvb-8x-Nen" id="WI8-cr-tyE"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="746" y="3670"/>
         </scene>
     </scenes>
     <resources>
