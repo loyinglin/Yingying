@@ -7,6 +7,7 @@
 //
 
 #import "SettingPayPasswordController.h"
+#import "UIViewController+YingyingNavigationItem.h"
 
 @interface SettingPayPasswordController ()<UITextFieldDelegate>
 
@@ -36,6 +37,8 @@
                         , self.myPasswordButton2, self.myPasswordButton3
                         , self.myPasswordButton4, self.myPasswordButton5
                         ,nil];
+    
+//    [self setupLeftItem];
 }
 
 - (void)didReceiveMemoryWarning {

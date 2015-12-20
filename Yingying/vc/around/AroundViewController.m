@@ -12,6 +12,7 @@
 #import "UserModel.h"
 #import "AddressMessage.h"
 #import "UserMessage.h"
+#import "UIViewController+YingyingNavigationItem.h"
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
 
@@ -32,17 +33,12 @@
     // Do any additional setup after loading the view.
     self.myTabbarController = self.childViewControllers[0];
     [self.myTabbarController.tabBar setHidden:YES];
+
     
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14], NSForegroundColorAttributeName:UIColorFromRGB(0x778c93)} forState:UIControlStateNormal];
-//    [self.navigationItem.rightBarButtonItem setTitlePositionAdjustment:UIOffsetMake(0, 0) forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationItem.rightBarButtonItem setBackgroundVerticalPositionAdjustment:<#(CGFloat)#> forBarMetrics:<#(UIBarMetrics)#>]
-    
-//    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} forState:UIControlStateSelected];
-    
-    
+    [self setupRightItem];
 
     [self setupNotify];
-    [self test];
+//    [self test];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,18 +47,8 @@
 }
 
 - (void)test {
-//    [[AddressMessage instance] requestAddUserAddress:nil Address:nil];
     [[UserModel instance] requestOauthLoginWithUserphone:@"13535107063" Password:@"12345678"];
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - view init
 
@@ -132,7 +118,6 @@
         
 
         if (self.tabBarController) {
-//            self.tabBarController.modalPresentationStyle = UIModalPresentationCurrentContext;
             [self.tabBarController presentViewController:controller animated:NO completion:nil];
         }
     }

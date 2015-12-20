@@ -11,8 +11,6 @@
 
 @interface MyTransferTableViewController ()
 
-@property (nonatomic , strong) UISearchController* mySearchController;
-
 @property (nonatomic , strong) MyTransferViewModel* myViewModel;
 @end
 

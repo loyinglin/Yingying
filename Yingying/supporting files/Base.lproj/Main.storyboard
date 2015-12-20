@@ -82,14 +82,56 @@
                             <outlet property="delegate" destination="fzn-OS-9ax" id="NfE-sn-1Vc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="聊天" id="tad-dn-V2c"/>
+                    <navigationItem key="navigationItem" title="聊天" id="tad-dn-V2c">
+                        <barButtonItem key="leftBarButtonItem" title="好友列表" id="Zej-FR-fto">
+                            <connections>
+                                <action selector="onFriendList:" destination="fzn-OS-9ax" id="u7o-3S-KXv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="JR4-aY-z5O">
+                            <view key="customView" contentMode="scaleToFill" id="sT1-Eg-NCK">
+                                <rect key="frame" x="244" y="0.0" width="60" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="添加好友" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cT8-So-TGB">
+                                        <rect key="frame" x="20" y="26.5" width="40" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pab-jf-jcw">
+                                        <rect key="frame" x="33.5" y="0.0" width="13.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="cT8-So-TGB" firstAttribute="top" secondItem="Pab-jf-jcw" secondAttribute="bottom" constant="1" id="AYP-lI-Cpi"/>
+                                    <constraint firstAttribute="bottom" secondItem="cT8-So-TGB" secondAttribute="bottom" constant="5" id="QQR-Ga-aky"/>
+                                    <constraint firstItem="Pab-jf-jcw" firstAttribute="centerX" secondItem="cT8-So-TGB" secondAttribute="centerX" id="aB6-aq-Y1C"/>
+                                    <constraint firstAttribute="trailing" secondItem="cT8-So-TGB" secondAttribute="trailing" id="ewH-BP-zNS"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Blf-td-4vb" appends="YES" id="z7v-Gg-sD6"/>
+                                </connections>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="sY6-OM-eCS" kind="push" identifier="open_chat_detail_board" id="ppn-8q-hto"/>
+                        <segue destination="ckG-yg-YGV" kind="push" identifier="open_chat_friend_list_board" id="B9W-bC-Fu1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDU-r0-Obd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Blf-td-4vb">
+                    <connections>
+                        <action selector="onAddFriend:" destination="fzn-OS-9ax" id="g9E-L2-osX"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="730" y="-4"/>
+            <point key="canvasLocation" x="246" y="-148"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="8yH-hP-gi6">
@@ -108,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8kk-o3-l2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1138" y="-5"/>
+            <point key="canvasLocation" x="682" y="83"/>
         </scene>
         <!--聊天-->
         <scene sceneID="Se1-R9-R0l">
@@ -127,7 +169,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pWo-FZ-DhJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="293.33333333333331" y="-3.7866666666666666"/>
+            <point key="canvasLocation" x="-232" y="-148"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YhU-rr-pAH">
@@ -481,7 +523,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ge8-kl-vzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310.39999999999998" y="-991.15999999999997"/>
+            <point key="canvasLocation" x="-232" y="-2432"/>
         </scene>
         <!--Around View Controller-->
         <scene sceneID="tUt-MN-pGi">
@@ -596,7 +638,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKZ-Jl-pUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="702" y="-988"/>
+            <point key="canvasLocation" x="231" y="-2456"/>
         </scene>
         <!--挖矿-->
         <scene sceneID="Yeo-HM-m7G">
@@ -648,7 +690,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTg-gu-0t9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1938" y="-1243"/>
+            <point key="canvasLocation" x="-1566" y="-1307"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="asR-C9-ny0">
@@ -805,7 +847,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvf-AI-nhz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1549" y="-678.5"/>
+            <point key="canvasLocation" x="315" y="-1261.5"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="h0d-KZ-eBn">
@@ -862,7 +904,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1T-ef-lUS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1549.8666666666666" y="-1298.8266666666666"/>
+            <point key="canvasLocation" x="325" y="-1795.5"/>
         </scene>
         <!--发布资源-->
         <scene sceneID="IFv-di-Ftg">
@@ -1049,7 +1091,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hSu-hM-NeD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="246" y="-1734"/>
+            <point key="canvasLocation" x="728" y="-3304"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FR1-Fy-62g">
@@ -1065,7 +1107,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfI-8B-VJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="211" y="-2419"/>
+            <point key="canvasLocation" x="-1581" y="-2059"/>
         </scene>
         <!--个人主页-->
         <scene sceneID="Z0A-hD-VQ4">
@@ -1377,6 +1419,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="myBottomView" destination="eRo-Fx-35u" id="wmc-6f-CKd"/>
                         <outlet property="myTableView" destination="6YN-Ai-Pc4" id="Hh2-U1-Tq4"/>
                     </connections>
                 </viewController>
@@ -1392,7 +1435,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="628" y="-2419"/>
+            <point key="canvasLocation" x="-1136" y="-2067"/>
         </scene>
         <!--图片详情-->
         <scene sceneID="IdA-bf-pnb">
@@ -1430,7 +1473,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ijG-cv-vAX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1240" y="-2480"/>
+            <point key="canvasLocation" x="-2587" y="-2974"/>
         </scene>
         <!--发布心情-->
         <scene sceneID="XMb-gg-D67">
@@ -1550,7 +1593,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWZ-ch-1pM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="650" y="-1739"/>
+            <point key="canvasLocation" x="736" y="-1672"/>
         </scene>
         <!--Model Distribution Controller-->
         <scene sceneID="USE-e4-soX">
@@ -1644,7 +1687,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1096" y="-1781"/>
+            <point key="canvasLocation" x="-768" y="-1261"/>
         </scene>
         <!--详情-->
         <scene sceneID="JRC-C7-Uc1">
@@ -1935,7 +1978,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MeF-Sz-NL9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1920" y="-1944"/>
+            <point key="canvasLocation" x="728" y="-2472"/>
         </scene>
         <!-- 收货信息-->
         <scene sceneID="2l3-Dj-s8d">
@@ -2042,7 +2085,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGX-hj-TuO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2332" y="-2623"/>
+            <point key="canvasLocation" x="1788" y="-3255"/>
         </scene>
         <!--Around Modal Address Controller-->
         <scene sceneID="crr-AE-9Zg">
@@ -2171,7 +2214,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2698" y="-2622"/>
+            <point key="canvasLocation" x="2394" y="-3255"/>
         </scene>
         <!--支付-->
         <scene sceneID="BDR-Ll-n6V">
@@ -2394,7 +2437,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2339" y="-1944"/>
+            <point key="canvasLocation" x="1283" y="-2488"/>
         </scene>
         <!--我的购物券-->
         <scene sceneID="g2b-oj-B4H">
@@ -2450,7 +2493,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t7x-0R-TF3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2756" y="-1949"/>
+            <point key="canvasLocation" x="1788" y="-2488"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GwT-T6-0Tx">
@@ -2468,7 +2511,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ac-xz-IHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1114.6666666666667" y="-988.31999999999994"/>
+            <point key="canvasLocation" x="-126" y="-1552.5"/>
         </scene>
         <!--理财-->
         <scene sceneID="3kx-IJ-VO7">
@@ -2771,7 +2814,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xqr-FF-kPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="618" y="1373"/>
+            <point key="canvasLocation" x="258" y="1213"/>
         </scene>
         <!--盈贷款-->
         <scene sceneID="Ds2-IG-WfF">
@@ -2962,7 +3005,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JpW-Nv-j9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1258" y="1350"/>
+            <point key="canvasLocation" x="1402" y="1710"/>
         </scene>
         <!--投资-->
         <scene sceneID="ypB-NE-mxN">
@@ -3294,7 +3337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKC-S3-UiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="640" y="703"/>
+            <point key="canvasLocation" x="1000" y="1072"/>
         </scene>
         <!--账单-->
         <scene sceneID="OOK-uj-7lI">
@@ -3360,7 +3403,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cy2-bK-gxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1251" y="670"/>
+            <point key="canvasLocation" x="1427" y="438"/>
         </scene>
         <!--查询-->
         <scene sceneID="ma6-I0-ALd">
@@ -3923,11 +3966,13 @@
                         <segue destination="dAL-Mu-Onc" kind="push" identifier="open_my_charge_board" id="VOU-c3-kd2"/>
                         <segue destination="l9V-M2-BMl" kind="push" identifier="open_my_cash_board" id="3Cz-iF-lqB"/>
                         <segue destination="kuH-SC-PxT" kind="push" identifier="open_my_setting_board" id="jrE-xc-c52"/>
+                        <segue destination="cih-rS-Pyv" kind="push" identifier="open_my_finance_board" id="M81-EI-8bd"/>
+                        <segue destination="w1A-ce-lTv" kind="push" identifier="open_my_message_board" id="1Ym-UG-Bog"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n6A-3a-hXM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="355" y="2865"/>
+            <point key="canvasLocation" x="499" y="2449"/>
         </scene>
         <!--忘记密码-->
         <scene sceneID="0ox-Vb-Aey">
@@ -4022,7 +4067,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Dc-EY-za5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758" y="3037"/>
+            <point key="canvasLocation" x="4182" y="3924"/>
         </scene>
         <!--设置-->
         <scene sceneID="Azs-eL-WoD">
@@ -4287,7 +4332,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGq-pV-AQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-68" y="3670"/>
+            <point key="canvasLocation" x="3163" y="3434"/>
         </scene>
         <!--支付密码修改-->
         <scene sceneID="cNf-1N-bgl">
@@ -4471,7 +4516,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="355" y="3670"/>
+            <point key="canvasLocation" x="3522" y="3417"/>
         </scene>
         <!--账户总资产-->
         <scene sceneID="nEs-8c-FJl">
@@ -4633,7 +4678,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZUJ-1j-Imu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1265" y="1968"/>
+            <point key="canvasLocation" x="-709" y="3562"/>
         </scene>
         <!--消息-->
         <scene sceneID="AuL-tT-6rI">
@@ -4645,7 +4690,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="Fvk-VY-Phc" rowHeight="73" style="IBUITableViewCellStyleDefault" id="U8G-Pl-C8j">
-                                <rect key="frame" x="0.0" y="28" width="320" height="73"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U8G-Pl-C8j" id="2fL-ei-sbH">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="72.5"/>
@@ -4671,7 +4716,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kQ-rM-jhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1266" y="3952"/>
+            <point key="canvasLocation" x="-271" y="3538"/>
         </scene>
         <!--贷款-->
         <scene sceneID="xy2-83-Xnn">
@@ -4749,7 +4794,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NmK-Ke-tKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1260" y="4632"/>
+            <point key="canvasLocation" x="2800" y="3546"/>
         </scene>
         <!--贷款申请-->
         <scene sceneID="kOh-mk-tBC">
@@ -4884,7 +4929,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0LC-Xp-DhZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1668" y="4636"/>
+            <point key="canvasLocation" x="2808" y="4260"/>
         </scene>
         <!--转账-->
         <scene sceneID="VHZ-e1-bEX">
@@ -4955,7 +5000,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UXo-zV-tGk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1266" y="2578"/>
+            <point key="canvasLocation" x="1720" y="3546"/>
         </scene>
         <!--我的投资-->
         <scene sceneID="Xtu-dY-x7c">
@@ -5001,7 +5046,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bGx-sx-ed7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1265" y="3328"/>
+            <point key="canvasLocation" x="2322" y="3490"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="uam-sE-fTC">
@@ -5020,7 +5065,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9i-1l-2SY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2182" y="3636"/>
+            <point key="canvasLocation" x="2107" y="4825.5"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="dDo-Ru-T92">
@@ -5051,7 +5096,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhg-YO-shA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2182" y="3007.5"/>
+            <point key="canvasLocation" x="2468" y="4825.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vv2-0t-7QU">
@@ -5069,7 +5114,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfo-8X-vKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1642" y="3322"/>
+            <point key="canvasLocation" x="2314" y="4203.5"/>
         </scene>
         <!--转账到该好友账户-->
         <scene sceneID="RPD-fX-uoR">
@@ -5194,7 +5239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6f2-Yu-QcO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1648" y="2586"/>
+            <point key="canvasLocation" x="1720" y="4330"/>
         </scene>
         <!--充值-->
         <scene sceneID="eFr-H5-vcM">
@@ -5317,7 +5362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zGp-87-FcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1660" y="1978"/>
+            <point key="canvasLocation" x="174" y="3530"/>
         </scene>
         <!--我的-->
         <scene sceneID="zUx-RI-tXQ">
@@ -5336,7 +5381,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVc-Dx-ssg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-232" y="2137"/>
+            <point key="canvasLocation" x="-161" y="2441"/>
         </scene>
         <!--理财-->
         <scene sceneID="5NQ-Z4-yvU">
@@ -5355,7 +5400,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVj-a2-4vg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="183" y="1373"/>
+            <point key="canvasLocation" x="-225" y="1229"/>
         </scene>
         <!--Base Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -5376,7 +5421,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-299.73333333333335" y="810.34666666666669"/>
+            <point key="canvasLocation" x="-732" y="890"/>
         </scene>
         <!--提现-->
         <scene sceneID="tha-8w-Pne">
@@ -5561,7 +5606,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QW6-H9-nL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2072" y="1978"/>
+            <point key="canvasLocation" x="1010" y="3538"/>
         </scene>
         <!--切换账户-->
         <scene sceneID="zNl-tF-TYC">
@@ -5737,7 +5782,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kU6-I4-CaW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2524" y="2412"/>
+            <point key="canvasLocation" x="774" y="4314"/>
         </scene>
         <!--Modal Confirm Cash Controller-->
         <scene sceneID="K6B-pz-34R">
@@ -5875,7 +5920,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2524" y="1768"/>
+            <point key="canvasLocation" x="1166" y="4314"/>
         </scene>
         <!--支付密码修改2-->
         <scene sceneID="O7u-SW-jMV">
@@ -6051,7 +6096,75 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="746" y="3670"/>
+            <point key="canvasLocation" x="4209" y="3037"/>
+        </scene>
+        <!--好友列表-->
+        <scene sceneID="R81-BC-Kei">
+            <objects>
+                <tableViewController hidesBottomBarWhenPushed="YES" id="ckG-yg-YGV" customClass="ChatFriendListController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="30" sectionFooterHeight="30" id="NTf-T8-pQn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="head" textLabel="EtX-OM-Z0B" rowHeight="30" style="IBUITableViewCellStyleDefault" id="9ZW-h6-fce">
+                                <rect key="frame" x="0.0" y="94" width="320" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9ZW-h6-fce" id="7T5-Hx-wSw">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="29.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EtX-OM-Z0B">
+                                            <rect key="frame" x="15" y="0.0" width="290" height="29.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.61960784310000006" green="0.61960784310000006" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="50" id="zFi-jb-zNt">
+                                <rect key="frame" x="0.0" y="124" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zFi-jb-zNt" id="tke-ch-Y9a">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="finance_avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="Psh-P8-NWO">
+                                            <rect key="frame" x="15" y="10" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="MdL-B4-yRe"/>
+                                                <constraint firstAttribute="width" constant="30" id="tfS-1A-sa3"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王宝强" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAl-Xs-ReF">
+                                            <rect key="frame" x="58" y="16.5" width="39" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.34901960780000002" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Psh-P8-NWO" firstAttribute="leading" secondItem="tke-ch-Y9a" secondAttribute="leading" constant="15" id="0JF-U8-ddB"/>
+                                        <constraint firstItem="Psh-P8-NWO" firstAttribute="top" secondItem="tke-ch-Y9a" secondAttribute="top" constant="10" id="9k0-Rc-ReP"/>
+                                        <constraint firstItem="DAl-Xs-ReF" firstAttribute="centerY" secondItem="Psh-P8-NWO" secondAttribute="centerY" id="YTd-N3-z10"/>
+                                        <constraint firstItem="DAl-Xs-ReF" firstAttribute="leading" secondItem="Psh-P8-NWO" secondAttribute="trailing" constant="13" id="qSf-0m-0Wt"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ckG-yg-YGV" id="BEg-am-nn7"/>
+                            <outlet property="delegate" destination="ckG-yg-YGV" id="Zsb-CK-BEM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="好友列表" id="ncV-zK-LMA"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s5f-IS-wfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="674" y="-626"/>
         </scene>
     </scenes>
     <resources>

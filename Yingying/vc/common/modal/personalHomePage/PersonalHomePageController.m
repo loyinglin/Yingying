@@ -54,6 +54,7 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
     self.myTableView.rowHeight = UITableViewAutomaticDimension;
     self.myTableView.estimatedRowHeight = 100;
     
+    self.myTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.myTableView.bounds.size.width, self.myBottomView.bounds.size.height)];
 }
 
 - (void)didReceiveMemoryWarning {

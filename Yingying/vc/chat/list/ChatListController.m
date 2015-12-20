@@ -13,6 +13,7 @@
 #import "NSObject+LYUITipsView.h"
 #import "MJRefresh.h"
 #import "ChatDetailController.h"
+#import "UIViewController+YingyingNavigationItem.h"
 #import <DateTools/DateTools.h>
 #import <ReactiveCocoa/RACEXTScope.h>
 
@@ -50,7 +51,7 @@
     [self setupRefresh];
 //    [self setupSearch];
     [self setupNotify];
-    
+    [self setupLeftItem];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,15 +63,15 @@
 
 #pragma mark - view init
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"open_chat_detail_board"]) {
-//        NSIndexPath* index = sender;
-//        ChatDetailController* controller = segue.destinationViewController;
-//        [controller initWithConv:self.conversations[index.row]];
-//    }
-//}
+- (IBAction)onFriendList:(id)sender {
+    [self performSegueWithIdentifier:@"open_chat_friend_list_board" sender:self];
+}
 
 #pragma mark - ibaction
+
+- (IBAction)onAddFriend:(id)sender {
+    NSLog(@"add friend");
+}
 
 #pragma mark - ui
 
@@ -81,10 +82,6 @@
         [self.tableView headerEndRefreshing];
         [self updateRecent];
     }];
-//    self.refreshControl = [[UIRefreshControl alloc] init];
-//    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"加载中..."];
-//    [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
-
 }
 
 - (void)setupSearch {
@@ -176,21 +173,6 @@
 
     return cell;
 }
-
-
-//- (UIView *)litteBadgeView {
-//    UIView* _litteBadgeView;
-//    float kLZLittleBadgeSize = 10;
-//    if (_litteBadgeView == nil) {
-//        _litteBadgeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kLZLittleBadgeSize, kLZLittleBadgeSize)];
-//        _litteBadgeView.backgroundColor = [UIColor redColor];
-//        _litteBadgeView.layer.masksToBounds = YES;
-//        _litteBadgeView.layer.cornerRadius = kLZLittleBadgeSize / 2;
-//        _litteBadgeView.center = CGPointMake(CGRectGetMaxX(_avatarImageView.frame), CGRectGetMinY(_avatarImageView.frame));
-//        _litteBadgeView.hidden = YES;
-//    }
-//    return _litteBadgeView;
-//}
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //    [self performSegueWithIdentifier:@"open_chat_detail_board" sender:indexPath];

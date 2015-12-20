@@ -29,6 +29,9 @@ typedef NS_ENUM(NSInteger, LY_MY_SETTING) {
 //    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.bounds.size.width, 20.0f)]; //顶部留白
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 60;
+    
+    UITabBarItem* back = self.navigationItem.backBarButtonItem;
+    
 }
 
 - (void)didReceiveMemoryWarning {

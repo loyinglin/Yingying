@@ -10,4 +10,6 @@
 
 @interface MyTransferTableViewController : UITableViewController<UISearchResultsUpdating>
 
+@property (nonatomic , strong) UISearchController* mySearchController;
+
 @end
