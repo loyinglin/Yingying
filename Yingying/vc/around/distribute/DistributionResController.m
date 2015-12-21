@@ -9,6 +9,8 @@
 #import "DistributionResController.h"
 #import "DistributionResViewModel.h"
 #import "LYBaseImageViewController.h"
+#import "UIView+LYModify.h"
+#import "UIViewController+YingyingNavigationItem.h"
 #import "LYColor.h"
 #import "MapInfoModel.h"
 
@@ -33,9 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.myResDesc.layer.borderColor = UIColorFromRGB(0xcdcdcd).CGColor;
-    self.myResDesc.layer.borderWidth = 1;
-    self.myResDesc.layer.cornerRadius = 3;
+    [self.myResDesc lySetupBorderwithColor:0xcdcdcd Width:1 Radius:3];
     
     self.myViewModel = [DistributionResViewModel new];
     
@@ -47,7 +47,7 @@
     
     RAC(self.myAddressLabel, text) = RACObserve([MapInfoModel instance], myAddress);
     
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14], NSForegroundColorAttributeName:UIColorFromRGB(0x778c93)} forState:UIControlStateNormal];
+    [self setupRightItem];
 }
 
 - (void)didReceiveMemoryWarning {

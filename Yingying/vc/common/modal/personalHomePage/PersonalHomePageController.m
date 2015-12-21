@@ -8,6 +8,9 @@
 
 #import "PersonalHomePageController.h"
 #import "PersonalHomePageViewModel.h"
+#import "LYColor.h"
+#import "UIView+LYModify.h"
+#import "UIViewController+YingyingNavigationItem.h"
 
 typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
     ly_photo,
@@ -23,6 +26,8 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
 
 @property (nonatomic , strong) IBOutlet UIView* myBottomView;
 
+@property (nonatomic , strong) IBOutlet UIView* myPopView;
+
 @property (nonatomic , strong) PersonalHomePageViewModel* myViewModel;
 
 @end
@@ -32,6 +37,34 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.myViewModel = [PersonalHomePageViewModel new];
+    
+    [self customView];
+    [self setupLeftItem];
+    [self test];
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - view init
+
+- (void)customView {
+    
+    [self.myBottomView lySetupBorderwithColor:0xf0f0f0 Width:1 Radius:0];
+    
+    self.myTableView.rowHeight = UITableViewAutomaticDimension;
+    self.myTableView.estimatedRowHeight = 100;
+    
+    self.myTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.myTableView.bounds.size.width, 20)];
+    [self.myTableView.tableHeaderView setBackgroundColor:UIColorFromRGB(0xf0f0f0)];
+    
+    self.myTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.myTableView.bounds.size.width, self.myBottomView.bounds.size.height + 10)];
+}
+
+- (void)test {
     
     [RACObserve(self.myViewModel, mySelf) subscribeNext:^(id x) {
         NSLog(@"test1 %@", x);
@@ -50,20 +83,7 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
     [RACObserve(self.myViewModel, mySelf) subscribeNext:^(id x) {
         NSLog(@"test3 %@", x);
     }];
-    
-    self.myTableView.rowHeight = UITableViewAutomaticDimension;
-    self.myTableView.estimatedRowHeight = 100;
-    
-    self.myTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.myTableView.bounds.size.width, self.myBottomView.bounds.size.height)];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - view init
-
 #pragma mark - ibaction
 
 - (IBAction)onCancel:(id)sender {
@@ -77,6 +97,19 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
 
 - (IBAction)onContact:(id)sender {
     NSLog(@"contace him");
+}
+
+- (IBAction)onTransfer:(id)sender {
+    NSLog(@"transfer");
+}
+
+- (IBAction)onDeleteFriend:(id)sender {
+    NSLog(@"delelte");
+}
+
+- (IBAction)onRightButtonClick:(id)sender {
+    self.myPopView.hidden = !self.myPopView.hidden;
+    [self.view bringSubviewToFront:self.myPopView]; //为了方便在IB中编辑，把pop放在最下层。
 }
 #pragma mark - ui
 
@@ -130,7 +163,12 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
             break;
             
         case ly_message:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"message" forIndexPath:indexPath];
+            if (indexPath.row == 0) {
+                cell = [tableView dequeueReusableCellWithIdentifier:@"message_head" forIndexPath:indexPath];
+            }
+            else {
+                cell = [tableView dequeueReusableCellWithIdentifier:@"message" forIndexPath:indexPath];
+            }
             break;
             
     }
@@ -139,7 +177,13 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
     return cell;
 }
 
-
+//- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    UIView* ret = nil;
+//    if (section == ly_message) {
+//        ret = [tableView dequeueReusableCellWithIdentifier:@"message_head"];
+//    }
+//    return ret;
+//}
 #pragma mark - notify
 
 
