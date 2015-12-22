@@ -235,8 +235,8 @@
 		CC2A61BE728174A0287C24BD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD21CF9F1C1BBFCC00CF8550 /* CDUserFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserFactory.h; sourceTree = "<group>"; };
 		FD21CFA01C1BBFCC00CF8550 /* CDUserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserFactory.m; sourceTree = "<group>"; };
-		FD21CFA41C1BC09200CF8550 /* ChatListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatListController.h; path = chat/list/ChatListController.h; sourceTree = "<group>"; };
-		FD21CFA51C1BC09200CF8550 /* ChatListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatListController.m; path = chat/list/ChatListController.m; sourceTree = "<group>"; };
+		FD21CFA41C1BC09200CF8550 /* ChatListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatListController.h; path = list/ChatListController.h; sourceTree = "<group>"; };
+		FD21CFA51C1BC09200CF8550 /* ChatListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatListController.m; path = list/ChatListController.m; sourceTree = "<group>"; };
 		FD21CFA71C1BE4D600CF8550 /* ChatSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatSearchController.h; sourceTree = "<group>"; };
 		FD21CFA81C1BE4D600CF8550 /* ChatSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSearchController.m; sourceTree = "<group>"; };
 		FD21CFAA1C1C04A300CF8550 /* ChatDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatDetailController.h; sourceTree = "<group>"; };
@@ -596,6 +596,8 @@
 				FD21CF9E1C1BBFCC00CF8550 /* base */,
 				FD21CFA11C1BBFCC00CF8550 /* detail */,
 				FD21CFA21C1BBFCC00CF8550 /* list */,
+				FD21CFA41C1BC09200CF8550 /* ChatListController.h */,
+				FD21CFA51C1BC09200CF8550 /* ChatListController.m */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -750,8 +752,6 @@
 				FD29B34C1C111C4A00B68C6C /* Main.storyboard */,
 				FD29B38C1C1135B200B68C6C /* around */,
 				FD21CF9D1C1BBFCC00CF8550 /* chat */,
-				FD21CFA41C1BC09200CF8550 /* ChatListController.h */,
-				FD21CFA51C1BC09200CF8550 /* ChatListController.m */,
 				FD405F2B1C16C22700DB6F0A /* common */,
 				FD29B3CE1C116DCD00B68C6C /* finance */,
 				FD90EF531C15895F005545DF /* login */,
@@ -1794,6 +1794,7 @@
 			baseConfigurationReference = 560E10B102FADF679D47C07C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xinmin Li (HF83WH5SDV)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1805,7 +1806,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.Yingying;
+				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.YingYing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0c7f1de5-c51e-4910-a78d-ac7715f1f85c";
 			};
@@ -1816,6 +1817,7 @@
 			baseConfigurationReference = 2E25BA45A4DE8BEE871D6E1F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xinmin Li (HF83WH5SDV)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1827,7 +1829,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.Yingying;
+				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.YingYing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0c7f1de5-c51e-4910-a78d-ac7715f1f85c";
 			};

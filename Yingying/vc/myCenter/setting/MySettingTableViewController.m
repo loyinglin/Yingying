@@ -7,6 +7,7 @@
 //
 
 #import "MySettingTableViewController.h"
+#import "CDUserFactory.h"
 
 typedef NS_ENUM(NSInteger, LY_MY_SETTING) {
     ly_pay_password,
@@ -15,6 +16,12 @@ typedef NS_ENUM(NSInteger, LY_MY_SETTING) {
     ly_sound,
     ly_shake,
     ly_about_yingying
+};
+
+typedef NS_ENUM(NSInteger, LY_SWITCH_SETTING) {
+    ly_switch_sound = 20,
+    ly_switch_notify = 10,
+    ly_switch_vibrate = 30,
 };
 
 @interface MySettingTableViewController ()
@@ -30,8 +37,6 @@ typedef NS_ENUM(NSInteger, LY_MY_SETTING) {
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 60;
     
-    UITabBarItem* back = self.navigationItem.backBarButtonItem;
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +47,16 @@ typedef NS_ENUM(NSInteger, LY_MY_SETTING) {
 #pragma mark - view init
 
 #pragma mark - ibaction
+
+- (IBAction)onChange:(UISwitch *)sender {
+    if (sender.tag == ly_switch_sound) {
+        [[CDSoundManager manager] setNeedPlaySoundWhenChatting:sender.on];
+        [[CDSoundManager manager] setNeedPlaySoundWhenNotChatting:sender.on];
+    }
+    else if (sender.tag == ly_switch_vibrate ) {
+        [[CDSoundManager manager] setNeedVibrateWhenNotChatting:sender.on];
+    }
+}
 
 #pragma mark - ui
 

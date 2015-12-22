@@ -13,6 +13,7 @@
 #import "NSObject+LYUITipsView.h"
 #import "MJRefresh.h"
 #import "ChatDetailController.h"
+#import "NSObject+LYUITipsView.h"
 #import "UIViewController+YingyingNavigationItem.h"
 #import <DateTools/DateTools.h>
 #import <ReactiveCocoa/RACEXTScope.h>
@@ -71,6 +72,7 @@
 
 - (IBAction)onAddFriend:(id)sender {
     NSLog(@"add friend");
+    [self presentMessageTips:@"还没有添加页面"];
 }
 
 #pragma mark - ui
