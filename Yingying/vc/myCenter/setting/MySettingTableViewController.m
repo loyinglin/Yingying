@@ -8,13 +8,14 @@
 
 #import "MySettingTableViewController.h"
 #import "CDUserFactory.h"
+#import "ForAPNs.h"
 
 typedef NS_ENUM(NSInteger, LY_MY_SETTING) {
     ly_pay_password,
     ly_login_password,
     ly_message_notify,
     ly_sound,
-    ly_shake,
+    ly_vibrate,
     ly_about_yingying
 };
 
@@ -50,11 +51,13 @@ typedef NS_ENUM(NSInteger, LY_SWITCH_SETTING) {
 
 - (IBAction)onChange:(UISwitch *)sender {
     if (sender.tag == ly_switch_sound) {
-        [[CDSoundManager manager] setNeedPlaySoundWhenChatting:sender.on];
-        [[CDSoundManager manager] setNeedPlaySoundWhenNotChatting:sender.on];
+        [[ForAPNs instance] updateSoundSettingWith:sender.on];
     }
     else if (sender.tag == ly_switch_vibrate ) {
-        [[CDSoundManager manager] setNeedVibrateWhenNotChatting:sender.on];
+        [[ForAPNs instance] updateVibrateSettingWith:sender.on];
+    }
+    else if (sender.tag == ly_switch_notify) {
+        [[ForAPNs instance] updateAPNsSettingWith:sender.on];
     }
 }
 
@@ -77,7 +80,24 @@ typedef NS_ENUM(NSInteger, LY_SWITCH_SETTING) {
     NSString* str = [NSString stringWithFormat:@"cell%ld", indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:str forIndexPath:indexPath];
     
-    // Configure the cell...
+    if (indexPath.row == ly_message_notify) {
+        UISwitch* push = (UISwitch *)[cell viewWithTag:ly_switch_notify];
+        if ([push isKindOfClass:[UISwitch class]]) {
+            push.on = [[ForAPNs instance] getPushOn];
+        }
+    }
+    else if (indexPath.row == ly_sound) {
+        UISwitch* push = (UISwitch *)[cell viewWithTag:ly_switch_sound];
+        if ([push isKindOfClass:[UISwitch class]]) {
+            push.on = [[ForAPNs instance] getSoundOn];
+        }
+    }
+    else if (indexPath.row == ly_vibrate) {
+        UISwitch* push = (UISwitch *)[cell viewWithTag:ly_switch_vibrate];
+        if ([push isKindOfClass:[UISwitch class]]) {
+            push.on = [[ForAPNs instance] getVibrateOn];
+        }
+    }
     
     return cell;
 }
