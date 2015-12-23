@@ -38,7 +38,7 @@
                         , self.myPasswordButton4, self.myPasswordButton5
                         ,nil];
     
-//    [self setupLeftItem];
+//    [self lySetupLeftItem];
 }
 
 - (void)didReceiveMemoryWarning {

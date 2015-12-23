@@ -11,11 +11,11 @@
 
 @implementation UIViewController (YingyingNavigationItem)
 
-- (void)setupLeftItem {
+- (void)lySetupLeftItem {
     [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14], NSForegroundColorAttributeName:UIColorFromRGB(0x778c93)} forState:UIControlStateNormal];
 }
 
-- (void)setupRightItem {
+- (void)lySetupRightItem {
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14], NSForegroundColorAttributeName:UIColorFromRGB(0x778c93)} forState:UIControlStateNormal];
 }
 

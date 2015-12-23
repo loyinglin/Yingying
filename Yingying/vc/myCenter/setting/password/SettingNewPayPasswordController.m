@@ -43,7 +43,7 @@
                         ,nil];
     
 
-    [self setupLeftItem];
+    [self lySetupLeftItem];
   
 }
 

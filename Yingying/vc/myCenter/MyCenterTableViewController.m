@@ -7,6 +7,7 @@
 //
 
 #import "MyCenterTableViewController.h"
+#import "UIViewController+YingyingNavigationItem.h"
 
 @interface MyCenterTableViewController ()
 
@@ -16,20 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self customView];
+    [self test];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    if (YES) { //未登录
-        UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"login_view_controller"];
-        NSLog(@"show login");
-        [self.tabBarController presentViewController:controller animated:YES completion:nil];
-    }
-    
-    self.tableView.estimatedRowHeight = 50;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,10 +30,28 @@
 }
 
 
+- (void)test {
+    
+    if (YES) { //未登录
+        UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"login_view_controller"];
+        NSLog(@"show login");
+        [self.tabBarController presentViewController:controller animated:YES completion:nil];
+    }}
 
 #pragma mark - view init
 
+- (void)customView {
+    self.tableView.estimatedRowHeight = 50;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    [self lySetupRightItem];
+}
+
 #pragma mark - ibaction
+
+- (IBAction)onOpenMessage:(id)sender {
+    [self performSegueWithIdentifier:@"open_my_message_board" sender:self];
+}
 
 #pragma mark - ui
 
@@ -84,6 +94,9 @@
     }
     else if (indexPath.row == my_setting) {
         [self performSegueWithIdentifier:@"open_my_setting_board" sender:self];
+    }
+    else if (indexPath.row == my_finance) {
+        [self performSegueWithIdentifier:@"open_my_finance_board" sender:self];
     }
     return nil;
 }

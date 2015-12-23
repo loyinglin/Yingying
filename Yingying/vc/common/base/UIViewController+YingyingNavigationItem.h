@@ -11,9 +11,9 @@
 @interface UIViewController (YingyingNavigationItem)
 
 
-- (void)setupLeftItem;
+- (void)lySetupLeftItem;
 
-- (void)setupRightItem;
+- (void)lySetupRightItem;
 
 
 @end

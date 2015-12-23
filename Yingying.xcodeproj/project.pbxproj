@@ -43,6 +43,7 @@
 		FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3D51C11727600B68C6C /* FinanceBillController.m */; };
 		FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3D81C1173B500B68C6C /* YingPlanTableViewController.m */; };
 		FD29B3DD1C1177D200B68C6C /* MyCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */; };
+		FD3E336D1C2A46340076E868 /* MyMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3E336C1C2A46340076E868 /* MyMessageTableViewController.m */; };
 		FD405F701C1917C100DB6F0A /* LYColor.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405F6F1C1917C100DB6F0A /* LYColor.m */; };
 		FD41BA8F1C1C250400B4A074 /* finance_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41BA771C1C250400B4A074 /* finance_avatar.png */; };
 		FD41BA901C1C250400B4A074 /* finance_avatar2.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41BA781C1C250400B4A074 /* finance_avatar2.png */; };
@@ -132,7 +133,6 @@
 		FD41BB4C1C1D892D00B4A074 /* around_my_coupon.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41BB4B1C1D892D00B4A074 /* around_my_coupon.png */; };
 		FD41BB4F1C1D8AA600B4A074 /* AroundMyCouponController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD41BB4E1C1D8AA600B4A074 /* AroundMyCouponController.m */; };
 		FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */; };
-		FD4BA8C81C127E6700A69F90 /* MyMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8C71C127E6700A69F90 /* MyMessageTableViewController.m */; };
 		FD4BA8CC1C12834400A69F90 /* MyLoanController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8CB1C12834400A69F90 /* MyLoanController.m */; };
 		FD4BA8CF1C12841700A69F90 /* MyLoanDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8CE1C12841700A69F90 /* MyLoanDetailController.m */; };
 		FD4BA8D31C128F3C00A69F90 /* MySettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4BA8D21C128F3C00A69F90 /* MySettingTableViewController.m */; };
@@ -208,6 +208,7 @@
 		FDD6D8061C27930900B03DF8 /* personal_homepage_transfer.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD6D7FA1C27930900B03DF8 /* personal_homepage_transfer.png */; };
 		FDD6D8091C279FD400B03DF8 /* UIView+LYModify.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D8081C279FD400B03DF8 /* UIView+LYModify.m */; };
 		FDD6D80C1C29A3DF00B03DF8 /* ForAPNs.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D80B1C29A3DF00B03DF8 /* ForAPNs.m */; };
+		FDD6D8101C2A44F500B03DF8 /* MyFavoriteController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D80F1C2A44F500B03DF8 /* MyFavoriteController.m */; };
 		FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532221C13C5F900B779E6 /* DistributionMoodController.m */; };
 		FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532241C13C5F900B779E6 /* DistributionResController.m */; };
 		FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */; };
@@ -314,6 +315,8 @@
 		FD29B3D81C1173B500B68C6C /* YingPlanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YingPlanTableViewController.m; sourceTree = "<group>"; };
 		FD29B3DB1C1177D200B68C6C /* MyCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCenterTableViewController.h; sourceTree = "<group>"; };
 		FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCenterTableViewController.m; sourceTree = "<group>"; };
+		FD3E336B1C2A46340076E868 /* MyMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMessageTableViewController.h; sourceTree = "<group>"; };
+		FD3E336C1C2A46340076E868 /* MyMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMessageTableViewController.m; sourceTree = "<group>"; };
 		FD405F6E1C1917C100DB6F0A /* LYColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYColor.h; sourceTree = "<group>"; };
 		FD405F6F1C1917C100DB6F0A /* LYColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYColor.m; sourceTree = "<group>"; };
 		FD41BA771C1C250400B4A074 /* finance_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finance_avatar.png; sourceTree = "<group>"; };
@@ -408,8 +411,6 @@
 		FD41BB4E1C1D8AA600B4A074 /* AroundMyCouponController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMyCouponController.m; sourceTree = "<group>"; };
 		FD4BA8C31C11C5DE00A69F90 /* MyInvestmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInvestmentViewController.h; sourceTree = "<group>"; };
 		FD4BA8C41C11C5DE00A69F90 /* MyInvestmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInvestmentViewController.m; sourceTree = "<group>"; };
-		FD4BA8C61C127E6700A69F90 /* MyMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMessageTableViewController.h; sourceTree = "<group>"; };
-		FD4BA8C71C127E6700A69F90 /* MyMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMessageTableViewController.m; sourceTree = "<group>"; };
 		FD4BA8CA1C12834400A69F90 /* MyLoanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLoanController.h; sourceTree = "<group>"; };
 		FD4BA8CB1C12834400A69F90 /* MyLoanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLoanController.m; sourceTree = "<group>"; };
 		FD4BA8CD1C12841700A69F90 /* MyLoanDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLoanDetailController.h; sourceTree = "<group>"; };
@@ -529,6 +530,8 @@
 		FDD6D8081C279FD400B03DF8 /* UIView+LYModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LYModify.m"; sourceTree = "<group>"; };
 		FDD6D80A1C29A3DF00B03DF8 /* ForAPNs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForAPNs.h; sourceTree = "<group>"; };
 		FDD6D80B1C29A3DF00B03DF8 /* ForAPNs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForAPNs.m; sourceTree = "<group>"; };
+		FDD6D80E1C2A44F500B03DF8 /* MyFavoriteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFavoriteController.h; sourceTree = "<group>"; };
+		FDD6D80F1C2A44F500B03DF8 /* MyFavoriteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFavoriteController.m; sourceTree = "<group>"; };
 		FDF532211C13C5F900B779E6 /* DistributionMoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionMoodController.h; sourceTree = "<group>"; };
 		FDF532221C13C5F900B779E6 /* DistributionMoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionMoodController.m; sourceTree = "<group>"; };
 		FDF532231C13C5F900B779E6 /* DistributionResController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionResController.h; sourceTree = "<group>"; };
@@ -888,6 +891,8 @@
 		FD29B3DA1C1177A800B68C6C /* myCenter */ = {
 			isa = PBXGroup;
 			children = (
+				FD3E336A1C2A46340076E868 /* message */,
+				FDD6D80D1C2A44DA00B03DF8 /* favorite */,
 				FD54DDF31C2461EE009A8AD5 /* cash */,
 				FD54DDEF1C2413DB009A8AD5 /* charge */,
 				FD8068521C1FF32B00111A0A /* total */,
@@ -897,10 +902,17 @@
 				FD4BA8C21C11C5D300A69F90 /* investment */,
 				FD29B3DB1C1177D200B68C6C /* MyCenterTableViewController.h */,
 				FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */,
-				FD4BA8C61C127E6700A69F90 /* MyMessageTableViewController.h */,
-				FD4BA8C71C127E6700A69F90 /* MyMessageTableViewController.m */,
 			);
 			path = myCenter;
+			sourceTree = "<group>";
+		};
+		FD3E336A1C2A46340076E868 /* message */ = {
+			isa = PBXGroup;
+			children = (
+				FD3E336B1C2A46340076E868 /* MyMessageTableViewController.h */,
+				FD3E336C1C2A46340076E868 /* MyMessageTableViewController.m */,
+			);
+			path = message;
 			sourceTree = "<group>";
 		};
 		FD405F2B1C16C22700DB6F0A /* common */ = {
@@ -1282,6 +1294,15 @@
 			path = chat;
 			sourceTree = "<group>";
 		};
+		FDD6D80D1C2A44DA00B03DF8 /* favorite */ = {
+			isa = PBXGroup;
+			children = (
+				FDD6D80E1C2A44F500B03DF8 /* MyFavoriteController.h */,
+				FDD6D80F1C2A44F500B03DF8 /* MyFavoriteController.m */,
+			);
+			path = favorite;
+			sourceTree = "<group>";
+		};
 		FDF532201C13C5F900B779E6 /* distribute */ = {
 			isa = PBXGroup;
 			children = (
@@ -1588,6 +1609,7 @@
 				FD41BB4F1C1D8AA600B4A074 /* AroundMyCouponController.m in Sources */,
 				FD8068691C2107AA00111A0A /* LYCityPicker.m in Sources */,
 				FD29B35C1C111C4A00B68C6C /* SecondViewController.m in Sources */,
+				FD3E336D1C2A46340076E868 /* MyMessageTableViewController.m in Sources */,
 				FD21CFAC1C1C04A300CF8550 /* ChatDetailController.m in Sources */,
 				FD61602B1C15210E00B73304 /* MapInfoModel.m in Sources */,
 				FD29B3DD1C1177D200B68C6C /* MyCenterTableViewController.m in Sources */,
@@ -1613,13 +1635,13 @@
 				FDD6D7CB1C24F4E400B03DF8 /* MyCashSwitchAccountController.m in Sources */,
 				FDD6D7D81C25BE8700B03DF8 /* SettingForgetPayPasswordController.m in Sources */,
 				FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */,
+				FDD6D8101C2A44F500B03DF8 /* MyFavoriteController.m in Sources */,
 				FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */,
 				FD41BAB71C1D09A400B4A074 /* YingLoanController.m in Sources */,
 				FD405F701C1917C100DB6F0A /* LYColor.m in Sources */,
 				FDD6D7DF1C26533900B03DF8 /* ChatFriendListController.m in Sources */,
 				FD90EF561C158975005545DF /* LoginViewController.m in Sources */,
 				FD29B35B1C111C4A00B68C6C /* main.m in Sources */,
-				FD4BA8C81C127E6700A69F90 /* MyMessageTableViewController.m in Sources */,
 				FD54DDEC1C23B923009A8AD5 /* LYBaseTabBarController.m in Sources */,
 				FD8068601C20F27700111A0A /* AroundAddressController.m in Sources */,
 				FDD6D7EC1C26569600B03DF8 /* PersonalHomePageController.m in Sources */,

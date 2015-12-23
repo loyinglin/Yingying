@@ -38,6 +38,7 @@
     user.userId = userId;
     user.username = userId;
     user.avatarUrl = @"http://ac-x3o016bx.clouddn.com/86O7RAPx2BtTW5zgZTPGNwH9RZD5vNDtPm1YbIcu";
+    //[[NSBundle mainBundle] pathForResource:@"finance_avatar" ofType:@"png"];
     return user;
 }
 

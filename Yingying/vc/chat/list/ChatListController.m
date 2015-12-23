@@ -52,7 +52,7 @@
     [self setupRefresh];
 //    [self setupSearch];
     [self setupNotify];
-    [self setupLeftItem];
+    [self lySetupLeftItem];
 }
 
 - (void)didReceiveMemoryWarning {

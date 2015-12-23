@@ -39,7 +39,7 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
     self.myViewModel = [PersonalHomePageViewModel new];
     
     [self customView];
-    [self setupLeftItem];
+    [self lySetupLeftItem];
     [self test];
     
 }

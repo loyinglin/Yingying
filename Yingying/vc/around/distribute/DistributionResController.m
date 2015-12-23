@@ -47,7 +47,7 @@
     
     RAC(self.myAddressLabel, text) = RACObserve([MapInfoModel instance], myAddress);
     
-    [self setupRightItem];
+    [self lySetupRightItem];
 }
 
 - (void)didReceiveMemoryWarning {

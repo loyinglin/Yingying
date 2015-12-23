@@ -35,7 +35,7 @@
     [self.myTabbarController.tabBar setHidden:YES];
 
     
-    [self setupRightItem];
+    [self lySetupRightItem];
 
     [self setupNotify];
 //    [self test];
