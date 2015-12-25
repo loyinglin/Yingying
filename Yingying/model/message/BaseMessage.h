@@ -24,6 +24,8 @@ typedef void(^AfterMessageSuccess)(void);
 
 +(instancetype)callbackInstance:(AfterMessageSuccess)callback;
 
--(void)sendRequestWithPost:(NSString*)str Param:(NSDictionary*)param success:(void (^)(id responseObject))success;
+-(void)sendRequestWithPost:(NSString*)str Param:(NSDictionary *)param success:(void (^)(id responseObject))success;
+
+-(void)sendUploadWithPost:(NSString *)str Param:(NSDictionary *)param constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block success:(void (^)(id responseObject))success;
 
 @end

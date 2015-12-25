@@ -12,6 +12,9 @@
 		FD21CFA61C1BC09200CF8550 /* ChatListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFA51C1BC09200CF8550 /* ChatListController.m */; };
 		FD21CFA91C1BE4D600CF8550 /* ChatSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFA81C1BE4D600CF8550 /* ChatSearchController.m */; };
 		FD21CFAC1C1C04A300CF8550 /* ChatDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFAB1C1C04A300CF8550 /* ChatDetailController.m */; };
+		FD297DD61C2D6B31007DFFF0 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD297DD51C2D6B31007DFFF0 /* DataModel.m */; };
+		FD297DD91C2D6BDE007DFFF0 /* DataMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD297DD81C2D6BDE007DFFF0 /* DataMessage.m */; };
+		FD297DDC1C2D899E007DFFF0 /* LocationMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD297DDB1C2D899E007DFFF0 /* LocationMessage.m */; };
 		FD29B32A1C111B9100B68C6C /* YingyingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3291C111B9100B68C6C /* YingyingTests.m */; };
 		FD29B3351C111B9100B68C6C /* YingyingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3341C111B9100B68C6C /* YingyingUITests.m */; };
 		FD29B3551C111C4A00B68C6C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29B3481C111C4A00B68C6C /* AppDelegate.m */; };
@@ -243,6 +246,12 @@
 		FD21CFA81C1BE4D600CF8550 /* ChatSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSearchController.m; sourceTree = "<group>"; };
 		FD21CFAA1C1C04A300CF8550 /* ChatDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatDetailController.h; sourceTree = "<group>"; };
 		FD21CFAB1C1C04A300CF8550 /* ChatDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatDetailController.m; sourceTree = "<group>"; };
+		FD297DD41C2D6B31007DFFF0 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
+		FD297DD51C2D6B31007DFFF0 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
+		FD297DD71C2D6BDE007DFFF0 /* DataMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataMessage.h; sourceTree = "<group>"; };
+		FD297DD81C2D6BDE007DFFF0 /* DataMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataMessage.m; sourceTree = "<group>"; };
+		FD297DDA1C2D899E007DFFF0 /* LocationMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationMessage.h; sourceTree = "<group>"; };
+		FD297DDB1C2D899E007DFFF0 /* LocationMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationMessage.m; sourceTree = "<group>"; };
 		FD29B3091C111B9100B68C6C /* Yingying.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yingying.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD29B3251C111B9100B68C6C /* YingyingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YingyingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD29B3291C111B9100B68C6C /* YingyingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YingyingTests.m; sourceTree = "<group>"; };
@@ -710,6 +719,8 @@
 				FD61602A1C15210E00B73304 /* MapInfoModel.m */,
 				FD54DDBB1C22960B009A8AD5 /* UserModel.h */,
 				FD54DDBC1C22960B009A8AD5 /* UserModel.m */,
+				FD297DD41C2D6B31007DFFF0 /* DataModel.h */,
+				FD297DD51C2D6B31007DFFF0 /* DataModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1106,6 +1117,10 @@
 				FD54DDB51C2239F0009A8AD5 /* AllMessage.h */,
 				FD54DDBE1C229847009A8AD5 /* UserMessage.h */,
 				FD54DDBF1C229847009A8AD5 /* UserMessage.m */,
+				FD297DD71C2D6BDE007DFFF0 /* DataMessage.h */,
+				FD297DD81C2D6BDE007DFFF0 /* DataMessage.m */,
+				FD297DDA1C2D899E007DFFF0 /* LocationMessage.h */,
+				FD297DDB1C2D899E007DFFF0 /* LocationMessage.m */,
 			);
 			path = message;
 			sourceTree = "<group>";
@@ -1661,11 +1676,13 @@
 				FD9A8EF01C193B5B00D9EC9C /* LYAnnotationView.m in Sources */,
 				FD4BA8D91C12F5B500A69F90 /* NSObject+LYUITipsView.m in Sources */,
 				FD4BA8DC1C13075A00A69F90 /* AroundMessageDetailController.m in Sources */,
+				FD297DD91C2D6BDE007DFFF0 /* DataMessage.m in Sources */,
 				FD54DDF91C24E36D009A8AD5 /* ModalConfirmCashController.m in Sources */,
 				FD8068551C1FF33F00111A0A /* MyTotalController.m in Sources */,
 				FDD6D80C1C29A3DF00B03DF8 /* ForAPNs.m in Sources */,
 				FD8068631C20F59B00111A0A /* AroundModalAddressController.m in Sources */,
 				FD54DDEB1C23B923009A8AD5 /* LYBaseSelectImageView.m in Sources */,
+				FD297DD61C2D6B31007DFFF0 /* DataModel.m in Sources */,
 				FDA679BD1C1A7D5100FC8D9F /* DistributionResViewModel.m in Sources */,
 				FD29B3751C112FDC00B68C6C /* LYTypeEncoding.m in Sources */,
 				FD54DDB81C2247D7009A8AD5 /* AddressMessage.m in Sources */,
@@ -1677,6 +1694,7 @@
 				FD54DDF61C2461EE009A8AD5 /* MyCashViewController.m in Sources */,
 				FD4BA8E01C13135500A69F90 /* MyTransferTableViewController.m in Sources */,
 				FD29B3761C112FDC00B68C6C /* NSDictionary+LYDictToObject.m in Sources */,
+				FD297DDC1C2D899E007DFFF0 /* LocationMessage.m in Sources */,
 				FD54DDEA1C23B923009A8AD5 /* LYBaseNavigationController.m in Sources */,
 				FD54DDB91C2247D7009A8AD5 /* BaseMessage.m in Sources */,
 				FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */,
@@ -1836,7 +1854,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.YingYing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0d8f46a3-b2dd-4f9c-a1d5-5aa8311c8d50";
+				PROVISIONING_PROFILE = "0c7f1de5-c51e-4910-a78d-ac7715f1f85c";
 			};
 			name = Debug;
 		};
@@ -1859,7 +1877,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.YingYing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0d8f46a3-b2dd-4f9c-a1d5-5aa8311c8d50";
+				PROVISIONING_PROFILE = "0c7f1de5-c51e-4910-a78d-ac7715f1f85c";
 			};
 			name = Release;
 		};

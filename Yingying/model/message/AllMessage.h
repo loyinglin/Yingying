@@ -28,3 +28,8 @@
 
 //upload
 #define LY_MSG_UPLOAD                       @"/upload"
+
+
+//location
+#define LY_MSG_LOCATION_REFRESH_LOCATION    @"/location/refreshLocation"
+

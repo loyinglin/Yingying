@@ -21,4 +21,6 @@ typedef NS_ENUM(NSInteger, LYMYCENTER) {
 
 @interface MyCenterTableViewController : UITableViewController
 
+@property (nonatomic , strong) NSString* myForTest;
+
 @end

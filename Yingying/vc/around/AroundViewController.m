@@ -38,7 +38,7 @@
     [self lySetupRightItem];
 
     [self setupNotify];
-//    [self test];
+    [self test];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -10,6 +10,7 @@
 #import "DistributionMoodController.h"
 #import "DistributionMoodViewModel.h"
 #import "MapInfoModel.h"
+#import "DataModel.h"
 #import "LYColor.h"
 
 @interface DistributionMoodController ()
@@ -166,6 +167,8 @@
         //得到选择后沙盒中图片的完整路径
         NSString* filePath = [[NSString alloc]initWithFormat:@"%@%@",DocumentsPath,  @"/image.png"];
         NSLog(@"file path :%@", filePath);
+        
+        [[DataModel instance] requestUploadWith:filePath];
         
         //关闭相册界面
         [picker dismissViewControllerAnimated:YES completion:nil];

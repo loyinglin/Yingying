@@ -10,6 +10,7 @@
 #import "PersonalHomePageController.h"
 #import "LYAnnotationView.h"
 #import "MapInfoModel.h"
+#import "UserModel.h"
 
 
 @interface AroundMapController ()
@@ -123,9 +124,7 @@
     BMKReverseGeoCodeOption* option = [[BMKReverseGeoCodeOption alloc] init];
     option.reverseGeoPoint = userLocation.location.coordinate;
     
-    [[MapInfoModel instance] updatecurrentLocationWith:userLocation.location.coordinate];
-    
-    
+//    [[UserModel instance] requestLoactionRefreshLocationWithLongitude:userLocation.location.coordinate.latitude Latitude:userLocation.location.coordinate.longitude Gender:nil];
     
     [self.mySearchService reverseGeoCode:option];
 }

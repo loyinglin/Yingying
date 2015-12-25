@@ -22,6 +22,7 @@
         NSDictionary* dict = responseObject;
         if ([dict objectForKey:@"access_token"]) {
             [[UserModel instance] updateWithPhone:userphone AccessToken:[dict objectForKey:@"access_token"] TokenType:[dict objectForKey:@"token_type"] Expires:[dict objectForKey:@"expires_in"]];
+            
         }
         else {
             NSLog(@"error %@", self);
@@ -58,6 +59,22 @@
 
 }
 
+
+- (void)requestEditUserInfoWithToken:(NSString *)accessToken Name:(NSString *)nickName Gender:(NSString *)gender Address:(NSString *)address {
+    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithObject:accessToken forKey:@"access_token"];
+    if (nickName) {
+        [dict setObject:nickName forKey:@"nickName"];
+    }
+    if (gender) {
+        [dict setObject:gender forKey:@"gender"];
+    }
+    if (address) {
+        [dict setObject:address forKey:@"address"];
+    }
+    [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_USER_EDIT_USER_INFO] Param:dict success:^(id responseObject) {
+        NSLog(@"edit back%@", [responseObject description]);
+    }];
+}
 
 
 @end

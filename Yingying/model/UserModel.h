@@ -31,4 +31,9 @@
 
 - (void)requestGetUserInfo;
 
+- (void)requestEditUserInfoWithName:(NSString *)nickName Gender:(NSString *)gender Address:(NSString *)address;
+
+- (void)requestLoactionRefreshLocationWithLongitude:(float)x Latitude:(float)y Gender:(NSString *)gender;
+
+
 @end

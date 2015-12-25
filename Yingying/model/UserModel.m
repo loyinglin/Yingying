@@ -7,7 +7,9 @@
 //
 
 #import "UserModel.h"
+#import "MapInfoModel.h"
 #import "UserMessage.h"
+#import "LocationMessage.h"
 
 @interface UserModel()
 @property (nonatomic , strong) NSString*    myAccessToken;
@@ -40,10 +42,17 @@
     self.myTokenType = tokenType;
     self.myExpires = expires;
     self.myPhone = phone;
-    [self performSelector:@selector(requestGetUserInfo) withObject:nil afterDelay:1.0];
+    
+    
+    //test
+    [self performSelector:@selector(test) withObject:nil afterDelay:1.0];
 }
 
-
+- (void)test {
+//    [self requestEditUserInfoWithName:@"loying" Gender:nil Address:nil];
+    [self requestLoactionRefreshLocationWithLongitude:[MapInfoModel instance].myPosition.longitude Latitude:[MapInfoModel instance].myPosition.latitude Gender:@"f"];
+    
+}
 #pragma mark - get
 
 
@@ -58,6 +67,15 @@
 
 - (void)requestGetUserInfo {
     [[UserMessage instance] requestGetUserInfoWithAccessToken:self.myAccessToken Userphone:self.myPhone];
+}
+
+- (void)requestEditUserInfoWithName:(NSString *)nickName Gender:(NSString *)gender Address:(NSString *)address {
+    [[UserMessage instance] requestEditUserInfoWithToken:self.myAccessToken Name:nickName Gender:gender Address:address];
+}
+
+
+- (void)requestLoactionRefreshLocationWithLongitude:(float)x Latitude:(float)y Gender:(NSString *)gender {
+    [[LocationMessage instance] requestLocationRefreshLocationWithToken:self.myAccessToken Longitude:x Latitude:y Gender:gender];
 }
 
 @end

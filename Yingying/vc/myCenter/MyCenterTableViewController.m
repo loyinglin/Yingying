@@ -8,6 +8,7 @@
 
 #import "MyCenterTableViewController.h"
 #import "UIViewController+YingyingNavigationItem.h"
+#import <objc/runtime.h>
 
 @interface MyCenterTableViewController ()
 
@@ -36,7 +37,13 @@
         UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"login_view_controller"];
         NSLog(@"show login");
         [self.tabBarController presentViewController:controller animated:YES completion:nil];
-    }}
+    }
+    
+    unsigned int		propertyCount = 0;
+    objc_property_t *	properties = class_copyPropertyList([self class], &propertyCount );
+    
+    NSLog(@"test count %ud", propertyCount);
+}
 
 #pragma mark - view init
 
