@@ -8,8 +8,40 @@
 
 #import "UserMessage.h"
 #import "UserModel.h"
+#import "NSObject+LYUITipsView.h"
 
 @implementation UserMessage
+
+- (void)requestSendCodeWithUserphone:(NSString *)userphone {
+    NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:userphone, @"userphone", nil];
+    
+    [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_SEND_CODE] Param:dict success:^(id responseObject) {
+        NSDictionary* dict = responseObject;
+        if ([dict isKindOfClass:[NSDictionary class]]) {
+            if ([[dict objectForKey:@"msg_desc"] isKindOfClass:[NSString class]]) {
+                [self presentMessageTips:[dict objectForKey:@"msg_desc"]];
+            }
+        }
+    }];
+}
+
+
+- (void)requestRegisterWithUserphone:(NSString *)userphone Password:(NSString *)password VerifyCode:(NSString *)verifyCode {
+    NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                          userphone, @"userphone",
+                          password, @"password",
+                          verifyCode, @"verifyCode",
+                          nil];
+    
+    [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_REGISTER] Param:dict success:^(id responseObject) {
+        
+        NSDictionary* dict = responseObject;
+        if ([dict isKindOfClass:[NSDictionary class]] && [dict objectForKey:@"access_token"]) {
+            [[UserModel instance] updateWithPhone:userphone AccessToken:[dict objectForKey:@"access_token"] TokenType:[dict objectForKey:@"token_type"] Expires:[dict objectForKey:@"expires_in"]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_SERVER_REGISTER_SUCCESS object:nil];
+        }
+    }];
+}
 
 - (void)requestOauthLoginWithUserphone:(NSString *)userphone Password:(NSString *)password {
     
@@ -20,12 +52,9 @@
     
     [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:(NSString*)LY_MSG_OAUTH_LOGIN] Param:dict success:^(id responseObject) {
         NSDictionary* dict = responseObject;
-        if ([dict objectForKey:@"access_token"]) {
+        if ([dict isKindOfClass:[NSDictionary class]] && [dict objectForKey:@"access_token"]) {
             [[UserModel instance] updateWithPhone:userphone AccessToken:[dict objectForKey:@"access_token"] TokenType:[dict objectForKey:@"token_type"] Expires:[dict objectForKey:@"expires_in"]];
             
-        }
-        else {
-            NSLog(@"error %@", self);
         }
     }];
 
@@ -38,23 +67,16 @@
                           userphone, @"userphone",
                           nil];
     
-//    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
-//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript", @"text/plain", nil];
-//    [manager GET:[NSString stringWithFormat:@"%@%@", LY_MSG_BASE_URL, LY_MSG_USER_GET_USER_INFO] parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"succcess %@", responseObject);
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        NSLog(@"eeror %@", error);
-//    }];
-    
-//    [manager POST:[NSString stringWithFormat:@"%@%@", LY_MSG_BASE_URL, LY_MSG_USER_GET_USER_INFO] parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"succcess %@", responseObject);
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        NSLog(@"eeror %@", error);
-//    }];
-
     [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:(NSString*)LY_MSG_USER_GET_USER_INFO] Param:dict success:^(id responseObject) {
         NSDictionary* dict = responseObject;
-            NSLog(@"back %@", responseObject);
+        if ([dict isKindOfClass:[NSDictionary class]] && [dict objectForKey:@"userInfo"]) {
+            NSDictionary* userInfo = [dict objectForKey:@"userInfo"];
+            if ([userInfo isKindOfClass:[NSDictionary class]]) {
+                UserInfo* info = [userInfo objectForClass:[UserInfo class]];
+                [[UserModel instance] updateWithUserInfo:info];
+                [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_SERVER_GET_USERINFO_SUCCESS object:nil];
+            }
+        }
     }];
 
 }
@@ -72,7 +94,7 @@
         [dict setObject:address forKey:@"address"];
     }
     [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_USER_EDIT_USER_INFO] Param:dict success:^(id responseObject) {
-        NSLog(@"edit back%@", [responseObject description]);
+        NSLog(@"desc %@", [(NSDictionary *)responseObject objectForKey:@"msg_desc"]);
     }];
 }
 

@@ -40,10 +40,10 @@
         [self.tabBarController presentMessageTips:@"加载中..."];
         [[CDChatManager manager] openWithClientId:selfId callback: ^(BOOL succeeded, NSError *error) {
             if (error) {
-                NSLog(@"%@", error);
+                LYLog(@"%@", error);
             }
             else {
-                NSLog(@"chat init success");
+                LYLog(@"chat init success");
                 [self updateRecent];
             }
         }];
@@ -71,7 +71,7 @@
 #pragma mark - ibaction
 
 - (IBAction)onAddFriend:(id)sender {
-    NSLog(@"add friend");
+    LYLog(@"add friend");
     [self presentMessageTips:@"还没有添加页面"];
 }
 
@@ -191,7 +191,7 @@
 #pragma mark - delegate
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    NSLog(@"text:%@", searchController.searchBar.text);
+    LYLog(@"text:%@", searchController.searchBar.text);
 }
 
 
@@ -210,16 +210,16 @@
 - (void)setupNotify {
     
     [[NSNotificationCenter defaultCenter] addObserverForName:kCDNotificationConnectivityUpdated object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-        NSLog(@"kCDNotificationConnectivityUpdated");
+        LYLog(@"kCDNotificationConnectivityUpdated");
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:kCDNotificationMessageReceived object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-        NSLog(@"new message");
+        LYLog(@"new message");
         [self updateRecent];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:kCDNotificationUnreadsUpdated object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-        NSLog(@"un read");
+        LYLog(@"un read");
         [self updateRecent];
     }];
 }

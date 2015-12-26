@@ -30,7 +30,7 @@
 #pragma mark - ibaction
 
 - (IBAction)oncharge:(id)sender {
-    NSLog(@"charge %@", self.myChargeTextField.text);
+    LYLog(@"charge %@", self.myChargeTextField.text);
 }
 
 #pragma mark - ui

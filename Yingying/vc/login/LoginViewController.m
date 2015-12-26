@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "UserModel.h"
 #import "LYColor.h"
 
 @interface LoginViewController ()
@@ -27,6 +28,7 @@
 //    self.edgesForExtendedLayout = UIRectEdgeBottom | UIRectEdgeLeft | UIRectEdgeRight;
     
     [self customView];
+    [self customNotify];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,23 +66,48 @@
 
 #pragma mark - ibaction
 
+- (IBAction)onGetCode:(id)sender {
+    if (self.myPhone.text.length == 0) {
+        [self presentMessageTips:@"手机号码不能为空"];
+    }
+    else {
+        [[UserModel instance] requestSendCodeWithUserphone:self.myPhone.text];
+    }
+}
+
 - (IBAction)onCancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)onRegister:(id)sender {
     if ([self checkInput]) {
-        [self performSegueWithIdentifier:@"open_register_board" sender:self];
+        [[UserModel instance] requestRegisterWithUserphone:self.myPhone.text Password:self.myPassword.text VerifyCode:self.myCode.text];
     }
 }
 
 - (BOOL)checkInput {
-    return YES;
+    BOOL ret = YES;
+    if (self.myCode.text.length == 0) {
+        [self presentMessageTips:@"验证码不能为空"];
+        ret = NO;
+    }
+    else if (self.myPassword.text.length < 6 || self.myPassword.text.length > 20) {
+        [self presentMessageTips:@"密码必须为6~20位数字或者字母"];
+        ret = NO;
+    }
+    
+    return ret;
 }
 #pragma mark - ui
 
 #pragma mark - delegate
 
 #pragma mark - notify
+
+- (void)customNotify {
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_SERVER_REGISTER_SUCCESS object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [self performSegueWithIdentifier:@"open_register_board" sender:self];
+    }];
+}
 
 @end

@@ -23,7 +23,7 @@
         NSDictionary* dict = responseObject;
         if ([dict isKindOfClass:[NSDictionary class]]) {
             if ([dict objectForKey:@"msg_desc"]) {
-                NSLog(@"back %@", [dict objectForKey:@"msg_desc"]);
+                LYLog(@"back %@", [dict objectForKey:@"msg_desc"]);
             }
         }
     }];

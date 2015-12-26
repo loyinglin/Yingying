@@ -33,12 +33,12 @@
 #pragma mark - ibaction
 
 - (IBAction)onCancel:(id)sender {
-    NSLog(@"cancel");
+    LYLog(@"cancel");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)onSure:(id)sender {
-    NSLog(@"sure with %@", self.myPassword.text);
+    LYLog(@"sure with %@", self.myPassword.text);
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

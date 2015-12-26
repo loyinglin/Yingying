@@ -101,7 +101,7 @@
 //处理方向变更信息
 - (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
 {
-    NSLog(@"heading is %@",userLocation.heading);
+    LYLog(@"heading is %@",userLocation.heading);
 }
 
 //处理位置坐标更新
@@ -109,7 +109,7 @@
 {
     [self addPointAnnotationWithCenter:userLocation.location.coordinate];
     
-    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    LYLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     
     BMKLocationViewDisplayParam* param = [[BMKLocationViewDisplayParam alloc] init];
     param.locationViewImgName = @"map_myself_location";
@@ -133,7 +133,7 @@
 #pragma mark - delegate - map
 
 - (void)mapViewDidFinishLoading:(BMKMapView *)mapView {
-    NSLog(@"map load end");
+    LYLog(@"map load end");
 }
 
 
@@ -202,7 +202,7 @@
 
 // 当点击annotation view弹出的泡泡时，调用此接口
 - (void)mapView:(BMKMapView *)mapView annotationViewForBubble:(BMKAnnotationView *)view {
-    NSLog(@"paopaoclick");
+    LYLog(@"paopaoclick");
     if (![view.reuseIdentifier isEqualToString:@"renameMark"]) {
         return ;
     }
@@ -212,12 +212,12 @@
 }
 
 - (void)select:(id)sender {
-    NSLog(@"sender click");
+    LYLog(@"sender click");
 }
 
 - (void)mapView:(BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view {
 //    [mapView deselectAnnotation:view.annotation animated:YES];
-//    NSLog(@"click ");
+//    LYLog(@"click ");
 //    UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
 //    [self presentViewController:controller animated:YES completion:nil];
 }
@@ -226,12 +226,11 @@
 
 - (void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error {
     if (error == BMK_SEARCH_NO_ERROR) {
-        NSLog(@"%@", [result.addressDetail description]);
-        NSLog(@"address %@", [result address]);
+        LYLog(@"address %@", [result address]);
         [[MapInfoModel instance] updateCurrentPositionWithAddress:result.address];
     }
     else {
-        NSLog(@"error");
+        LYLog(@"error");
     }
 }
 

@@ -7,6 +7,8 @@
 //
 
 #import "LoginRegisterController.h"
+#import "UserModel.h"
+#import "MapInfoModel.h"
 
 @interface LoginRegisterController ()
 
@@ -31,6 +33,8 @@
     [self.myInputTextField setBackgroundColor:[UIColor clearColor]];
     NSString* str = self.myInputTextField.placeholder;
     self.myInputTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:str attributes:@{NSForegroundColorAttributeName:[UIColor lightGrayColor]}];
+    
+    [self customNotify];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,13 +61,37 @@
 }
 
 - (IBAction)onRegister:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([self checkInput]) {
+        [[UserModel instance] requestEditUserInfoWithName:self.myInputTextField.text Gender:[self getGender] Address:[MapInfoModel instance].myAddress];
+    }
 }
 #pragma mark - ui
 
+- (BOOL)checkInput {
+    BOOL ret = YES;
+    
+    return ret;
+}
+
+- (NSString *)getGender {
+    NSString* ret;
+    if (self.myMaleLabel.hidden) {
+        ret = @"f";
+    }
+    else {
+        ret = @"m";
+    }
+    return ret;
+}
 #pragma mark - delegate
 
 #pragma mark - notify
 
+- (void)customNotify {
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_SERVER_EDIT_USERINFO_SUCCESS object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [[UserModel instance] requestGetUserInfo];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+}
 
 @end

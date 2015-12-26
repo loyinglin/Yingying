@@ -94,13 +94,13 @@
 #pragma mark - delegate
 
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-    NSLog(@"play end");
+    LYLog(@"play end");
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setActive:NO error:nil];
 }
 
 - (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError * __nullable)error{
-    NSLog(@"%@", [error description]);
+    LYLog(@"%@", [error description]);
 }
 
 #pragma mark - notify

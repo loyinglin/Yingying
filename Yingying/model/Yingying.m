@@ -13,3 +13,10 @@
 
 
 @end
+
+
+@implementation UserInfo
+
+
+
+@end

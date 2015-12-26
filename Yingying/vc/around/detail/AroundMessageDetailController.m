@@ -63,11 +63,11 @@
 }
 
 - (IBAction)onFavorite:(id)sender {
-    NSLog(@"favorite");
+    LYLog(@"favorite");
 }
 
 - (IBAction)onComment:(id)sender {
-    NSLog(@"comment");
+    LYLog(@"comment");
     self.myInputTextField.text = @""; //评论完清空
     [self.myInputTextField resignFirstResponder];
 }
@@ -126,7 +126,7 @@
         
         //获取键盘高度，在不同设备上，以及中英文下是不同的
         CGFloat kbHeight = [[note.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
-//        NSLog(@"kb height %f", kbHeight); 
+//        LYLog(@"kb height %f", kbHeight); 
         
         
         //计算出键盘顶端到inputTextView panel底端的距离(加上自定义的缓冲距离INTERVAL_KEYBOARD)

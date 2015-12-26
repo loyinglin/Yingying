@@ -17,6 +17,7 @@
 @property (nonatomic , strong) NSNumber*    myExpires;
 @property (nonatomic , strong) NSString*    myPhone;
 
+@property (nonatomic , strong) UserInfo*    myUserInfo;
 @end
 
 @implementation UserModel
@@ -44,22 +45,47 @@
     self.myPhone = phone;
     
     
+    [self onModelChange];
     //test
     [self performSelector:@selector(test) withObject:nil afterDelay:1.0];
 }
 
+- (void)updateWithUserInfo:(UserInfo *)info {
+    self.myUserInfo = info;
+    
+    [self onModelChange];
+}
+
+- (void)onModelChange {
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_MODEL_USER_MODEL_CHANGE object:nil];
+}
+
+
 - (void)test {
+    //登陆成功后获取用户资料
+    [self requestGetUserInfo];
+//    [self requestEditUserInfoWithName:@"loying" Gender:@"m" Address:@"cd"];
 //    [self requestEditUserInfoWithName:@"loying" Gender:nil Address:nil];
-    [self requestLoactionRefreshLocationWithLongitude:[MapInfoModel instance].myPosition.longitude Latitude:[MapInfoModel instance].myPosition.latitude Gender:@"f"];
+//    [self requestLoactionRefreshLocationWithLongitude:[MapInfoModel instance].myPosition.longitude Latitude:[MapInfoModel instance].myPosition.latitude Gender:@"f"];
     
 }
 #pragma mark - get
 
+- (UserInfo *)getMyUserInfo {
+    return self.myUserInfo;
+}
 
 
 
 #pragma mark - message
 
+- (void)requestSendCodeWithUserphone:(NSString *)userphone {
+    [[UserMessage instance] requestSendCodeWithUserphone:userphone];
+}
+
+- (void)requestRegisterWithUserphone:(NSString *)userphone Password:(NSString *)password VerifyCode:(NSString *)verifyCode {
+    [[UserMessage instance] requestRegisterWithUserphone:userphone Password:password VerifyCode:verifyCode];
+}
 
 - (void)requestOauthLoginWithUserphone:(NSString *)userphone Password:(NSString *)password {
     [[UserMessage instance] requestOauthLoginWithUserphone:userphone Password:password];

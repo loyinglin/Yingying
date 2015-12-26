@@ -256,7 +256,7 @@ typedef void (*send_type)(void *, SEL, UIView *);
             
             // 回调
             if ([self.beginRefreshingTaget respondsToSelector:self.beginRefreshingAction]) {
-                NSLog(@"error");
+                LYLog(@"error");
 //                objc_msgSend(self.beginRefreshingTaget, self.beginRefreshingAction, self);
             }
             

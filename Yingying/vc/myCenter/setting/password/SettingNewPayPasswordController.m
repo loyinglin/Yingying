@@ -82,7 +82,7 @@
 #pragma mark - ui
 
 - (void)updateByPassword:(NSString *)password {
-    NSLog(@"password : %@", password);
+    LYLog(@"password : %@", password);
     self.myPasswordString = password;
     UIButton* button;
     for (int i = 0; i < self.myPasswords.count; ++i) {

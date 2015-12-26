@@ -15,7 +15,7 @@
     [self sendUploadWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_UPLOAD] Param:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileURL:url name:@"loying" error:nil];
     } success:^(id responseObject) {
-        NSLog(@"success");
+        LYLog(@"success");
     }];
 }
 

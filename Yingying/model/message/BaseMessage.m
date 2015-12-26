@@ -42,19 +42,21 @@
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript", @"text/plain", nil];
     
+    LYLog(@"%@ request with %@", str, [param description]);
+
     [manager POST:str parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (!self.background) {
             [self dismissTips];
         }
-        NSLog(@"%@ respone %@", str, responseObject);
+        LYLog(@"%@ \n base log : %@", str, [responseObject description]);
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (!self.background) {
             [self dismissTips];
             [self presentMessageTips:@"操作失败"];
         }
-        NSLog(@"Error: %@", error);
-        NSLog(@"opertaion %@ error", [task description]);
+        LYLog(@"Error: %@", error);
+        LYLog(@"opertaion %@ error", [task description]);
     }];
 }
 
@@ -73,14 +75,14 @@
         }
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"percent %f", uploadProgress.fractionCompleted);
+            LYLog(@"percent %f", uploadProgress.fractionCompleted);
         });
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         if (!self.background) {
             [self dismissTips];
         }
-        NSLog(@"respone %@", responseObject);
+        LYLog(@"respone %@", [responseObject description]);
         success(responseObject);
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -89,8 +91,8 @@
             [self dismissTips];
             [self presentMessageTips:@"操作失败"];
         }
-        NSLog(@"Error: %@", error);
-        NSLog(@"opertaion %@ error", [task description]);
+        LYLog(@"Error: %@", error);
+        LYLog(@"opertaion %@ error", [task description]);
     }];
     
 }

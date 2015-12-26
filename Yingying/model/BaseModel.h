@@ -6,6 +6,9 @@
 //  Copyright © 2015年 林伟池. All rights reserved.
 //
 
+#import "LYNotifyCenter.h"
+#import "NSObject+LYUITipsView.h"
+#import "Yingying.h"
 #import <Foundation/Foundation.h>
 
 @interface BaseModel : NSObject

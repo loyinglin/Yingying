@@ -56,7 +56,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"dealloc message");
+    LYLog(@"dealloc message");
 }
 /*
 #pragma mark - Navigation
@@ -92,7 +92,7 @@
 - (IBAction)onAdd:(id)sender {
     UIAlertController* controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"cancel");
+        LYLog(@"cancel");
     }];
     [controller addAction:cancel];
     
@@ -124,7 +124,7 @@
         [self presentViewController:picker animated:YES completion:nil];
     }else
     {
-        NSLog(@"模拟其中无法打开照相机,请在真机中使用");
+        LYLog(@"模拟其中无法打开照相机,请在真机中使用");
     }
 }
 
@@ -173,7 +173,7 @@
         
         //得到选择后沙盒中图片的完整路径
         NSString* filePath = [[NSString alloc]initWithFormat:@"%@%@",DocumentsPath,  @"/image.png"];
-        NSLog(@"file path :%@", filePath);
+        LYLog(@"file path :%@", filePath);
         
         //关闭相册界面
         [picker dismissViewControllerAnimated:YES completion:nil];
@@ -188,7 +188,7 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    NSLog(@"您取消了选择图片");
+    LYLog(@"您取消了选择图片");
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark - delegate
@@ -214,7 +214,7 @@
         [self onAdd:nil];
     }
     else {
-        NSLog(@"click %ld", indexPath.row);
+        LYLog(@"click %ld", indexPath.row);
         self.myImageIndex = indexPath.row;
         LYBaseImageViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"image_view_controller"];
         

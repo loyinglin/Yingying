@@ -32,7 +32,7 @@
 #pragma mark - ibaction
 
 - (IBAction)onSelectCoupon:(id)sender {
-    NSLog(@"selected coupon");
+    LYLog(@"selected coupon");
     [self performSegueWithIdentifier:@"open_my_coupon_board" sender:self];
 }
 

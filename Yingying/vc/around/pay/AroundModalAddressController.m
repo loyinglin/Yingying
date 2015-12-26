@@ -59,7 +59,7 @@
 }
 
 - (IBAction)onSure:(id)sender {
-    NSLog(@"adddress %@", [self.myViewModel getAddressByProvince:self.myIndexProvince City:self.myIndexCity Area:self.myIndexArea]);
+    LYLog(@"adddress %@", [self.myViewModel getAddressByProvince:self.myIndexProvince City:self.myIndexCity Area:self.myIndexArea]);
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 

@@ -7,6 +7,8 @@
 //
 
 #import "AllMessage.h"
+#import "Yingying.h"
+#import "LYNotifyCenter.h"
 #import "AFNetworking.h"
 #import <Foundation/Foundation.h>
 

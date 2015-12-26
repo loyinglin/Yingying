@@ -30,7 +30,7 @@
 #pragma mark - ibaction
 
 - (IBAction)onClick:(id)sender {
-    NSLog(@"click");
+    LYLog(@"click");
 }
 
 #pragma mark - ui

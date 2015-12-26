@@ -10,11 +10,13 @@
 
 @interface UserMessage : BaseMessage
 
+- (void)requestSendCodeWithUserphone:(NSString *)userphone;
+
+- (void)requestRegisterWithUserphone:(NSString *)userphone Password:(NSString *)password VerifyCode:(NSString *)verifyCode;
 
 - (void)requestOauthLoginWithUserphone:(NSString *)userphone Password:(NSString *)password;
 
 - (void)requestGetUserInfoWithAccessToken:(NSString *)accessToken Userphone:(NSString *)userphone;
-
 
 - (void)requestEditUserInfoWithToken:(NSString *)accessToken Name:(NSString *)nickName Gender:(NSString *)gender Address:(NSString *)address;
 @end

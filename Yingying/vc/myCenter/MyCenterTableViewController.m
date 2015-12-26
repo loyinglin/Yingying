@@ -8,7 +8,8 @@
 
 #import "MyCenterTableViewController.h"
 #import "UIViewController+YingyingNavigationItem.h"
-#import <objc/runtime.h>
+#import "LYNotifyCenter.h"
+#import "UserModel.h"
 
 @interface MyCenterTableViewController ()
 
@@ -22,7 +23,7 @@
     
     [self customView];
     [self test];
-    
+    [self customNotify];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,14 +36,14 @@
     
     if (YES) { //未登录
         UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"login_view_controller"];
-        NSLog(@"show login");
+        LYLog(@"show login");
         [self.tabBarController presentViewController:controller animated:YES completion:nil];
     }
     
-    unsigned int		propertyCount = 0;
-    objc_property_t *	properties = class_copyPropertyList([self class], &propertyCount );
+//    unsigned int		propertyCount = 0;
+//    objc_property_t *	properties = class_copyPropertyList([self class], &propertyCount );
     
-    NSLog(@"test count %ud", propertyCount);
+//    LYLog(@"test count %ud", propertyCount);
 }
 
 #pragma mark - view init
@@ -78,6 +79,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"cell%ld", indexPath.row] forIndexPath:indexPath];
     
+    if (indexPath.row == my_total) {
+        UILabel* myName = (UILabel *)[cell viewWithTag:10];
+        if ([myName isKindOfClass:[UILabel class]]) {
+            UserInfo* myInfo = [[UserModel instance] getMyUserInfo];
+            if (myInfo && myInfo.nickName) {
+                myName.text = myInfo.nickName;
+            }
+        }
+    }
+   
     
     return cell;
 }
@@ -111,5 +122,11 @@
 
 #pragma mark - notify
 
+- (void)customNotify {
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_MODEL_USER_MODEL_CHANGE object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [self.tableView reloadData];
+    }];
+}
 
 @end

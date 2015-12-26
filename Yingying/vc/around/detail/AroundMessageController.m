@@ -25,7 +25,7 @@
     
     @weakify(self);
     [self.myTableView addHeaderWithCallback:^{
-        NSLog(@"back");
+        LYLog(@"back");
         @strongify(self);
         [self.myTableView headerEndRefreshing];
     }];

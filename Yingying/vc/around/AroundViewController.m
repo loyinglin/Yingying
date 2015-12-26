@@ -47,7 +47,8 @@
 }
 
 - (void)test {
-    [[UserModel instance] requestOauthLoginWithUserphone:@"13535107063" Password:@"12345678"];
+//    [[UserModel instance] requestOauthLoginWithUserphone:@"13535107063" Password:@"12345678"];
+    [[UserModel instance] requestOauthLoginWithUserphone:@"18321560072" Password:@"123456abc"];
 }
 
 #pragma mark - view init
@@ -79,35 +80,35 @@
         UIAlertController* controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         
         UIAlertAction* all = [UIAlertAction actionWithTitle:@"全部" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"all");
+            LYLog(@"all");
         }];
         [controller addAction:all];
         
         UIAlertAction* man = [UIAlertAction actionWithTitle:@"只看男" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"man");
+            LYLog(@"man");
         }];
         [controller addAction:man];
         
         UIAlertAction* woman = [UIAlertAction actionWithTitle:@"只看女" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"woman");
+            LYLog(@"woman");
         }];
         [controller addAction:woman];
         
         
         UIAlertAction* mood = [UIAlertAction actionWithTitle:@"只看心情" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"mood");
+            LYLog(@"mood");
         }];
         [controller addAction:mood];
         
         
         UIAlertAction* res = [UIAlertAction actionWithTitle:@"只看资源" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"res");
+            LYLog(@"res");
         }];
         [controller addAction:res];
         
         
         UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"cancel");
+            LYLog(@"cancel");
         }];
         [controller addAction:cancel];
         

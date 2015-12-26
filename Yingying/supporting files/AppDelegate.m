@@ -23,12 +23,12 @@
     
     self.myMapManager = [[BMKMapManager alloc] init];
     
-    BOOL ret = [self.myMapManager start:@"lstHo03FUcRXBw8Ni0s5t0Ug" generalDelegate:nil];
+    BOOL ret = [self.myMapManager start:@"TmwEAU5mWUObmQOw1dllrgHj" generalDelegate:nil];
     if (ret) {
-        NSLog(@"baiduMap init success");
+        LYLog(@"baiduMap init success");
     }
     else {
-        NSLog(@"baiduMap init failed");
+        LYLog(@"baiduMap init failed");
     }
     
     /***************     chat            *************/
@@ -83,7 +83,7 @@
 //apns
 - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString *token = [NSString stringWithFormat:@"%@", deviceToken];
-    NSLog(@"My token is:%@", token);
+    LYLog(@"My token is:%@", token);
     AVInstallation *currentInstallation = [AVInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation saveInBackground];
@@ -91,11 +91,11 @@
 
 - (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSString *error_str = [NSString stringWithFormat: @"%@", error];
-    NSLog(@"Failed to get token, error:%@", error_str);
+    LYLog(@"Failed to get token, error:%@", error_str);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    NSLog(@"run ing ");
+    LYLog(@"run ing ");
     if (application.applicationState == UIApplicationStateActive) {
         // 转换成一个本地通知，显示到通知栏，你也可以直接显示出一个 alertView，只是那样稍显 aggressive：）
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];

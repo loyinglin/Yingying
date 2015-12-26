@@ -15,7 +15,7 @@
 #import <Foundation/Foundation.h>
 
 #ifdef DEBUG
-#define MJLog(...) NSLog(__VA_ARGS__)
+#define MJLog(...) LYLog(__VA_ARGS__)
 #else
 #define MJLog(...)
 #endif

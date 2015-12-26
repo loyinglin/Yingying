@@ -19,13 +19,18 @@
 
 - (void)updateWithPhone:(NSString *)phone AccessToken:(NSString *)access TokenType:(NSString *)tokenType Expires:(NSNumber *)expires;
 
-
+- (void)updateWithUserInfo:(UserInfo *)info;
 #pragma mark - get
 
+- (UserInfo *)getMyUserInfo;
 
 
 
 #pragma mark - message
+
+- (void)requestSendCodeWithUserphone:(NSString *)userphone;
+
+- (void)requestRegisterWithUserphone:(NSString *)userphone Password:(NSString *)password VerifyCode:(NSString *)verifyCode;
 
 - (void)requestOauthLoginWithUserphone:(NSString *)userphone Password:(NSString *)password;
 

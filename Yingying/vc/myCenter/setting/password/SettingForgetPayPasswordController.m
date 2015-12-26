@@ -45,12 +45,12 @@
 
 - (IBAction)onClick:(id)sender {
     if ([self checkCode]) {
-        NSLog(@"ok");
+        LYLog(@"ok");
     }
 }
 
 - (IBAction)onGetCode:(id)sender {
-    NSLog(@"get code");
+    LYLog(@"get code");
 }
 
 

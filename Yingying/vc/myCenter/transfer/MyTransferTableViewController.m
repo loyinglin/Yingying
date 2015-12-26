@@ -100,7 +100,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
-    NSLog(@"===%@  ===%ld",title,index);
+    LYLog(@"===%@  ===%ld",title,index);
     
     //点击索引，列表跳转到对应索引的行
     
@@ -138,13 +138,13 @@
 #pragma mark - delegate
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    NSLog(@"text:%@", searchController.searchBar.text);
+    LYLog(@"text:%@", searchController.searchBar.text);
     [self.myViewModel searchWithText:searchController.searchBar.text];
     [self.tableView reloadData];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    NSLog(@"y %f", scrollView.contentOffset.y);
+//    LYLog(@"y %f", scrollView.contentOffset.y);
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {

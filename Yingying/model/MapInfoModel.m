@@ -19,7 +19,7 @@
 #pragma mark - init
 
 
-+(instancetype) instance
++ (instancetype)instance
 {
     static id test;
     static dispatch_once_t onceToken;
@@ -29,7 +29,12 @@
     return test;
 }
 
-
+- (instancetype)init {
+    self = [super init];
+    self.myAddress = @"";
+    
+    return self;
+}
 #pragma mark - update
 
 - (void)updateCurrentPositionWithAddress:(NSString *)address {

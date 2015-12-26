@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -273,6 +273,26 @@
                                     <action selector="onCancel:" destination="mYg-WI-3Ok" eventType="touchUpInside" id="t89-Xe-evK"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JF-VN-kDY">
+                                <rect key="frame" x="211" y="292" width="65" height="20"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.75294117650000003" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="pN7-Rv-rKG"/>
+                                    <constraint firstAttribute="width" constant="65" id="pRq-UA-iDn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="获取验证码">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onGetCode:" destination="mYg-WI-3Ok" eventType="touchUpInside" id="k60-vQ-F1C"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.34901960780000002" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -289,11 +309,13 @@
                             <constraint firstItem="Gyn-Vo-Nqb" firstAttribute="centerX" secondItem="wKm-pk-YT9" secondAttribute="centerX" id="Obm-Bw-Qh0"/>
                             <constraint firstItem="wKm-pk-YT9" firstAttribute="leading" secondItem="UMH-x9-RcU" secondAttribute="leading" id="QU0-kJ-Ulw"/>
                             <constraint firstItem="jfv-39-wt8" firstAttribute="top" secondItem="40L-ck-VAI" secondAttribute="bottom" constant="25" id="RAV-xZ-KRF"/>
+                            <constraint firstItem="5JF-VN-kDY" firstAttribute="centerY" secondItem="l65-n9-5Hk" secondAttribute="centerY" id="Vc1-sB-daX"/>
                             <constraint firstItem="Q95-fm-sOC" firstAttribute="leading" secondItem="Gp8-Re-FnQ" secondAttribute="trailing" constant="5" id="YhM-kp-tVx"/>
                             <constraint firstItem="uMu-ge-vrS" firstAttribute="top" secondItem="Qqc-nb-EMR" secondAttribute="bottom" constant="15" id="cUa-az-eug"/>
                             <constraint firstItem="l65-n9-5Hk" firstAttribute="top" secondItem="jfv-39-wt8" secondAttribute="bottom" constant="18" id="fW3-X9-vc2"/>
                             <constraint firstItem="5t7-hk-WRB" firstAttribute="leading" secondItem="l65-n9-5Hk" secondAttribute="leading" id="gwV-oC-gr9"/>
                             <constraint firstItem="Gyn-Vo-Nqb" firstAttribute="top" secondItem="5t7-hk-WRB" secondAttribute="bottom" constant="40" id="i68-8y-xBl"/>
+                            <constraint firstItem="l65-n9-5Hk" firstAttribute="trailing" secondItem="5JF-VN-kDY" secondAttribute="trailing" constant="10" id="jNC-3O-4Ld"/>
                             <constraint firstItem="5t7-hk-WRB" firstAttribute="centerX" secondItem="l65-n9-5Hk" secondAttribute="centerX" id="kbU-kf-gup"/>
                             <constraint firstItem="Gyn-Vo-Nqb" firstAttribute="leading" secondItem="5t7-hk-WRB" secondAttribute="leading" id="krM-qL-MyW"/>
                             <constraint firstItem="5t7-hk-WRB" firstAttribute="top" secondItem="l65-n9-5Hk" secondAttribute="bottom" constant="17" id="qgJ-sq-h8q"/>
@@ -3606,7 +3628,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="Fyc-8u-h3y"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是名字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdI-po-UHm">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是名字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdI-po-UHm">
                                                     <rect key="frame" x="55" y="16" width="56" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.34901960780000002" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>

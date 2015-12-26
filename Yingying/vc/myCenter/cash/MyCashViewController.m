@@ -56,14 +56,14 @@
     }];
     
     UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"cancel");
+        LYLog(@"cancel");
     }];
     [controller addAction:cancel];
     
     
     UIAlertAction* sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         @strongify(self);
-        NSLog(@"sure with %@", self.myPassword);
+        LYLog(@"sure with %@", self.myPassword);
     }];
     
     [controller addAction:sure];

@@ -57,7 +57,7 @@
     }
     self.myProvinces = provinceArr;
     self.myTotalCitys = cityArr;
-    NSLog(@"total city item %ld province %ld", cityArr.count, provinceArr.count);
+    LYLog(@"total city item %ld province %ld", cityArr.count, provinceArr.count);
     
 }
 #pragma mark - update

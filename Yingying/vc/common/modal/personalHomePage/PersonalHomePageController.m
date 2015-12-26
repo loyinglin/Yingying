@@ -67,21 +67,21 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
 - (void)test {
     
     [RACObserve(self.myViewModel, mySelf) subscribeNext:^(id x) {
-        NSLog(@"test1 %@", x);
+        LYLog(@"test1 %@", x);
     }];
     
     self.myViewModel.mySelf = YES;
     
     
     [RACObserve(self.myViewModel, mySelf) subscribeNext:^(id x) {
-        NSLog(@"test2 %@", x);
+        LYLog(@"test2 %@", x);
     }];
     
     self.myViewModel.mySelf = NO;
     
     
     [RACObserve(self.myViewModel, mySelf) subscribeNext:^(id x) {
-        NSLog(@"test3 %@", x);
+        LYLog(@"test3 %@", x);
     }];
 }
 #pragma mark - ibaction
@@ -92,19 +92,19 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
 
 
 - (IBAction)onAddFriend:(id)sender {
-    NSLog(@"add friend");
+    LYLog(@"add friend");
 }
 
 - (IBAction)onContact:(id)sender {
-    NSLog(@"contace him");
+    LYLog(@"contace him");
 }
 
 - (IBAction)onTransfer:(id)sender {
-    NSLog(@"transfer");
+    LYLog(@"transfer");
 }
 
 - (IBAction)onDeleteFriend:(id)sender {
-    NSLog(@"delelte");
+    LYLog(@"delelte");
 }
 
 - (IBAction)onRightButtonClick:(id)sender {
