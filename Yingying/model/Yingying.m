@@ -20,3 +20,9 @@
 
 
 @end
+
+@implementation LoginInfo
+
+
+
+@end

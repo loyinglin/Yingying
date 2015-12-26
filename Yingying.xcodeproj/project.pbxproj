@@ -213,6 +213,7 @@
 		FDD6D80C1C29A3DF00B03DF8 /* ForAPNs.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D80B1C29A3DF00B03DF8 /* ForAPNs.m */; };
 		FDD6D8101C2A44F500B03DF8 /* MyFavoriteController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D80F1C2A44F500B03DF8 /* MyFavoriteController.m */; };
 		FDEC5E4A1C2E3E7400D85E3F /* LYDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEC5E491C2E3E7400D85E3F /* LYDebug.m */; };
+		FDEC5E4E1C2E61D700D85E3F /* LYCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEC5E4D1C2E61D700D85E3F /* LYCoding.m */; };
 		FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532221C13C5F900B779E6 /* DistributionMoodController.m */; };
 		FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532241C13C5F900B779E6 /* DistributionResController.m */; };
 		FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */; };
@@ -545,6 +546,8 @@
 		FDEC5E481C2E3E7400D85E3F /* LYDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYDebug.h; sourceTree = "<group>"; };
 		FDEC5E491C2E3E7400D85E3F /* LYDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYDebug.m; sourceTree = "<group>"; };
 		FDEC5E4B1C2E3EB700D85E3F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		FDEC5E4C1C2E61D700D85E3F /* LYCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYCoding.h; sourceTree = "<group>"; };
+		FDEC5E4D1C2E61D700D85E3F /* LYCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYCoding.m; sourceTree = "<group>"; };
 		FDF532211C13C5F900B779E6 /* DistributionMoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionMoodController.h; sourceTree = "<group>"; };
 		FDF532221C13C5F900B779E6 /* DistributionMoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionMoodController.m; sourceTree = "<group>"; };
 		FDF532231C13C5F900B779E6 /* DistributionResController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionResController.h; sourceTree = "<group>"; };
@@ -797,6 +800,8 @@
 				FD29B3611C112FDC00B68C6C /* NSDictionary+LYDictToObject.m */,
 				FD29B3621C112FDC00B68C6C /* NSObject+LYTypeConversion.h */,
 				FD29B3631C112FDC00B68C6C /* NSObject+LYTypeConversion.m */,
+				FDEC5E4C1C2E61D700D85E3F /* LYCoding.h */,
+				FDEC5E4D1C2E61D700D85E3F /* LYCoding.m */,
 			);
 			path = LYCategory;
 			sourceTree = "<group>";
@@ -1633,6 +1638,7 @@
 				FD29B35C1C111C4A00B68C6C /* SecondViewController.m in Sources */,
 				FD3E336D1C2A46340076E868 /* MyMessageTableViewController.m in Sources */,
 				FD21CFAC1C1C04A300CF8550 /* ChatDetailController.m in Sources */,
+				FDEC5E4E1C2E61D700D85E3F /* LYCoding.m in Sources */,
 				FD61602B1C15210E00B73304 /* MapInfoModel.m in Sources */,
 				FD29B3DD1C1177D200B68C6C /* MyCenterTableViewController.m in Sources */,
 				FD29B3771C112FDC00B68C6C /* NSObject+LYTypeConversion.m in Sources */,
@@ -1848,7 +1854,7 @@
 			baseConfigurationReference = 560E10B102FADF679D47C07C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xinmin Li (HF83WH5SDV)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1863,7 +1869,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.YingYing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0d8f46a3-b2dd-4f9c-a1d5-5aa8311c8d50";
+				PROVISIONING_PROFILE = "0c7f1de5-c51e-4910-a78d-ac7715f1f85c";
 			};
 			name = Debug;
 		};
@@ -1872,7 +1878,7 @@
 			baseConfigurationReference = 2E25BA45A4DE8BEE871D6E1F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xinmin Li (HF83WH5SDV)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1887,7 +1893,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.YingYing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0d8f46a3-b2dd-4f9c-a1d5-5aa8311c8d50";
+				PROVISIONING_PROFILE = "0c7f1de5-c51e-4910-a78d-ac7715f1f85c";
 			};
 			name = Release;
 		};

@@ -37,7 +37,9 @@
         
         NSDictionary* dict = responseObject;
         if ([dict isKindOfClass:[NSDictionary class]] && [dict objectForKey:@"access_token"]) {
-            [[UserModel instance] updateWithPhone:userphone AccessToken:[dict objectForKey:@"access_token"] TokenType:[dict objectForKey:@"token_type"] Expires:[dict objectForKey:@"expires_in"]];
+            LoginInfo* info = [dict objectForClass:[LoginInfo class]];
+            info.userphone = userphone;
+            [[UserModel instance] updateWithLoginInfo:info];
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_SERVER_REGISTER_SUCCESS object:nil];
         }
     }];
@@ -53,8 +55,11 @@
     [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:(NSString*)LY_MSG_OAUTH_LOGIN] Param:dict success:^(id responseObject) {
         NSDictionary* dict = responseObject;
         if ([dict isKindOfClass:[NSDictionary class]] && [dict objectForKey:@"access_token"]) {
-            [[UserModel instance] updateWithPhone:userphone AccessToken:[dict objectForKey:@"access_token"] TokenType:[dict objectForKey:@"token_type"] Expires:[dict objectForKey:@"expires_in"]];
+            LoginInfo* info = [dict objectForClass:[LoginInfo class]];
+            info.userphone = userphone;
+            [[UserModel instance] updateWithLoginInfo:info];
             
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_SERVER_LOGIN_SUCCESS object:nil];
         }
     }];
 
@@ -95,6 +100,7 @@
     }
     [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_USER_EDIT_USER_INFO] Param:dict success:^(id responseObject) {
         NSLog(@"desc %@", [(NSDictionary *)responseObject objectForKey:@"msg_desc"]);
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_SERVER_EDIT_USERINFO_SUCCESS object:nil];
     }];
 }
 

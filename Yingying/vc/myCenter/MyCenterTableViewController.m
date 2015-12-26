@@ -34,7 +34,7 @@
 
 - (void)test {
     
-    if (YES) { //未登录
+    if ([[UserModel instance] getNeedLogin]) { //未登录
         UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"login_view_controller"];
         LYLog(@"show login");
         [self.tabBarController presentViewController:controller animated:YES completion:nil];

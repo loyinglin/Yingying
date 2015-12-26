@@ -48,7 +48,7 @@
 
 - (void)test {
 //    [[UserModel instance] requestOauthLoginWithUserphone:@"13535107063" Password:@"12345678"];
-    [[UserModel instance] requestOauthLoginWithUserphone:@"18321560072" Password:@"123456abc"];
+//    [[UserModel instance] requestOauthLoginWithUserphone:@"18321560072" Password:@"123456abc"];
 }
 
 #pragma mark - view init

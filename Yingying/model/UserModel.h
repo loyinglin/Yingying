@@ -17,14 +17,14 @@
 
 #pragma mark - update
 
-- (void)updateWithPhone:(NSString *)phone AccessToken:(NSString *)access TokenType:(NSString *)tokenType Expires:(NSNumber *)expires;
+- (void)updateWithLoginInfo:(LoginInfo *)info;
 
 - (void)updateWithUserInfo:(UserInfo *)info;
 #pragma mark - get
 
 - (UserInfo *)getMyUserInfo;
 
-
+- (BOOL)getNeedLogin;
 
 #pragma mark - message
 

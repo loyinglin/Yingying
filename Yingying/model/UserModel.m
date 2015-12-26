@@ -12,11 +12,7 @@
 #import "LocationMessage.h"
 
 @interface UserModel()
-@property (nonatomic , strong) NSString*    myAccessToken;
-@property (nonatomic , strong) NSString*    myTokenType;
-@property (nonatomic , strong) NSNumber*    myExpires;
-@property (nonatomic , strong) NSString*    myPhone;
-
+@property (nonatomic , strong) LoginInfo*   myLoginInfo;
 @property (nonatomic , strong) UserInfo*    myUserInfo;
 @end
 
@@ -36,15 +32,54 @@
     return test;
 }
 
+- (instancetype)init {
+    self = [super init];
+    [self loadCache];
+    
+    return self;
+}
+
+
+- (void)loadCache
+{
+    NSData* data = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@", [[self class] description], @"userInfo"]];
+    
+    if (data) {
+        UserInfo* item = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        self.myUserInfo = item;
+    }
+    
+    data = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@", [[self class] description], @"loginInfo"]];
+    if (data) {
+        LoginInfo* info = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        self.myLoginInfo = info;
+    }
+    
+}
+
+- (void)saveCache
+{
+    NSData* data = [NSKeyedArchiver archivedDataWithRootObject:self.myUserInfo];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:[NSString stringWithFormat:@"%@%@", [[self class] description], @"userInfo"]];
+    
+    data = [NSKeyedArchiver archivedDataWithRootObject:self.myLoginInfo];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:[NSString stringWithFormat:@"%@%@", [[self class] description], @"loginInfo"]];
+}
+
+-(void)clearCache
+{
+    self.myUserInfo = nil;
+    [self saveCache];
+}
+
+
+
 #pragma mark - update
 
-- (void)updateWithPhone:(NSString *)phone AccessToken:(NSString *)access TokenType:(NSString *)tokenType Expires:(NSNumber *)expires {
-    self.myAccessToken = access;
-    self.myTokenType = tokenType;
-    self.myExpires = expires;
-    self.myPhone = phone;
+- (void)updateWithLoginInfo:(LoginInfo *)info {
+    self.myLoginInfo = info;
     
-    
+    [self saveCache];
     [self onModelChange];
     //test
     [self performSelector:@selector(test) withObject:nil afterDelay:1.0];
@@ -53,6 +88,7 @@
 - (void)updateWithUserInfo:(UserInfo *)info {
     self.myUserInfo = info;
     
+    [self saveCache];
     [self onModelChange];
 }
 
@@ -63,7 +99,7 @@
 
 - (void)test {
     //登陆成功后获取用户资料
-    [self requestGetUserInfo];
+//    [self requestGetUserInfo];
 //    [self requestEditUserInfoWithName:@"loying" Gender:@"m" Address:@"cd"];
 //    [self requestEditUserInfoWithName:@"loying" Gender:nil Address:nil];
 //    [self requestLoactionRefreshLocationWithLongitude:[MapInfoModel instance].myPosition.longitude Latitude:[MapInfoModel instance].myPosition.latitude Gender:@"f"];
@@ -75,7 +111,13 @@
     return self.myUserInfo;
 }
 
-
+- (BOOL)getNeedLogin {
+    BOOL ret = YES;
+    if (self.myLoginInfo && self.myUserInfo) {
+        ret = NO;
+    }
+    return ret;
+}
 
 #pragma mark - message
 
@@ -92,16 +134,16 @@
 }
 
 - (void)requestGetUserInfo {
-    [[UserMessage instance] requestGetUserInfoWithAccessToken:self.myAccessToken Userphone:self.myPhone];
+    [[UserMessage instance] requestGetUserInfoWithAccessToken:self.myLoginInfo.access_token Userphone:self.myLoginInfo.userphone];
 }
 
 - (void)requestEditUserInfoWithName:(NSString *)nickName Gender:(NSString *)gender Address:(NSString *)address {
-    [[UserMessage instance] requestEditUserInfoWithToken:self.myAccessToken Name:nickName Gender:gender Address:address];
+    [[UserMessage instance] requestEditUserInfoWithToken:self.myLoginInfo.access_token Name:nickName Gender:gender Address:address];
 }
 
 
 - (void)requestLoactionRefreshLocationWithLongitude:(float)x Latitude:(float)y Gender:(NSString *)gender {
-    [[LocationMessage instance] requestLocationRefreshLocationWithToken:self.myAccessToken Longitude:x Latitude:y Gender:gender];
+    [[LocationMessage instance] requestLocationRefreshLocationWithToken:self.myLoginInfo.access_token Longitude:x Latitude:y Gender:gender];
 }
 
 @end

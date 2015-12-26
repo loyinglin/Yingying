@@ -7,6 +7,7 @@
 //
 
 #import "NSDictionary+LYDictToObject.h"
+#import "LYCoding.h"
 #import <Foundation/Foundation.h>
 
 @interface Friend : NSObject
@@ -19,10 +20,20 @@
 
 
 
-@interface UserInfo : NSObject
+@interface UserInfo : LYCoding
 
 @property (nonatomic , strong) NSString* address;
 @property (nonatomic , strong) NSString* gender;
 @property (nonatomic , strong) NSString* nickName;
+
+@end
+
+@interface LoginInfo : LYCoding
+
+@property (nonatomic , strong) NSString* access_token;
+@property (nonatomic , strong) NSString* token_type;
+@property (nonatomic , strong) NSString* refresh_token;
+@property (nonatomic , strong) NSString* expires_in;
+@property (nonatomic , strong) NSString* userphone;
 
 @end
