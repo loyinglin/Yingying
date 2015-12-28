@@ -13,6 +13,6 @@
 //回调通过notify 
 
 
-- (void)modalPersonalHomePageWith:(NSString *)wait;
+- (void)lyModalPersonalHomePageWith:(NSString *)wait;
 
 @end

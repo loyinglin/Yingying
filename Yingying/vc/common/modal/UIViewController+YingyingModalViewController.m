@@ -11,7 +11,7 @@
 @implementation UIViewController (YingyingModalViewController)
 
 
-- (void)modalPersonalHomePageWith:(NSString *)wait {
+- (void)lyModalPersonalHomePageWith:(NSString *)wait {
     UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
     if (controller) {
         [self presentViewController:controller animated:YES completion:nil];

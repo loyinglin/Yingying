@@ -232,6 +232,8 @@
 		FDEC5E731C30F81E00D85E3F /* mine_pop_icon_finance.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEC5E6E1C30F81E00D85E3F /* mine_pop_icon_finance.png */; };
 		FDEC5E761C31239D00D85E3F /* MinePopController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEC5E751C31239D00D85E3F /* MinePopController.m */; };
 		FDEC5E781C3132A800D85E3F /* my_center_tips.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEC5E771C3132A800D85E3F /* my_center_tips.png */; };
+		FDEC5E7B1C315DB200D85E3F /* MyCenterTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEC5E7A1C315DB200D85E3F /* MyCenterTotalCell.m */; };
+		FDEC5E7D1C31697000D85E3F /* my_total_finance.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEC5E7C1C31697000D85E3F /* my_total_finance.png */; };
 		FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532221C13C5F900B779E6 /* DistributionMoodController.m */; };
 		FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532241C13C5F900B779E6 /* DistributionResController.m */; };
 		FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */; };
@@ -586,6 +588,9 @@
 		FDEC5E741C31239D00D85E3F /* MinePopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinePopController.h; sourceTree = "<group>"; };
 		FDEC5E751C31239D00D85E3F /* MinePopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinePopController.m; sourceTree = "<group>"; };
 		FDEC5E771C3132A800D85E3F /* my_center_tips.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_center_tips.png; sourceTree = "<group>"; };
+		FDEC5E791C315DB200D85E3F /* MyCenterTotalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCenterTotalCell.h; sourceTree = "<group>"; };
+		FDEC5E7A1C315DB200D85E3F /* MyCenterTotalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCenterTotalCell.m; sourceTree = "<group>"; };
+		FDEC5E7C1C31697000D85E3F /* my_total_finance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_total_finance.png; sourceTree = "<group>"; };
 		FDF532211C13C5F900B779E6 /* DistributionMoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionMoodController.h; sourceTree = "<group>"; };
 		FDF532221C13C5F900B779E6 /* DistributionMoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionMoodController.m; sourceTree = "<group>"; };
 		FDF532231C13C5F900B779E6 /* DistributionResController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionResController.h; sourceTree = "<group>"; };
@@ -963,6 +968,8 @@
 				FD4BA8C21C11C5D300A69F90 /* investment */,
 				FD29B3DB1C1177D200B68C6C /* MyCenterTableViewController.h */,
 				FD29B3DC1C1177D200B68C6C /* MyCenterTableViewController.m */,
+				FDEC5E791C315DB200D85E3F /* MyCenterTotalCell.h */,
+				FDEC5E7A1C315DB200D85E3F /* MyCenterTotalCell.m */,
 			);
 			path = myCenter;
 			sourceTree = "<group>";
@@ -1025,6 +1032,7 @@
 		FD41BAB81C1D13A500B4A074 /* myCenter */ = {
 			isa = PBXGroup;
 			children = (
+				FDEC5E7C1C31697000D85E3F /* my_total_finance.png */,
 				FD8068561C1FF91F00111A0A /* my_loan_button.png */,
 				FD8068571C1FF91F00111A0A /* my_loan_selected.png */,
 				FD8068581C1FF91F00111A0A /* my_loan_submit.png */,
@@ -1641,6 +1649,7 @@
 				FD41BAF71C1D13A600B4A074 /* 启动关闭.png in Resources */,
 				FD41BA941C1C250500B4A074 /* finance_buy_now.png in Resources */,
 				FD80685A1C1FF91F00111A0A /* my_loan_button.png in Resources */,
+				FDEC5E7D1C31697000D85E3F /* my_total_finance.png in Resources */,
 				FDEC5E6F1C30F81E00D85E3F /* mine_pop_background.png in Resources */,
 				FD41BB2E1C1D87FA00B4A074 /* distribution_cancel.png in Resources */,
 				FD41BA951C1C250500B4A074 /* finance_full.png in Resources */,
@@ -1791,6 +1800,7 @@
 				FDA679BD1C1A7D5100FC8D9F /* DistributionResViewModel.m in Sources */,
 				FDEC5E4A1C2E3E7400D85E3F /* LYDebug.m in Sources */,
 				FD29B3751C112FDC00B68C6C /* LYTypeEncoding.m in Sources */,
+				FDEC5E7B1C315DB200D85E3F /* MyCenterTotalCell.m in Sources */,
 				FD54DDB81C2247D7009A8AD5 /* AddressMessage.m in Sources */,
 				FD54DDBD1C22960B009A8AD5 /* UserModel.m in Sources */,
 				FD4BA8CF1C12841700A69F90 /* MyLoanDetailController.m in Sources */,

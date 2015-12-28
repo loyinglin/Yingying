@@ -8,7 +8,9 @@
 
 #import "MyCenterTableViewController.h"
 #import "UIViewController+YingyingNavigationItem.h"
+#import "UIViewController+YingyingModalViewController.h"
 #import "LYNotifyCenter.h"
+#import "MyCenterTotalCell.h"
 #import "UserModel.h"
 
 @interface MyCenterTableViewController ()
@@ -63,6 +65,32 @@
 
 #pragma mark - ui
 
+- (void)onTotalCellTapWith:(long)index {
+    switch (index) {
+        case LY_MY_CENTER_TOTAL_COUPON:
+            [self performSegueWithIdentifier:@"open_my_total_coupon_board" sender:nil];
+            break;
+            
+        case LY_MY_CENTER_TOTAL_FINANCE:
+            [self performSegueWithIdentifier:@"open_my_total_finance_board" sender:nil];
+            break;
+            
+        case LY_MY_CENTER_TOTAL_HEAD:
+        {
+            [self lyModalPersonalHomePageWith:nil];
+            break;
+        }
+            
+        case LY_MY_CENTER_TOTAL_TOTAL:
+        {
+            [self performSegueWithIdentifier:@"open_my_total_board" sender:self];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -99,7 +127,7 @@
         [self performSegueWithIdentifier:@"open_my_transfer_board" sender:self];
     }
     else if (indexPath.row == my_total) {
-        [self performSegueWithIdentifier:@"open_my_total_board" sender:self];
+//        [self performSegueWithIdentifier:@"open_my_total_board" sender:self];
     }
     else if (indexPath.row == my_loan) {
         [self performSegueWithIdentifier:@"open_my_loan_board" sender:self];

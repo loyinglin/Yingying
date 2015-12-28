@@ -38,7 +38,7 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.mySearchController setActive:NO];
-//    [self modalPersonalHomePageWith:@"abc"];
+//    [self lyModalPersonalHomePageWith:@"abc"];
     
     [[CDChatManager manager] fetchConvWithOtherId:[self.myViewModel getFriendByIndex:indexPath.row Section:indexPath.section].name callback : ^(AVIMConversation *conversation, NSError *error) {
         if (error) {

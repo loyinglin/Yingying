@@ -23,4 +23,6 @@ typedef NS_ENUM(NSInteger, LYMYCENTER) {
 
 @property (nonatomic , strong) NSString* myForTest;
 
+- (void)onTotalCellTapWith:(long)index;
+
 @end

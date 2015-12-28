@@ -76,11 +76,11 @@
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 //        <#code#>
 //    });
-//    self.myProgressConstraint.constant = 30;
     [UIView animateWithDuration:3.0 animations:^{
         self.myProgressConstraint.constant = 270;
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
+        self.myProgressConstraint.constant = 30;
         [self.myMiningImageView setImage:[UIImage imageNamed:@"around_mine_init"]];
         [self performSegueWithIdentifier:@"open_mine_pop_board" sender:nil];
     }];
