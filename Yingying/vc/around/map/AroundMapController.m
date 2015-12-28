@@ -11,7 +11,7 @@
 #import "LYAnnotationView.h"
 #import "MapInfoModel.h"
 #import "UserModel.h"
-
+#import <objc/runtime.h>
 
 @interface AroundMapController ()
 @property (nonatomic , strong) IBOutlet BMKMapView* myMapView;
@@ -22,6 +22,10 @@
 @implementation AroundMapController {
     NSArray<BMKPointAnnotation *>* myPoints;
 
+}
+
++ (instancetype)viewDidLoad {
+    return [AroundMapController new];
 }
 
 - (void)viewDidLoad {
@@ -37,6 +41,20 @@
     self.mySearchService.delegate = self;
     
     [self.myLocationService startUserLocationService];
+////    self.class
+//    Class clazz = [self class];
+//    Class clarr = [AroundMapController class];
+//    Class metalclazz = objc_getMetaClass("AroundMapController");
+//
+////    AroundMapController;
+//    if (class_respondsToSelector(metalclazz, @selector(viewWillAppear:))) {
+//        NSLog(@"ok");
+//    }
+//    if (clarr == clazz) {
+//        NSLog(@"2 ok");
+//    }
+//
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,8 +131,8 @@
     
     BMKLocationViewDisplayParam* param = [[BMKLocationViewDisplayParam alloc] init];
     param.locationViewImgName = @"map_myself_location";
-    param.isAccuracyCircleShow = YES;
-    
+//    param.isAccuracyCircleShow = YES;
+//    
     self.myMapView.showsUserLocation = YES;
     [self.myMapView updateLocationViewWithParam:param];
     [self.myMapView updateLocationData:userLocation];

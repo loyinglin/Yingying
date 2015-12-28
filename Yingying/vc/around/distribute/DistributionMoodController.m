@@ -9,6 +9,7 @@
 
 #import "DistributionMoodController.h"
 #import "DistributionMoodViewModel.h"
+#import "NSObject+LYUITipsView.h"
 #import "MapInfoModel.h"
 #import "DataModel.h"
 #import "LYColor.h"
@@ -79,6 +80,7 @@
 #pragma mark - ibaction
 
 - (IBAction)onDistribute:(id)sender {
+    [self.navigationController presentMessageTips:@"发布成功"];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

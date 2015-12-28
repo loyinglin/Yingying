@@ -109,6 +109,10 @@ typedef NS_ENUM(NSInteger, LY_SWITCH_SETTING) {
             [self performSegueWithIdentifier:@"open_modify_pay_password_board" sender:self];
             break;
             
+        case ly_about_yingying:
+            [[UIApplication sharedApplication] openURL:[NSURL
+                                                        URLWithString:UIApplicationOpenSettingsURLString]];
+            break;
             
         default:
             break;

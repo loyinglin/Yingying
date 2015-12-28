@@ -9,10 +9,15 @@
 #import "MineViewController.h"
 #import "NSObject+LYUITipsView.h"
 #import <AVFoundation/AVFoundation.h>
+#import "UIViewController+YingyingNavigationItem.h"
 
 @interface MineViewController () <AVAudioPlayerDelegate>
 
-@property (nonatomic, strong) AVAudioPlayer*    myPlayer;
+@property (nonatomic , strong) AVAudioPlayer*                   myPlayer;
+@property (nonatomic , strong) IBOutlet UIImageView*            myMiningImageView;
+@property (nonatomic , strong) IBOutlet NSLayoutConstraint*     myProgressConstraint;
+
+//@property (nonatomic , strong) IBOutlet ;
 
 @end
 
@@ -22,7 +27,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self prepareToPlay];
-    [self playRecord];
+//    [self playRecord];
+    [self customView];
+    
 
 }
 
@@ -31,28 +38,52 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
 #pragma mark - view init
+
+- (void)customView {
+    [self lySetupLeftItem];
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self stopPlay];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 #pragma mark - ibaction
 
-- (IBAction)onMine:(id)sender {
-    [self presentMessageTips:@"挖空了"];
+- (IBAction)onMine:(UIButton *)sender {
+//    [self presentMessageTips:@"挖空了"];
+//    UIImage* mining = [UIImage animatedImageNamed:@"around_mine_mining" duration:1];
+    NSArray* arr = @[@"around_mine_mining0",
+                     @"around_mine_mining0",
+                     @"around_mine_mining0",
+                     @"around_mine_mining1",
+                     @"around_mine_mining2",
+                     @"around_mine_mining2",
+                     @"around_mine_mining2",
+                     ];
+    NSMutableArray* imgs = [NSMutableArray array];
+    for (NSString* name in arr) {
+        [imgs addObject:[UIImage imageNamed:name]];
+    }
+    UIImage* mining = [UIImage animatedImageWithImages:imgs duration:0.7];
+    [self.myMiningImageView setImage:mining];
+    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        <#code#>
+//    });
+//    self.myProgressConstraint.constant = 30;
+    [UIView animateWithDuration:3.0 animations:^{
+        self.myProgressConstraint.constant = 270;
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        [self.myMiningImageView setImage:[UIImage imageNamed:@"around_mine_init"]];
+        [self performSegueWithIdentifier:@"open_mine_pop_board" sender:nil];
+    }];
 }
 
 - (IBAction)onBack:(id)sender {

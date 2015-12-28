@@ -7,11 +7,9 @@
 //
 
 #import "MyTransferTableViewController.h"
-#import "MyTransferViewModel.h"
 
 @interface MyTransferTableViewController ()
 
-@property (nonatomic , strong) MyTransferViewModel* myViewModel;
 @end
 
 @implementation MyTransferTableViewController

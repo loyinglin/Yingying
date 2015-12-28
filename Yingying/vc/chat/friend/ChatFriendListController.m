@@ -7,7 +7,9 @@
 //
 
 #import "ChatFriendListController.h"
+#import "ChatDetailController.h"
 #import "UIViewController+YingyingModalViewController.h"
+#import "CDUserFactory.h"
 
 @interface ChatFriendListController ()
 
@@ -36,7 +38,18 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.mySearchController setActive:NO];
-    [self modalPersonalHomePageWith:@"abc"];
+//    [self modalPersonalHomePageWith:@"abc"];
+    
+    [[CDChatManager manager] fetchConvWithOtherId:[self.myViewModel getFriendByIndex:indexPath.row Section:indexPath.section].name callback : ^(AVIMConversation *conversation, NSError *error) {
+        if (error) {
+            LYLog(@"%@", error);
+        }
+        else {
+            ChatDetailController *chatRoomVC = [[ChatDetailController alloc] initWithConv:conversation];
+            [self.navigationController pushViewController:chatRoomVC animated:YES];
+        }
+    }];
+
     return nil;
 }
 

@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyTransferViewModel.h"
 
 @interface MyTransferTableViewController : UITableViewController<UISearchResultsUpdating>
 
 @property (nonatomic , strong) UISearchController* mySearchController;
+
+@property (nonatomic , strong) MyTransferViewModel* myViewModel;
 
 @end
