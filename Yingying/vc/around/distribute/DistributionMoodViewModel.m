@@ -7,6 +7,9 @@
 //
 
 #import "DistributionMoodViewModel.h"
+#import "UserModel.h"
+#import "MoodMessage.h"
+#import "NSObject+LYUITipsView.h"
 
 @implementation DistributionMoodViewModel
 
@@ -39,4 +42,15 @@
 #pragma mark - message
 
 
+- (void)requestSendMoodWithContent:(NSString *)moodContent {
+    
+    if ([[UserModel instance] getNeedLogin]) {
+        [self presentMessageTips:@"请先登录"];
+    }
+    else {
+        MoodMessage* message = [MoodMessage instance];
+        message.myLoadingStrings = @"发布中...";
+        [message requestSendMoodWithToken:[[UserModel instance] getMyAccessToken] MoodContent:moodContent ThumbsUrl:nil];
+    }
+}
 @end

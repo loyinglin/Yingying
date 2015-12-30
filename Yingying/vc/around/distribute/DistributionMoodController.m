@@ -13,11 +13,15 @@
 #import "MapInfoModel.h"
 #import "DataModel.h"
 #import "LYColor.h"
+#import <MBProgressHUD.h>
+
 
 @interface DistributionMoodController ()
 
 @property (nonatomic , strong) IBOutlet UICollectionView* myImages;
 @property (nonatomic , strong) IBOutlet UILabel*        myAddressLabel;
+
+@property (nonatomic , strong) MBProgressHUD*  HUD;
 
 @property (nonatomic , strong) DistributionMoodViewModel* myViewModel;
 
@@ -27,6 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view.
     self.myViewModel = [DistributionMoodViewModel new];
     
@@ -39,6 +44,8 @@
     
     
     RAC(self.myAddressLabel, text) = RACObserve([MapInfoModel instance], myAddress);
+    
+    [self customNotify];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,8 +87,11 @@
 #pragma mark - ibaction
 
 - (IBAction)onDistribute:(id)sender {
-    [self.navigationController presentMessageTips:@"发布成功"];
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController presentMessageTips:@"发布成功"];
+//    [self.navigationController popViewControllerAnimated:YES];
+    
+    [self.myViewModel requestSendMoodWithContent:@"test loy"];
+    
 }
 
 - (IBAction)onAdd:(id)sender {
@@ -215,5 +225,30 @@
 
 #pragma mark - notify
 
+- (void)customNotify {
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_PROGRESS_UPLOAD object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        
+        /***/
+        if (!self.HUD) {
+            self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+            [self.navigationController.view addSubview:self.HUD];
+            
+            // Set determinate mode
+            self.HUD.mode = MBProgressHUDModeAnnularDeterminate;
+            
+            self.HUD.labelText = @"上传中";
+            [self.HUD show:YES];
+
+        }
+        /***/
+        NSNumber* progress = [note.userInfo objectForKey:NOTIFY_PROGRESS_UPLOAD];
+        if (progress.floatValue < 0 || progress.floatValue >= 1.0) {
+            [self.HUD removeFromSuperview];
+        }
+        else {
+            self.HUD.progress = progress.floatValue;
+        }
+    }];
+}
 
 @end

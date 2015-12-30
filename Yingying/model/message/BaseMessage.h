@@ -15,10 +15,14 @@
 @interface BaseMessage : NSObject
 
 typedef void(^AfterMessageSuccess)(void);
+typedef void(^AfterMessageFail)(void);
 
 @property (nonatomic) BOOL background;
 
-@property (nonatomic, strong) AfterMessageSuccess myCallback;
+@property (nonatomic , strong) AfterMessageSuccess  myCallback;
+@property (nonatomic , strong) AfterMessageFail     myFailBack;
+
+@property (nonatomic , strong) NSString* myLoadingStrings;
 
 +(instancetype)instance;
 

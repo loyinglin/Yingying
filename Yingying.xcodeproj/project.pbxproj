@@ -158,6 +158,8 @@
 		FD54DDF61C2461EE009A8AD5 /* MyCashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDF51C2461EE009A8AD5 /* MyCashViewController.m */; };
 		FD54DDF91C24E36D009A8AD5 /* ModalConfirmCashController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDF81C24E36D009A8AD5 /* ModalConfirmCashController.m */; };
 		FD61602B1C15210E00B73304 /* MapInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD61602A1C15210E00B73304 /* MapInfoModel.m */; };
+		FD69A1B51C337470002A458F /* MoodMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69A1B41C337470002A458F /* MoodMessage.m */; };
+		FD69A1B81C337812002A458F /* AroundMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69A1B71C337812002A458F /* AroundMoodViewModel.m */; };
 		FD8068351C1EC7EE00111A0A /* login_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FD80682E1C1EC7EE00111A0A /* login_background.png */; };
 		FD8068361C1EC7EE00111A0A /* login_get_code.png in Resources */ = {isa = PBXBuildFile; fileRef = FD80682F1C1EC7EE00111A0A /* login_get_code.png */; };
 		FD80683A1C1EC7EE00111A0A /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8068331C1EC7EE00111A0A /* login_logo.png */; };
@@ -485,6 +487,10 @@
 		FD54DDF81C24E36D009A8AD5 /* ModalConfirmCashController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalConfirmCashController.m; sourceTree = "<group>"; };
 		FD6160291C15210E00B73304 /* MapInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapInfoModel.h; sourceTree = "<group>"; };
 		FD61602A1C15210E00B73304 /* MapInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapInfoModel.m; sourceTree = "<group>"; };
+		FD69A1B31C337470002A458F /* MoodMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodMessage.h; sourceTree = "<group>"; };
+		FD69A1B41C337470002A458F /* MoodMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodMessage.m; sourceTree = "<group>"; };
+		FD69A1B61C337812002A458F /* AroundMoodViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMoodViewModel.h; sourceTree = "<group>"; };
+		FD69A1B71C337812002A458F /* AroundMoodViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMoodViewModel.m; sourceTree = "<group>"; };
 		FD80682E1C1EC7EE00111A0A /* login_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_background.png; sourceTree = "<group>"; };
 		FD80682F1C1EC7EE00111A0A /* login_get_code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_get_code.png; sourceTree = "<group>"; };
 		FD8068331C1EC7EE00111A0A /* login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_logo.png; sourceTree = "<group>"; };
@@ -902,6 +908,8 @@
 			children = (
 				FD29B3BC1C1159D800B68C6C /* AroundMessageController.h */,
 				FD29B3BD1C1159D800B68C6C /* AroundMessageController.m */,
+				FD69A1B61C337812002A458F /* AroundMoodViewModel.h */,
+				FD69A1B71C337812002A458F /* AroundMoodViewModel.m */,
 				FD29B3C51C1161F400B68C6C /* ModelDistributionController.h */,
 				FD29B3C61C1161F400B68C6C /* ModelDistributionController.m */,
 				FD4BA8DA1C13075A00A69F90 /* AroundMessageDetailController.h */,
@@ -1180,6 +1188,8 @@
 				FD297DD81C2D6BDE007DFFF0 /* DataMessage.m */,
 				FD297DDA1C2D899E007DFFF0 /* LocationMessage.h */,
 				FD297DDB1C2D899E007DFFF0 /* LocationMessage.m */,
+				FD69A1B31C337470002A458F /* MoodMessage.h */,
+				FD69A1B41C337470002A458F /* MoodMessage.m */,
 			);
 			path = message;
 			sourceTree = "<group>";
@@ -1761,6 +1771,7 @@
 				FD4BA8D31C128F3C00A69F90 /* MySettingTableViewController.m in Sources */,
 				FD54DDC01C229847009A8AD5 /* UserMessage.m in Sources */,
 				FD29B38F1C1135DC00B68C6C /* AroundViewController.m in Sources */,
+				FD69A1B51C337470002A458F /* MoodMessage.m in Sources */,
 				FDD6D7CB1C24F4E400B03DF8 /* MyCashSwitchAccountController.m in Sources */,
 				FDD6D7D81C25BE8700B03DF8 /* SettingForgetPayPasswordController.m in Sources */,
 				FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */,
@@ -1792,6 +1803,7 @@
 				FD4BA8DC1C13075A00A69F90 /* AroundMessageDetailController.m in Sources */,
 				FD297DD91C2D6BDE007DFFF0 /* DataMessage.m in Sources */,
 				FD54DDF91C24E36D009A8AD5 /* ModalConfirmCashController.m in Sources */,
+				FD69A1B81C337812002A458F /* AroundMoodViewModel.m in Sources */,
 				FD8068551C1FF33F00111A0A /* MyTotalController.m in Sources */,
 				FDD6D80C1C29A3DF00B03DF8 /* ForAPNs.m in Sources */,
 				FD8068631C20F59B00111A0A /* AroundModalAddressController.m in Sources */,

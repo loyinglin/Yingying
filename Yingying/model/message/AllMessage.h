@@ -33,3 +33,10 @@
 //location
 #define LY_MSG_LOCATION_REFRESH_LOCATION    @"/location/refreshLocation"
 
+
+
+//mood
+#define LY_MSG_MOOD_GET_NEAR_MOOD           @"/mood/nearmood"
+#define LY_MSG_MOOD_SEND_MOOD               @"/mood/send"
+
+

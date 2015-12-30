@@ -26,6 +26,8 @@
 
 - (BOOL)getNeedLogin;
 
+- (NSString *)getMyAccessToken;
+
 #pragma mark - message
 
 - (void)requestSendCodeWithUserphone:(NSString *)userphone;

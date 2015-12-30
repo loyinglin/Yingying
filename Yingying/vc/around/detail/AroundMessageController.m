@@ -9,12 +9,15 @@
 #import "AroundMessageController.h"
 #import "LYNotifyCenter.h"
 #import "MJRefresh.h"
+#import "MapInfoModel.h"
+#import "AroundMoodViewModel.h"
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
 
 @interface AroundMessageController ()
 @property (nonatomic , strong) IBOutlet UITableView* myTableView;
 
+@property (nonatomic , strong) AroundMoodViewModel* myViewModel;
 @end
 
 @implementation AroundMessageController
@@ -22,6 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.myViewModel = [AroundMoodViewModel new];
     
     @weakify(self);
     [self.myTableView addHeaderWithCallback:^{
@@ -32,6 +37,11 @@
         
     self.myTableView.estimatedRowHeight = 140;
     self.myTableView.rowHeight = UITableViewAutomaticDimension;
+    
+    CLLocationCoordinate2D pos = [MapInfoModel instance].myPosition;
+    if (pos.latitude) { //注意pos不是指针
+        [self.myViewModel requestGetMoodNearMoodWithLongitude:@(pos.longitude) Latitude:@(pos.latitude) PageIndex:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

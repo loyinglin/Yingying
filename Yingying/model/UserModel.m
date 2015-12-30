@@ -119,6 +119,13 @@
     return ret;
 }
 
+- (NSString *)getMyAccessToken {
+    NSString* ret = @"";
+    if (self.myLoginInfo) {
+        ret = self.myLoginInfo.access_token;
+    }
+    return ret;
+}
 #pragma mark - message
 
 - (void)requestSendCodeWithUserphone:(NSString *)userphone {

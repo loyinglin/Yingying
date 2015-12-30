@@ -32,12 +32,18 @@
     return ret;
 }
 
+
+
 -(void)sendRequestWithPost:(NSString *)str Param:(NSDictionary *)param success:(void (^)(id))success
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 10;
     if (!self.background) {
-        [self presentLoadingTips:@"加载中"];
+        NSString* str = @"加载中";
+        if (self.myLoadingStrings) {
+            str = self.myLoadingStrings;
+        }
+        [self presentLoadingTips:str];
     }
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript", @"text/plain", nil];
@@ -65,7 +71,11 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 10;
     if (!self.background) {
-        [self presentLoadingTips:@"加载中"];
+        NSString* str = @"加载中";
+        if (self.myLoadingStrings) {
+            str = self.myLoadingStrings;
+        }
+        [self presentLoadingTips:str];
     }
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript", @"text/plain", nil];
@@ -76,9 +86,10 @@
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         dispatch_async(dispatch_get_main_queue(), ^{
             LYLog(@"percent %f", uploadProgress.fractionCompleted);
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_PROGRESS_UPLOAD object:nil userInfo:@{NOTIFY_PROGRESS_UPLOAD:@(uploadProgress.fractionCompleted)}];
         });
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+//        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_PROGRESS_UPLOAD object:nil userInfo:@{NOTIFY_PROGRESS_UPLOAD:@(1.1)}];
         if (!self.background) {
             [self dismissTips];
         }
@@ -91,6 +102,12 @@
             [self dismissTips];
             [self presentMessageTips:@"操作失败"];
         }
+        
+        if (self.myFailBack) {
+            self.myFailBack();
+        }
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_PROGRESS_UPLOAD object:nil userInfo:@{NOTIFY_PROGRESS_UPLOAD:@(-1.0)}];
         LYLog(@"Error: %@", error);
         LYLog(@"opertaion %@ error", [task description]);
     }];

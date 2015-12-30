@@ -5565,6 +5565,7 @@
                                     <constraint firstAttribute="height" constant="50" id="eyu-yh-L7k"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
                                 <state key="normal" title="充值">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

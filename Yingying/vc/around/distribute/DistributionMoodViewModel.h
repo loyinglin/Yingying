@@ -34,5 +34,6 @@
 
 #pragma mark - message
 
+- (void)requestSendMoodWithContent:(NSString *)moodContent;
 
 @end

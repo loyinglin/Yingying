@@ -143,6 +143,7 @@
     option.reverseGeoPoint = userLocation.location.coordinate;
     
 //    [[UserModel instance] requestLoactionRefreshLocationWithLongitude:userLocation.location.coordinate.latitude Latitude:userLocation.location.coordinate.longitude Gender:nil];
+    [[MapInfoModel instance] updatecurrentLocationWith:userLocation.location.coordinate];
     
     [self.mySearchService reverseGeoCode:option];
 }

@@ -37,6 +37,7 @@ PODS:
     - DateTools (= 1.5.0)
     - FMDB (= 2.5)
     - JSBadgeView (= 1.4.1)
+  - MBProgressHUD (0.9.1)
   - ReactiveCocoa (2.1.8):
     - ReactiveCocoa/Core (= 2.1.8)
     - ReactiveCocoa/no-arc (= 2.1.8)
@@ -48,6 +49,7 @@ DEPENDENCIES:
   - AFNetworking
   - BaiduMapKit
   - LeanChatLib (from `./`)
+  - MBProgressHUD
   - ReactiveCocoa
 
 EXTERNAL SOURCES:
@@ -63,6 +65,7 @@ SPEC CHECKSUMS:
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   JSBadgeView: 3861ddee41094284d9468e6d0af5107f703aaac5
   LeanChatLib: 9aa6b483a955dac006e042cbb6caca39d5826888
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   ReactiveCocoa: f89f2e009a87951b50321bf9feb958823fcc617e
 
 COCOAPODS: 0.37.2
