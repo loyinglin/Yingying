@@ -30,8 +30,27 @@ typedef void(^AfterMessageFail)(void);
 
 +(instancetype)callbackInstance:(AfterMessageSuccess)callback;
 
+/**
+ *  post 请求
+ *
+ *  @param str     <#str description#>
+ *  @param param   <#param description#>
+ *  @param success <#success description#>
+ */
 -(void)sendRequestWithPost:(NSString*)str Param:(NSDictionary *)param success:(void (^)(id responseObject))success;
 
--(void)sendUploadWithPost:(NSString *)str Param:(NSDictionary *)param constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block success:(void (^)(id responseObject))success;
+
+
+/**
+ *  上传
+ *
+ *  @param str           上传url
+ *  @param param         上传参数
+ *  @param formDataBlock 初始化formData回调
+ *  @param progressBlock 进度回调
+ *  @param successBlock  成功回调
+ *  @param failBlock     失败回调
+ */
+-(void)sendUploadWithPost:(NSString *)str Param:(NSDictionary *)param constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))formDataBlock Progress:(void (^)(NSProgress *uploadProgress)) progressBlock success:(void (^)(id responseObject))successBlock Fail:(void(^)(void))failBlock;
 
 @end

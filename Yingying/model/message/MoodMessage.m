@@ -42,11 +42,12 @@
                                  @(0),  @"type",
                                  nil];
     
-    [self sendUploadWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_SEND_MOOD] Param:dict constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        
-    } success:^(id responseObject) {
-        
-    }];
+//    [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_SEND_MOOD] Param:dict constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+//        
+//        
+//    } success:^(id responseObject) {
+//        
+//    }];
     
 //    [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_SEND_MOOD] Param:dict success:^(id responseObject) {
 //        NSDictionary* dict = responseObject;

@@ -26,3 +26,16 @@
 
 
 @end
+
+@implementation MoodInfo
+
+
+
+@end
+
+
+@implementation CommentInfo
+
+
+
+@end

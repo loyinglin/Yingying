@@ -38,5 +38,9 @@
 //mood
 #define LY_MSG_MOOD_GET_NEAR_MOOD           @"/mood/nearmood"
 #define LY_MSG_MOOD_SEND_MOOD               @"/mood/send"
+#define LY_MSG_MOOD_COMMENT                 @"/mood/comment"
+#define LY_MSG_MOOD_GET_COMMENT_BY_SID      @"/mood/getCommentBySid"
+#define LY_MSG_MOOD_FAVORITE                @"/mood/zan"
+
 
 

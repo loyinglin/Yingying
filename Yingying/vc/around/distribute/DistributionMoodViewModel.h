@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
+#import <MBProgressHUD.h>
 
 @interface DistributionMoodViewModel : NSObject
 
@@ -35,5 +36,7 @@
 #pragma mark - message
 
 - (void)requestSendMoodWithContent:(NSString *)moodContent;
+
+- (void)requestUploadImage:(NSString *)filePath View:(UIView *)progressParentView;
 
 @end

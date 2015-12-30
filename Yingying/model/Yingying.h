@@ -37,3 +37,32 @@
 @property (nonatomic , strong) NSString* userphone;
 
 @end
+
+
+@interface MoodInfo : LYCoding
+
+@property (nonatomic , strong) NSNumber* sid;
+@property (nonatomic , strong) NSString* moodContent;
+@property (nonatomic , strong) NSString* sendDate;
+@property (nonatomic , strong) NSNumber* x; //longitude
+@property (nonatomic , strong) NSNumber* y; //latitude
+@property (nonatomic , strong) NSNumber* comment_size;
+@property (nonatomic , strong) NSNumber* zan_size;
+@property (nonatomic , strong) NSNumber* type;
+@property (nonatomic , strong) NSNumber* forward_size;
+
+
+@end
+
+
+@interface CommentInfo : LYCoding
+
+@property (nonatomic , strong) NSNumber* comment_id;
+@property (nonatomic , strong) NSNumber* to_id;
+@property (nonatomic , strong) NSString* comment_source;
+@property (nonatomic , strong) NSString* comment_date;
+@property (nonatomic , strong) NSString* thumburl;
+
+@end
+
+

@@ -37,7 +37,7 @@
 #pragma mark - message
 
 - (void)requestUploadWith:(NSString *)url {
-    [[DataMessage instance] requestUploadWithUrl:url];
+//    [[DataMessage instance] requestUploadWithUrl:url];
 }
 
 @end

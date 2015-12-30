@@ -180,7 +180,9 @@
         NSString* filePath = [[NSString alloc]initWithFormat:@"%@%@",DocumentsPath,  @"/image.png"];
         LYLog(@"file path :%@", filePath);
         
-        [[DataModel instance] requestUploadWith:filePath];
+
+        
+        [self.myViewModel requestUploadImage:filePath View:self.view];
         
         //关闭相册界面
         [picker dismissViewControllerAnimated:YES completion:nil];

@@ -66,48 +66,40 @@
     }];
 }
 
--(void)sendUploadWithPost:(NSString *)str Param:(NSDictionary *)param constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block success:(void (^)(id))success {
+
+
+
+-(void) sendUploadWithPost:(NSString *)str Param:(NSDictionary *)param constructingBodyWithBlock:(void (^)(id<AFMultipartFormData>))formDataBlock Progress:(void (^)(NSProgress *))progressBlock success:(void (^)(id))successBlock Fail:(void (^)(void))failBlock{
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer.timeoutInterval = 10;
-    if (!self.background) {
-        NSString* str = @"加载中";
-        if (self.myLoadingStrings) {
-            str = self.myLoadingStrings;
-        }
-        [self presentLoadingTips:str];
-    }
+//    manager.requestSerializer.timeoutInterval = 10; 上传不设超时
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript", @"text/plain", nil];
     [manager POST:str parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        if (block) {
-            block(formData);
+        if (formDataBlock) {
+            formDataBlock(formData);
         }
     } progress:^(NSProgress * _Nonnull uploadProgress) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            LYLog(@"percent %f", uploadProgress.fractionCompleted);
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_PROGRESS_UPLOAD object:nil userInfo:@{NOTIFY_PROGRESS_UPLOAD:@(uploadProgress.fractionCompleted)}];
-        });
+        if (progressBlock) {
+            progressBlock(uploadProgress);
+        }
+        else {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                LYLog(@"percent %f", uploadProgress.fractionCompleted);
+//                [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_PROGRESS_UPLOAD object:nil userInfo:@{NOTIFY_PROGRESS_UPLOAD:@(uploadProgress.fractionCompleted)}];
+//            });
+        }
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_PROGRESS_UPLOAD object:nil userInfo:@{NOTIFY_PROGRESS_UPLOAD:@(1.1)}];
-        if (!self.background) {
-            [self dismissTips];
-        }
         LYLog(@"respone %@", [responseObject description]);
-        success(responseObject);
-
+        if (successBlock) {
+            successBlock(responseObject);
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        if (!self.background) {
-            [self dismissTips];
-            [self presentMessageTips:@"操作失败"];
+        if (failBlock) {
+            failBlock();
         }
         
-        if (self.myFailBack) {
-            self.myFailBack();
-        }
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_PROGRESS_UPLOAD object:nil userInfo:@{NOTIFY_PROGRESS_UPLOAD:@(-1.0)}];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_PROGRESS_UPLOAD object:nil userInfo:@{NOTIFY_PROGRESS_UPLOAD:@(-1.0)}];
         LYLog(@"Error: %@", error);
         LYLog(@"opertaion %@ error", [task description]);
     }];
