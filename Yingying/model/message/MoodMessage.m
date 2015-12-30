@@ -41,20 +41,13 @@
                                  moodContent, @"moodContent",
                                  @(0),  @"type",
                                  nil];
+    if (thumbsUrl) {
+        [dict setObject:thumbsUrl forKey:@"thumbsurl"];
+    }
     
-//    [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_SEND_MOOD] Param:dict constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-//        
-//        
-//    } success:^(id responseObject) {
-//        
-//    }];
-    
-//    [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_SEND_MOOD] Param:dict success:^(id responseObject) {
-//        NSDictionary* dict = responseObject;
-//        if ([dict isKindOfClass:[NSDictionary class]]) {
-//       
-//        }
-//    }];
+    [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_SEND_MOOD] Param:dict success:^(id responseObject) {
+        
+    }];
 
 }
 @end

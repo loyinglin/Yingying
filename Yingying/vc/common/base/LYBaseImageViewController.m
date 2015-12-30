@@ -7,6 +7,7 @@
 //
 
 #import "LYBaseImageViewController.h"
+#import "LYNotifyCenter.h"
 
 @interface LYBaseImageViewController ()
 
@@ -31,16 +32,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 #pragma mark - view init
 
@@ -50,6 +41,11 @@
 }
 
 #pragma mark - ibaction
+
+- (IBAction)onDelete:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_DELETE_PHOTO object:nil userInfo:@{NOTIFY_UI_DELETE_PHOTO:self.myImage}];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 #pragma mark - ui
 

@@ -1726,6 +1726,9 @@
                     <navigationItem key="navigationItem" title="图片详情" id="TtO-ki-yCg">
                         <barButtonItem key="rightBarButtonItem" title="删除" id="YMM-g6-Rmt">
                             <color key="tintColor" red="0.34901960780000002" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="onDelete:" destination="paP-qB-HyW" id="ZeS-77-P3U"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -1735,7 +1738,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ijG-cv-vAX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2587" y="-2974"/>
+            <point key="canvasLocation" x="-2063" y="-2059"/>
         </scene>
         <!--发布心情-->
         <scene sceneID="XMb-gg-D67">

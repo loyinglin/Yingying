@@ -13,15 +13,15 @@
 #import "MapInfoModel.h"
 #import "DataModel.h"
 #import "LYColor.h"
+#import "LYBaseImageViewController.h"
 #import <MBProgressHUD.h>
+#import <ReactiveCocoa/RACEXTScope.h>
 
 
 @interface DistributionMoodController ()
 
 @property (nonatomic , strong) IBOutlet UICollectionView* myImages;
 @property (nonatomic , strong) IBOutlet UILabel*        myAddressLabel;
-
-@property (nonatomic , strong) MBProgressHUD*  HUD;
 
 @property (nonatomic , strong) DistributionMoodViewModel* myViewModel;
 
@@ -42,6 +42,9 @@
         [self performSelector:@selector(updateCollectionLayout) withObject:nil afterDelay:0.1]; //update yanchi
     }];
     
+//    self.myImages
+//    [self.myImages addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
+
     
     RAC(self.myAddressLabel, text) = RACObserve([MapInfoModel instance], myAddress);
     
@@ -55,18 +58,16 @@
 
 - (void)dealloc {
     LYLog(@"dealloc message");
+    [self.myImages removeObserver:self forKeyPath:@"frame"];
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - view init
+
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+//    if ([keyPath isEqualToString:@"frame"]) {
+//        NSLog(@"change");
+//    }
+//}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -87,14 +88,11 @@
 #pragma mark - ibaction
 
 - (IBAction)onDistribute:(id)sender {
-//    [self.navigationController presentMessageTips:@"发布成功"];
-//    [self.navigationController popViewControllerAnimated:YES];
-    
-    [self.myViewModel requestSendMoodWithContent:@"test loy"];
+    [self.myViewModel requestSendMoodWithContent:@"test loy" View:self.view];
     
 }
 
-- (IBAction)onAdd:(id)sender {
+- (void)onAdd:(id)sender {
     UIAlertController* controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         LYLog(@"cancel");
@@ -155,41 +153,9 @@
     {
         //先把图片转成NSData
         UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-        NSData *data;
-        if (UIImagePNGRepresentation(image) == nil)
-        {
-            data = UIImageJPEGRepresentation(image, 1.0);
-        }
-        else
-        {
-            data = UIImagePNGRepresentation(image);
-        }
-        
-        //图片保存的路径
-        //这里将图片放在沙盒的documents文件夹中
-        NSString * DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-        
-        //文件管理器
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        
-        //把刚刚图片转换的data对象拷贝至沙盒中 并保存为image.png
-        [fileManager createDirectoryAtPath:DocumentsPath withIntermediateDirectories:YES attributes:nil error:nil];
-        [fileManager createFileAtPath:[DocumentsPath stringByAppendingString:@"/image.png"] contents:data attributes:nil];
-        
-        //得到选择后沙盒中图片的完整路径
-        NSString* filePath = [[NSString alloc]initWithFormat:@"%@%@",DocumentsPath,  @"/image.png"];
-        LYLog(@"file path :%@", filePath);
-        
-
-        
-        [self.myViewModel requestUploadImage:filePath View:self.view];
-        
-        //关闭相册界面
         [picker dismissViewControllerAnimated:YES completion:nil];
         
         [self.myViewModel updateAddImage:image];
-//        self.myImageView.image = image;
-
         
     }
     
@@ -206,7 +172,6 @@
     return self.myViewModel.myImagesArr.count;
 }
 
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
@@ -222,34 +187,23 @@
     if (indexPath.row + 1 == self.myViewModel.myImagesArr.count) {
         [self onAdd:nil];
     }
+    else {
+        LYBaseImageViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"image_view_controller"];
+        controller.myImage = [self.myViewModel.myImagesArr objectAtIndex:indexPath.row];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
     LYLog(@"click %ld", indexPath.row);
 }
 
 #pragma mark - notify
 
 - (void)customNotify {
-    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_PROGRESS_UPLOAD object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-        
-        /***/
-        if (!self.HUD) {
-            self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-            [self.navigationController.view addSubview:self.HUD];
-            
-            // Set determinate mode
-            self.HUD.mode = MBProgressHUDModeAnnularDeterminate;
-            
-            self.HUD.labelText = @"上传中";
-            [self.HUD show:YES];
-
-        }
-        /***/
-        NSNumber* progress = [note.userInfo objectForKey:NOTIFY_PROGRESS_UPLOAD];
-        if (progress.floatValue < 0 || progress.floatValue >= 1.0) {
-            [self.HUD removeFromSuperview];
-        }
-        else {
-            self.HUD.progress = progress.floatValue;
-        }
+    @weakify(self);
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_DELETE_PHOTO object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        UIImage* img = [note.userInfo objectForKey:NOTIFY_UI_DELETE_PHOTO];
+        [self.myViewModel updateDeleteImage:img];
     }];
 }
 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface LYBaseImageViewController : UIViewController
 
 @property (nonatomic , strong) UIImage* myImage;

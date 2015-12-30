@@ -25,6 +25,9 @@
 
 - (void)updateAddImage:(UIImage *)img;
 
+- (void)updateDeleteImage:(UIImage *)img;
+
+
 #pragma mark - get
 
 
@@ -35,8 +38,7 @@
 
 #pragma mark - message
 
-- (void)requestSendMoodWithContent:(NSString *)moodContent;
+- (void)requestSendMoodWithContent:(NSString *)moodContent View:(UIView *)progressParentView;
 
-- (void)requestUploadImage:(NSString *)filePath View:(UIView *)progressParentView;
 
 @end
