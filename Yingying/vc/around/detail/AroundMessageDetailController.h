@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Yingying.h"
 
 @interface AroundMessageDetailController : UIViewController
+
+- (void)setMoodInfo:(MoodInfo *)moodInfo;
 
 @end

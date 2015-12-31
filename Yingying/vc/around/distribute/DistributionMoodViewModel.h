@@ -13,14 +13,16 @@
 
 @interface DistributionMoodViewModel : NSObject
 
-@property (nonatomic , strong) NSArray* myImagesArr;
-
+@property (nonatomic , strong) NSArray*     myImagesArr;
+@property (nonatomic , strong) NSString*    myMoodConent;
+@property (nonatomic , strong) NSString*    myLocName;
+@property (nonatomic , weak) UIView*        myView;
 
 
 #pragma mark - init
 
 
-#pragma mark - set
+#pragma mark - update
 
 
 - (void)updateAddImage:(UIImage *)img;
@@ -28,17 +30,15 @@
 - (void)updateDeleteImage:(UIImage *)img;
 
 
+
 #pragma mark - get
 
-
-
-#pragma mark - update
 
 
 
 #pragma mark - message
 
-- (void)requestSendMoodWithContent:(NSString *)moodContent View:(UIView *)progressParentView;
+- (void)requestSendMood;
 
 
 @end

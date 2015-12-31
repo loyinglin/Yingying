@@ -184,7 +184,9 @@
 		FD8068661C21072900111A0A /* china.txt in Resources */ = {isa = PBXBuildFile; fileRef = FD8068651C21072900111A0A /* china.txt */; };
 		FD8068691C2107AA00111A0A /* LYCityPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8068681C2107AA00111A0A /* LYCityPicker.m */; };
 		FD80686C1C210A0D00111A0A /* AroundAddressViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD80686B1C210A0D00111A0A /* AroundAddressViewModel.m */; };
+		FD8BB0791C351C2600BC36E6 /* AroundMoodTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8BB0781C351C2600BC36E6 /* AroundMoodTableViewCell.m */; };
 		FD90EF561C158975005545DF /* LoginRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD90EF551C158975005545DF /* LoginRegisterController.m */; };
+		FD95AF331C358D0E00B6DD4F /* AroundMoodDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95AF321C358D0E00B6DD4F /* AroundMoodDetailViewModel.m */; };
 		FD9686DB1C1AE42800D7F778 /* AroundPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9686DA1C1AE42800D7F778 /* AroundPayController.m */; };
 		FD9686E11C1AEA8600D7F778 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9686E01C1AEA8600D7F778 /* MineViewController.m */; };
 		FD9A8EF01C193B5B00D9EC9C /* LYAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8EEF1C193B5B00D9EC9C /* LYAnnotationView.m */; };
@@ -522,8 +524,12 @@
 		FD8068681C2107AA00111A0A /* LYCityPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYCityPicker.m; sourceTree = "<group>"; };
 		FD80686A1C210A0D00111A0A /* AroundAddressViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundAddressViewModel.h; sourceTree = "<group>"; };
 		FD80686B1C210A0D00111A0A /* AroundAddressViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundAddressViewModel.m; sourceTree = "<group>"; };
+		FD8BB0771C351C2600BC36E6 /* AroundMoodTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMoodTableViewCell.h; sourceTree = "<group>"; };
+		FD8BB0781C351C2600BC36E6 /* AroundMoodTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMoodTableViewCell.m; sourceTree = "<group>"; };
 		FD90EF541C158975005545DF /* LoginRegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegisterController.h; sourceTree = "<group>"; };
 		FD90EF551C158975005545DF /* LoginRegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisterController.m; sourceTree = "<group>"; };
+		FD95AF311C358D0E00B6DD4F /* AroundMoodDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMoodDetailViewModel.h; sourceTree = "<group>"; };
+		FD95AF321C358D0E00B6DD4F /* AroundMoodDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMoodDetailViewModel.m; sourceTree = "<group>"; };
 		FD9686D91C1AE42800D7F778 /* AroundPayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundPayController.h; sourceTree = "<group>"; };
 		FD9686DA1C1AE42800D7F778 /* AroundPayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundPayController.m; sourceTree = "<group>"; };
 		FD9686DF1C1AEA8600D7F778 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
@@ -914,6 +920,10 @@
 				FD29B3C61C1161F400B68C6C /* ModelDistributionController.m */,
 				FD4BA8DA1C13075A00A69F90 /* AroundMessageDetailController.h */,
 				FD4BA8DB1C13075A00A69F90 /* AroundMessageDetailController.m */,
+				FD95AF311C358D0E00B6DD4F /* AroundMoodDetailViewModel.h */,
+				FD95AF321C358D0E00B6DD4F /* AroundMoodDetailViewModel.m */,
+				FD8BB0771C351C2600BC36E6 /* AroundMoodTableViewCell.h */,
+				FD8BB0781C351C2600BC36E6 /* AroundMoodTableViewCell.m */,
 			);
 			path = detail;
 			sourceTree = "<group>";
@@ -1764,6 +1774,7 @@
 				FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */,
 				FDD6D7E61C26566100B03DF8 /* UIViewController+YingyingModalViewController.m in Sources */,
 				FDEC5E761C31239D00D85E3F /* MinePopController.m in Sources */,
+				FD8BB0791C351C2600BC36E6 /* AroundMoodTableViewCell.m in Sources */,
 				FD29B3791C112FDC00B68C6C /* MJRefreshBaseView.m in Sources */,
 				FD29B3551C111C4A00B68C6C /* AppDelegate.m in Sources */,
 				FD8068491C1FA2BC00111A0A /* LoginProtocalController.m in Sources */,
@@ -1802,6 +1813,7 @@
 				FD4BA8D91C12F5B500A69F90 /* NSObject+LYUITipsView.m in Sources */,
 				FD4BA8DC1C13075A00A69F90 /* AroundMessageDetailController.m in Sources */,
 				FD297DD91C2D6BDE007DFFF0 /* DataMessage.m in Sources */,
+				FD95AF331C358D0E00B6DD4F /* AroundMoodDetailViewModel.m in Sources */,
 				FD54DDF91C24E36D009A8AD5 /* ModalConfirmCashController.m in Sources */,
 				FD69A1B81C337812002A458F /* AroundMoodViewModel.m in Sources */,
 				FD8068551C1FF33F00111A0A /* MyTotalController.m in Sources */,
@@ -1900,6 +1912,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1943,6 +1956,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

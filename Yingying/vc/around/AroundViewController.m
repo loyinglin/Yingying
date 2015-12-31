@@ -12,6 +12,7 @@
 #import "UserModel.h"
 #import "AddressMessage.h"
 #import "UserMessage.h"
+#import "AroundMessageDetailController.h"
 #import "UIViewController+YingyingNavigationItem.h"
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
@@ -38,7 +39,6 @@
     [self lySetupRightItem];
 
     [self setupNotify];
-    [self test];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,12 +46,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)test {
-//    [[UserModel instance] requestOauthLoginWithUserphone:@"13535107063" Password:@"12345678"];
-//    [[UserModel instance] requestOauthLoginWithUserphone:@"18321560072" Password:@"123456abc"];
-}
 
 #pragma mark - view init
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"open_around_detail_board"]) {
+        AroundMessageDetailController* controller = segue.destinationViewController;
+        [controller setMoodInfo:sender];
+    }
+}
 
 #pragma mark - ibaction
 
@@ -143,7 +146,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_OPEN_AROUND_DETAIL_BOARD object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         @strongify(self);
-        [self performSegueWithIdentifier:@"open_around_detail_board" sender:self];
+        [self performSegueWithIdentifier:@"open_around_detail_board" sender:[note.userInfo objectForKey:NOTIFY_UI_OPEN_AROUND_DETAIL_BOARD]];
     }];
 }
 

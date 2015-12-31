@@ -11,6 +11,7 @@
 #import "MJRefresh.h"
 #import "MapInfoModel.h"
 #import "AroundMoodViewModel.h"
+#import "AroundMoodTableViewCell.h"
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
 
@@ -30,35 +31,32 @@
     
     @weakify(self);
     [self.myTableView addHeaderWithCallback:^{
-        LYLog(@"back");
         @strongify(self);
+        [self.myViewModel updateRequestInitMoods];
+    }];
+    [self.myTableView addFooterWithCallback:^{
+        @strongify(self);
+        [self.myViewModel updateRequestMoreMoods];
+    }];
+    
+    [RACObserve(self.myViewModel, myMoodsArr) subscribeNext:^(id x) {
+        @strongify(self);
+        [self.myTableView reloadData];
         [self.myTableView headerEndRefreshing];
+        [self.myTableView footerEndRefreshing];
     }];
         
-    self.myTableView.estimatedRowHeight = 140;
+    self.myTableView.estimatedRowHeight = 104;
     self.myTableView.rowHeight = UITableViewAutomaticDimension;
     
-    CLLocationCoordinate2D pos = [MapInfoModel instance].myPosition;
-    if (pos.latitude) { //注意pos不是指针
-        [self.myViewModel requestGetMoodNearMoodWithLongitude:@(pos.longitude) Latitude:@(pos.latitude) PageIndex:nil];
-    }
+
+    [self.myViewModel updateRequestInitMoods];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - view init
 
@@ -68,35 +66,26 @@
 
 #pragma mark - delegate
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    static UITableViewCell* cell;
-//    if (!cell) {
-//        cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-//    }
-//    CGSize ret;
-//    ret = [cell systemLayoutSizeFittingSize:ret];
-//    
-//
-//    return ret.height;
-//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [self.myViewModel getMoodsCount];
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
+    AroundMoodTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    MoodInfo* info = [self.myViewModel getMoodInfoByIndex:indexPath.row];
+    cell.myMoodContent.text = info.moodContent;
+    cell.myImagesArr = info.attachs;
     
     return cell;
 }
 
 -(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_OPEN_AROUND_DETAIL_BOARD object:nil];
+    MoodInfo* info = [self.myViewModel getMoodInfoByIndex:indexPath.row];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_OPEN_AROUND_DETAIL_BOARD object:nil userInfo:@{NOTIFY_UI_OPEN_AROUND_DETAIL_BOARD:info}];
     
     return nil;
 }

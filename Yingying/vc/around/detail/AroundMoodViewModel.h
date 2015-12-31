@@ -7,25 +7,31 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Yingying.h"
 
 @interface AroundMoodViewModel : NSObject
 
+@property (nonatomic , strong) NSArray<MoodInfo *>* myMoodsArr;
 
 #pragma mark - init
 
 
 #pragma mark - update
 
+- (void)updateRequestMoreMoods;
+
+- (void)updateRequestInitMoods;
 
 
 #pragma mark - get
 
 
+- (long)getMoodsCount;
 
+- (MoodInfo *)getMoodInfoByIndex:(long)index;
 
 #pragma mark - message
 
 
-- (void)requestGetMoodNearMoodWithLongitude:(NSNumber *)x Latitude:(NSNumber *)y PageIndex:(NSNumber *)pageIndex;
 
 @end

@@ -13,6 +13,7 @@
 #import "MapInfoModel.h"
 #import "DataModel.h"
 #import "LYColor.h"
+#import "UIViewController+YingyingNavigationItem.h"
 #import "LYBaseImageViewController.h"
 #import <MBProgressHUD.h>
 #import <ReactiveCocoa/RACEXTScope.h>
@@ -20,8 +21,9 @@
 
 @interface DistributionMoodController ()
 
-@property (nonatomic , strong) IBOutlet UICollectionView* myImages;
-@property (nonatomic , strong) IBOutlet UILabel*        myAddressLabel;
+@property (nonatomic , strong) IBOutlet UICollectionView*   myImages;
+@property (nonatomic , strong) IBOutlet UITextField*        myAddressTextField;
+@property (nonatomic , strong) IBOutlet UITextView*         myMoodContentTextView;
 
 @property (nonatomic , strong) DistributionMoodViewModel* myViewModel;
 
@@ -35,19 +37,25 @@
     // Do any additional setup after loading the view.
     self.myViewModel = [DistributionMoodViewModel new];
     
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14], NSForegroundColorAttributeName:UIColorFromRGB(0x778c93)} forState:UIControlStateNormal];
-    
+    @weakify(self);
     [RACObserve(self.myViewModel, myImagesArr) subscribeNext:^(id x) {
+        @strongify(self);
         [self.myImages reloadData];
-        [self performSelector:@selector(updateCollectionLayout) withObject:nil afterDelay:0.1]; //update yanchi
     }];
     
-//    self.myImages
-//    [self.myImages addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
+    RAC(self.myViewModel, myMoodConent) = self.myMoodContentTextView.rac_textSignal;
+    RAC(self.myViewModel, myLocName) = self.myAddressTextField.rac_textSignal;
+    self.myViewModel.myView = self.view;
 
+//    [self.myImages addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL]; 被下面的取代了
+
+    [self.myImages rac_valuesForKeyPath:@"contentSize" observer:self];
+    [RACObserve(self.myImages, contentSize) subscribeNext:^(id x) {
+        @strongify(self);
+        [self updateCollectionLayout];
+    }];
     
-    RAC(self.myAddressLabel, text) = RACObserve([MapInfoModel instance], myAddress);
-    
+    [self lySetupRightItem];
     [self customNotify];
 }
 
@@ -58,19 +66,22 @@
 
 - (void)dealloc {
     LYLog(@"dealloc message");
-    [self.myImages removeObserver:self forKeyPath:@"frame"];
+//    [self.myImages removeObserver:self forKeyPath:@"contentSize"];
 }
+
 
 #pragma mark - view init
 
 //- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-//    if ([keyPath isEqualToString:@"frame"]) {
-//        NSLog(@"change");
+//    LYLog(@"OB %@ %@", keyPath, change);
+//    if ([keyPath isEqualToString:@"contentSize"]) {
+//        [self updateCollectionLayout];
 //    }
 //}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+//    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 
@@ -82,29 +93,62 @@
             }
         }
     }
-    [self.view setNeedsLayout];
+//    [self.view layoutIfNeeded];
 }
 
 #pragma mark - ibaction
 
 - (IBAction)onDistribute:(id)sender {
-    [self.myViewModel requestSendMoodWithContent:@"test loy" View:self.view];
+    [self.myViewModel requestSendMood];
     
+}
+
+- (IBAction)onAddress:(id)sender {
+    UIAlertController* controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    @weakify(self);
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        LYLog(@"cancel");
+    }];
+    [controller addAction:cancel];
+    
+    UIAlertAction* location = [UIAlertAction actionWithTitle:[MapInfoModel instance].myAddress style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
+        self.myAddressTextField.text = action.title;
+        self.myAddressTextField.enabled = NO;
+    }];
+    [controller addAction:location];
+    
+    UIAlertAction* edit = [UIAlertAction actionWithTitle:@"自由编辑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
+        self.myAddressTextField.enabled = YES;
+    }];
+    [controller addAction:edit];
+    
+    UIAlertAction* hide = [UIAlertAction actionWithTitle:@"不显示位置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
+        self.myAddressTextField.text = @"";
+    }];
+    [controller addAction:hide];
+    
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)onAdd:(id)sender {
     UIAlertController* controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    @weakify(self);
     UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         LYLog(@"cancel");
     }];
     [controller addAction:cancel];
     
     UIAlertAction* takePhoto = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
         [self takePhoto];
     }];
     [controller addAction:takePhoto];
     
     UIAlertAction* localPhoto = [UIAlertAction actionWithTitle:@"从手机相册中选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
         [self LocalPhoto];
     }];
     [controller addAction:localPhoto];
@@ -134,6 +178,7 @@
 -(void)LocalPhoto
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//    picker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     picker.delegate = self;
@@ -156,9 +201,8 @@
         [picker dismissViewControllerAnimated:YES completion:nil];
         
         [self.myViewModel updateAddImage:image];
-        
     }
-    
+//    [picker dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker

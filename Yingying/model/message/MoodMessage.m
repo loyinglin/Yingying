@@ -34,7 +34,7 @@
 }
 
 
-- (void)requestSendMoodWithToken:(NSString *)access_token MoodContent:(NSString *)moodContent ThumbsUrl:(NSArray *)thumbsUrl {
+- (void)requestSendMoodWithToken:(NSString *)access_token MoodContent:(NSString *)moodContent ThumbsUrl:(NSArray *)thumbsUrl Longitude:(NSNumber *)x Latitude:(NSNumber *)y LocName:(NSString *)locName {
     
     NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                  access_token, @"access_token",
@@ -43,6 +43,12 @@
                                  nil];
     if (thumbsUrl) {
         [dict setObject:thumbsUrl forKey:@"thumbsurl"];
+    }
+    if (locName.length > 0) {
+        [dict setObject:x forKey:@"x"];
+        [dict setObject:y forKey:@"y"];
+//        locName = [locName stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [dict setObject:locName forKey:@"locName"];
     }
     
     [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_SEND_MOOD] Param:dict success:^(id responseObject) {

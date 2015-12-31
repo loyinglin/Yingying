@@ -46,11 +46,12 @@
 @property (nonatomic , strong) NSString* sendDate;
 @property (nonatomic , strong) NSNumber* x; //longitude
 @property (nonatomic , strong) NSNumber* y; //latitude
+@property (nonatomic , strong) NSString* locName;
 @property (nonatomic , strong) NSNumber* comment_size;
 @property (nonatomic , strong) NSNumber* zan_size;
 @property (nonatomic , strong) NSNumber* type;
 @property (nonatomic , strong) NSNumber* forward_size;
-
+@property (nonatomic , strong) NSArray*  attachs;
 
 @end
 

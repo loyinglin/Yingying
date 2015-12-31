@@ -54,7 +54,7 @@
         if (!self.background) {
             [self dismissTips];
         }
-        LYLog(@"%@ \n base log : %@", str, [responseObject description]);
+        LYLog(@"%@ \n response : %@", str, [responseObject description]);
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (!self.background) {
@@ -74,11 +74,13 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 //    manager.requestSerializer.timeoutInterval = 10; 上传不设超时
     
+    LYLog(@"%@ request with %@", str, [param description]);
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript", @"text/plain", nil];
     [manager POST:str parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         if (formDataBlock) {
             formDataBlock(formData);
         }
+
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         if (progressBlock) {
             progressBlock(uploadProgress);
@@ -90,7 +92,7 @@
 //            });
         }
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        LYLog(@"respone %@", [responseObject description]);
+        LYLog(@"%@ \n response : %@", str, [responseObject description]);
         if (successBlock) {
             successBlock(responseObject);
         }

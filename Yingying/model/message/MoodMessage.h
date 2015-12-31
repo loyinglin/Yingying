@@ -14,5 +14,5 @@
 
 
 
-- (void)requestSendMoodWithToken:(NSString *)access_token MoodContent:(NSString *)moodContent ThumbsUrl:(NSArray *)thumbsUrl;
+- (void)requestSendMoodWithToken:(NSString *)access_token MoodContent:(NSString *)moodContent ThumbsUrl:(NSArray *)thumbsUrl Longitude:(NSNumber *)x Latitude:(NSNumber *)y LocName:(NSString *)locName;
 @end

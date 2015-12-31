@@ -6,19 +6,22 @@
 //  Copyright © 2015年 林伟池. All rights reserved.
 //
 
+#import "AroundMoodDetailViewModel.h"
 #import "AroundMessageDetailController.h"
+#import <ReactiveCocoa.h>
+#import <ReactiveCocoa/RACEXTScope.h>
 
 @interface AroundMessageDetailController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic , strong) IBOutlet UITableView* myTableView;
+@property (nonatomic , strong) IBOutlet UITableView*    myTableView;
+@property (nonatomic , strong) IBOutlet UIButton*       myFavoriteButton;
+//@property (nonatomic , strong) IBOutlet UILabel*        myMoodContentLabel;
 
 @property (nonatomic , strong) IBOutlet UIView* myInputView;
-
 @property (nonatomic , strong) IBOutlet UITextField* myInputTextField;
-
 @property (nonatomic , strong) IBOutlet NSLayoutConstraint* myConstraint;
 
-@property (nonatomic , strong) IBOutlet UIButton* myFavoriteButton;
+@property (nonatomic , strong) AroundMoodDetailViewModel* myViewModel;
 @end
 
 @implementation AroundMessageDetailController
@@ -26,20 +29,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    
-    self.myTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.myTableView.bounds.size.width, 5.0f)]; //顶部留白
-    
-    self.myTableView.estimatedRowHeight = 100;
-    self.myTableView.rowHeight = UITableViewAutomaticDimension;
-    
 
+    @weakify(self);
+    RAC(self.myViewModel, myCommentString) = self.myInputTextField.rac_textSignal;
+    
+    
+    [self customView];
     [self setupNotify];
+    [self.myViewModel updateGetMoodComment];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,8 +44,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark - view init
+
+- (void)setMoodInfo:(MoodInfo *)moodInfo {
+    if (!self.myViewModel) { //还没初始化
+        self.myViewModel = [AroundMoodDetailViewModel new];
+    }
+    self.myViewModel.myMoodInfo = moodInfo;
+}
+
+- (void)customView {
+    self.myTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.myTableView.bounds.size.width, 5.0f)]; //顶部留白
+    
+    self.myTableView.estimatedRowHeight = 100;
+    self.myTableView.rowHeight = UITableViewAutomaticDimension;
+    
+    
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (self.tabBarController) {
@@ -99,6 +112,8 @@
     
     if (indexPath.section == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        UILabel* moodContentLabel = (UILabel *)[cell viewWithTag:10];
+        moodContentLabel.text = self.myViewModel.myMoodInfo.moodContent;
     }
     else {
         if (indexPath.row == 0) {

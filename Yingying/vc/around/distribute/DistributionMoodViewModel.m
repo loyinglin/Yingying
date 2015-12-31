@@ -9,6 +9,7 @@
 #import "DistributionMoodViewModel.h"
 #import "UserModel.h"
 #import "MoodMessage.h"
+#import "MapInfoModel.h"
 #import "NSObject+LYUITipsView.h"
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
@@ -51,8 +52,11 @@
 
 #pragma mark - message
 
+- (void)requestSendMood {
+    [self requestSendMoodWithContent:self.myMoodConent LocName:self.myLocName View:self.myView];
+}
 
-- (void)requestSendMoodWithContent:(NSString *)moodContent View:(UIView *)progressParentView {
+- (void)requestSendMoodWithContent:(NSString *)moodContent LocName:(NSString *)locName View:(UIView *)progressParentView {
     if ([[UserModel instance] getNeedLogin]) {
         [self presentMessageTips:@"请先登录"];
     }
@@ -81,6 +85,10 @@
                     });
                 } success:^(id responseObject) {
                     [HUD removeFromSuperview];
+                    NSDictionary* dict = responseObject;
+                    self.myImagesUrlArr = [dict objectForKey:@"msg_desc"];
+                    [subscriber sendNext:@"first ok"];
+                    [subscriber sendCompleted];
                 } Fail:^{
                     [HUD removeFromSuperview];
                 }];
@@ -94,7 +102,7 @@
             return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
                 @strongify(self);
                 MoodMessage* mood = [MoodMessage new];
-                [mood requestSendMoodWithToken:[[UserModel instance] getMyAccessToken] MoodContent:moodContent ThumbsUrl:self.myImagesUrlArr];
+                [mood requestSendMoodWithToken:[[UserModel instance] getMyAccessToken] MoodContent:moodContent ThumbsUrl:self.myImagesUrlArr Longitude:@([MapInfoModel instance].myPosition.longitude) Latitude:@([MapInfoModel instance].myPosition.latitude) LocName:locName];
                 [subscriber sendCompleted];
                 return nil;
             }];
