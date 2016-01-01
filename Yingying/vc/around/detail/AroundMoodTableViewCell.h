@@ -10,9 +10,13 @@
 
 @interface AroundMoodTableViewCell : UITableViewCell
 
-@property (nonatomic , strong) IBOutlet UILabel* myMoodContent;
-//@property (nonatomic , strong) IBOutlet 
+@property (nonatomic , strong) IBOutlet UILabel*    myMoodContent;
+@property (nonatomic , strong) IBOutlet UILabel*    myUsernameLabel;
+@property (nonatomic , strong) IBOutlet UILabel*    myCommentCountLabel;
+@property (nonatomic , strong) IBOutlet UILabel*    myForwardCountLabel;
+@property (nonatomic , strong) IBOutlet UIImageView* myAvatarImageview;
 
 @property (nonatomic , strong) NSArray* myImagesArr;
+
 
 @end

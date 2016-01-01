@@ -8,6 +8,7 @@
 
 #import "BaseMessage.h"
 #import "NSObject+LYUITipsView.h"
+#import "NSObject+LoginViewController.h"
 #import <CFNetwork/CFNetwork.h>
 
 @implementation BaseMessage
@@ -39,7 +40,7 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 10;
     if (!self.background) {
-        NSString* str = @"加载中";
+        NSString* str = @"加载中...";
         if (self.myLoadingStrings) {
             str = self.myLoadingStrings;
         }
@@ -56,6 +57,14 @@
         }
         LYLog(@"%@ \n response : %@", str, [responseObject description]);
         success(responseObject);
+        NSDictionary* dict = responseObject;
+        if ([dict isKindOfClass:[NSDictionary class]] && [dict objectForKey:@"msg_code"]) {
+            NSNumber* code = [dict objectForKey:@"msg_code"];
+            if (code.integerValue == 20013) { //session fail
+                
+                [self lyModalLoginViewController];
+            }
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (!self.background) {
             [self dismissTips];
@@ -63,6 +72,10 @@
         }
         LYLog(@"Error: %@", error);
         LYLog(@"opertaion %@ error", [task description]);
+        if (error.code == kCFURLErrorDNSLookupFailed) {
+//            [self lyModalLoginViewController];
+            
+        }
     }];
 }
 

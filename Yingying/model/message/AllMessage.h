@@ -22,8 +22,9 @@
 #define LY_MSG_USER_GET_USER_INFO           @"/user/getUserInfo"
 #define LY_MSG_USER_EDIT_USER_INFO          @"/user/editUserInfo"
 
-#define LY_MSG_USER_UPLOAD_USER_HEADIMG     @"/user/uploadHeadImg"
+#define LY_MSG_USER_UPLOAD_USER_HEADIMG     @"/user/uploadUserHeadImg"
 #define LY_MSG_USER_ADD_PHOTO               @"/user/addPhoto"
+#define LY_MSG_USER_REMOVE_PHOTO            @"/user/deletePhoto"
 
 
 //upload
@@ -41,6 +42,6 @@
 #define LY_MSG_MOOD_COMMENT                 @"/mood/comment"
 #define LY_MSG_MOOD_GET_COMMENT_BY_SID      @"/mood/getCommentBySid"
 #define LY_MSG_MOOD_FAVORITE                @"/mood/zan"
-
+#define LY_MSG_MOOD_GET_MOODLIST_BY_UID     @"/mood/getmoodlistbyuid"
 
 

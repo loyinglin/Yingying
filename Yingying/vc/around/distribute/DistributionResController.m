@@ -43,6 +43,7 @@
     }];
     RAC(self.myViewModel, myMoodConent) = self.myResDesc.rac_textSignal;
     RAC(self.myViewModel, myLocName) = self.myAddressTextField.rac_textSignal;
+
     RAC(self.myViewModel, myPirce) = [self.myPriceTextField.rac_textSignal map:^id(NSString* text) {
         return @(text.floatValue);
     }];
@@ -114,13 +115,14 @@
     UIAlertAction* location = [UIAlertAction actionWithTitle:[MapInfoModel instance].myAddress style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         @strongify(self);
         self.myAddressTextField.text = action.title;
-        self.myAddressTextField.enabled = NO;
+        self.myViewModel.myLocName = action.title;
+        self.myAddressTextField.userInteractionEnabled = NO;
     }];
     [controller addAction:location];
     
     UIAlertAction* edit = [UIAlertAction actionWithTitle:@"自由编辑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         @strongify(self);
-        self.myAddressTextField.enabled = YES;
+        self.myAddressTextField.userInteractionEnabled = YES;
     }];
     [controller addAction:edit];
     

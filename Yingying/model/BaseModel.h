@@ -9,6 +9,7 @@
 #import "LYNotifyCenter.h"
 #import "NSObject+LYUITipsView.h"
 #import "Yingying.h"
+#import "AllMessage.h"
 #import <Foundation/Foundation.h>
 
 @interface BaseModel : NSObject

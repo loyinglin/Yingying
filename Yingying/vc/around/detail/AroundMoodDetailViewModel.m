@@ -50,38 +50,57 @@
 
 #pragma mark - message
 
+- (RACSignal *)requestMoodZan {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        BaseMessage* message = [BaseMessage instance];
+        message.myLoadingStrings = @"点赞中...";
+        
+        [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_FAVORITE] Param:@{@"access_token":[[UserModel instance] getMyAccessToken], @"sid":self.myMoodInfo.sid} success:^(id responseObject) {
+            [subscriber sendCompleted];
+        }];
+        return nil;
+    }];
+}
+
 - (void)requestMoodBySidWithToken:(NSString *)token Sid:(NSNumber *)sid {
     BaseMessage* message = [BaseMessage instance];
-    message.myLoadingStrings = @"获取评论列表";
+    message.myLoadingStrings = @"获取评论列表...";
     
     [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_GET_COMMENT_BY_SID] Param:@{@"access_token":token, @"sid":sid} success:^(id responseObject) {
         NSDictionary* dict = responseObject;
         if ([dict isKindOfClass:[NSDictionary class]]) {
             NSArray* comments = [dict objectForKey:@"comments"];
+            NSMutableArray* newArr = [NSMutableArray array];
             if ([comments isKindOfClass:[NSArray class]]) {
-                self.myCommentInfoArr = comments;
+                for (NSDictionary* commentDict in comments) {
+                    if ([commentDict isKindOfClass:[NSDictionary class]]) {
+                        [newArr addObject:[commentDict objectForClass:[CommentInfo class]]];
+                    }
+                }
+                self.myCommentInfoArr = newArr;
             }
         }
     }];
 }
 
-- (void)requestComment {
-    [self requestCommentWithToken:[[UserModel instance] getMyAccessToken] Sid:self.myMoodInfo.sid CommentSource:self.myCommentString CommentId:nil];
-}
-
-- (void)requestCommentWithToken:(NSString *)token Sid:(NSNumber* )sid CommentSource:(NSString *)comment_source CommentId:(NSNumber *)source_comment_id {
-    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                 token, @"access_token",
-                                 sid, @"sid",
-                                 comment_source, @"comment_source",
-                                 nil];
-    if (source_comment_id) {
-        [dict setObject:source_comment_id forKey:@"source_comment_id"];
-    }
-    BaseMessage* message = [BaseMessage instance];
-    [message setMyLoadingStrings:@"评论中..."];
-    [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_COMMENT] Param:dict success:^(id responseObject) {
-
+- (RACSignal *)requestCommentWithSourceCommentId:(NSNumber *)source_comment_id {
+    @weakify(self);
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self);
+        NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                     [[UserModel instance] getMyAccessToken], @"access_token",
+                                     self.myMoodInfo.sid, @"sid",
+                                     self.myCommentString, @"comment_source",
+                                     nil];
+        if (source_comment_id) {
+            [dict setObject:source_comment_id forKey:@"source_comment_id"];
+        }
+        BaseMessage* message = [BaseMessage instance];
+        [message setMyLoadingStrings:@"评论中..."];
+        [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_COMMENT] Param:dict success:^(id responseObject) {
+            [subscriber sendCompleted];
+        }];
+        return nil;
     }];
 }
 @end

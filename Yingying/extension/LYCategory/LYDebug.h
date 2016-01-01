@@ -9,6 +9,7 @@
 
 #ifdef DEBUG 
 #define LYLog(format...) LYDebug(__FILE__,__LINE__,format)
+#define LYLogError()    LYLog(@"error here")
 #else
 #define LYLog(format...)  
 #endif

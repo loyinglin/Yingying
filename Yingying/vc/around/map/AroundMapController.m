@@ -7,7 +7,8 @@
 //
 
 #import "AroundMapController.h"
-#import "PersonalHomePageController.h"
+#import "UIViewController+YingyingModalViewController.h"
+#import "AroundMapViewModel.h"
 #import "LYAnnotationView.h"
 #import "MapInfoModel.h"
 #import "UserModel.h"
@@ -17,6 +18,8 @@
 @property (nonatomic , strong) IBOutlet BMKMapView* myMapView;
 @property (nonatomic , strong) BMKLocationService* myLocationService;
 @property (nonatomic , strong) BMKGeoCodeSearch* mySearchService;
+
+@property (nonatomic , strong) AroundMapViewModel* myViewModel;
 @end
 
 @implementation AroundMapController {
@@ -24,53 +27,24 @@
 
 }
 
-+ (instancetype)viewDidLoad {
-    return [AroundMapController new];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.myMapView.delegate = self;
+    self.myViewModel = [AroundMapViewModel new];
+    [self customMap];
     
-//    [self addAnimatedAnnotation];
-    self.myLocationService = [[BMKLocationService alloc] init];
-    self.myLocationService.delegate = self;
-    
-    self.mySearchService = [[BMKGeoCodeSearch alloc] init];
-    self.mySearchService.delegate = self;
-    
-    [self.myLocationService startUserLocationService];
-////    self.class
-//    Class clazz = [self class];
-//    Class clarr = [AroundMapController class];
-//    Class metalclazz = objc_getMetaClass("AroundMapController");
-//
-////    AroundMapController;
-//    if (class_respondsToSelector(metalclazz, @selector(viewWillAppear:))) {
-//        NSLog(@"ok");
-//    }
-//    if (clarr == clazz) {
-//        NSLog(@"2 ok");
-//    }
-//
-
+    @weakify(self);
+    [RACObserve(self.myViewModel, myMapUserInfoArr) subscribeNext:^(id x) {
+        @strongify(self);
+        [self updateMapAnnotation];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - view init
 
@@ -87,6 +61,19 @@
     self.myLocationService.delegate = nil;
     self.mySearchService.delegate = nil;
 }
+
+- (void)customMap {
+    self.myMapView.delegate = self;
+    
+    //    [self addAnimatedAnnotation];
+    self.myLocationService = [[BMKLocationService alloc] init];
+    self.myLocationService.delegate = self;
+    
+    self.mySearchService = [[BMKGeoCodeSearch alloc] init];
+    self.mySearchService.delegate = self;
+    
+    [self.myLocationService startUserLocationService];
+}
 #pragma mark - ibaction
 
 - (IBAction)onMine:(id)sender {
@@ -96,23 +83,22 @@
 
 #pragma mark - ui
 
-- (void)addPointAnnotationWithCenter:(CLLocationCoordinate2D)center
-{
+- (void)updateMapAnnotation {
+    [self.myMapView removeAnnotations:self.myMapView.annotations]; //把原来的remove
     NSMutableArray* arr = [NSMutableArray array];
-    for (int i = 1; i < 5; ++i) {
-        BMKPointAnnotation* pointAnnotation = [[BMKPointAnnotation alloc]init];
-        CLLocationCoordinate2D coor;
-        coor.latitude = center.latitude + i * 0.02;
-        coor.longitude = center.longitude + i * 0.02;
-        pointAnnotation.coordinate = coor;
-        pointAnnotation.title = @"查看详情";
+    for (int i = 0; i < self.myViewModel.myMapUserInfoArr.count; ++i) {
+        BMKPointAnnotation* pointAnnotation = [BMKPointAnnotation new];
+        CLLocationCoordinate2D coordinate;
+        coordinate.latitude = [self.myViewModel getlatitudeByIndex:i].floatValue;
+        coordinate.longitude = [self.myViewModel getLongitudeByIndex:i].floatValue;
+        pointAnnotation.coordinate = coordinate;
+        pointAnnotation.title = [self.myViewModel getMapUserInfoByIndex:i].nickname;
         [arr addObject:pointAnnotation];
     }
     myPoints = arr;
     [self.myMapView addAnnotations:myPoints];
     [self.myMapView showAnnotations:myPoints animated:YES];
 }
-
 #pragma mark - delegate - location
 
 //实现相关delegate 处理位置信息更新
@@ -125,15 +111,11 @@
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
-    [self addPointAnnotationWithCenter:userLocation.location.coordinate];
-    
-    LYLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
-    
     BMKLocationViewDisplayParam* param = [[BMKLocationViewDisplayParam alloc] init];
     param.locationViewImgName = @"map_myself_location";
 //    param.isAccuracyCircleShow = YES;
 //    
-    self.myMapView.showsUserLocation = YES;
+//    self.myMapView.showsUserLocation = YES;
     [self.myMapView updateLocationViewWithParam:param];
     [self.myMapView updateLocationData:userLocation];
     
@@ -142,9 +124,9 @@
     BMKReverseGeoCodeOption* option = [[BMKReverseGeoCodeOption alloc] init];
     option.reverseGeoPoint = userLocation.location.coordinate;
     
-//    [[UserModel instance] requestLoactionRefreshLocationWithLongitude:userLocation.location.coordinate.latitude Latitude:userLocation.location.coordinate.longitude Gender:nil];
+
     [[MapInfoModel instance] updatecurrentLocationWith:userLocation.location.coordinate];
-    
+    [self.myViewModel updateAroundMapLocation];
     [self.mySearchService reverseGeoCode:option];
 }
 
@@ -223,11 +205,15 @@
 - (void)mapView:(BMKMapView *)mapView annotationViewForBubble:(BMKAnnotationView *)view {
     LYLog(@"paopaoclick");
     if (![view.reuseIdentifier isEqualToString:@"renameMark"]) {
-        return ;
+        [self lyModalPersonalHomePageWith:[[UserModel instance] getMyUserphone]];
     }
-    UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
-    [self presentViewController:controller animated:YES completion:nil];
-
+    else {
+        long index = [myPoints indexOfObject:view.annotation];
+        MapUserInfo* info = [self.myViewModel getMapUserInfoByIndex:index];
+        if (info) {
+            [self lyModalPersonalHomePageWith:info.userphone];
+        }
+    }
 }
 
 - (void)select:(id)sender {

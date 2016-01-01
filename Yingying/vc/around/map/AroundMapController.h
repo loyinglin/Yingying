@@ -13,6 +13,6 @@
 
 @interface AroundMapController : UIViewController<BMKMapViewDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate>
 
-+ (instancetype)viewDidLoad;
+
 
 @end

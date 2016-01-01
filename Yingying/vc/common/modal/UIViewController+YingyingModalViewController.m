@@ -7,14 +7,20 @@
 //
 
 #import "UIViewController+YingyingModalViewController.h"
+#import "PersonalHomePageController.h"
 
 @implementation UIViewController (YingyingModalViewController)
 
 
-- (void)lyModalPersonalHomePageWith:(NSString *)wait {
-    UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
-    if (controller) {
-        [self presentViewController:controller animated:YES completion:nil];
+- (void)lyModalPersonalHomePageWith:(NSString *)userphone {
+    UINavigationController* navigatonController = [self.storyboard instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
+    PersonalHomePageController* controller = navigatonController.viewControllers[0];
+    if ([controller isKindOfClass:[PersonalHomePageController class]]) {
+        [controller initWithUserphone:userphone];
+        [self presentViewController:navigatonController animated:YES completion:nil];
+    }
+    else {
+        LYLogError();
     }
 
 }

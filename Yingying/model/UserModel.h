@@ -28,6 +28,7 @@
 
 - (NSString *)getMyAccessToken;
 
+- (NSString *)getMyUserphone;
 #pragma mark - message
 
 - (void)requestSendCodeWithUserphone:(NSString *)userphone;

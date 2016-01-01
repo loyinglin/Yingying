@@ -157,9 +157,12 @@
 		FD54DDF21C2413F0009A8AD5 /* MyChargeController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDF11C2413F0009A8AD5 /* MyChargeController.m */; };
 		FD54DDF61C2461EE009A8AD5 /* MyCashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDF51C2461EE009A8AD5 /* MyCashViewController.m */; };
 		FD54DDF91C24E36D009A8AD5 /* ModalConfirmCashController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDF81C24E36D009A8AD5 /* ModalConfirmCashController.m */; };
+		FD584FF51C365CEF00276815 /* PersonalHomepagePhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD584FF41C365CEF00276815 /* PersonalHomepagePhotoCell.m */; };
 		FD61602B1C15210E00B73304 /* MapInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD61602A1C15210E00B73304 /* MapInfoModel.m */; };
 		FD69A1B51C337470002A458F /* MoodMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69A1B41C337470002A458F /* MoodMessage.m */; };
 		FD69A1B81C337812002A458F /* AroundMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69A1B71C337812002A458F /* AroundMoodViewModel.m */; };
+		FD7A99EE1C369168009A05F5 /* AroundMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A99ED1C369168009A05F5 /* AroundMapViewModel.m */; };
+		FD7A99F11C36B817009A05F5 /* NSObject+LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A99F01C36B817009A05F5 /* NSObject+LoginViewController.m */; };
 		FD8068351C1EC7EE00111A0A /* login_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FD80682E1C1EC7EE00111A0A /* login_background.png */; };
 		FD8068361C1EC7EE00111A0A /* login_get_code.png in Resources */ = {isa = PBXBuildFile; fileRef = FD80682F1C1EC7EE00111A0A /* login_get_code.png */; };
 		FD80683A1C1EC7EE00111A0A /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8068331C1EC7EE00111A0A /* login_logo.png */; };
@@ -488,12 +491,18 @@
 		FD54DDF51C2461EE009A8AD5 /* MyCashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCashViewController.m; sourceTree = "<group>"; };
 		FD54DDF71C24E36D009A8AD5 /* ModalConfirmCashController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalConfirmCashController.h; sourceTree = "<group>"; };
 		FD54DDF81C24E36D009A8AD5 /* ModalConfirmCashController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalConfirmCashController.m; sourceTree = "<group>"; };
+		FD584FF31C365CEF00276815 /* PersonalHomepagePhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHomepagePhotoCell.h; sourceTree = "<group>"; };
+		FD584FF41C365CEF00276815 /* PersonalHomepagePhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHomepagePhotoCell.m; sourceTree = "<group>"; };
 		FD6160291C15210E00B73304 /* MapInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapInfoModel.h; sourceTree = "<group>"; };
 		FD61602A1C15210E00B73304 /* MapInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapInfoModel.m; sourceTree = "<group>"; };
 		FD69A1B31C337470002A458F /* MoodMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodMessage.h; sourceTree = "<group>"; };
 		FD69A1B41C337470002A458F /* MoodMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodMessage.m; sourceTree = "<group>"; };
 		FD69A1B61C337812002A458F /* AroundMoodViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMoodViewModel.h; sourceTree = "<group>"; };
 		FD69A1B71C337812002A458F /* AroundMoodViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMoodViewModel.m; sourceTree = "<group>"; };
+		FD7A99EC1C369168009A05F5 /* AroundMapViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMapViewModel.h; sourceTree = "<group>"; };
+		FD7A99ED1C369168009A05F5 /* AroundMapViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMapViewModel.m; sourceTree = "<group>"; };
+		FD7A99EF1C36B817009A05F5 /* NSObject+LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LoginViewController.h"; sourceTree = "<group>"; };
+		FD7A99F01C36B817009A05F5 /* NSObject+LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LoginViewController.m"; sourceTree = "<group>"; };
 		FD80682E1C1EC7EE00111A0A /* login_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_background.png; sourceTree = "<group>"; };
 		FD80682F1C1EC7EE00111A0A /* login_get_code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_get_code.png; sourceTree = "<group>"; };
 		FD8068331C1EC7EE00111A0A /* login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_logo.png; sourceTree = "<group>"; };
@@ -938,6 +947,8 @@
 			children = (
 				FD29B3BF1C1159D800B68C6C /* AroundMapController.h */,
 				FD29B3C01C1159D800B68C6C /* AroundMapController.m */,
+				FD7A99EC1C369168009A05F5 /* AroundMapViewModel.h */,
+				FD7A99ED1C369168009A05F5 /* AroundMapViewModel.m */,
 				FD29B3C11C1159D800B68C6C /* CustomMapView.xib */,
 				FD9A8EEE1C193B5B00D9EC9C /* LYAnnotationView.h */,
 				FD9A8EEF1C193B5B00D9EC9C /* LYAnnotationView.m */,
@@ -1363,6 +1374,8 @@
 				FDD6D7E71C26569600B03DF8 /* personalHomePage */,
 				FDD6D7E41C26566100B03DF8 /* UIViewController+YingyingModalViewController.h */,
 				FDD6D7E51C26566100B03DF8 /* UIViewController+YingyingModalViewController.m */,
+				FD7A99EF1C36B817009A05F5 /* NSObject+LoginViewController.h */,
+				FD7A99F01C36B817009A05F5 /* NSObject+LoginViewController.m */,
 			);
 			path = modal;
 			sourceTree = "<group>";
@@ -1372,6 +1385,8 @@
 			children = (
 				FDD6D7E81C26569600B03DF8 /* PersonalHomePageController.h */,
 				FDD6D7E91C26569600B03DF8 /* PersonalHomePageController.m */,
+				FD584FF31C365CEF00276815 /* PersonalHomepagePhotoCell.h */,
+				FD584FF41C365CEF00276815 /* PersonalHomepagePhotoCell.m */,
 				FDD6D7EA1C26569600B03DF8 /* PersonalHomePageViewModel.h */,
 				FDD6D7EB1C26569600B03DF8 /* PersonalHomePageViewModel.m */,
 			);
@@ -1786,6 +1801,7 @@
 				FD8068491C1FA2BC00111A0A /* LoginProtocalController.m in Sources */,
 				FDEC5E511C2E7FDA00D85E3F /* LoginViewController.m in Sources */,
 				FD4BA8D31C128F3C00A69F90 /* MySettingTableViewController.m in Sources */,
+				FD7A99EE1C369168009A05F5 /* AroundMapViewModel.m in Sources */,
 				FD54DDC01C229847009A8AD5 /* UserMessage.m in Sources */,
 				FD29B38F1C1135DC00B68C6C /* AroundViewController.m in Sources */,
 				FD69A1B51C337470002A458F /* MoodMessage.m in Sources */,
@@ -1807,6 +1823,7 @@
 				FDD6D7D51C25A45900B03DF8 /* SettingNewPayPasswordController.m in Sources */,
 				FDD6D7D21C25A41100B03DF8 /* SettingPayPasswordController.m in Sources */,
 				FD29B37E1C112FDC00B68C6C /* UIScrollView+MJRefresh.m in Sources */,
+				FD7A99F11C36B817009A05F5 /* NSObject+LoginViewController.m in Sources */,
 				FD21CFA31C1BBFCC00CF8550 /* CDUserFactory.m in Sources */,
 				FD4BA8CC1C12834400A69F90 /* MyLoanController.m in Sources */,
 				FD54DDF21C2413F0009A8AD5 /* MyChargeController.m in Sources */,
@@ -1816,6 +1833,7 @@
 				FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */,
 				FD29B3C21C1159D800B68C6C /* AroundMessageController.m in Sources */,
 				FD9A8EF01C193B5B00D9EC9C /* LYAnnotationView.m in Sources */,
+				FD584FF51C365CEF00276815 /* PersonalHomepagePhotoCell.m in Sources */,
 				FD4BA8D91C12F5B500A69F90 /* NSObject+LYUITipsView.m in Sources */,
 				FD4BA8DC1C13075A00A69F90 /* AroundMessageDetailController.m in Sources */,
 				FD297DD91C2D6BDE007DFFF0 /* DataMessage.m in Sources */,

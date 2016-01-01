@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ReactiveCocoa.h>
+#import <ReactiveCocoa/RACEXTScope.h>
 #import "Yingying.h"
 
 @interface AroundMoodDetailViewModel : NSObject
@@ -31,6 +33,7 @@
 
 #pragma mark - message
 
-- (void)requestComment;
+- (RACSignal *)requestCommentWithSourceCommentId:(NSNumber *)source_comment_id;
 
+- (RACSignal *)requestMoodZan;
 @end

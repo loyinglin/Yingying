@@ -18,6 +18,17 @@
 
 @end
 
+@interface MapUserInfo : LYCoding
+@property (nonatomic , strong) NSString* gender;
+@property (nonatomic , strong) NSString* lastRefreshTime;
+@property (nonatomic , strong) NSString* nickname;
+@property (nonatomic , strong) NSString* thumbUrl;
+@property (nonatomic , strong) NSNumber* uid;
+@property (nonatomic , strong) NSString* userphone;
+@property (nonatomic , strong) NSNumber* x;
+@property (nonatomic , strong) NSNumber* y;
+
+@end
 
 
 @interface UserInfo : LYCoding
@@ -25,7 +36,6 @@
 @property (nonatomic , strong) NSString* address;
 @property (nonatomic , strong) NSString* gender;
 @property (nonatomic , strong) NSString* nickName;
-
 @end
 
 @interface LoginInfo : LYCoding
@@ -52,7 +62,11 @@
 @property (nonatomic , strong) NSNumber* type;
 @property (nonatomic , strong) NSNumber* forward_size;
 @property (nonatomic , strong) NSArray*  attachs;
-
+@property (nonatomic , strong) NSNumber* price;
+@property (nonatomic , strong) NSString* name;
+@property (nonatomic , strong) NSNumber* isZan;
+@property (nonatomic , strong) NSString* thumburl;
+@property (nonatomic , strong) NSString* username;
 @end
 
 

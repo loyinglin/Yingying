@@ -33,6 +33,11 @@
 
 @end
 
+@implementation MapUserInfo
+
+
+
+@end
 
 @implementation CommentInfo
 

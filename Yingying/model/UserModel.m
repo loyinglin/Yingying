@@ -126,6 +126,14 @@
     }
     return ret;
 }
+
+- (NSString *)getMyUserphone {
+    NSString* ret = @"";
+    if (self.myLoginInfo) {
+        ret = self.myLoginInfo.userphone;
+    }
+    return ret;
+}
 #pragma mark - message
 
 - (void)requestSendCodeWithUserphone:(NSString *)userphone {

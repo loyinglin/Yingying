@@ -45,6 +45,10 @@
     
     RAC(self.myViewModel, myMoodConent) = self.myMoodContentTextView.rac_textSignal;
     RAC(self.myViewModel, myLocName) = self.myAddressTextField.rac_textSignal;
+//    RACChannelTo(self.myViewModel, myLocName) = self.myAddressTextField.rac_newTextChannel;
+//    [self.myAddressTextField.rac_textSignal subscribeNext:^(id x) {
+//        NSLog(@"TEST %@", x);
+//    }];
     self.myViewModel.myView = self.view;
 
 //    [self.myImages addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL]; 被下面的取代了
@@ -121,13 +125,14 @@
     UIAlertAction* location = [UIAlertAction actionWithTitle:[MapInfoModel instance].myAddress style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         @strongify(self);
         self.myAddressTextField.text = action.title;
-        self.myAddressTextField.enabled = NO;
+        self.myViewModel.myLocName = action.title;
+        self.myAddressTextField.userInteractionEnabled = NO;
     }];
     [controller addAction:location];
     
     UIAlertAction* edit = [UIAlertAction actionWithTitle:@"自由编辑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         @strongify(self);
-        self.myAddressTextField.enabled = YES;
+        self.myAddressTextField.userInteractionEnabled = YES;
     }];
     [controller addAction:edit];
     

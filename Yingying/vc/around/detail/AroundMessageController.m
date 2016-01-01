@@ -12,6 +12,7 @@
 #import "MapInfoModel.h"
 #import "AroundMoodViewModel.h"
 #import "AroundMoodTableViewCell.h"
+#import "UIImageView+AFNetworking.h"
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
 
@@ -77,9 +78,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AroundMoodTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     MoodInfo* info = [self.myViewModel getMoodInfoByIndex:indexPath.row];
-    cell.myMoodContent.text = info.moodContent;
-    cell.myImagesArr = info.attachs;
-    
+    if (info) {
+        cell.myMoodContent.text = info.moodContent;
+        cell.myImagesArr = info.attachs;
+        if (info.thumburl) {
+            [cell.myAvatarImageview setImageWithURL:[NSURL URLWithString:[LY_MSG_BASE_URL stringByAppendingString:info.thumburl]]];
+        }
+        cell.myCommentCountLabel.text = [NSString stringWithFormat:@"%@", info.comment_size];
+        cell.myForwardCountLabel.text = [NSString stringWithFormat:@"%@", info.forward_size];
+        cell.myUsernameLabel.text = info.username;
+    }
     return cell;
 }
 

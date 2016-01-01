@@ -8,8 +8,13 @@
 
 #import "PersonalHomePageController.h"
 #import "PersonalHomePageViewModel.h"
+#import "PersonalHomepagePhotoCell.h"
 #import "LYColor.h"
+#import "UserModel.h"
+#import "LYNotifyCenter.h"
 #import "UIView+LYModify.h"
+#import "UIImageView+AFNetworking.h"
+#import "AroundMoodTableViewCell.h"
 #import "UIViewController+YingyingNavigationItem.h"
 
 typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
@@ -18,15 +23,23 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
     ly_message
 };
 
+typedef NS_ENUM(NSInteger, LYINFORMATION) {
+    ly_avatar,
+    ly_nickname,
+    ly_gender,
+    ly_userphone,
+};
 
 
-@interface PersonalHomePageController ()<UITableViewDataSource, UITableViewDelegate>
+@interface PersonalHomePageController ()<UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic , strong) IBOutlet UITableView* myTableView;
 
 @property (nonatomic , strong) IBOutlet UIView* myBottomView;
-
 @property (nonatomic , strong) IBOutlet UIView* myPopView;
+
+@property (nonatomic , assign) BOOL isAvatar;
+@property (nonatomic , assign) BOOL isSelf;
 
 @property (nonatomic , strong) PersonalHomePageViewModel* myViewModel;
 
@@ -36,12 +49,27 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.myViewModel = [PersonalHomePageViewModel new];
+    self.myViewModel.myView = self.view;
+    
+    @weakify(self);
+//    [RACObserve(self.myViewModel, myUserInfo) subscribeNext:^(id x) {
+//        @strongify(self);
+//        [self.myTableView reloadData];
+//    }];
+    
+    
     
     [self customView];
     [self lySetupLeftItem];
-    [self test];
+    [self customNotify];
     
+    [[[self.myViewModel requestGetUserInfo] flattenMap:^RACStream *(id value) {
+        @strongify(self);
+        return [self.myViewModel requestGetMoodList];
+    }] subscribeCompleted:^{
+        @strongify(self);
+        [self.myTableView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,10 +77,18 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    LYLog(@"dac %@" ,self);
+}
 #pragma mark - view init
 
+- (void)initWithUserphone:(NSString *)userphone {
+    self.myViewModel = [PersonalHomePageViewModel new];
+    self.myViewModel.myUserphone = userphone;
+    self.isSelf = [userphone isEqualToString:[[UserModel instance] getMyUserphone]];
+}
+
 - (void)customView {
-    
     [self.myBottomView lySetupBorderwithColor:0xf0f0f0 Width:1 Radius:0];
     
     self.myTableView.rowHeight = UITableViewAutomaticDimension;
@@ -62,27 +98,14 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
     [self.myTableView.tableHeaderView setBackgroundColor:UIColorFromRGB(0xf0f0f0)];
     
     self.myTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.myTableView.bounds.size.width, self.myBottomView.bounds.size.height + 10)];
+    [self updateViewWithIsSelf:self.isSelf];
 }
 
-- (void)test {
-    
-    [RACObserve(self.myViewModel, mySelf) subscribeNext:^(id x) {
-        LYLog(@"test1 %@", x);
-    }];
-    
-    self.myViewModel.mySelf = YES;
-    
-    
-    [RACObserve(self.myViewModel, mySelf) subscribeNext:^(id x) {
-        LYLog(@"test2 %@", x);
-    }];
-    
-    self.myViewModel.mySelf = NO;
-    
-    
-    [RACObserve(self.myViewModel, mySelf) subscribeNext:^(id x) {
-        LYLog(@"test3 %@", x);
-    }];
+- (void)updateViewWithIsSelf:(BOOL)isSelf {
+    self.myBottomView.hidden = isSelf;
+    if (isSelf) {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
 }
 #pragma mark - ibaction
 
@@ -111,8 +134,120 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
     self.myPopView.hidden = !self.myPopView.hidden;
     [self.view bringSubviewToFront:self.myPopView]; //为了方便在IB中编辑，把pop放在最下层。
 }
+
+
 #pragma mark - ui
 
+- (void)onDeletePhotoWith:(NSNumber *)photoId {
+    UIAlertController* controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    @weakify(self);
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        LYLog(@"cancel");
+    }];
+    [controller addAction:cancel];
+    
+    UIAlertAction* delete = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
+        [[self.myViewModel requestDeletePhoteWithPhotoId:photoId] subscribeNext:^(id x) {
+            @strongify(self);
+            [self.myViewModel requestGetUserInfo];
+        }];
+    }];
+    [controller addAction:delete];
+    
+    [self presentViewController:controller animated:YES completion:nil];
+
+}
+
+- (void)onAdd {
+    UIAlertController* controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    @weakify(self);
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        LYLog(@"cancel");
+    }];
+    [controller addAction:cancel];
+    
+    UIAlertAction* takePhoto = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
+        [self takePhoto];
+    }];
+    [controller addAction:takePhoto];
+    
+    UIAlertAction* localPhoto = [UIAlertAction actionWithTitle:@"从手机相册中选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
+        [self LocalPhoto];
+    }];
+    [controller addAction:localPhoto];
+    
+    [self presentViewController:controller animated:YES completion:nil];
+    
+}
+
+
+-(void)takePhoto
+{
+    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
+    {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        //设置拍照后的图片可被编辑
+        picker.allowsEditing = YES;
+        picker.sourceType = sourceType;
+        [self presentViewController:picker animated:YES completion:nil];
+    }else
+    {
+        LYLog(@"模拟其中无法打开照相机,请在真机中使用");
+    }
+}
+
+-(void)LocalPhoto
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    //    picker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.delegate = self;
+    //设置选择后的图片可被编辑
+    picker.allowsEditing = YES;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+//当选择一张图片后进入这里
+-(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+
+{
+    NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
+    
+    //当选择的类型是图片
+    if ([type isEqualToString:@"public.image"])
+    {
+        //先把图片转成NSData
+        UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        [picker dismissViewControllerAnimated:YES completion:nil];
+        
+        @weakify(self);
+        if (self.isAvatar) {
+            [[self.myViewModel requestUploadAvatarWithImage:image] subscribeCompleted:^{
+                @strongify(self);
+                [self.myViewModel requestGetUserInfo];
+            }];
+        }
+        else {
+            [[self.myViewModel requestAddPhotoWithImage:image] subscribeCompleted:^{
+                @strongify(self);
+                [self.myViewModel requestGetUserInfo];
+            }];
+        }
+    }
+    //    [picker dismissViewControllerAnimated:NO completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    LYLog(@"您取消了选择图片");
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark - delegate
 
 
@@ -127,7 +262,8 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
     
     switch (section) {
         case ly_photo:
-            ret = 2;
+            LYLog(@"%d", self.myViewModel.myPhotosArr.count);
+            ret = (self.myViewModel.myPhotosArr.count) / 4 + 1;
             break;
             
         case ly_information:
@@ -135,7 +271,7 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
             break;
             
         case ly_message:
-            ret = 5;
+            ret = self.myViewModel.myMoodsArr.count + 1;
             break;
             
         default:
@@ -154,37 +290,128 @@ typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
     
     switch (indexPath.section) {
         case ly_photo:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"photo" forIndexPath:indexPath];
+        {
+            PersonalHomepagePhotoCell* ret = [tableView dequeueReusableCellWithIdentifier:@"photo" forIndexPath:indexPath];
+            cell = ret;
+            NSMutableArray* indexArr = [NSMutableArray array];
+            NSMutableArray* imagesUrlArr = [NSMutableArray array];
+            int i;
+            for (i = 0; (indexPath.row * 4 + i) < self.myViewModel.myPhotosArr.count && i < 4; ++i) {
+                long index = indexPath.row * 4 + i;
+                [indexArr addObject:@(index)];
+                [imagesUrlArr addObject:[self.myViewModel getImageUrlbyIndex:index]];
+            }
+            if (i < 4) {
+                [indexArr addObject:@(-1)];
+                NSString* path = [[NSBundle mainBundle] pathForResource:@"distribution_add_button" ofType:@"png"];
+                [imagesUrlArr addObject:path];
+            }
+            [ret customViewWithIndexArr:indexArr UrlArr:imagesUrlArr];
             
             break;
-            
+        }
         case ly_information:
+        {
             cell = [tableView dequeueReusableCellWithIdentifier:@"information" forIndexPath:indexPath];
+            UILabel* leftLabel = (UILabel *)[cell viewWithTag:10];
+            UILabel* rightLabel = (UILabel *)[cell viewWithTag:20];
+            UIImageView* avatarImageView = (UIImageView *)[cell viewWithTag:30];
+            avatarImageView.hidden = YES;
+            rightLabel.hidden = NO;
+            switch (indexPath.row) {
+                case ly_avatar:
+                {
+                    avatarImageView.hidden = NO;
+                    rightLabel.hidden = YES;
+                    leftLabel.text = @"头像";
+                    if (self.myViewModel.myAvatarUrl) {
+                        [avatarImageView setImageWithURL:[NSURL URLWithString:self.myViewModel.myAvatarUrl]];
+                    }
+                    else {
+                        [avatarImageView setImage:[UIImage imageNamed:@"finance_avatar"]];
+                    }
+                    break;
+                }
+                case ly_nickname:
+                    leftLabel.text = @"昵称";
+                    rightLabel.text = self.myViewModel.myUserInfo.nickName;
+                    break;
+                case ly_gender:
+                    leftLabel.text = @"性别";
+                    rightLabel.text = [self.myViewModel.myUserInfo.gender isEqualToString:@"m"] ? @"男" : @"女";
+                    break;
+                case ly_userphone:
+                    leftLabel.text = @"手机";
+                    rightLabel.text = self.myViewModel.myUserphone;
+                    break;
+                    
+                default:
+                    break;
+            }
+            
             break;
+        }
             
         case ly_message:
             if (indexPath.row == 0) {
                 cell = [tableView dequeueReusableCellWithIdentifier:@"message_head" forIndexPath:indexPath];
             }
             else {
-                cell = [tableView dequeueReusableCellWithIdentifier:@"message" forIndexPath:indexPath];
+                AroundMoodTableViewCell* ret = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+                cell = ret;
+                
+                MoodInfo* info = [self.myViewModel getMoodInfoByIndex:indexPath.row - 1];
+                if (info) {
+                    ret.myMoodContent.text = info.moodContent;
+                    ret.myImagesArr = info.attachs;
+                    if (info.thumburl) {
+                        [ret.myAvatarImageview setImageWithURL:[NSURL URLWithString:[LY_MSG_BASE_URL stringByAppendingString:info.thumburl]]];
+                    }
+                    ret.myCommentCountLabel.text = [NSString stringWithFormat:@"%@", info.comment_size];
+                    ret.myForwardCountLabel.text = [NSString stringWithFormat:@"%@", info.forward_size];
+                    ret.myUsernameLabel.text = info.username;
+                }
             }
             break;
             
     }
     
-
+    
     return cell;
 }
 
-//- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    UIView* ret = nil;
-//    if (section == ly_message) {
-//        ret = [tableView dequeueReusableCellWithIdentifier:@"message_head"];
-//    }
-//    return ret;
-//}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!self.isSelf) {
+        return nil;
+    }
+    if (indexPath.section == ly_information && indexPath.row == ly_avatar) {
+        self.isAvatar = YES;
+        [self onAdd];
+    }
+    
+    return nil;
+}
+
+
 #pragma mark - notify
 
+- (void)customNotify {
+    @weakify(self);
+    if (!self.isSelf) {
+        return ;
+    }
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_PERSONAL_HOMEPAGE_ADD_PHOTO object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        NSNumber* index = [note.userInfo objectForKey:NOTIFY_UI_PERSONAL_HOMEPAGE_ADD_PHOTO];
+        if (index.integerValue < 0) {
+            self.isAvatar = NO;
+            [self onAdd];
+        }
+        else {
+            [self onDeletePhotoWith:[self.myViewModel getImageIdbyIndex:index.integerValue]];
+        }
+    }];
+}
 
 @end

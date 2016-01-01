@@ -9,6 +9,8 @@
 #import "AroundMoodDetailViewModel.h"
 #import "AroundMessageDetailController.h"
 #import "AroundMoodDetailCell.h"
+#import "UIImageView+AFNetworking.h"
+#import "AllMessage.h"
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
 
@@ -36,6 +38,7 @@
     [RACObserve(self.myViewModel, myCommentInfoArr) subscribeNext:^(id x) {
         @strongify(self);
         [self.myTableView reloadData];
+        [self updateMyFavoriteButton];
     }];
     
     [self customView];
@@ -80,14 +83,38 @@
 }
 
 - (IBAction)onFavorite:(id)sender {
-    LYLog(@"favorite");
+    @weakify(self);
+    [[self.myViewModel requestMoodZan] subscribeCompleted:^{
+        LYLog(@"ACBC");
+        @strongify(self);
+        if (self.myViewModel.myMoodInfo.isZan && self.myViewModel.myMoodInfo.isZan.boolValue) {
+            self.myViewModel.myMoodInfo.isZan = @(0);
+        }
+        else {
+            self.myViewModel.myMoodInfo.isZan = @(1);
+        }
+        [self updateMyFavoriteButton];
+    }];
+}
+
+- (void)updateMyFavoriteButton {
+    NSNumber* zan = self.myViewModel.myMoodInfo.isZan;
+    if (zan && zan.boolValue) {
+        [self.myFavoriteButton setBackgroundImage:[UIImage imageNamed:@"icon_message_detail_favorite"] forState:UIControlStateNormal];
+    }
+    else {
+        [self.myFavoriteButton setBackgroundImage:[UIImage imageNamed:@"icon_message_detail_favorited"] forState:UIControlStateNormal];
+    }
 }
 
 - (IBAction)onComment:(id)sender {
-    LYLog(@"comment");
-    self.myInputTextField.text = @""; //评论完清空
-    [self.myInputTextField resignFirstResponder];
-    [self.myViewModel requestComment];
+    @weakify(self);
+    [[self.myViewModel requestCommentWithSourceCommentId:nil] subscribeCompleted:^{
+        @strongify(self);
+        self.myInputTextField.text = @""; //评论完清空
+        [self.myInputTextField resignFirstResponder];
+        [self.myViewModel updateGetMoodComment];
+    }];
 }
 
 #pragma mark - ui
@@ -126,9 +153,13 @@
         }
         else {
             item.myPriceLabel.hidden = item.myResNameLabel.hidden = NO;
+            item.myPriceLabel.text = [NSString stringWithFormat:@"%@", self.myViewModel.myMoodInfo.price];
+            item.myResNameLabel.text = self.myViewModel.myMoodInfo.name;
         }
         item.myImagesArr = self.myViewModel.myMoodInfo.attachs;
         item.myDateLabel.text = self.myViewModel.myMoodInfo.sendDate;
+        item.myMoodContentLabel.text = self.myViewModel.myMoodInfo.moodContent;
+
     }
     else {
         if (indexPath.row == 0) {
@@ -145,7 +176,12 @@
             UIImageView* avatarImageView = (UIImageView *)[cell viewWithTag:40];
             CommentInfo* info = [self.myViewModel getCommentInfoByIndex:indexPath.row - 1];
             if (info) {
-//                timeLabel.text = info.comment_source;
+                timeLabel.text = info.comment_date;
+                nameLabel.text = info.username;
+                commentLabel.text = info.comment_source;
+                if (info.thumburl) {
+                    [avatarImageView setImageWithURL:[NSURL URLWithString:[LY_MSG_BASE_URL stringByAppendingString:info.thumburl]]];
+                }
             }
         }
     }
