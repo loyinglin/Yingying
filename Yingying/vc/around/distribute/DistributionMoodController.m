@@ -24,7 +24,7 @@
 @property (nonatomic , strong) IBOutlet UICollectionView*   myImages;
 @property (nonatomic , strong) IBOutlet UITextField*        myAddressTextField;
 @property (nonatomic , strong) IBOutlet UITextView*         myMoodContentTextView;
-
+@property (nonatomic , strong) IBOutlet UILabel*            myPlaceholderLabel;
 @property (nonatomic , strong) DistributionMoodViewModel* myViewModel;
 
 @end
@@ -99,8 +99,15 @@
 #pragma mark - ibaction
 
 - (IBAction)onDistribute:(id)sender {
-    [self.myViewModel requestSendMood];
-    
+    @weakify(self);
+    [[self.myViewModel requestSendMood] subscribeNext:^(id x) {
+        NSLog(@"vc %@", x);
+    } error:^(NSError *error) {
+        
+    } completed:^{
+        @strongify(self);
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 - (IBAction)onAddress:(id)sender {
@@ -238,6 +245,21 @@
     }
     LYLog(@"click %ld", indexPath.row);
 }
+
+
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    self.myPlaceholderLabel.hidden = YES;
+    return YES;
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
+    if (textView.text.length == 0) {
+        self.myPlaceholderLabel.hidden = NO;
+    }
+    return YES;
+}
+
 
 #pragma mark - notify
 

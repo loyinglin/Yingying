@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
-#import <MBProgressHUD.h>
 
 @interface DistributionMoodViewModel : NSObject
 
@@ -38,7 +37,7 @@
 
 #pragma mark - message
 
-- (void)requestSendMood;
+- (RACSignal *)requestSendMood;
 
 
 @end

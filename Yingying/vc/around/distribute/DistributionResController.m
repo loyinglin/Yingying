@@ -20,12 +20,13 @@
 
 
 @property (nonatomic , strong) IBOutlet UICollectionView*   myImages;
-@property (nonatomic , strong) IBOutlet UILabel*            myAddressLabel;
 @property (nonatomic , strong) IBOutlet UILabel*            myPlaceholderLabel;
 
-@property (nonatomic , strong) DistributionResViewModel*    myViewModel;
+@property (nonatomic , strong) IBOutlet UITextField*        myAddressTextField;
+@property (nonatomic , strong) IBOutlet UITextField*        myPriceTextField;
+@property (nonatomic , strong) IBOutlet UITextField*        myNameTextField;;
 
-@property (nonatomic , assign) long myImageIndex;
+@property (nonatomic , strong) DistributionResViewModel*    myViewModel;
 @end
 
 
@@ -33,21 +34,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    [self.myResDesc lySetupBorderwithColor:0xcdcdcd Width:1 Radius:3];
-    
     self.myViewModel = [DistributionResViewModel new];
     
+    @weakify(self);
     [RACObserve(self.myViewModel, myImagesArr) subscribeNext:^(id x) {
+        @strongify(self);
         [self.myImages reloadData];
-        [self performSelector:@selector(updateCollectionLayout) withObject:nil afterDelay:0.1]; //update yanchi
     }];
+    RAC(self.myViewModel, myMoodConent) = self.myResDesc.rac_textSignal;
+    RAC(self.myViewModel, myLocName) = self.myAddressTextField.rac_textSignal;
+    RAC(self.myViewModel, myPirce) = [self.myPriceTextField.rac_textSignal map:^id(NSString* text) {
+        return @(text.floatValue);
+    }];
+    RAC(self.myViewModel, myName) = self.myNameTextField.rac_textSignal;
+    self.myViewModel.myView = self.view;
     
-    
-    RAC(self.myAddressLabel, text) = RACObserve([MapInfoModel instance], myAddress);
-    
-    [self lySetupRightItem];
+    [self.myImages rac_valuesForKeyPath:@"contentSize" observer:self];
+    [RACObserve(self.myImages, contentSize) subscribeNext:^(id x) {
+        @strongify(self);
+        [self updateCollectionLayout];
+    }];
+
+    [self customView];
+    [self customNotify];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,18 +67,14 @@
 - (void)dealloc {
     LYLog(@"dealloc message");
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - view init
 
+- (void)customView {
+    
+    [self.myResDesc lySetupBorderwithColor:0xcdcdcd Width:1 Radius:5];
+    [self lySetupRightItem];
+}
 
 - (void)updateCollectionLayout {
     for (NSLayoutConstraint* constraint in self.myImages.constraints) {
@@ -79,29 +84,71 @@
             }
         }
     }
-    [self.view setNeedsLayout];
 }
 
 #pragma mark - ibaction
 
 
 - (IBAction)onDistribute:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    @weakify(self);
+    [[self.myViewModel requestSendRes] subscribeNext:^(id x) {
+        NSLog(@"vc %@", x);
+    } error:^(NSError *error) {
+        NSLog(@"eror");
+    } completed:^{
+        @strongify(self);
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+
 }
 
-- (IBAction)onAdd:(id)sender {
+
+- (IBAction)onAddress:(id)sender {
     UIAlertController* controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    @weakify(self);
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        LYLog(@"cancel");
+    }];
+    [controller addAction:cancel];
+    
+    UIAlertAction* location = [UIAlertAction actionWithTitle:[MapInfoModel instance].myAddress style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
+        self.myAddressTextField.text = action.title;
+        self.myAddressTextField.enabled = NO;
+    }];
+    [controller addAction:location];
+    
+    UIAlertAction* edit = [UIAlertAction actionWithTitle:@"自由编辑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
+        self.myAddressTextField.enabled = YES;
+    }];
+    [controller addAction:edit];
+    
+    UIAlertAction* hide = [UIAlertAction actionWithTitle:@"不显示位置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
+        self.myAddressTextField.text = @"";
+    }];
+    [controller addAction:hide];
+    
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)onAdd:(id)sender {
+    UIAlertController* controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    @weakify(self);
     UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         LYLog(@"cancel");
     }];
     [controller addAction:cancel];
     
     UIAlertAction* takePhoto = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
         [self takePhoto];
     }];
     [controller addAction:takePhoto];
     
     UIAlertAction* localPhoto = [UIAlertAction actionWithTitle:@"从手机相册中选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
         [self LocalPhoto];
     }];
     [controller addAction:localPhoto];
@@ -150,38 +197,35 @@
     {
         //先把图片转成NSData
         UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-        NSData *data;
-        if (UIImagePNGRepresentation(image) == nil)
-        {
-            data = UIImageJPEGRepresentation(image, 1.0);
-        }
-        else
-        {
-            data = UIImagePNGRepresentation(image);
-        }
-        
-        //图片保存的路径
-        //这里将图片放在沙盒的documents文件夹中
-        NSString * DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-        
-        //文件管理器
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        
-        //把刚刚图片转换的data对象拷贝至沙盒中 并保存为image.png
-        [fileManager createDirectoryAtPath:DocumentsPath withIntermediateDirectories:YES attributes:nil error:nil];
-        [fileManager createFileAtPath:[DocumentsPath stringByAppendingString:@"/image.png"] contents:data attributes:nil];
-        
-        //得到选择后沙盒中图片的完整路径
-        NSString* filePath = [[NSString alloc]initWithFormat:@"%@%@",DocumentsPath,  @"/image.png"];
-        LYLog(@"file path :%@", filePath);
+//        NSData *data;
+//        if (UIImagePNGRepresentation(image) == nil)
+//        {
+//            data = UIImageJPEGRepresentation(image, 1.0);
+//        }
+//        else
+//        {
+//            data = UIImagePNGRepresentation(image);
+//        }
+//        
+//        //图片保存的路径
+//        //这里将图片放在沙盒的documents文件夹中
+//        NSString * DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+//        
+//        //文件管理器
+//        NSFileManager *fileManager = [NSFileManager defaultManager];
+//        
+//        //把刚刚图片转换的data对象拷贝至沙盒中 并保存为image.png
+//        [fileManager createDirectoryAtPath:DocumentsPath withIntermediateDirectories:YES attributes:nil error:nil];
+//        [fileManager createFileAtPath:[DocumentsPath stringByAppendingString:@"/image.png"] contents:data attributes:nil];
+//        
+//        //得到选择后沙盒中图片的完整路径
+//        NSString* filePath = [[NSString alloc]initWithFormat:@"%@%@",DocumentsPath,  @"/image.png"];
+//        LYLog(@"file path :%@", filePath);
         
         //关闭相册界面
         [picker dismissViewControllerAnimated:YES completion:nil];
         
         [self.myViewModel updateAddImage:image];
-        //        self.myImageView.image = image;
-        
-        
     }
     
 }
@@ -214,8 +258,6 @@
         [self onAdd:nil];
     }
     else {
-        LYLog(@"click %ld", indexPath.row);
-        self.myImageIndex = indexPath.row;
         LYBaseImageViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"image_view_controller"];
         
         controller.myImage = [self.myViewModel.myImagesArr objectAtIndex:indexPath.row];
@@ -241,6 +283,16 @@
 
 
 #pragma mark - notify
+
+- (void)customNotify {
+    @weakify(self);
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_DELETE_PHOTO object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        UIImage* img = [note.userInfo objectForKey:NOTIFY_UI_DELETE_PHOTO];
+        [self.myViewModel updateDeleteImage:img];
+    }];
+}
 
 
 @end

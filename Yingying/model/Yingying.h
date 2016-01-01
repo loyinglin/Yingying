@@ -63,6 +63,7 @@
 @property (nonatomic , strong) NSString* comment_source;
 @property (nonatomic , strong) NSString* comment_date;
 @property (nonatomic , strong) NSString* thumburl;
+@property (nonatomic , strong) NSString* username;
 
 @end
 

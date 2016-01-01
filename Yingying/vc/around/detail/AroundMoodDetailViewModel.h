@@ -13,7 +13,7 @@
 
 @property (nonatomic , strong) MoodInfo* myMoodInfo;
 @property (nonatomic , strong) NSString* myCommentString;
-
+@property (nonatomic , strong) NSArray*  myCommentInfoArr;
 
 #pragma mark - init
 
@@ -26,9 +26,11 @@
 #pragma mark - get
 
 
+- (CommentInfo *)getCommentInfoByIndex:(long)index;
 
 
 #pragma mark - message
 
+- (void)requestComment;
 
 @end

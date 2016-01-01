@@ -8,6 +8,7 @@
 
 #import "AroundMoodDetailViewModel.h"
 #import "AroundMessageDetailController.h"
+#import "AroundMoodDetailCell.h"
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
 
@@ -32,7 +33,10 @@
 
     @weakify(self);
     RAC(self.myViewModel, myCommentString) = self.myInputTextField.rac_textSignal;
-    
+    [RACObserve(self.myViewModel, myCommentInfoArr) subscribeNext:^(id x) {
+        @strongify(self);
+        [self.myTableView reloadData];
+    }];
     
     [self customView];
     [self setupNotify];
@@ -83,6 +87,7 @@
     LYLog(@"comment");
     self.myInputTextField.text = @""; //评论完清空
     [self.myInputTextField resignFirstResponder];
+    [self.myViewModel requestComment];
 }
 
 #pragma mark - ui
@@ -101,7 +106,10 @@
         ret = 1;
     }
     else {
-        ret = 4;
+        if (self.myViewModel && self.myViewModel.myCommentInfoArr) {
+            ret = self.myViewModel.myCommentInfoArr.count;
+        }
+        ++ret;
     }
     return ret;
 }
@@ -111,15 +119,34 @@
     UITableViewCell *cell;
     
     if (indexPath.section == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-        UILabel* moodContentLabel = (UILabel *)[cell viewWithTag:10];
-        moodContentLabel.text = self.myViewModel.myMoodInfo.moodContent;
+        AroundMoodDetailCell* item = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        cell = item;
+        if (self.myViewModel.myMoodInfo.type.integerValue == 0) {
+            item.myPriceLabel.hidden = item.myResNameLabel.hidden = YES;
+        }
+        else {
+            item.myPriceLabel.hidden = item.myResNameLabel.hidden = NO;
+        }
+        item.myImagesArr = self.myViewModel.myMoodInfo.attachs;
+        item.myDateLabel.text = self.myViewModel.myMoodInfo.sendDate;
     }
     else {
         if (indexPath.row == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"head" forIndexPath:indexPath];
+            UILabel* commentTitleLabel = (UILabel *)[cell viewWithTag:10];
+            if (commentTitleLabel) {
+                commentTitleLabel.text = [NSString stringWithFormat:@"评论（%ld）", [self tableView:self.myTableView numberOfRowsInSection:1] - 1];
+            }
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"comment" forIndexPath:indexPath];
+            UILabel* nameLabel = (UILabel *)[cell viewWithTag:10];
+            UILabel* timeLabel = (UILabel *)[cell viewWithTag:20];
+            UILabel* commentLabel = (UILabel *)[cell viewWithTag:30];
+            UIImageView* avatarImageView = (UIImageView *)[cell viewWithTag:40];
+            CommentInfo* info = [self.myViewModel getCommentInfoByIndex:indexPath.row - 1];
+            if (info) {
+//                timeLabel.text = info.comment_source;
+            }
         }
     }
     

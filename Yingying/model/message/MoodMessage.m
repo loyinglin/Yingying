@@ -47,7 +47,6 @@
     if (locName.length > 0) {
         [dict setObject:x forKey:@"x"];
         [dict setObject:y forKey:@"y"];
-//        locName = [locName stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [dict setObject:locName forKey:@"locName"];
     }
     
@@ -56,4 +55,6 @@
     }];
 
 }
+
+
 @end
