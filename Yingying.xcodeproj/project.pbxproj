@@ -10,7 +10,6 @@
 		97C4B00BAF4207E79EA7381E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2A61BE728174A0287C24BD /* libPods.a */; };
 		FD21CFA31C1BBFCC00CF8550 /* CDUserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFA01C1BBFCC00CF8550 /* CDUserFactory.m */; };
 		FD21CFA61C1BC09200CF8550 /* ChatListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFA51C1BC09200CF8550 /* ChatListController.m */; };
-		FD21CFA91C1BE4D600CF8550 /* ChatSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFA81C1BE4D600CF8550 /* ChatSearchController.m */; };
 		FD21CFAC1C1C04A300CF8550 /* ChatDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFAB1C1C04A300CF8550 /* ChatDetailController.m */; };
 		FD297DD61C2D6B31007DFFF0 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD297DD51C2D6B31007DFFF0 /* DataModel.m */; };
 		FD297DD91C2D6BDE007DFFF0 /* DataMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD297DD81C2D6BDE007DFFF0 /* DataMessage.m */; };
@@ -163,6 +162,11 @@
 		FD69A1B81C337812002A458F /* AroundMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69A1B71C337812002A458F /* AroundMoodViewModel.m */; };
 		FD7A99EE1C369168009A05F5 /* AroundMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A99ED1C369168009A05F5 /* AroundMapViewModel.m */; };
 		FD7A99F11C36B817009A05F5 /* NSObject+LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A99F01C36B817009A05F5 /* NSObject+LoginViewController.m */; };
+		FD7A99F81C376239009A05F5 /* ChatSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A99F71C376239009A05F5 /* ChatSearchViewModel.m */; };
+		FD7A99FC1C3762E6009A05F5 /* LYBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A99FB1C3762E6009A05F5 /* LYBaseViewModel.m */; };
+		FD7A99FF1C3772AB009A05F5 /* ChatSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A99FE1C3772AB009A05F5 /* ChatSearchController.m */; };
+		FD7A9A011C37A0A5009A05F5 /* button_contact.png in Resources */ = {isa = PBXBuildFile; fileRef = FD7A9A001C37A0A5009A05F5 /* button_contact.png */; };
+		FD7A9A041C37A6BF009A05F5 /* FriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A9A031C37A6BF009A05F5 /* FriendModel.m */; };
 		FD8068351C1EC7EE00111A0A /* login_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FD80682E1C1EC7EE00111A0A /* login_background.png */; };
 		FD8068361C1EC7EE00111A0A /* login_get_code.png in Resources */ = {isa = PBXBuildFile; fileRef = FD80682F1C1EC7EE00111A0A /* login_get_code.png */; };
 		FD80683A1C1EC7EE00111A0A /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8068331C1EC7EE00111A0A /* login_logo.png */; };
@@ -272,8 +276,6 @@
 		FD21CFA01C1BBFCC00CF8550 /* CDUserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserFactory.m; sourceTree = "<group>"; };
 		FD21CFA41C1BC09200CF8550 /* ChatListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatListController.h; path = list/ChatListController.h; sourceTree = "<group>"; };
 		FD21CFA51C1BC09200CF8550 /* ChatListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatListController.m; path = list/ChatListController.m; sourceTree = "<group>"; };
-		FD21CFA71C1BE4D600CF8550 /* ChatSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatSearchController.h; sourceTree = "<group>"; };
-		FD21CFA81C1BE4D600CF8550 /* ChatSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSearchController.m; sourceTree = "<group>"; };
 		FD21CFAA1C1C04A300CF8550 /* ChatDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatDetailController.h; sourceTree = "<group>"; };
 		FD21CFAB1C1C04A300CF8550 /* ChatDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatDetailController.m; sourceTree = "<group>"; };
 		FD297DD41C2D6B31007DFFF0 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
@@ -503,6 +505,15 @@
 		FD7A99ED1C369168009A05F5 /* AroundMapViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMapViewModel.m; sourceTree = "<group>"; };
 		FD7A99EF1C36B817009A05F5 /* NSObject+LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LoginViewController.h"; sourceTree = "<group>"; };
 		FD7A99F01C36B817009A05F5 /* NSObject+LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LoginViewController.m"; sourceTree = "<group>"; };
+		FD7A99F61C376239009A05F5 /* ChatSearchViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatSearchViewModel.h; sourceTree = "<group>"; };
+		FD7A99F71C376239009A05F5 /* ChatSearchViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSearchViewModel.m; sourceTree = "<group>"; };
+		FD7A99FA1C3762E6009A05F5 /* LYBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseViewModel.h; sourceTree = "<group>"; };
+		FD7A99FB1C3762E6009A05F5 /* LYBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseViewModel.m; sourceTree = "<group>"; };
+		FD7A99FD1C3772AB009A05F5 /* ChatSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatSearchController.h; sourceTree = "<group>"; };
+		FD7A99FE1C3772AB009A05F5 /* ChatSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSearchController.m; sourceTree = "<group>"; };
+		FD7A9A001C37A0A5009A05F5 /* button_contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_contact.png; sourceTree = "<group>"; };
+		FD7A9A021C37A6BF009A05F5 /* FriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendModel.h; sourceTree = "<group>"; };
+		FD7A9A031C37A6BF009A05F5 /* FriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendModel.m; sourceTree = "<group>"; };
 		FD80682E1C1EC7EE00111A0A /* login_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_background.png; sourceTree = "<group>"; };
 		FD80682F1C1EC7EE00111A0A /* login_get_code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_get_code.png; sourceTree = "<group>"; };
 		FD8068331C1EC7EE00111A0A /* login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_logo.png; sourceTree = "<group>"; };
@@ -681,6 +692,7 @@
 		FD21CF9D1C1BBFCC00CF8550 /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				FD7A99F21C3761AD009A05F5 /* search */,
 				FDD6D7DC1C2652F700B03DF8 /* friend */,
 				FD21CF9E1C1BBFCC00CF8550 /* base */,
 				FD21CFA11C1BBFCC00CF8550 /* detail */,
@@ -712,8 +724,6 @@
 		FD21CFA21C1BBFCC00CF8550 /* list */ = {
 			isa = PBXGroup;
 			children = (
-				FD21CFA71C1BE4D600CF8550 /* ChatSearchController.h */,
-				FD21CFA81C1BE4D600CF8550 /* ChatSearchController.m */,
 			);
 			path = list;
 			sourceTree = "<group>";
@@ -791,6 +801,8 @@
 				FD4BA8E51C13141B00A69F90 /* Yingying.m */,
 				FD6160291C15210E00B73304 /* MapInfoModel.h */,
 				FD61602A1C15210E00B73304 /* MapInfoModel.m */,
+				FD7A9A021C37A6BF009A05F5 /* FriendModel.h */,
+				FD7A9A031C37A6BF009A05F5 /* FriendModel.m */,
 				FD54DDBB1C22960B009A8AD5 /* UserModel.h */,
 				FD54DDBC1C22960B009A8AD5 /* UserModel.m */,
 				FD297DD41C2D6B31007DFFF0 /* DataModel.h */,
@@ -1144,6 +1156,7 @@
 		FD41BB231C1D87FA00B4A074 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				FD7A9A001C37A0A5009A05F5 /* button_contact.png */,
 				FD54DDAA1C217828009A8AD5 /* base_avatar.png */,
 				FD54DDAB1C217828009A8AD5 /* base_status_esay.png */,
 				FD41BB241C1D87FA00B4A074 /* tab_around_normal.png */,
@@ -1243,6 +1256,8 @@
 				FDD6D7DA1C25BF3F00B03DF8 /* UIViewController+YingyingNavigationItem.m */,
 				FDD6D8071C279FD400B03DF8 /* UIView+LYModify.h */,
 				FDD6D8081C279FD400B03DF8 /* UIView+LYModify.m */,
+				FD7A99FA1C3762E6009A05F5 /* LYBaseViewModel.h */,
+				FD7A99FB1C3762E6009A05F5 /* LYBaseViewModel.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -1267,6 +1282,17 @@
 				FDD6D7CA1C24F4E400B03DF8 /* MyCashSwitchAccountController.m */,
 			);
 			path = cash;
+			sourceTree = "<group>";
+		};
+		FD7A99F21C3761AD009A05F5 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				FD7A99FD1C3772AB009A05F5 /* ChatSearchController.h */,
+				FD7A99FE1C3772AB009A05F5 /* ChatSearchController.m */,
+				FD7A99F61C376239009A05F5 /* ChatSearchViewModel.h */,
+				FD7A99F71C376239009A05F5 /* ChatSearchViewModel.m */,
+			);
+			path = search;
 			sourceTree = "<group>";
 		};
 		FD80682D1C1EC7EE00111A0A /* login */ = {
@@ -1590,6 +1616,7 @@
 				FD41BB431C1D87FA00B4A074 /* tab_around_normal@2x.png in Resources */,
 				FD8068351C1EC7EE00111A0A /* login_background.png in Resources */,
 				FD41BB2D1C1D87FA00B4A074 /* distribution_add_button.png in Resources */,
+				FD7A9A011C37A0A5009A05F5 /* button_contact.png in Resources */,
 				FDD6D7FC1C27930900B03DF8 /* chat_add_photo.png in Resources */,
 				FD41BB321C1D87FA00B4A074 /* icon_distribution_res.png in Resources */,
 				FD41BB471C1D87FA00B4A074 /* tab_finance_normal@2x.png in Resources */,
@@ -1783,7 +1810,6 @@
 				FD29B3771C112FDC00B68C6C /* NSObject+LYTypeConversion.m in Sources */,
 				FD29B3821C1130BC00B68C6C /* BaseModel.m in Sources */,
 				FD29B37F1C112FDC00B68C6C /* UIView+MJExtension.m in Sources */,
-				FD21CFA91C1BE4D600CF8550 /* ChatSearchController.m in Sources */,
 				FD8068441C1F1DA000111A0A /* LoginEditUserInfoController.m in Sources */,
 				FD29B37C1C112FDC00B68C6C /* MJRefreshHeaderView.m in Sources */,
 				FD29B37B1C112FDC00B68C6C /* MJRefreshFooterView.m in Sources */,
@@ -1833,6 +1859,7 @@
 				FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */,
 				FD29B3C21C1159D800B68C6C /* AroundMessageController.m in Sources */,
 				FD9A8EF01C193B5B00D9EC9C /* LYAnnotationView.m in Sources */,
+				FD7A9A041C37A6BF009A05F5 /* FriendModel.m in Sources */,
 				FD584FF51C365CEF00276815 /* PersonalHomepagePhotoCell.m in Sources */,
 				FD4BA8D91C12F5B500A69F90 /* NSObject+LYUITipsView.m in Sources */,
 				FD4BA8DC1C13075A00A69F90 /* AroundMessageDetailController.m in Sources */,
@@ -1842,10 +1869,12 @@
 				FD69A1B81C337812002A458F /* AroundMoodViewModel.m in Sources */,
 				FD8068551C1FF33F00111A0A /* MyTotalController.m in Sources */,
 				FDD6D80C1C29A3DF00B03DF8 /* ForAPNs.m in Sources */,
+				FD7A99FF1C3772AB009A05F5 /* ChatSearchController.m in Sources */,
 				FD8068631C20F59B00111A0A /* AroundModalAddressController.m in Sources */,
 				FD54DDEB1C23B923009A8AD5 /* LYBaseSelectImageView.m in Sources */,
 				FD297DD61C2D6B31007DFFF0 /* DataModel.m in Sources */,
 				FDA679BD1C1A7D5100FC8D9F /* DistributionResViewModel.m in Sources */,
+				FD7A99FC1C3762E6009A05F5 /* LYBaseViewModel.m in Sources */,
 				FDEC5E4A1C2E3E7400D85E3F /* LYDebug.m in Sources */,
 				FD29B3751C112FDC00B68C6C /* LYTypeEncoding.m in Sources */,
 				FDEC5E7B1C315DB200D85E3F /* MyCenterTotalCell.m in Sources */,
@@ -1853,6 +1882,7 @@
 				FD54DDBD1C22960B009A8AD5 /* UserModel.m in Sources */,
 				FD4BA8CF1C12841700A69F90 /* MyLoanDetailController.m in Sources */,
 				FD29B3591C111C4A00B68C6C /* FirstViewController.m in Sources */,
+				FD7A99F81C376239009A05F5 /* ChatSearchViewModel.m in Sources */,
 				FD54DDE91C23B923009A8AD5 /* LYBaseImageViewController.m in Sources */,
 				FD80686C1C210A0D00111A0A /* AroundAddressViewModel.m in Sources */,
 				FD54DDF61C2461EE009A8AD5 /* MyCashViewController.m in Sources */,

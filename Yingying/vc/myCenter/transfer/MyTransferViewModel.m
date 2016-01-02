@@ -7,7 +7,7 @@
 //
 
 #import "MyTransferViewModel.h"
-
+#import "FriendModel.h"
 @interface MyTransferViewModel()
 
 @property (nonatomic , strong) NSMutableDictionary* myFriendDict;
@@ -33,8 +33,9 @@
                             @"2013",@"100",@"中国",@"暑假作业",
                             @"键盘", @"鼠标",@"hello",@"world",
                             nil];
-    
     [self transToFriends:stringsToSort];
+    
+    [[FriendModel instance] requestGetFriendList];
     
     return self;
 }

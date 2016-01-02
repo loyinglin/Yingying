@@ -8,7 +8,6 @@
 
 #import "ChatListController.h"
 #import "UIImageView+AFNetworking.h"
-#import "ChatSearchController.h"
 #import "CDMessageHelper.h"
 #import "NSObject+LYUITipsView.h"
 #import "MJRefresh.h"
@@ -50,7 +49,6 @@
     }
     
     [self setupRefresh];
-//    [self setupSearch];
     [self setupNotify];
     [self lySetupLeftItem];
 }
@@ -71,8 +69,7 @@
 #pragma mark - ibaction
 
 - (IBAction)onAddFriend:(id)sender {
-    LYLog(@"add friend");
-    [self presentMessageTips:@"还没有添加页面"];
+    [self performSegueWithIdentifier:@"open_chat_search_board" sender:nil];
 }
 
 #pragma mark - ui
@@ -84,22 +81,6 @@
         [self.tableView headerEndRefreshing];
         [self updateRecent];
     }];
-}
-
-- (void)setupSearch {
-
-    ChatSearchController* controller = nil;// [[ChatSearchController alloc] init];
-    
-    self.mySearchController = [[UISearchController alloc] initWithSearchResultsController:controller];
-    self.mySearchController.automaticallyAdjustsScrollViewInsets = NO;
-    self.mySearchController.dimsBackgroundDuringPresentation = NO;
-//    self.mySearchController.hidesBottomBarWhenPushed = YES;
-    self.mySearchController.searchResultsUpdater = self;
-    self.mySearchController.delegate = self;
-    
-    self.tableView.tableHeaderView = self.mySearchController.searchBar;
-    [self.mySearchController.searchBar sizeToFit];
-
 }
 
 - (void)updateRecent {

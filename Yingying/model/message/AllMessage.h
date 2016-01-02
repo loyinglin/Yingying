@@ -45,3 +45,14 @@
 #define LY_MSG_MOOD_GET_MOODLIST_BY_UID     @"/mood/getmoodlistbyuid"
 
 
+//friend
+#define LY_MSG_FRIEND_ADD_FRIEND            @"/friend/addfriend"
+#define LY_MSG_FRIEND_DELETE_FRIEND         @"/friend/deletefriend"
+#define LY_MSG_FRIEND_GET_FRIEND_LIST       @"/friend/getfriendlist"
+#define LY_MSG_FRIEND_FIND_FRIEND           @"/friend/findfriend"
+
+
+
+
+
+

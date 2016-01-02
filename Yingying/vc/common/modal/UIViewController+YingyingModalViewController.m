@@ -16,13 +16,12 @@
     UINavigationController* navigatonController = [self.storyboard instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
     PersonalHomePageController* controller = navigatonController.viewControllers[0];
     if ([controller isKindOfClass:[PersonalHomePageController class]]) {
-        [controller initWithUserphone:userphone];
+        [controller initWithUserphone:userphone Uid:nil];
         [self presentViewController:navigatonController animated:YES completion:nil];
     }
     else {
         LYLogError();
     }
-
 }
 
 @end

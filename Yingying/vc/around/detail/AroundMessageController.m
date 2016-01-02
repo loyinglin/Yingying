@@ -81,8 +81,8 @@
     if (info) {
         cell.myMoodContent.text = info.moodContent;
         cell.myImagesArr = info.attachs;
-        if (info.thumburl) {
-            [cell.myAvatarImageview setImageWithURL:[NSURL URLWithString:[LY_MSG_BASE_URL stringByAppendingString:info.thumburl]]];
+        if (info.headUrl) {
+            [cell.myAvatarImageview setImageWithURL:[NSURL URLWithString:[LY_MSG_BASE_URL stringByAppendingString:info.headUrl]]];
         }
         cell.myCommentCountLabel.text = [NSString stringWithFormat:@"%@", info.comment_size];
         cell.myForwardCountLabel.text = [NSString stringWithFormat:@"%@", info.forward_size];

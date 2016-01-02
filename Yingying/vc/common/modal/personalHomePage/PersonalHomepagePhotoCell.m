@@ -49,7 +49,7 @@
             NSString* url = imageUrlArr[i];
             imageView.hidden = NO;
             if (index.integerValue >= 0) {
-                [imageView setImageWithURL:[NSURL URLWithString:url]];
+                [imageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"finance_avatar"]];
             }
             else {
                 [imageView setImage:[UIImage imageWithContentsOfFile:url]];

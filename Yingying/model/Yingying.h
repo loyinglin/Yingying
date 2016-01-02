@@ -18,6 +18,13 @@
 
 @end
 
+@interface FriendInfo : LYCoding
+@property (nonatomic , strong) NSNumber* frduid;
+@property (nonatomic , strong) NSString* nickname;
+@property (nonatomic , strong) NSString* thumburl;
+
+@end
+
 @interface MapUserInfo : LYCoding
 @property (nonatomic , strong) NSString* gender;
 @property (nonatomic , strong) NSString* lastRefreshTime;
@@ -65,7 +72,7 @@
 @property (nonatomic , strong) NSNumber* price;
 @property (nonatomic , strong) NSString* name;
 @property (nonatomic , strong) NSNumber* isZan;
-@property (nonatomic , strong) NSString* thumburl;
+@property (nonatomic , strong) NSString* headUrl;
 @property (nonatomic , strong) NSString* username;
 @end
 

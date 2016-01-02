@@ -17,8 +17,8 @@
 @property (nonatomic , assign) BOOL myFriend;
 
 @property (nonatomic , strong) NSString*    myUserphone;
-@property (nonatomic , strong) UserInfo*    myUserInfo;
 @property (nonatomic , strong) NSNumber*    myUid;
+@property (nonatomic , strong) UserInfo*    myUserInfo;
 @property (nonatomic , strong) NSString*    myAvatarUrl;
 @property (nonatomic , strong) NSArray*     myPhotosArr;
 @property (nonatomic , strong) NSArray*     myMoodsArr;

@@ -36,6 +36,7 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 @property (nonatomic , strong) IBOutlet UITableView* myTableView;
 
 @property (nonatomic , strong) IBOutlet UIView* myBottomView;
+@property (nonatomic , strong) IBOutlet UIView* myFriendView;
 @property (nonatomic , strong) IBOutlet UIView* myPopView;
 
 @property (nonatomic , assign) BOOL isAvatar;
@@ -82,9 +83,10 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 }
 #pragma mark - view init
 
-- (void)initWithUserphone:(NSString *)userphone {
+- (void)initWithUserphone:(NSString *)userphone Uid:(NSNumber *)uid{
     self.myViewModel = [PersonalHomePageViewModel new];
     self.myViewModel.myUserphone = userphone;
+    self.myViewModel.myUid = uid;
     self.isSelf = [userphone isEqualToString:[[UserModel instance] getMyUserphone]];
 }
 
@@ -106,6 +108,8 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
     if (isSelf) {
         self.navigationItem.rightBarButtonItem = nil;
     }
+    BOOL isFriend = YES;
+    self.myFriendView.hidden = !isFriend;
 }
 #pragma mark - ibaction
 
@@ -364,8 +368,8 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
                 if (info) {
                     ret.myMoodContent.text = info.moodContent;
                     ret.myImagesArr = info.attachs;
-                    if (info.thumburl) {
-                        [ret.myAvatarImageview setImageWithURL:[NSURL URLWithString:[LY_MSG_BASE_URL stringByAppendingString:info.thumburl]]];
+                    if (info.headUrl) {
+                        [ret.myAvatarImageview setImageWithURL:[NSURL URLWithString:[LY_MSG_BASE_URL stringByAppendingString:info.headUrl]]];
                     }
                     ret.myCommentCountLabel.text = [NSString stringWithFormat:@"%@", info.comment_size];
                     ret.myForwardCountLabel.text = [NSString stringWithFormat:@"%@", info.forward_size];

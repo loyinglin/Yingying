@@ -15,6 +15,12 @@
 @end
 
 
+@implementation FriendInfo
+
+
+
+@end
+
 @implementation UserInfo
 
 

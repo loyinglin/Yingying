@@ -13,6 +13,6 @@
 @interface PersonalHomePageController : UIViewController
 
 
-- (void)initWithUserphone:(NSString *)userphone;
+- (void)initWithUserphone:(NSString *)userphone Uid:(NSNumber *)uid;
 
 @end
