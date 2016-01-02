@@ -139,9 +139,9 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 }
 
 - (IBAction)onContact:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_REQUEST_TO_CHAT object:nil];
-//    if (self.myViewModel.myUid && [CDChatManager manager].selfId) {
-//        
+    if (self.myViewModel.myUid && [CDChatManager manager].selfId) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_REQUEST_TO_CHAT object:nil userInfo:@{NOTIFY_UI_REQUEST_TO_CHAT:self.myViewModel.myUid}];
+//
 //        [[CDChatManager manager] fetchConvWithOtherId:[NSString stringWithFormat:@"%@", self.myViewModel.myUid] callback : ^(AVIMConversation *conversation, NSError *error) {
 //            if (error) {
 //                LYLog(@"%@", error);
@@ -152,7 +152,8 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 //            }
 //        }];
 //        
-//    }
+    }
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (IBAction)onTransfer:(id)sender {

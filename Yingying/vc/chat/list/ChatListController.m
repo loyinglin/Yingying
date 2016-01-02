@@ -192,19 +192,49 @@
 #pragma mark - notify
 
 - (void)setupNotify {
-    
+    @weakify(self);
     [[NSNotificationCenter defaultCenter] addObserverForName:kCDNotificationConnectivityUpdated object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         LYLog(@"kCDNotificationConnectivityUpdated");
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:kCDNotificationMessageReceived object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         LYLog(@"new message");
+        @strongify(self);
         [self updateRecent];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:kCDNotificationUnreadsUpdated object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         LYLog(@"un read");
+        @strongify(self);
         [self updateRecent];
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_REQUEST_TO_CHAT object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        NSNumber* uid = [note.userInfo objectForKey:NOTIFY_UI_REQUEST_TO_CHAT];
+        [self.navigationController popToRootViewControllerAnimated:NO];
+        
+        [[CDChatManager manager] fetchConvWithOtherId:[NSString stringWithFormat:@"%@", uid] callback : ^(AVIMConversation *conversation, NSError *error) {
+            if (error) {
+                LYLog(@"%@", error);
+            }
+            else {
+                if (conversation.attributes) {
+                    [conversation update:@{@"nickname":@"abc"} callback:^(BOOL succeeded, NSError *error) {
+                        if (succeeded) {
+                            NSLog(@"update success");
+                        }
+                        NSLog(@"after update %@", [conversation.attributes description]);
+                    }];
+                }
+                NSLog(@"attributes %@", [conversation.attributes description]);
+                
+                ChatDetailController *chatRoomVC = [[ChatDetailController alloc] initWithConv:conversation];
+                chatRoomVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:chatRoomVC animated:YES];
+            }
+        }];
+        
     }];
 }
 @end

@@ -312,7 +312,9 @@ static NSInteger const kOnePageSize = 10;
         return YES;
     }
     else {
-
+        if (indexPath.row >= self.messages.count) {
+            return NO;
+        }
         XHMessage *msg = [self.messages objectAtIndex:indexPath.row];
         XHMessage *lastMsg = [self.messages objectAtIndex:indexPath.row - 1];
         int interval = [msg.timestamp timeIntervalSinceDate:lastMsg.timestamp];

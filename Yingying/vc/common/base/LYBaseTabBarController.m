@@ -69,6 +69,7 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_REQUEST_TO_CHAT object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         @strongify(self);
         [self setSelectedIndex:1];
+        LYLog(@"abc");
     }];
 }
 
