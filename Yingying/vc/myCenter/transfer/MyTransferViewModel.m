@@ -207,7 +207,7 @@
 - (void)searchWithText:(NSString *)text {
     NSArray* allKey = [self.myFriendDict allKeys];
     self.mySearchDict = [NSMutableDictionary dictionary];
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"SELF.name LIKE[cd] '*%@*'", text]];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"SELF.nickname LIKE[cd] '*%@*'", text]];
     
     for (NSString* key in allKey) {
         NSArray* arr = [self.myFriendDict objectForKey:key];

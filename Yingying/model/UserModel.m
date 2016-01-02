@@ -55,6 +55,7 @@
         self.myLoginInfo = info;
     }
     
+    self.myUid = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@", [[self class] description], @"uid"]];
 }
 
 - (void)saveCache
@@ -64,6 +65,9 @@
     
     data = [NSKeyedArchiver archivedDataWithRootObject:self.myLoginInfo];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:[NSString stringWithFormat:@"%@%@", [[self class] description], @"loginInfo"]];
+    
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.myUid forKey:[NSString stringWithFormat:@"%@%@", [[self class] description], @"uid"]];
 }
 
 -(void)clearCache

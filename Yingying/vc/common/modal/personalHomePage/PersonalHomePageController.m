@@ -12,8 +12,10 @@
 #import "LYColor.h"
 #import "FriendModel.h"
 #import "UserModel.h"
+#import "CDUserFactory.h"
 #import "LYNotifyCenter.h"
 #import "UIView+LYModify.h"
+#import "ChatDetailController.h"
 #import "UIImageView+AFNetworking.h"
 #import "AroundMoodTableViewCell.h"
 #import "UIViewController+YingyingNavigationItem.h"
@@ -137,7 +139,20 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 }
 
 - (IBAction)onContact:(id)sender {
-    LYLog(@"contace him");
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_REQUEST_TO_CHAT object:nil];
+//    if (self.myViewModel.myUid && [CDChatManager manager].selfId) {
+//        
+//        [[CDChatManager manager] fetchConvWithOtherId:[NSString stringWithFormat:@"%@", self.myViewModel.myUid] callback : ^(AVIMConversation *conversation, NSError *error) {
+//            if (error) {
+//                LYLog(@"%@", error);
+//            }
+//            else {
+//                ChatDetailController *chatRoomVC = [[ChatDetailController alloc] initWithConv:conversation];
+//                [self.navigationController pushViewController:chatRoomVC animated:YES];
+//            }
+//        }];
+//        
+//    }
 }
 
 - (IBAction)onTransfer:(id)sender {
@@ -181,7 +196,7 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
     [controller addAction:delete];
     
     [self presentViewController:controller animated:YES completion:nil];
-
+    
 }
 
 - (void)onAdd {
@@ -287,7 +302,6 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
     
     switch (section) {
         case ly_photo:
-            LYLog(@"%d", self.myViewModel.myPhotosArr.count);
             ret = (self.myViewModel.myPhotosArr.count) / 4 + 1;
             break;
             

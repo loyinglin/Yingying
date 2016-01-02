@@ -33,23 +33,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+//    
+//    
+//    if (selfId.length > 0) {
+//        [[CDChatManager manager] openWithClientId:selfId callback: ^(BOOL succeeded, NSError *error) {
+//            if (error) {
+//                LYLog(@"%@", error);
+//            }
+//            else {
+//                LYLog(@"chat init success");
+//                [self updateRecent];
+//            }
+//        }];
+//    }
     
-    NSString* selfId = @"123";
-    
-    if (selfId.length > 0) {
-        [self.tabBarController presentMessageTips:@"加载中..."];
-        [[CDChatManager manager] openWithClientId:selfId callback: ^(BOOL succeeded, NSError *error) {
-            if (error) {
-                LYLog(@"%@", error);
-            }
-            else {
-                LYLog(@"chat init success");
-                [self updateRecent];
-            }
-        }];
-    }
-    
-    
+    [self updateRecent];    
     [self setupRefresh];
     [self setupNotify];
     [self lySetupLeftItem];
@@ -128,34 +126,37 @@
     UIButton* badgeButton = (UIButton *)[cell viewWithTag:50];
     
     AVIMConversation *conversation = [self.conversations objectAtIndex:indexPath.row];
-    if (conversation.type == CDConvTypeSingle) {
-        id <CDUserModel> user = [[CDChatManager manager].userDelegate getUserById:conversation.otherId];
-        nameLabel.text = user.username;
-        [imageView setImageWithURL:[NSURL URLWithString:user.avatarUrl]];
-    }
-    else {
-        [imageView setImage:conversation.icon];
-        nameLabel.text = conversation.displayName;
-    }
-    if (conversation.lastMessage) {
-        messageTextLabel.attributedText = [[CDMessageHelper helper] attributedStringWithMessage:conversation.lastMessage conversation:conversation];
-        timestampLabel.text = [[NSDate dateWithTimeIntervalSince1970:conversation.lastMessage.sendTimestamp / 1000] timeAgoSinceNow];
-    }
-    
-
-    if (conversation.unreadCount > 0) {
-        if (conversation.muted) {
+    if ([conversation isKindOfClass:[AVIMConversation class]]) {
+        if (conversation.type == CDConvTypeSingle) {
+            id <CDUserModel> user = [[CDChatManager manager].userDelegate getUserById:conversation.otherId];
+            nameLabel.text = user.username;
+            [imageView setImageWithURL:[NSURL URLWithString:user.avatarUrl]];
+        }
+        else {
+            [imageView setImage:conversation.icon];
+            nameLabel.text = conversation.displayName;
+        }
+        if (conversation.lastMessage && [conversation.lastMessage isKindOfClass:[AVIMTypedMessage class]]) {
+            messageTextLabel.attributedText = [[CDMessageHelper helper] attributedStringWithMessage:conversation.lastMessage conversation:conversation];
+            timestampLabel.text = [[NSDate dateWithTimeIntervalSince1970:conversation.lastMessage.sendTimestamp / 1000] timeAgoSinceNow];
+        }
+        else {
+            messageTextLabel.attributedText = nil;
+            timestampLabel.text = nil;
+        }
+        
+        if (conversation.unreadCount > 0) {
+            if (conversation.muted) {
+                badgeButton.hidden = YES;
+            } else {
+                [badgeButton setTitle:[NSString stringWithFormat:@"%ld", conversation.unreadCount] forState:UIControlStateNormal];
+                [badgeButton setHidden:NO];
+            }
+        }
+        else {
             badgeButton.hidden = YES;
-        } else {
-            [badgeButton setTitle:[NSString stringWithFormat:@"%ld", conversation.unreadCount] forState:UIControlStateNormal];
-            [badgeButton setHidden:NO];
         }
     }
-    else {
-        badgeButton.hidden = YES;
-    }
-
-
     return cell;
 }
 

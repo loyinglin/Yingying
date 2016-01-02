@@ -10,6 +10,7 @@
 
 @interface UserModel : BaseModel
 
+@property (nonatomic , strong) NSNumber* myUid;
 
 #pragma mark - init
 

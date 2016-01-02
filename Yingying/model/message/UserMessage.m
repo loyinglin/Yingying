@@ -75,6 +75,7 @@
     [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:(NSString*)LY_MSG_USER_GET_USER_INFO] Param:dict success:^(id responseObject) {
         NSDictionary* dict = responseObject;
         if ([dict isKindOfClass:[NSDictionary class]] && [dict objectForKey:@"userInfo"]) {
+            [UserModel instance].myUid = [dict objectForKey:@"id"]; //先设置
             NSDictionary* userInfo = [dict objectForKey:@"userInfo"];
             if ([userInfo isKindOfClass:[NSDictionary class]]) {
                 UserInfo* info = [userInfo objectForClass:[UserInfo class]];

@@ -7,34 +7,70 @@
 //
 
 #import "LYBaseTabBarController.h"
-
+#import "UserModel.h"
+#import "CDUserFactory.h"
+#import "LYBaseViewModel.h"
 @interface LYBaseTabBarController ()
 
 @end
 
 @implementation LYBaseTabBarController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    self.tabBar.barTintColor = [UIColor blackColor];
-//    self.tabBar.tintColor = [UIColor whiteColor];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.tabBar.barTintColor = [UIColor blackColor];
+    
+    [[RACObserve([UserModel instance], myUid) filter:^BOOL(id value) {
+        return value;
+    }] subscribeNext:^(NSNumber* uid) {
+        [[CDChatManager manager] openWithClientId:[NSString stringWithFormat:@"%@", uid] callback: ^(BOOL succeeded, NSError *error) {
+            if (error) {
+                LYLog(@"%@", error);
+            }
+            else {
+                LYLog(@"chat init success id:%@", uid);
+                [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_CHAT_LOGIN_WITH_UID_SUCCESS object:nil];
+            }
+        }];
+    }];
+    
+    
+    
+    [self customView];
+    [self customNotify];
 }
-*/
+
+#pragma mark - view init
+
+- (void)customView {
+    
+    
+    
+}
+
+#pragma mark - ibaction
+
+#pragma mark - ui
+
+
+
+#pragma mark - delegate
+
+#pragma mark - notify
+
+- (void)customNotify {
+    @weakify(self);
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_REQUEST_TO_CHAT object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        [self setSelectedIndex:1];
+    }];
+}
+
 
 @end
