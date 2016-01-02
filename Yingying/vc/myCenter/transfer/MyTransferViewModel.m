@@ -48,16 +48,25 @@
     for (NSString* str in arr) {
         if ([str isKindOfClass:[NSString class]]) {
             Friend* item = [Friend new];
-            item.name = str;
-            item.pingying = [self getPinyinWithStr:str];
+            item.nickname = str;
             [friends addObject:item];
         }
+    }
+    [self updateWithFriendArr:friends];
+}
+
+- (void)updateWithFriendArr:(NSArray *)arr {
+    NSMutableArray* friends = [NSMutableArray arrayWithArray:arr];
+    
+    for (Friend* item in friends) {
+        item.pingying = [self getPinyinWithStr:item.nickname];
     }
     
     [friends sortUsingComparator:^NSComparisonResult(Friend* obj1, Friend* obj2) {
         return [obj1.pingying compare:obj2.pingying options:NSCaseInsensitiveSearch];
     }];
     
+    [self.myFriendDict removeAllObjects];
     for (Friend* item in friends) {
         NSString* key;
         NSMutableArray* friendArr;
@@ -77,10 +86,7 @@
             [self.myFriendDict setObject:friendArr forKey:key];
         }
     }
-    
     self.myFriends = friends;
-    
-
 }
 
 #pragma mark - get
@@ -215,4 +221,27 @@
 
 #pragma mark - message
 
+- (RACSignal *)requestGetFriendList {
+    @weakify(self);
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        BaseMessage* message = [BaseMessage backgroundInstance];
+        [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_FRIEND_GET_FRIEND_LIST] Param:@{@"access_token":[[UserModel instance] getMyAccessToken]} success:^(id responseObject) {
+            @strongify(self);
+            NSArray* arr = responseObject;
+            NSMutableArray<Friend *>* newArr = [NSMutableArray array];
+            if ([arr isKindOfClass:[NSArray class]]) {
+                for (NSDictionary* dict in arr) {
+                    if ([dict isKindOfClass:[NSDictionary class]]) {
+                        Friend* item = [dict objectForClass:[Friend class]];
+                        [newArr addObject:item];
+                    }   
+                }
+                [self updateWithFriendArr:newArr];
+            }
+            
+            [subscriber sendCompleted];
+        }];
+        return nil;
+    }];
+}
 @end

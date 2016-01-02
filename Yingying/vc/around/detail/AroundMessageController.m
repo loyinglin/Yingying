@@ -86,6 +86,7 @@
         }
         cell.myCommentCountLabel.text = [NSString stringWithFormat:@"%@", info.comment_size];
         cell.myForwardCountLabel.text = [NSString stringWithFormat:@"%@", info.forward_size];
+        cell.mySendDateLabel.text = info.sendDate;
         cell.myUsernameLabel.text = info.username;
     }
     return cell;

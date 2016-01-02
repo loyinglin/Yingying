@@ -10,6 +10,7 @@
 #import "PersonalHomePageViewModel.h"
 #import "PersonalHomepagePhotoCell.h"
 #import "LYColor.h"
+#import "FriendModel.h"
 #import "UserModel.h"
 #import "LYNotifyCenter.h"
 #import "UIView+LYModify.h"
@@ -38,6 +39,7 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 @property (nonatomic , strong) IBOutlet UIView* myBottomView;
 @property (nonatomic , strong) IBOutlet UIView* myFriendView;
 @property (nonatomic , strong) IBOutlet UIView* myPopView;
+@property (nonatomic , strong) UIBarButtonItem* myTempBarButtonItem;
 
 @property (nonatomic , assign) BOOL isAvatar;
 @property (nonatomic , assign) BOOL isSelf;
@@ -53,11 +55,6 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
     self.myViewModel.myView = self.view;
     
     @weakify(self);
-//    [RACObserve(self.myViewModel, myUserInfo) subscribeNext:^(id x) {
-//        @strongify(self);
-//        [self.myTableView reloadData];
-//    }];
-    
     
     
     [self customView];
@@ -70,6 +67,21 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
     }] subscribeCompleted:^{
         @strongify(self);
         [self.myTableView reloadData];
+    }];
+    
+    [[RACObserve(self.myViewModel, myIsFriend) filter:^BOOL(id value) {
+        return value;
+    }] subscribeNext:^(NSNumber* isFriend) {
+        @strongify(self);
+        LYLog(@"is frined %@", isFriend);
+        if (!isFriend.boolValue) {
+            self.navigationItem.rightBarButtonItem = nil;
+            self.myFriendView.hidden = YES;
+        }
+        else {
+            self.myFriendView.hidden = NO;
+            self.navigationItem.rightBarButtonItem = self.myTempBarButtonItem;
+        }
     }];
 }
 
@@ -100,17 +112,13 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
     [self.myTableView.tableHeaderView setBackgroundColor:UIColorFromRGB(0xf0f0f0)];
     
     self.myTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.myTableView.bounds.size.width, self.myBottomView.bounds.size.height + 10)];
-    [self updateViewWithIsSelf:self.isSelf];
-}
-
-- (void)updateViewWithIsSelf:(BOOL)isSelf {
-    self.myBottomView.hidden = isSelf;
-    if (isSelf) {
+    self.myTempBarButtonItem = self.navigationItem.rightBarButtonItem;
+    if (self.isSelf) {
+        self.myBottomView.hidden = YES;
         self.navigationItem.rightBarButtonItem = nil;
     }
-    BOOL isFriend = YES;
-    self.myFriendView.hidden = !isFriend;
 }
+
 #pragma mark - ibaction
 
 - (IBAction)onCancel:(id)sender {
@@ -119,7 +127,13 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 
 
 - (IBAction)onAddFriend:(id)sender {
-    LYLog(@"add friend");
+    if (self.myViewModel.myUid) {
+        @weakify(self);
+        [[[FriendModel instance] requestAddFriendWith:self.myViewModel.myUid] subscribeCompleted:^{
+            @strongify(self);
+            self.myViewModel.myIsFriend = @(1);
+        }];
+    }
 }
 
 - (IBAction)onContact:(id)sender {
@@ -131,7 +145,14 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 }
 
 - (IBAction)onDeleteFriend:(id)sender {
-    LYLog(@"delelte");
+    if (self.myViewModel.myUid) {
+        @weakify(self);
+        [[[FriendModel instance] requestDeleteFriendWithUid:self.myViewModel.myUid] subscribeCompleted:^{
+            @strongify(self);
+            self.myViewModel.myIsFriend = @(0);
+            [self onRightButtonClick:nil];
+        }];
+    }
 }
 
 - (IBAction)onRightButtonClick:(id)sender {
@@ -305,7 +326,7 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
                 [indexArr addObject:@(index)];
                 [imagesUrlArr addObject:[self.myViewModel getImageUrlbyIndex:index]];
             }
-            if (i < 4) {
+            if (i < 4 && self.isSelf) {
                 [indexArr addObject:@(-1)];
                 NSString* path = [[NSBundle mainBundle] pathForResource:@"distribution_add_button" ofType:@"png"];
                 [imagesUrlArr addObject:path];
@@ -373,6 +394,7 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
                     }
                     ret.myCommentCountLabel.text = [NSString stringWithFormat:@"%@", info.comment_size];
                     ret.myForwardCountLabel.text = [NSString stringWithFormat:@"%@", info.forward_size];
+                    ret.mySendDateLabel.text = info.sendDate;
                     ret.myUsernameLabel.text = info.username;
                 }
             }
@@ -386,7 +408,8 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (!self.isSelf) {
+    
+    if (!self.myViewModel || !self.isSelf) {
         return nil;
     }
     if (indexPath.section == ly_information && indexPath.row == ly_avatar) {

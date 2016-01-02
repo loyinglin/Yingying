@@ -10,10 +10,12 @@
 #import "LYCoding.h"
 #import <Foundation/Foundation.h>
 
-@interface Friend : NSObject
+@interface Friend : LYCoding
 
-@property (nonatomic , strong) NSString* name;
-@property (nonatomic , strong) NSString* friendId;
+@property (nonatomic , strong) NSString* frduid;
+@property (nonatomic , strong) NSString* nickname;
+@property (nonatomic , strong) NSString* thumburl;
+@property (nonatomic , strong) NSString* phone;
 @property (nonatomic , strong) NSString* pingying;
 
 @end
@@ -22,6 +24,9 @@
 @property (nonatomic , strong) NSNumber* frduid;
 @property (nonatomic , strong) NSString* nickname;
 @property (nonatomic , strong) NSString* thumburl;
+@property (nonatomic , strong) NSString* address;
+@property (nonatomic , strong) NSString* gender;
+@property (nonatomic , strong) NSString* phone;
 
 @end
 

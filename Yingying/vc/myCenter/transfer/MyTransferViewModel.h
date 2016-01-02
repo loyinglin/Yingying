@@ -49,5 +49,6 @@
 
 #pragma mark - message
 
+- (RACSignal *)requestGetFriendList;
 
 @end

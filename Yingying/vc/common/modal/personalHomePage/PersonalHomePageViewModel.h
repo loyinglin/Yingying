@@ -13,11 +13,10 @@
 
 @interface PersonalHomePageViewModel : NSObject
 
-@property (nonatomic , assign) BOOL mySelf;
-@property (nonatomic , assign) BOOL myFriend;
 
 @property (nonatomic , strong) NSString*    myUserphone;
 @property (nonatomic , strong) NSNumber*    myUid;
+@property (nonatomic , strong) NSNumber*    myIsFriend;
 @property (nonatomic , strong) UserInfo*    myUserInfo;
 @property (nonatomic , strong) NSString*    myAvatarUrl;
 @property (nonatomic , strong) NSArray*     myPhotosArr;

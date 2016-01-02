@@ -40,15 +40,20 @@
     [self.mySearchController setActive:NO];
 //    [self lyModalPersonalHomePageWith:@"abc"];
     
-    [[CDChatManager manager] fetchConvWithOtherId:[self.myViewModel getFriendByIndex:indexPath.row Section:indexPath.section].name callback : ^(AVIMConversation *conversation, NSError *error) {
-        if (error) {
-            LYLog(@"%@", error);
-        }
-        else {
-            ChatDetailController *chatRoomVC = [[ChatDetailController alloc] initWithConv:conversation];
-            [self.navigationController pushViewController:chatRoomVC animated:YES];
-        }
-    }];
+    Friend* info = [self.myViewModel getFriendByIndex:indexPath.row Section:indexPath.section];
+    if (info && info.phone) {
+        [self lyModalPersonalHomePageWith:info.phone];
+    }
+    
+//    [[CDChatManager manager] fetchConvWithOtherId:[self.myViewModel getFriendByIndex:indexPath.row Section:indexPath.section].nickname callback : ^(AVIMConversation *conversation, NSError *error) {
+//        if (error) {
+//            LYLog(@"%@", error);
+//        }
+//        else {
+//            ChatDetailController *chatRoomVC = [[ChatDetailController alloc] initWithConv:conversation];
+//            [self.navigationController pushViewController:chatRoomVC animated:YES];
+//        }
+//    }];
 
     return nil;
 }

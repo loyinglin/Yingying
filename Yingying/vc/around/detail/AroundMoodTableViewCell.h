@@ -14,6 +14,7 @@
 @property (nonatomic , strong) IBOutlet UILabel*    myUsernameLabel;
 @property (nonatomic , strong) IBOutlet UILabel*    myCommentCountLabel;
 @property (nonatomic , strong) IBOutlet UILabel*    myForwardCountLabel;
+@property (nonatomic , strong) IBOutlet UILabel*    mySendDateLabel;
 @property (nonatomic , strong) IBOutlet UIImageView* myAvatarImageview;
 
 @property (nonatomic , strong) NSArray* myImagesArr;

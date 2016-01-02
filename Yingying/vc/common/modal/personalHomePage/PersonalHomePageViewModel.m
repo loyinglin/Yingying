@@ -227,6 +227,7 @@
             }
             self.myUid = [dict objectForKey:@"id"];
             self.myPhotosArr = [dict objectForKey:@"photos"];
+            self.myIsFriend = [dict objectForKey:@"isfriend"];
             //下面的赋值会触发UI 先做上面
             if ([dict isKindOfClass:[NSDictionary class]]) {
                 if ([dict objectForKey:@"userInfo"]) {

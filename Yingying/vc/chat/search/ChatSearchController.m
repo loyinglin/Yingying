@@ -111,7 +111,12 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self lyModalPersonalHomePageWith:nil];
+    FriendInfo* info = [self.myViewModel getFriendInfoByIndex:indexPath.row];
+    
+    if (info && info.phone) {
+        [self lyModalPersonalHomePageWith:info.phone];
+    }
+
     
     return nil;
 }

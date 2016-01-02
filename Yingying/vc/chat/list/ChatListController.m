@@ -11,6 +11,7 @@
 #import "CDMessageHelper.h"
 #import "NSObject+LYUITipsView.h"
 #import "MJRefresh.h"
+#import "FriendModel.h"
 #import "ChatDetailController.h"
 #import "NSObject+LYUITipsView.h"
 #import "UIViewController+YingyingNavigationItem.h"
@@ -47,6 +48,7 @@
             }
         }];
     }
+    
     
     [self setupRefresh];
     [self setupNotify];

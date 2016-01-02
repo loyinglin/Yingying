@@ -18,6 +18,12 @@
     [super viewDidLoad];
     self.myViewModel = [MyTransferViewModel new];
     
+    @weakify(self);
+    [[self.myViewModel requestGetFriendList] subscribeCompleted:^{
+        @strongify(self);
+        LYLog(@"get back");
+        [self.tableView reloadData];
+    }];
     [self customView];
 }
 
@@ -65,7 +71,7 @@
     }
     
     UILabel* nameLabel = (UILabel *)[cell viewWithTag:10];
-    nameLabel.text = item.name;
+    nameLabel.text = item.nickname;
     // Configure the cell...
     
     return cell;

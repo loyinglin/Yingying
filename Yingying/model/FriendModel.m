@@ -7,8 +7,6 @@
 //
 
 #import "FriendModel.h"
-#import "UserModel.h"
-#import "BaseMessage.h"
 
 @interface FriendModel()
 
@@ -49,4 +47,30 @@
     }];
 }
 
+- (RACSignal *)requestAddFriendWith:(NSNumber *)uid {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        BaseMessage* message = [BaseMessage instance];
+        message.myLoadingStrings = @"添加好友中...";
+        [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_FRIEND_ADD_FRIEND] Param:@{@"access_token":[[UserModel instance] getMyAccessToken], @"frduid":uid} success:^(id responseObject) {
+           
+            [subscriber sendCompleted];
+        }];
+        
+        return nil;
+    }];
+}
+
+- (RACSignal *)requestDeleteFriendWithUid:(NSNumber *)uid {
+    
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        BaseMessage* message = [BaseMessage instance];
+        message.myLoadingStrings = @"删除好友中...";
+        [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_FRIEND_DELETE_FRIEND] Param:@{@"access_token":[[UserModel instance] getMyAccessToken], @"frduid":uid} success:^(id responseObject) {
+            
+            [subscriber sendCompleted];
+        }];
+        
+        return nil;
+    }];
+}
 @end

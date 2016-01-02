@@ -7,6 +7,7 @@
 //
 
 #import "BaseModel.h"
+#import "LYBaseViewModel.h"
 
 @interface FriendModel : BaseModel
 
@@ -27,4 +28,7 @@
 #pragma mark - message
 
 - (void)requestGetFriendList;
+- (RACSignal *)requestAddFriendWith:(NSNumber *)uid;
+- (RACSignal *)requestDeleteFriendWithUid:(NSNumber *)uid;
+
 @end
