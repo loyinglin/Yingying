@@ -35,7 +35,6 @@
     self.myTabbarController = self.childViewControllers[0];
     [self.myTabbarController.tabBar setHidden:YES];
 
-//    [[UserModel instance] requestGetUserInfo];
     [self lySetupRightItem];
     [self setupNotify];
 }

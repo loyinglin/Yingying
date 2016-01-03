@@ -167,6 +167,7 @@
 		FD7A99FF1C3772AB009A05F5 /* ChatSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A99FE1C3772AB009A05F5 /* ChatSearchController.m */; };
 		FD7A9A011C37A0A5009A05F5 /* button_contact.png in Resources */ = {isa = PBXBuildFile; fileRef = FD7A9A001C37A0A5009A05F5 /* button_contact.png */; };
 		FD7A9A041C37A6BF009A05F5 /* FriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A9A031C37A6BF009A05F5 /* FriendModel.m */; };
+		FD7A9A071C38B0AE009A05F5 /* ChatNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A9A061C38B0AE009A05F5 /* ChatNavigationController.m */; };
 		FD8068351C1EC7EE00111A0A /* login_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FD80682E1C1EC7EE00111A0A /* login_background.png */; };
 		FD8068361C1EC7EE00111A0A /* login_get_code.png in Resources */ = {isa = PBXBuildFile; fileRef = FD80682F1C1EC7EE00111A0A /* login_get_code.png */; };
 		FD80683A1C1EC7EE00111A0A /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8068331C1EC7EE00111A0A /* login_logo.png */; };
@@ -514,6 +515,8 @@
 		FD7A9A001C37A0A5009A05F5 /* button_contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_contact.png; sourceTree = "<group>"; };
 		FD7A9A021C37A6BF009A05F5 /* FriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendModel.h; sourceTree = "<group>"; };
 		FD7A9A031C37A6BF009A05F5 /* FriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendModel.m; sourceTree = "<group>"; };
+		FD7A9A051C38B0AE009A05F5 /* ChatNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatNavigationController.h; path = Yingying/vc/chat/ChatNavigationController.h; sourceTree = SOURCE_ROOT; };
+		FD7A9A061C38B0AE009A05F5 /* ChatNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatNavigationController.m; path = Yingying/vc/chat/ChatNavigationController.m; sourceTree = SOURCE_ROOT; };
 		FD80682E1C1EC7EE00111A0A /* login_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_background.png; sourceTree = "<group>"; };
 		FD80682F1C1EC7EE00111A0A /* login_get_code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_get_code.png; sourceTree = "<group>"; };
 		FD8068331C1EC7EE00111A0A /* login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_logo.png; sourceTree = "<group>"; };
@@ -697,6 +700,8 @@
 				FD21CF9E1C1BBFCC00CF8550 /* base */,
 				FD21CFA11C1BBFCC00CF8550 /* detail */,
 				FD21CFA21C1BBFCC00CF8550 /* list */,
+				FD7A9A051C38B0AE009A05F5 /* ChatNavigationController.h */,
+				FD7A9A061C38B0AE009A05F5 /* ChatNavigationController.m */,
 				FD21CFA41C1BC09200CF8550 /* ChatListController.h */,
 				FD21CFA51C1BC09200CF8550 /* ChatListController.m */,
 			);
@@ -1870,6 +1875,7 @@
 				FD8068551C1FF33F00111A0A /* MyTotalController.m in Sources */,
 				FDD6D80C1C29A3DF00B03DF8 /* ForAPNs.m in Sources */,
 				FD7A99FF1C3772AB009A05F5 /* ChatSearchController.m in Sources */,
+				FD7A9A071C38B0AE009A05F5 /* ChatNavigationController.m in Sources */,
 				FD8068631C20F59B00111A0A /* AroundModalAddressController.m in Sources */,
 				FD54DDEB1C23B923009A8AD5 /* LYBaseSelectImageView.m in Sources */,
 				FD297DD61C2D6B31007DFFF0 /* DataModel.m in Sources */,
@@ -2036,7 +2042,7 @@
 			baseConfigurationReference = 560E10B102FADF679D47C07C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xinmin Li (5362VTFEZL)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2051,7 +2057,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.YingYing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0d8f46a3-b2dd-4f9c-a1d5-5aa8311c8d50";
+				PROVISIONING_PROFILE = "0c7f1de5-c51e-4910-a78d-ac7715f1f85c";
 			};
 			name = Debug;
 		};
@@ -2060,7 +2066,7 @@
 			baseConfigurationReference = 2E25BA45A4DE8BEE871D6E1F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xinmin Li (5362VTFEZL)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2075,7 +2081,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.YingYing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0d8f46a3-b2dd-4f9c-a1d5-5aa8311c8d50";
+				PROVISIONING_PROFILE = "0c7f1de5-c51e-4910-a78d-ac7715f1f85c";
 			};
 			name = Release;
 		};

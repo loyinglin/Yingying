@@ -7,8 +7,11 @@
 //
 
 #import "LYBaseTabBarController.h"
+#import "LYBaseNavigationController.h"
+#import "ChatDetailController.h"
 #import "UserModel.h"
 #import "CDUserFactory.h"
+#import "ChatNavigationController.h"
 #import "LYBaseViewModel.h"
 @interface LYBaseTabBarController ()
 
@@ -27,7 +30,7 @@
     self.tabBar.barTintColor = [UIColor blackColor];
     
     [[RACObserve([UserModel instance], myUid) filter:^BOOL(id value) {
-        return value;
+        return value != nil;
     }] subscribeNext:^(NSNumber* uid) {
         [[CDChatManager manager] openWithClientId:[NSString stringWithFormat:@"%@", uid] callback: ^(BOOL succeeded, NSError *error) {
             if (error) {
@@ -68,8 +71,17 @@
     @weakify(self);
     [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_REQUEST_TO_CHAT object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         @strongify(self);
-        [self setSelectedIndex:1];
-        LYLog(@"abc");
+        [self setSelectedIndex:1];  //不规范的做法，没有等待动画完成
+        
+        ChatNavigationController* navigationController = [self.viewControllers objectAtIndex:1];
+        if (navigationController.view && [navigationController isKindOfClass:[ChatNavigationController class]]) {
+            NSNumber* uid = [note.userInfo objectForKey:NOTIFY_UI_REQUEST_TO_CHAT];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [navigationController popToRootViewControllerAnimated:NO];
+                [navigationController setChatWithUid:uid];
+            });
+        }
+
     }];
 }
 

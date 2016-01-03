@@ -20,7 +20,7 @@
         [self presentViewController:navigatonController animated:YES completion:nil];
     }
     else {
-        LYLogError();
+        LYLog(@"error here");
     }
 }
 

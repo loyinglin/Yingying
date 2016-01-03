@@ -166,7 +166,7 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"head" forIndexPath:indexPath];
             UILabel* commentTitleLabel = (UILabel *)[cell viewWithTag:10];
             if (commentTitleLabel) {
-                commentTitleLabel.text = [NSString stringWithFormat:@"评论（%ld）", [self tableView:self.myTableView numberOfRowsInSection:1] - 1];
+                commentTitleLabel.text = [NSString stringWithFormat:@"评论（%d）", [self tableView:self.myTableView numberOfRowsInSection:1] - 1];
             }
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"comment" forIndexPath:indexPath];

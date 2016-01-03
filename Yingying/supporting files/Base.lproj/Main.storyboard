@@ -256,7 +256,7 @@
         <!--聊天-->
         <scene sceneID="Se1-R9-R0l">
             <objects>
-                <navigationController id="xoS-d1-4R5" customClass="LYBaseNavigationController" sceneMemberID="viewController">
+                <navigationController id="xoS-d1-4R5" customClass="ChatNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="聊天" image="tab_chat_normal.png" id="xAL-HS-ogR">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
                     </tabBarItem>

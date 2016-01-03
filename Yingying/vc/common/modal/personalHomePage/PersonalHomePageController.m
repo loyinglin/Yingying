@@ -72,10 +72,10 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
     }];
     
     [[RACObserve(self.myViewModel, myIsFriend) filter:^BOOL(id value) {
-        return value;
+        return value != nil;
     }] subscribeNext:^(NSNumber* isFriend) {
         @strongify(self);
-        LYLog(@"is frined %@", isFriend);
+//        LYLog(@"is frined %@", isFriend);
         if (!isFriend.boolValue) {
             self.navigationItem.rightBarButtonItem = nil;
             self.myFriendView.hidden = YES;
@@ -93,7 +93,7 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 }
 
 - (void)dealloc {
-    LYLog(@"dac %@" ,self);
+//    LYLog(@"dac %@" ,self);
 }
 #pragma mark - view init
 

@@ -33,7 +33,7 @@
     return ret;
 }
 
-
+#define LOG_ABLE NO
 
 -(void)sendRequestWithPost:(NSString *)str Param:(NSDictionary *)param success:(void (^)(id))success
 {
@@ -48,14 +48,17 @@
     }
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript", @"text/plain", nil];
-    
-    LYLog(@"%@ request with %@", str, [param description]);
+    if (LOG_ABLE) {
+        LYLog(@"%@ request with %@", str, [param description]);
+    }
 
     [manager POST:str parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (!self.background) {
             [self dismissTips];
         }
-        LYLog(@"%@ \n response : %@", str, [responseObject description]);
+        if (LOG_ABLE) {
+             LYLog(@"%@ \n response : %@", str, [responseObject description]);
+        }
         success(responseObject);
         NSDictionary* dict = responseObject;
         if ([dict isKindOfClass:[NSDictionary class]] && [dict objectForKey:@"msg_code"]) {

@@ -77,7 +77,7 @@ typedef NS_ENUM(NSInteger, LY_SWITCH_SETTING) {
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString* str = [NSString stringWithFormat:@"cell%ld", indexPath.row];
+    NSString* str = [NSString stringWithFormat:@"cell%d", indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:str forIndexPath:indexPath];
     
     if (indexPath.row == ly_message_notify) {

@@ -11,6 +11,7 @@
 #import "MapInfoModel.h"
 #import "NSObject+LYUITipsView.h"
 #import "UserModel.h"
+#import "NSObject+LoginViewController.h"
 
 
 @interface AroundMapViewModel()
@@ -28,9 +29,11 @@
 - (void)updateAroundMapLocation {
     if ([[UserModel instance] getNeedLogin]) {
         [self presentFailureTips:@"请登录以获取周边数据"];
+        [self lyModalLoginViewController];
         return ;
     }
-    [self requestLocationRefreshLocationWithToken:[[UserModel instance] getMyAccessToken] Longitude:@([MapInfoModel instance].myPosition.longitude) Latitude:@([MapInfoModel instance].myPosition.latitude) Gender:self.myGender];
+    [self requestLocationRefreshLocationWithToken:[[UserModel instance] getMyAccessToken] Longitude:@(0) Latitude:@(0) Gender:self.myGender];
+//    [self requestLocationRefreshLocationWithToken:[[UserModel instance] getMyAccessToken] Longitude:@([MapInfoModel instance].myPosition.longitude) Latitude:@([MapInfoModel instance].myPosition.latitude) Gender:self.myGender];
 }
 
 #pragma mark - get

@@ -27,8 +27,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+//    LYLog(@"%@ dea", self);
+    [self.mySearchController.view removeFromSuperview];
+}
 
 #pragma mark - view init
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+//    NSLog(@"will app");
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+//    NSLog(@"did app");
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+//    NSLog(@"will dis");
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+//    NSLog(@"did dis");
+}
 
 #pragma mark - ibaction
 
@@ -42,7 +64,7 @@
     
     Friend* info = [self.myViewModel getFriendByIndex:indexPath.row Section:indexPath.section];
     if (info && info.phone) {
-        [self lyModalPersonalHomePageWith:info.phone];
+        [self.navigationController lyModalPersonalHomePageWith:info.phone];
     }
     
 //    [[CDChatManager manager] fetchConvWithOtherId:[self.myViewModel getFriendByIndex:indexPath.row Section:indexPath.section].nickname callback : ^(AVIMConversation *conversation, NSError *error) {
