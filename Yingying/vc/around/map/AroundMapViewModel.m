@@ -26,7 +26,7 @@
 
 #pragma mark - update
 
-- (void)updateAroundMapLocation {
+- (void)requestRefreshLocation {
     if ([[UserModel instance] getNeedLogin]) {
         [self presentFailureTips:@"请登录以获取周边数据"];
         [self lyModalLoginViewController];

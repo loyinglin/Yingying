@@ -10,4 +10,6 @@
 
 @interface LYAnnotationView : BMKAnnotationView
 
+- (void)customViewWithGenderIsMalf:(BOOL)isMale AvatarUrl:(NSString *)avatarStr;
+
 @end

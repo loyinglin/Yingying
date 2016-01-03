@@ -17,7 +17,6 @@
 
 #define NOTIFY_UI_OPEN_AROUND_DETAIL_BOARD      @"NOTIFY_UI_OPEN_AROUND_DETAIL_BOARD"
 
-
 #define NOTIFY_UI_MODAL_PERSONAL_HOME_PAGE      @"NOTIFY_UI_MODAL_PERSONAL_HOME_PAGE"
 
 #define NOTIFY_UI_DELETE_PHOTO                  @"NOTIFY_UI_DELETE_PHOTO"
@@ -25,6 +24,16 @@
 #define NOTIFY_UI_PERSONAL_HOMEPAGE_ADD_PHOTO   @"NOTIFY_UI_PERSONAL_HOMEPAGE_ADD_PHOTO"
 
 #define NOTIFY_UI_REQUEST_TO_CHAT               @"NOTIFY_UI_REQUEST_TO_CHAT"
+
+
+typedef NS_ENUM(NSInteger, NOTIFY_ENUM_MAP_FILTER) {
+    notify_enum_map_filter_all,
+    notify_enum_map_filter_male,
+    notify_enum_map_filter_female,
+    notify_enum_map_filter_mood,
+    notify_enum_map_filter_res
+};
+#define NOTIFY_UI_MAP_FILTER_UPDATE             @"NOTIFY_UI_MAP_FILTER_UPDATE"
 
 //CHAT
 #define NOTIFY_CHAT_LOGIN_WITH_UID_SUCCESS      @"NOTIFY_CHAT_LOGIN_WITH_UID_SUCCESS"

@@ -33,7 +33,7 @@
     return ret;
 }
 
-#define LOG_ABLE NO
+#define LOG_ABLE YES
 
 -(void)sendRequestWithPost:(NSString *)str Param:(NSDictionary *)param success:(void (^)(id))success
 {

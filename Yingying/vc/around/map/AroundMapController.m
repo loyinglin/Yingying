@@ -24,7 +24,7 @@
 
 @implementation AroundMapController {
     NSArray<BMKPointAnnotation *>* myPoints;
-
+    
 }
 
 
@@ -33,6 +33,7 @@
     // Do any additional setup after loading the view.
     self.myViewModel = [AroundMapViewModel new];
     [self customMap];
+    [self customNotify];
     
     @weakify(self);
     [RACObserve(self.myViewModel, myMapUserInfoArr) subscribeNext:^(id x) {
@@ -113,9 +114,9 @@
 {
     BMKLocationViewDisplayParam* param = [[BMKLocationViewDisplayParam alloc] init];
     param.locationViewImgName = @"map_myself_location";
-//    param.isAccuracyCircleShow = YES;
-//    
-//    self.myMapView.showsUserLocation = YES;
+    //    param.isAccuracyCircleShow = YES;
+    //
+    //    self.myMapView.showsUserLocation = YES;
     [self.myMapView updateLocationViewWithParam:param];
     [self.myMapView updateLocationData:userLocation];
     
@@ -124,9 +125,9 @@
     BMKReverseGeoCodeOption* option = [[BMKReverseGeoCodeOption alloc] init];
     option.reverseGeoPoint = userLocation.location.coordinate;
     
-
+    
     [[MapInfoModel instance] updatecurrentLocationWith:userLocation.location.coordinate];
-    [self.myViewModel updateAroundMapLocation];
+    [self.myViewModel requestRefreshLocation];
     [self.mySearchService reverseGeoCode:option];
 }
 
@@ -147,56 +148,61 @@
         LYAnnotationView *annotationView = (LYAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:AnnotationViewID];
         if (annotationView == nil) {
             annotationView = [[LYAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
+            long index = [myPoints indexOfObject:annotation];
+            MapUserInfo* info = [self.myViewModel getMapUserInfoByIndex:index];
+            if (info) {
+                [annotationView customViewWithGenderIsMalf:[info.gender isEqualToString:@"m"] AvatarUrl:[LY_MSG_BASE_URL stringByAppendingString:info.thumbUrl]];
+            }
             // 设置颜色
-//            annotationView.pinColor = BMKPinAnnotationColorPurple;
+            //            annotationView.pinColor = BMKPinAnnotationColorPurple;
             // 从天上掉下效果
-//            annotationView.animatesDrop = YES;
+            //            annotationView.animatesDrop = YES;
             // 设置可拖拽
-//            annotationView.draggable = YES;
+            //            annotationView.draggable = YES;
             
-//
-//            CGRect rect = view.frame;
-//            rect.origin.x = - (rect.size.width / 2);
-//            rect.origin.y = - (rect.size.height / 2);
-//            view.frame = rect;
-//            [annotationView addSubview:view];
+            //
+            //            CGRect rect = view.frame;
+            //            rect.origin.x = - (rect.size.width / 2);
+            //            rect.origin.y = - (rect.size.height / 2);
+            //            view.frame = rect;
+            //            [annotationView addSubview:view];
             
-//            annotationView.image = [UIImage imageNamed:@"map_avatar"];
-//            annotationView.centerOffset = CGPointMake(-100, -75);
+            //            annotationView.image = [UIImage imageNamed:@"map_avatar"];
+            //            annotationView.centerOffset = CGPointMake(-100, -75);
             
-//            UIImageView* img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"map_avatar"]];
-//            annotationView.paopaoView = [[BMKActionPaopaoView alloc] initWithCustomView:img];
+            //            UIImageView* img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"map_avatar"]];
+            //            annotationView.paopaoView = [[BMKActionPaopaoView alloc] initWithCustomView:img];
             
-//            UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(select:)];
-//            [annotationView addGestureRecognizer:tap];
+            //            UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(select:)];
+            //            [annotationView addGestureRecognizer:tap];
         }
         return annotationView;
     }
     
-//    动画annotation
-//    NSString *AnnotationViewID = @"AnimatedAnnotation";
-//    MyAnimatedAnnotationView *annotationView = nil;
-//    if (annotationView == nil) {
-//        annotationView = [[MyAnimatedAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
-//    }
-//    NSMutableArray *images = [NSMutableArray array];
-//    for (int i = 1; i < 4; i++) {
-//        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"poi_%d.png", i]];
-//        [images addObject:image];
-//    }
-//    annotationView.annotationImages = images;
+    //    动画annotation
+    //    NSString *AnnotationViewID = @"AnimatedAnnotation";
+    //    MyAnimatedAnnotationView *annotationView = nil;
+    //    if (annotationView == nil) {
+    //        annotationView = [[MyAnimatedAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
+    //    }
+    //    NSMutableArray *images = [NSMutableArray array];
+    //    for (int i = 1; i < 4; i++) {
+    //        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"poi_%d.png", i]];
+    //        [images addObject:image];
+    //    }
+    //    annotationView.annotationImages = images;
     return nil;
     
 }
 
 -(UIImage *)getImageFromView:(UIView *)theView
 {
-//    UIGraphicsBeginImageContext(theView.bounds.size);
+    //    UIGraphicsBeginImageContext(theView.bounds.size);
     UIGraphicsBeginImageContextWithOptions(theView.bounds.size, YES, theView.layer.contentsScale);
     [theView.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image=UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
+    
     return image;
 }
 
@@ -221,10 +227,10 @@
 }
 
 - (void)mapView:(BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view {
-//    [mapView deselectAnnotation:view.annotation animated:YES];
-//    LYLog(@"click ");
-//    UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
-//    [self presentViewController:controller animated:YES completion:nil];
+    //    [mapView deselectAnnotation:view.annotation animated:YES];
+    //    LYLog(@"click ");
+    //    UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
+    //    [self presentViewController:controller animated:YES completion:nil];
 }
 
 #pragma mark - delegate - search
@@ -243,5 +249,44 @@
 
 #pragma mark - notify
 
+- (void)customNotify {
+    @weakify(self);
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_MAP_FILTER_UPDATE object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        NSNumber* filterNumber = [note.userInfo objectForKey:NOTIFY_UI_MAP_FILTER_UPDATE];
+        if (filterNumber) {
+            long type = filterNumber.integerValue;
+            switch (type) {
+                case notify_enum_map_filter_all:
+                    self.myViewModel.myGender = nil;
+                    self.myViewModel.myMood = nil;
+                    break;
+                case notify_enum_map_filter_female:
+                    self.myViewModel.myGender = @"f";
+                    self.myViewModel.myMood = nil;
+                    break;
+                    
+                case notify_enum_map_filter_male:
+                    self.myViewModel.myGender = @"m";
+                    self.myViewModel.myMood = nil;
+                    break;
+                    
+                case notify_enum_map_filter_mood:
+                    self.myViewModel.myGender = nil;
+                    self.myViewModel.myMood = @"mood";
+                    break;
+                    
+                case notify_enum_map_filter_res:
+                    self.myViewModel.myGender = nil;
+                    self.myViewModel.myMood = @"res";
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+        [self.myViewModel requestRefreshLocation];
+    }];
+}
 
 @end

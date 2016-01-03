@@ -15,6 +15,7 @@
 @interface AroundMapViewModel : NSObject
 
 @property (nonatomic , strong) NSString*    myGender;
+@property (nonatomic , strong) NSString*    myMood;
 
 @property (nonatomic , strong) NSArray*     myMapUserInfoArr;
 
@@ -22,8 +23,6 @@
 
 
 #pragma mark - update
-
-- (void)updateAroundMapLocation;
 
 
 #pragma mark - get
@@ -36,5 +35,6 @@
 
 #pragma mark - message
 
+- (void)requestRefreshLocation;
 
 @end

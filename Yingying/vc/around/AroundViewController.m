@@ -34,7 +34,7 @@
     // Do any additional setup after loading the view.
     self.myTabbarController = self.childViewControllers[0];
     [self.myTabbarController.tabBar setHidden:YES];
-
+    
     [self lySetupRightItem];
     [self setupNotify];
 }
@@ -73,7 +73,7 @@
     
     self.myAroundUnderline.hidden = NO;
     self.myMapUnderline.hidden = YES;
-
+    
 }
 
 - (IBAction)onRightButton:(id)sender {
@@ -81,29 +81,33 @@
         UIAlertController* controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         
         UIAlertAction* all = [UIAlertAction actionWithTitle:@"全部" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            LYLog(@"all");
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_MAP_FILTER_UPDATE object:nil userInfo:@{NOTIFY_UI_MAP_FILTER_UPDATE:@(notify_enum_map_filter_all)}];
         }];
         [controller addAction:all];
         
         UIAlertAction* man = [UIAlertAction actionWithTitle:@"只看男" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            LYLog(@"man");
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_MAP_FILTER_UPDATE object:nil userInfo:@{NOTIFY_UI_MAP_FILTER_UPDATE:@(notify_enum_map_filter_male)}];
         }];
         [controller addAction:man];
         
         UIAlertAction* woman = [UIAlertAction actionWithTitle:@"只看女" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            LYLog(@"woman");
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_MAP_FILTER_UPDATE object:nil userInfo:@{NOTIFY_UI_MAP_FILTER_UPDATE:@(notify_enum_map_filter_female)}];
         }];
         [controller addAction:woman];
         
         
         UIAlertAction* mood = [UIAlertAction actionWithTitle:@"只看心情" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            LYLog(@"mood");
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_MAP_FILTER_UPDATE object:nil userInfo:@{NOTIFY_UI_MAP_FILTER_UPDATE:@(notify_enum_map_filter_mood)}];
         }];
         [controller addAction:mood];
         
         
         UIAlertAction* res = [UIAlertAction actionWithTitle:@"只看资源" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            LYLog(@"res");
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_MAP_FILTER_UPDATE object:nil userInfo:@{NOTIFY_UI_MAP_FILTER_UPDATE:@(notify_enum_map_filter_res)}];
         }];
         [controller addAction:res];
         
@@ -113,12 +117,12 @@
         }];
         [controller addAction:cancel];
         
-        [self presentViewController:controller animated:YES completion:nil];        
+        [self presentViewController:controller animated:YES completion:nil];
     }
     else {
         UIViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"modal_distribution_board"];
         
-
+        
         if (self.tabBarController) {
             [self.tabBarController presentViewController:controller animated:NO completion:nil];
         }
