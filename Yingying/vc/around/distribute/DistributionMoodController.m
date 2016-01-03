@@ -13,6 +13,7 @@
 #import "MapInfoModel.h"
 #import "DataModel.h"
 #import "LYColor.h"
+#import "UIViewController+YingYingImagePickerController.h"
 #import "UIViewController+YingyingNavigationItem.h"
 #import "LYBaseImageViewController.h"
 #import <MBProgressHUD.h>
@@ -34,7 +35,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Do any additional setup after loading the view.
     self.myViewModel = [DistributionMoodViewModel new];
     
     @weakify(self);
@@ -45,13 +45,7 @@
     
     RAC(self.myViewModel, myMoodConent) = self.myMoodContentTextView.rac_textSignal;
     RAC(self.myViewModel, myLocName) = self.myAddressTextField.rac_textSignal;
-//    RACChannelTo(self.myViewModel, myLocName) = self.myAddressTextField.rac_newTextChannel;
-//    [self.myAddressTextField.rac_textSignal subscribeNext:^(id x) {
-//        NSLog(@"TEST %@", x);
-//    }];
     self.myViewModel.myView = self.view;
-
-//    [self.myImages addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL]; 被下面的取代了
 
     [self.myImages rac_valuesForKeyPath:@"contentSize" observer:self];
     [RACObserve(self.myImages, contentSize) subscribeNext:^(id x) {
@@ -69,23 +63,14 @@
 }
 
 - (void)dealloc {
-    LYLog(@"dealloc message");
-//    [self.myImages removeObserver:self forKeyPath:@"contentSize"];
+    LYLog(@"dealloc");
 }
 
 
 #pragma mark - view init
 
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-//    LYLog(@"OB %@ %@", keyPath, change);
-//    if ([keyPath isEqualToString:@"contentSize"]) {
-//        [self updateCollectionLayout];
-//    }
-//}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 
@@ -97,7 +82,6 @@
             }
         }
     }
-//    [self.view layoutIfNeeded];
 }
 
 #pragma mark - ibaction
@@ -145,83 +129,6 @@
     [self presentViewController:controller animated:YES completion:nil];
 }
 
-- (void)onAdd:(id)sender {
-    UIAlertController* controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    @weakify(self);
-    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        LYLog(@"cancel");
-    }];
-    [controller addAction:cancel];
-    
-    UIAlertAction* takePhoto = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        @strongify(self);
-        [self takePhoto];
-    }];
-    [controller addAction:takePhoto];
-    
-    UIAlertAction* localPhoto = [UIAlertAction actionWithTitle:@"从手机相册中选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        @strongify(self);
-        [self LocalPhoto];
-    }];
-    [controller addAction:localPhoto];
-    
-    [self presentViewController:controller animated:YES completion:nil];    
-    
-}
-#pragma mark - ui
-
--(void)takePhoto
-{
-    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
-    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
-    {
-        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-        picker.delegate = self;
-        //设置拍照后的图片可被编辑
-        picker.allowsEditing = YES;
-        picker.sourceType = sourceType;
-        [self presentViewController:picker animated:YES completion:nil];
-    }else
-    {
-        LYLog(@"模拟其中无法打开照相机,请在真机中使用");
-    }
-}
-
--(void)LocalPhoto
-{
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-//    picker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    picker.delegate = self;
-    //设置选择后的图片可被编辑
-    picker.allowsEditing = YES;
-    [self presentViewController:picker animated:YES completion:nil];
-}
-
-//当选择一张图片后进入这里
--(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-
-{
-    NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
-    
-    //当选择的类型是图片
-    if ([type isEqualToString:@"public.image"])
-    {
-        //先把图片转成NSData
-        UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-        [picker dismissViewControllerAnimated:YES completion:nil];
-        
-        [self.myViewModel updateAddImage:image];
-    }
-//    [picker dismissViewControllerAnimated:NO completion:nil];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    LYLog(@"您取消了选择图片");
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
 #pragma mark - delegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -241,7 +148,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row + 1 == self.myViewModel.myImagesArr.count) {
-        [self onAdd:nil];
+        [self lyModalChoosePicker];
     }
     else {
         LYBaseImageViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"image_view_controller"];
@@ -275,6 +182,13 @@
         @strongify(self);
         UIImage* img = [note.userInfo objectForKey:NOTIFY_UI_DELETE_PHOTO];
         [self.myViewModel updateDeleteImage:img];
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_IMAGE_PICKER_DONE object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        if (self.myPickImage) {
+            [self.myViewModel updateAddImage:self.myPickImage];
+        }
     }];
 }
 

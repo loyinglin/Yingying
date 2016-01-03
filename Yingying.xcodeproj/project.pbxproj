@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		97C4B00BAF4207E79EA7381E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2A61BE728174A0287C24BD /* libPods.a */; };
 		FD1EE5231C38F1940098812F /* YingYingUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1EE5221C38F1940098812F /* YingYingUserModel.m */; };
+		FD1EE5261C3969000098812F /* UIViewController+YingYingImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1EE5251C3969000098812F /* UIViewController+YingYingImagePickerController.m */; };
 		FD21CFA31C1BBFCC00CF8550 /* CDUserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFA01C1BBFCC00CF8550 /* CDUserFactory.m */; };
 		FD21CFA61C1BC09200CF8550 /* ChatListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFA51C1BC09200CF8550 /* ChatListController.m */; };
 		FD21CFAC1C1C04A300CF8550 /* ChatDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFAB1C1C04A300CF8550 /* ChatDetailController.m */; };
@@ -276,6 +277,8 @@
 		CC2A61BE728174A0287C24BD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1EE5211C38F1940098812F /* YingYingUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YingYingUserModel.h; sourceTree = "<group>"; };
 		FD1EE5221C38F1940098812F /* YingYingUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YingYingUserModel.m; sourceTree = "<group>"; };
+		FD1EE5241C3969000098812F /* UIViewController+YingYingImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YingYingImagePickerController.h"; sourceTree = "<group>"; };
+		FD1EE5251C3969000098812F /* UIViewController+YingYingImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YingYingImagePickerController.m"; sourceTree = "<group>"; };
 		FD21CF9F1C1BBFCC00CF8550 /* CDUserFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserFactory.h; sourceTree = "<group>"; };
 		FD21CFA01C1BBFCC00CF8550 /* CDUserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserFactory.m; sourceTree = "<group>"; };
 		FD21CFA41C1BC09200CF8550 /* ChatListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatListController.h; path = list/ChatListController.h; sourceTree = "<group>"; };
@@ -1268,6 +1271,8 @@
 				FDD6D8081C279FD400B03DF8 /* UIView+LYModify.m */,
 				FD7A99FA1C3762E6009A05F5 /* LYBaseViewModel.h */,
 				FD7A99FB1C3762E6009A05F5 /* LYBaseViewModel.m */,
+				FD1EE5241C3969000098812F /* UIViewController+YingYingImagePickerController.h */,
+				FD1EE5251C3969000098812F /* UIViewController+YingYingImagePickerController.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -1820,6 +1825,7 @@
 				FD29B3771C112FDC00B68C6C /* NSObject+LYTypeConversion.m in Sources */,
 				FD1EE5231C38F1940098812F /* YingYingUserModel.m in Sources */,
 				FD29B3821C1130BC00B68C6C /* BaseModel.m in Sources */,
+				FD1EE5261C3969000098812F /* UIViewController+YingYingImagePickerController.m in Sources */,
 				FD29B37F1C112FDC00B68C6C /* UIView+MJExtension.m in Sources */,
 				FD8068441C1F1DA000111A0A /* LoginEditUserInfoController.m in Sources */,
 				FD29B37C1C112FDC00B68C6C /* MJRefreshHeaderView.m in Sources */,

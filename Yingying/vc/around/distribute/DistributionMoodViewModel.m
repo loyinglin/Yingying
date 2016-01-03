@@ -75,8 +75,9 @@
                 @strongify(self);
                 for (int i = 0; i < self.myImagesArr.count - 1; ++i) {
                     UIImage* img = self.myImagesArr[i];
-                    NSData *imageData = UIImagePNGRepresentation(img);
-                    [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"upload%d", i] fileName:[NSString stringWithFormat:@"mood%d.png", i] mimeType:@"image/png"];
+                    NSData *imageData = UIImageJPEGRepresentation(img, 0.5);
+                    LYLog(@"image%@ data %d", i, imageData.length);
+                    [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"upload%d", i] fileName:[NSString stringWithFormat:@"mood%d.jpg", i] mimeType:@"image/jpg"];
                 }
             } Progress:^(NSProgress *uploadProgress) {
                 dispatch_async(dispatch_get_main_queue(), ^{
