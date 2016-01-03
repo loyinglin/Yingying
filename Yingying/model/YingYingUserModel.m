@@ -89,7 +89,7 @@
 
 - (void)updateUserFromConversationWithName:(NSString *)name Uid:(NSString *)uid Url:(NSString *)avatarUrl {
     if (uid) {
-        if ([self.myUserDict objectForKey:uid]) {
+        if (![self.myUserDict objectForKey:uid]) {
             DataUser* user = [DataUser new];
             user.name = name;
             user.uid = uid;

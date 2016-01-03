@@ -7,7 +7,9 @@
 //
 
 #import "MySettingTableViewController.h"
+#import "NSObject+LYUITipsView.h"
 #import "CDUserFactory.h"
+#import "UserModel.h"
 #import "ForAPNs.h"
 
 typedef NS_ENUM(NSInteger, LY_MY_SETTING) {
@@ -16,7 +18,8 @@ typedef NS_ENUM(NSInteger, LY_MY_SETTING) {
     ly_message_notify,
     ly_sound,
     ly_vibrate,
-    ly_about_yingying
+    ly_about_yingying,
+    ly_logout
 };
 
 typedef NS_ENUM(NSInteger, LY_SWITCH_SETTING) {
@@ -72,12 +75,16 @@ typedef NS_ENUM(NSInteger, LY_SWITCH_SETTING) {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    long ret = 6;
+    if (![[UserModel instance] getNeedLogin]) {
+        ++ret;
+    }
+    return ret;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString* str = [NSString stringWithFormat:@"cell%d", indexPath.row];
+    NSString* str = [NSString stringWithFormat:@"cell%ld", (long)indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:str forIndexPath:indexPath];
     
     if (indexPath.row == ly_message_notify) {
@@ -98,6 +105,9 @@ typedef NS_ENUM(NSInteger, LY_SWITCH_SETTING) {
             push.on = [[ForAPNs instance] getVibrateOn];
         }
     }
+    else if (indexPath.row == ly_logout) {
+        
+    }
     
     return cell;
 }
@@ -113,6 +123,12 @@ typedef NS_ENUM(NSInteger, LY_SWITCH_SETTING) {
             [[UIApplication sharedApplication] openURL:[NSURL
                                                         URLWithString:UIApplicationOpenSettingsURLString]];
             break;
+        case ly_logout:
+        {
+            [[UserModel instance] updateWithUserLogout];
+            [self presentMessageTips:@"退出登录"];
+            [self.tableView reloadData];
+        }
             
         default:
             break;

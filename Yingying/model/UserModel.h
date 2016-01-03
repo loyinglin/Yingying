@@ -21,6 +21,9 @@
 - (void)updateWithLoginInfo:(LoginInfo *)info;
 
 - (void)updateWithUserInfo:(UserInfo *)info;
+
+- (void)updateWithUserLogout;
+
 #pragma mark - get
 
 - (UserInfo *)getMyUserInfo;

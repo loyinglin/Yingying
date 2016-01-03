@@ -73,6 +73,8 @@
 -(void)clearCache
 {
     self.myUserInfo = nil;
+    self.myUid = nil;
+    self.myLoginInfo = nil;
     [self saveCache];
 }
 
@@ -93,6 +95,11 @@
     self.myUserInfo = info;
     
     [self saveCache];
+    [self onModelChange];
+}
+
+- (void)updateWithUserLogout {
+    [self clearCache];
     [self onModelChange];
 }
 

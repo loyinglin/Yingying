@@ -16,6 +16,7 @@
 @property (nonatomic , strong) IBOutlet UIImageView*    myAvatarImageView;
 @property (nonatomic , strong) IBOutlet UILabel*    myPriceLabel;
 @property (nonatomic , strong) IBOutlet UILabel*    myResNameLabel;
+@property (nonatomic , strong) IBOutlet NSLayoutConstraint*     myResHeight;
 
 @property (nonatomic , strong) NSArray* myImagesArr;
 

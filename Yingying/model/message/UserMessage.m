@@ -43,6 +43,9 @@
             [[UserModel instance] updateWithLoginInfo:info];
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_SERVER_REGISTER_SUCCESS object:nil];
         }
+        else {
+            [self presentMessageTips:@"注册失败"];
+        }
     }];
 }
 

@@ -26,10 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    self.navigationController.navigationBarHidden = NO;
-//    ((UILabel *)[[[[[[self.mySwitch subviews] lastObject] subviews] objectAtIndex:2] subviews] objectAtIndex:0]).text = @"Foo";
-//    ((UILabel *)[[[[[[self.mySwitch subviews] lastObject] subviews] objectAtIndex:2] subviews] objectAtIndex:1]).text = @"Bar";
+    
     [self.myInputTextField setBackgroundColor:[UIColor clearColor]];
     NSString* str = self.myInputTextField.placeholder;
     self.myInputTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:str attributes:@{NSForegroundColorAttributeName:[UIColor lightGrayColor]}];

@@ -27,15 +27,15 @@
     self.myFriendDict = [NSMutableDictionary dictionary];
     self.mySearchDict = [NSMutableDictionary dictionary];
     
-    NSArray *stringsToSort=[NSArray arrayWithObjects:
-                            @"￥hhh, .$",@" ￥Chin ese ",@"开源中国 ",@"www.oschina.net",
-                            @"开源技术",@"社区",@"开发者",@"传播",
-                            @"2013",@"100",@"中国",@"暑假作业",
-                            @"键盘", @"鼠标",@"hello",@"world",
-                            nil];
-    [self transToFriends:stringsToSort];
-    
-    [[FriendModel instance] requestGetFriendList];
+//    NSArray *stringsToSort=[NSArray arrayWithObjects:
+//                            @"￥hhh, .$",@" ￥Chin ese ",@"开源中国 ",@"www.oschina.net",
+//                            @"开源技术",@"社区",@"开发者",@"传播",
+//                            @"2013",@"100",@"中国",@"暑假作业",
+//                            @"键盘", @"鼠标",@"hello",@"world",
+//                            nil];
+//    [self transToFriends:stringsToSort];
+    self.myFriends = @[];
+
     
     return self;
 }

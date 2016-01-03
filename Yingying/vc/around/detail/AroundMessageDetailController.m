@@ -14,7 +14,7 @@
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
 
-@interface AroundMessageDetailController () <UITableViewDataSource, UITableViewDelegate>
+@interface AroundMessageDetailController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic , strong) IBOutlet UITableView*    myTableView;
 @property (nonatomic , strong) IBOutlet UIButton*       myFavoriteButton;
@@ -109,12 +109,14 @@
 
 - (IBAction)onComment:(id)sender {
     @weakify(self);
-    [[self.myViewModel requestCommentWithSourceCommentId:nil] subscribeCompleted:^{
-        @strongify(self);
-        self.myInputTextField.text = @""; //评论完清空
-        [self.myInputTextField resignFirstResponder];
-        [self.myViewModel updateGetMoodComment];
-    }];
+    if (self.myInputTextField.text.length > 0) {
+        [[self.myViewModel requestCommentWithSourceCommentId:nil] subscribeCompleted:^{
+            @strongify(self);
+            self.myInputTextField.text = @""; //评论完清空
+            [self.myInputTextField resignFirstResponder];
+            [self.myViewModel updateGetMoodComment];
+        }];
+    }
 }
 
 #pragma mark - ui
@@ -159,7 +161,12 @@
         item.myImagesArr = self.myViewModel.myMoodInfo.attachs;
         item.myDateLabel.text = self.myViewModel.myMoodInfo.sendDate;
         item.myMoodContentLabel.text = self.myViewModel.myMoodInfo.moodContent;
-
+        if (self.myViewModel.myMoodInfo.type && self.myViewModel.myMoodInfo.type.boolValue) {
+            item.myResHeight.constant = 48;
+        }
+        else {
+            item.myResHeight.constant = 0;
+        }
     }
     else {
         if (indexPath.row == 0) {
@@ -193,6 +200,18 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
+}
+
+#pragma mark - send
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField.text.length > 0) {
+        [self onComment:textField];
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
 
 #pragma mark - notify
