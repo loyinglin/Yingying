@@ -7,6 +7,7 @@
 //
 
 #import "ChatNavigationController.h"
+#import "YingYingUserModel.h"
 #import "CDUserFactory.h"
 #import "ChatDetailController.h"
 #import "LYBaseViewModel.h"
@@ -52,14 +53,29 @@
                 }
                 else {
                     if (conversation.attributes) {
-                        [conversation update:@{@"nickname":@"abc"} callback:^(BOOL succeeded, NSError *error) {
+                        AVIMConversationUpdateBuilder* builder = [conversation newUpdateBuilder];
+                        builder.attributes = conversation.attributes;
+                        NSArray* arr = conversation.members;
+                        if (arr.count == 2) {
+                            DataUser* user1 = [[YingYingUserModel instance] getDataUserByUid:arr[0]];
+                            DataUser* user2 = [[YingYingUserModel instance] getDataUserByUid:arr[1]];
+                            if (user1 && user2) {
+                                [builder setObject:user1.name forKey:@"name1"];
+                                [builder setObject:user2.name forKey:@"name2"];
+                                [builder setObject:user1.uid forKey:@"uid1"];
+                                [builder setObject:user2.uid forKey:@"uid2"];
+                                [builder setObject:user1.avatarUrl forKey:@"avatarUrl1"];
+                                [builder setObject:user2.avatarUrl forKey:@"avatarUrl2"];
+                            }
+                        }
+                        NSDictionary* abc = [builder dictionary];
+                        [conversation update:abc callback:^(BOOL succeeded, NSError *error) {
                             if (succeeded) {
                                 NSLog(@"update success");
                             }
                             NSLog(@"after update %@", [conversation.attributes description]);
                         }];
                     }
-                    NSLog(@"attributes %@", [conversation.attributes description]);
                     
                     ChatDetailController *chatRoomVC = [[ChatDetailController alloc] initWithConv:conversation];
                     chatRoomVC.hidesBottomBarWhenPushed = YES;
@@ -73,7 +89,6 @@
 
     });
 }
-
 
 #pragma mark - ibaction
 

@@ -7,6 +7,7 @@
 //
 
 #import "CDUserFactory.h"
+#import "YingYingUserModel.h"
 
 
 @interface CDUser : NSObject <CDUserModel>
@@ -35,10 +36,18 @@
 
 - (id <CDUserModel> )getUserById:(NSString *)userId {
     CDUser *user = [[CDUser alloc] init];
-    user.userId = userId;
-    user.username = userId;
-    user.avatarUrl = @"http://ac-x3o016bx.clouddn.com/86O7RAPx2BtTW5zgZTPGNwH9RZD5vNDtPm1YbIcu";
-    //[[NSBundle mainBundle] pathForResource:@"finance_avatar" ofType:@"png"];
+    DataUser* dataUser = [[YingYingUserModel instance] getDataUserByUid:userId];
+    if (dataUser) {
+        user.userId = dataUser.uid;
+        user.username = dataUser.name;
+        user.avatarUrl = dataUser.avatarUrl;
+    }
+    else {
+        user.userId = userId;
+        user.username = userId;
+        user.avatarUrl = @"http://ac-x3o016bx.clouddn.com/86O7RAPx2BtTW5zgZTPGNwH9RZD5vNDtPm1YbIcu";
+    }
+
     return user;
 }
 

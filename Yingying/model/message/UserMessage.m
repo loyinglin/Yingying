@@ -8,6 +8,7 @@
 
 #import "UserMessage.h"
 #import "UserModel.h"
+#import "YingYingUserModel.h"
 #import "NSObject+LYUITipsView.h"
 
 @implementation UserMessage
@@ -81,6 +82,13 @@
                 UserInfo* info = [userInfo objectForClass:[UserInfo class]];
                 [[UserModel instance] updateWithUserInfo:info];
                 [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_SERVER_GET_USERINFO_SUCCESS object:nil];
+            }
+            if ([UserModel instance].myUid) {
+                NSDictionary* head = [dict objectForKey:@"headImg"];
+                if (head) {
+                    NSString* myAvatarUrl = [LY_MSG_BASE_URL stringByAppendingString:[head objectForKey:@"thumbUrl"]];
+                    [[YingYingUserModel instance] updateAddUserWithName:[[UserModel instance] getMyUserInfo].nickName Uid:[UserModel instance].myUid Url:myAvatarUrl];
+                }
             }
         }
     }];

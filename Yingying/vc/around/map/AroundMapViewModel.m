@@ -32,8 +32,8 @@
         [self lyModalLoginViewController];
         return ;
     }
-    [self requestLocationRefreshLocationWithToken:[[UserModel instance] getMyAccessToken] Longitude:@(0) Latitude:@(0) Gender:self.myGender];
-//    [self requestLocationRefreshLocationWithToken:[[UserModel instance] getMyAccessToken] Longitude:@([MapInfoModel instance].myPosition.longitude) Latitude:@([MapInfoModel instance].myPosition.latitude) Gender:self.myGender];
+//    [self requestLocationRefreshLocationWithToken:[[UserModel instance] getMyAccessToken] Longitude:@(0) Latitude:@(0) Gender:self.myGender];
+    [self requestLocationRefreshLocationWithToken:[[UserModel instance] getMyAccessToken] Longitude:@([MapInfoModel instance].myPosition.longitude) Latitude:@([MapInfoModel instance].myPosition.latitude) Gender:self.myGender Type:self.myMood];
 }
 
 #pragma mark - get
@@ -65,7 +65,7 @@
 
 #pragma mark - message
 
-- (void)requestLocationRefreshLocationWithToken:(NSString *)token Longitude:(NSNumber *)x Latitude:(NSNumber *)y Gender:(NSString *)gender {
+- (void)requestLocationRefreshLocationWithToken:(NSString *)token Longitude:(NSNumber *)x Latitude:(NSNumber *)y Gender:(NSString *)gender Type:(NSString *)type {
     
     BaseMessage* message = [BaseMessage instance];
     message.myLoadingStrings = @"加载周边数据...";
@@ -77,6 +77,14 @@
                                  nil];
     if (gender) {
         [dict setObject:gender forKey:@"gender"];
+    }
+    if (type) {
+        if ([type isEqualToString:@"res"]) {
+            [dict setObject:@(1) forKey:@"type"];
+        }
+        else {
+            [dict setObject:@(0) forKey:@"type"];
+        }
     }
     @weakify(self);
     [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_LOCATION_REFRESH_LOCATION] Param:dict success:^(id responseObject) {

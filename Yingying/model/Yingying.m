@@ -8,6 +8,11 @@
 
 #import "Yingying.h"
 
+@implementation ChatInfo
+
+
+@end
+
 @implementation Friend
 
 

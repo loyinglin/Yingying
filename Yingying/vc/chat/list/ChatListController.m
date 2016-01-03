@@ -14,6 +14,7 @@
 #import "FriendModel.h"
 #import "ChatDetailController.h"
 #import "NSObject+LYUITipsView.h"
+#import "YingYingUserModel.h"
 #import "UIViewController+YingyingNavigationItem.h"
 #import <DateTools/DateTools.h>
 #import <ReactiveCocoa/RACEXTScope.h>
@@ -92,6 +93,22 @@
                 [self.tableView reloadData];
                 self.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", (long)totalUnreadCount];
 //                [self selectConversationIfHasRemoteNotificatoinConvid];
+                for (AVIMConversation* item in conversations) {
+                    if (item.attributes) {
+                        if ([item.attributes objectForKey:@"uid1"]) {
+                            NSString* name = [item.attributes objectForKey:@"name1"];
+                            NSString* uid = [item.attributes objectForKey:@"uid1"];
+                            NSString* avatarUrl = [item.attributes objectForKey:@"avatarUrl1"];
+                            [[YingYingUserModel instance] updateUserFromConversationWithName:name Uid:uid Url:avatarUrl];
+                        }
+                        if ([item.attributes objectForKey:@"uid2"]) {
+                            NSString* name = [item.attributes objectForKey:@"name2"];
+                            NSString* uid = [item.attributes objectForKey:@"uid2"];
+                            NSString* avatarUrl = [item.attributes objectForKey:@"avatarUrl2"];
+                            [[YingYingUserModel instance] updateUserFromConversationWithName:name Uid:uid Url:avatarUrl];
+                        }
+                    }
+                }
             }
             self.isRefreshing = NO;
         }];
@@ -149,7 +166,7 @@
             if (conversation.muted) {
                 badgeButton.hidden = YES;
             } else {
-                [badgeButton setTitle:[NSString stringWithFormat:@"%d", conversation.unreadCount] forState:UIControlStateNormal];
+                [badgeButton setTitle:[NSString stringWithFormat:@"%ld", (long)conversation.unreadCount] forState:UIControlStateNormal];
                 [badgeButton setHidden:NO];
             }
         }

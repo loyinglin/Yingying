@@ -10,6 +10,23 @@
 #import "LYCoding.h"
 #import <Foundation/Foundation.h>
 
+/**
+ *  每个对话携带的内容，name是昵称，uid是用户id，avatarUrl是头像链接（完整链接）
+ *  每次新建对话的时候，必须把六个信息填入对话的附带的字典。
+ *  key值，与属性名相同。
+ *  value值，都是字符串类型。
+ */
+@interface ChatInfo : LYCoding
+@property (nonatomic , strong) NSString* name1;
+@property (nonatomic , strong) NSString* uid1;
+@property (nonatomic , strong) NSString* avatarUrl1;
+
+@property (nonatomic , strong) NSString* name2;
+@property (nonatomic , strong) NSString* uid2;
+@property (nonatomic , strong) NSString* avatarUrl2;
+@end
+
+
 @interface Friend : LYCoding
 
 @property (nonatomic , strong) NSString* frduid;

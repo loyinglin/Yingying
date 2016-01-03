@@ -7,6 +7,7 @@
 //
 
 #import "BaseMessage.h"
+#import "YingYingUserModel.h"
 #import "UserModel.h"
 #import <MBProgressHUD.h>
 #import <ReactiveCocoa.h>
@@ -99,7 +100,7 @@
     @weakify(self);
     
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-//        @strongify(self);
+        @strongify(self);
         BaseMessage* message = [BaseMessage instance];
         message.myLoadingStrings = @"删除中..";
         [message sendRequestWithPost:[NSString stringWithFormat:@"%@%@/%@", LY_MSG_BASE_URL, LY_MSG_USER_REMOVE_PHOTO, photoId] Param:@{@"access_token":[[UserModel instance] getMyAccessToken]} success:^(id responseObject) {
@@ -222,12 +223,15 @@
             @strongify(self);
             NSDictionary* dict = responseObject;
             NSDictionary* head = [dict objectForKey:@"headImg"];
+            NSString* headUrl;
             if (head) {
-                self.myAvatarUrl = [LY_MSG_BASE_URL stringByAppendingString:[head objectForKey:@"thumbUrl"]];
+                headUrl = [head objectForKey:@"thumbUrl"];
+                self.myAvatarUrl = [LY_MSG_BASE_URL stringByAppendingString:headUrl];
             }
             self.myUid = [dict objectForKey:@"id"];
             self.myPhotosArr = [dict objectForKey:@"photos"];
             self.myIsFriend = [dict objectForKey:@"isfriend"];
+            
             //下面的赋值会触发UI 先做上面
             if ([dict isKindOfClass:[NSDictionary class]]) {
                 if ([dict objectForKey:@"userInfo"]) {
@@ -237,6 +241,8 @@
                     }
                 }
             }
+            [[YingYingUserModel instance] updateAddUserWithName:self.myUserInfo.nickName Uid:self.myUid Url:headUrl];
+
             [subscriber sendNext:@"get back"];
             [subscriber sendCompleted];            
         }];
