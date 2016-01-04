@@ -35,6 +35,10 @@
 - (NSString *)getMyUserphone;
 #pragma mark - message
 
+- (void)requestChangePasswordWithPassword:(NSString *)password;
+
+- (void)requestLoginWithUserphone:(NSString *)userphone Code:(NSString *)code;
+
 - (void)requestSendCodeWithUserphone:(NSString *)userphone;
 
 - (void)requestRegisterWithUserphone:(NSString *)userphone Password:(NSString *)password VerifyCode:(NSString *)verifyCode;

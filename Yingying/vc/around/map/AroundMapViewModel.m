@@ -27,12 +27,11 @@
 #pragma mark - update
 
 - (void)requestRefreshLocation {
-    if ([[UserModel instance] getNeedLogin]) {
-        [self presentFailureTips:@"请登录以获取周边数据"];
-        [self lyModalLoginViewController];
-        return ;
-    }
-//    [self requestLocationRefreshLocationWithToken:[[UserModel instance] getMyAccessToken] Longitude:@(0) Latitude:@(0) Gender:self.myGender];
+//    if ([[UserModel instance] getNeedLogin]) {
+//        [self presentFailureTips:@"请登录以获取周边数据"];
+//        [self lyModalLoginViewController];
+//        return ;
+//    }
     [self requestLocationRefreshLocationWithToken:[[UserModel instance] getMyAccessToken] Longitude:@([MapInfoModel instance].myPosition.longitude) Latitude:@([MapInfoModel instance].myPosition.latitude) Gender:self.myGender Type:self.myMood];
 }
 

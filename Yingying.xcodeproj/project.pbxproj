@@ -12,6 +12,9 @@
 		FD1EE5261C3969000098812F /* UIViewController+YingYingImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1EE5251C3969000098812F /* UIViewController+YingYingImagePickerController.m */; };
 		FD1EE5281C3A1C020098812F /* base_status_mood.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1EE5271C3A1C020098812F /* base_status_mood.png */; };
 		FD1EE52B1C3A3D8E0098812F /* MineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1EE52A1C3A3D8E0098812F /* MineViewModel.m */; };
+		FD1EE52E1C3A5E040098812F /* LoginFindPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1EE52D1C3A5E040098812F /* LoginFindPasswordController.m */; };
+		FD1EE5311C3A64640098812F /* LoginResetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1EE5301C3A64640098812F /* LoginResetPasswordController.m */; };
+		FD1EE5331C3A6AF10098812F /* login_button_free_register@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1EE5321C3A6AF10098812F /* login_button_free_register@2x.png */; };
 		FD21CFA31C1BBFCC00CF8550 /* CDUserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFA01C1BBFCC00CF8550 /* CDUserFactory.m */; };
 		FD21CFA61C1BC09200CF8550 /* ChatListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFA51C1BC09200CF8550 /* ChatListController.m */; };
 		FD21CFAC1C1C04A300CF8550 /* ChatDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFAB1C1C04A300CF8550 /* ChatDetailController.m */; };
@@ -284,6 +287,11 @@
 		FD1EE5271C3A1C020098812F /* base_status_mood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base_status_mood.png; sourceTree = "<group>"; };
 		FD1EE5291C3A3D8E0098812F /* MineViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewModel.h; sourceTree = "<group>"; };
 		FD1EE52A1C3A3D8E0098812F /* MineViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewModel.m; sourceTree = "<group>"; };
+		FD1EE52C1C3A5E040098812F /* LoginFindPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginFindPasswordController.h; sourceTree = "<group>"; };
+		FD1EE52D1C3A5E040098812F /* LoginFindPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginFindPasswordController.m; sourceTree = "<group>"; };
+		FD1EE52F1C3A64640098812F /* LoginResetPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginResetPasswordController.h; sourceTree = "<group>"; };
+		FD1EE5301C3A64640098812F /* LoginResetPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginResetPasswordController.m; sourceTree = "<group>"; };
+		FD1EE5321C3A6AF10098812F /* login_button_free_register@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_button_free_register@2x.png"; sourceTree = "<group>"; };
 		FD21CF9F1C1BBFCC00CF8550 /* CDUserFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserFactory.h; sourceTree = "<group>"; };
 		FD21CFA01C1BBFCC00CF8550 /* CDUserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserFactory.m; sourceTree = "<group>"; };
 		FD21CFA41C1BC09200CF8550 /* ChatListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatListController.h; path = list/ChatListController.h; sourceTree = "<group>"; };
@@ -1319,6 +1327,7 @@
 		FD80682D1C1EC7EE00111A0A /* login */ = {
 			isa = PBXGroup;
 			children = (
+				FD1EE5321C3A6AF10098812F /* login_button_free_register@2x.png */,
 				FD8068451C1F1E3B00111A0A /* login_arrow_left.png */,
 				FD80683E1C1ED42300111A0A /* login_icon_code@2x.png */,
 				FD80683F1C1ED42300111A0A /* login_icon_password@2x.png */,
@@ -1361,6 +1370,10 @@
 				FD8068481C1FA2BC00111A0A /* LoginProtocalController.m */,
 				FDEC5E4F1C2E7FDA00D85E3F /* LoginViewController.h */,
 				FDEC5E501C2E7FDA00D85E3F /* LoginViewController.m */,
+				FD1EE52C1C3A5E040098812F /* LoginFindPasswordController.h */,
+				FD1EE52D1C3A5E040098812F /* LoginFindPasswordController.m */,
+				FD1EE52F1C3A64640098812F /* LoginResetPasswordController.h */,
+				FD1EE5301C3A64640098812F /* LoginResetPasswordController.m */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -1638,6 +1651,7 @@
 				FD41BAF01C1D13A600B4A074 /* my_icon_setting.png in Resources */,
 				FD41BB431C1D87FA00B4A074 /* tab_around_normal@2x.png in Resources */,
 				FD8068351C1EC7EE00111A0A /* login_background.png in Resources */,
+				FD1EE5331C3A6AF10098812F /* login_button_free_register@2x.png in Resources */,
 				FD41BB2D1C1D87FA00B4A074 /* distribution_add_button.png in Resources */,
 				FD7A9A011C37A0A5009A05F5 /* button_contact.png in Resources */,
 				FDD6D7FC1C27930900B03DF8 /* chat_add_photo.png in Resources */,
@@ -1877,6 +1891,7 @@
 				FDD6D7D21C25A41100B03DF8 /* SettingPayPasswordController.m in Sources */,
 				FD29B37E1C112FDC00B68C6C /* UIScrollView+MJRefresh.m in Sources */,
 				FD7A99F11C36B817009A05F5 /* NSObject+LoginViewController.m in Sources */,
+				FD1EE52E1C3A5E040098812F /* LoginFindPasswordController.m in Sources */,
 				FD21CFA31C1BBFCC00CF8550 /* CDUserFactory.m in Sources */,
 				FD4BA8CC1C12834400A69F90 /* MyLoanController.m in Sources */,
 				FD54DDF21C2413F0009A8AD5 /* MyChargeController.m in Sources */,
@@ -1919,6 +1934,7 @@
 				FD297DDC1C2D899E007DFFF0 /* LocationMessage.m in Sources */,
 				FD54DDEA1C23B923009A8AD5 /* LYBaseNavigationController.m in Sources */,
 				FD54DDB91C2247D7009A8AD5 /* BaseMessage.m in Sources */,
+				FD1EE5311C3A64640098812F /* LoginResetPasswordController.m in Sources */,
 				FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */,
 				FD29B3B21C113BC600B68C6C /* ForMap.mm in Sources */,
 				FD4BA8E31C13139C00A69F90 /* MyTransferViewModel.m in Sources */,

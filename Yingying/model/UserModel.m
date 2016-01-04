@@ -147,6 +147,15 @@
 }
 #pragma mark - message
 
+- (void)requestChangePasswordWithPassword:(NSString *)password {
+    [[UserMessage instance] requestChangePasswordWithToken:[self getMyAccessToken] Password:password];
+}
+
+- (void)requestLoginWithUserphone:(NSString *)userphone Code:(NSString *)code {
+    [[UserMessage instance] requestLoginWithUserphone:userphone Code:code];
+}
+
+
 - (void)requestSendCodeWithUserphone:(NSString *)userphone {
     [[UserMessage instance] requestSendCodeWithUserphone:userphone];
 }

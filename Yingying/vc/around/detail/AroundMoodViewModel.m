@@ -62,48 +62,41 @@
 #pragma mark - message
 
 - (void)requestGetMoodNearMoodWithLongitude:(NSNumber *)x Latitude:(NSNumber *)y PageIndex:(NSNumber *)pageIndex {
-    if ([[UserModel instance] getNeedLogin]) {
-        [self presentMessageTips:@"请先登录"];
+    BaseMessage* message = [BaseMessage instance];
+    message.myLoadingStrings = @"获取中...";
+    
+    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                 [[UserModel instance] getMyAccessToken], @"access_token",
+                                 x, @"x",
+                                 y, @"y",
+                                 nil];
+    
+    if (pageIndex) {
+        [dict setObject:pageIndex forKey:@"last_index"];
     }
-    else {
-        BaseMessage* message = [BaseMessage instance];
-        message.myLoadingStrings = @"获取中...";
-        
-        
-        NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                     [[UserModel instance] getMyAccessToken], @"access_token",
-                                     x, @"x",
-                                     y, @"y",
-                                     nil];
-        
-        if (pageIndex) {
-            [dict setObject:pageIndex forKey:@"last_index"];
-        }
-        
-        @weakify(self);
-        [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_GET_NEAR_MOOD] Param:dict success:^(id responseObject) {
-            @strongify(self);
-            NSDictionary* dict = responseObject;
-            if ([dict isKindOfClass:[NSDictionary class]]) {
-                self.myLastIndex = [dict objectForKey:@"last_index"];
-                NSArray* moods = [dict objectForKey:@"mood"];
-                NSMutableArray* newItems = [NSMutableArray array];
-                if ([moods isKindOfClass:[NSArray class]]) {
-                    for (NSDictionary* item in moods) {
-                        MoodInfo* info = [item objectForClass:[MoodInfo class]];
-                        [newItems addObject:info];
-                    }
-                }
-                if (pageIndex) {
-                    [self updateAppendNewMoods:newItems];
-                }
-                else {
-                    [self updateInitWithNewMoods:newItems];
+    
+    @weakify(self);
+    [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_GET_NEAR_MOOD] Param:dict success:^(id responseObject) {
+        @strongify(self);
+        NSDictionary* dict = responseObject;
+        if ([dict isKindOfClass:[NSDictionary class]]) {
+            self.myLastIndex = [dict objectForKey:@"last_index"];
+            NSArray* moods = [dict objectForKey:@"mood"];
+            NSMutableArray* newItems = [NSMutableArray array];
+            if ([moods isKindOfClass:[NSArray class]]) {
+                for (NSDictionary* item in moods) {
+                    MoodInfo* info = [item objectForClass:[MoodInfo class]];
+                    [newItems addObject:info];
                 }
             }
-        }];
-     
-    }
+            if (pageIndex) {
+                [self updateAppendNewMoods:newItems];
+            }
+            else {
+                [self updateInitWithNewMoods:newItems];
+            }
+        }
+    }];
 }
 
 

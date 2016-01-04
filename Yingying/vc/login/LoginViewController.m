@@ -85,7 +85,6 @@
 
 - (void)customNotify {
     [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_SERVER_LOGIN_SUCCESS object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-        [[UserModel instance] requestGetUserInfo];
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }

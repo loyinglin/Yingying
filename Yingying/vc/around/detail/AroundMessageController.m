@@ -34,6 +34,7 @@
     [self.myTableView addHeaderWithCallback:^{
         @strongify(self);
         [self.myViewModel updateRequestInitMoods];
+//        disp
     }];
     [self.myTableView addFooterWithCallback:^{
         @strongify(self);

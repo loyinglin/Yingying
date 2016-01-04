@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 
 #define LY_MSG_BASE_URL                     @"http://120.25.101.195/YinYin"
-
+#define LY_MSG_CODE_SUCCESS                 20000
 
 //login
 #define LY_MSG_GET_CODE                     @"/sendCode"
 #define LY_MSG_OAUTH_LOGIN                  @"/oauth/login"
 #define LY_MSG_SEND_CODE                    @"/sendCode"
 #define LY_MSG_REGISTER                     @"/register"
+#define LY_MSG_JUDGE_CODE                   @"/judgecode"
 
 
 //user
@@ -25,6 +26,7 @@
 #define LY_MSG_USER_UPLOAD_USER_HEADIMG     @"/user/uploadUserHeadImg"
 #define LY_MSG_USER_ADD_PHOTO               @"/user/addPhoto"
 #define LY_MSG_USER_REMOVE_PHOTO            @"/user/deletePhoto"
+#define LY_MSG_USER_CHANGE_PASSWORD         @"/user/changepassword"
 
 
 //upload

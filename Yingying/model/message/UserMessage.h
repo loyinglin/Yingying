@@ -10,6 +10,10 @@
 
 @interface UserMessage : BaseMessage
 
+- (void)requestChangePasswordWithToken:(NSString *)token Password:(NSString *)password;
+
+- (void)requestLoginWithUserphone:(NSString *)userphone Code:(NSString *)code;
+
 - (void)requestSendCodeWithUserphone:(NSString *)userphone;
 
 - (void)requestRegisterWithUserphone:(NSString *)userphone Password:(NSString *)password VerifyCode:(NSString *)verifyCode;

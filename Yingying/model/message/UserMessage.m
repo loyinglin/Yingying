@@ -13,6 +13,45 @@
 
 @implementation UserMessage
 
+- (void)requestChangePasswordWithToken:(NSString *)token Password:(NSString *)password {
+    if (token && password) {
+        [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_USER_CHANGE_PASSWORD] Param:@{@"access_token":token, @"password":password} success:^(id responseObject) {
+            NSDictionary* dict = responseObject;
+            if ([dict isKindOfClass:[NSDictionary class]]) {
+                NSNumber* code = [dict objectForKey:@"msg_code"];
+                if ([code isKindOfClass:[NSNumber class]] && code.integerValue == LY_MSG_CODE_SUCCESS) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_SERVER_CHANGE_PASSWORD_SUCCESS object:nil];
+                }
+                else {
+                    [self presentMessageTips:@"重置密码失败"];
+                }
+            }
+            else {
+                [self presentMessageTips:@"重置密码失败"];
+            }
+        }];
+    }
+}
+
+- (void)requestLoginWithUserphone:(NSString *)userphone Code:(NSString *)code {
+    if (userphone && code) {
+        [self sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_JUDGE_CODE] Param:@{@"userphone":userphone, @"verifyCode":code} success:^(id responseObject) {
+            NSDictionary* dict = responseObject;
+            if ([dict isKindOfClass:[NSDictionary class]] && [dict objectForKey:@"access_token"]) {
+                LoginInfo* info = [dict objectForClass:[LoginInfo class]];
+                info.userphone = userphone;
+                [[UserModel instance] updateWithLoginInfo:info];
+                [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_SERVER_JUDGE_CODE_SUCCESS object:nil];
+                //拉去用户的UID
+                [[UserModel instance] requestGetUserInfo];
+            }
+            else {
+                [self presentMessageTips:@"验证失败"];
+            }
+        }];
+    }
+}
+
 - (void)requestSendCodeWithUserphone:(NSString *)userphone {
     NSDictionary* dict = [[NSDictionary alloc] initWithObjectsAndKeys:userphone, @"userphone", nil];
     
@@ -64,6 +103,11 @@
             [[UserModel instance] updateWithLoginInfo:info];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_SERVER_LOGIN_SUCCESS object:nil];
+            //拉取必要的UID
+            [[UserModel instance] requestGetUserInfo];
+        }
+        else {
+            [self presentMessageTips:@"登录失败"];
         }
     }];
 
@@ -93,6 +137,9 @@
                     [[YingYingUserModel instance] updateAddUserWithName:[[UserModel instance] getMyUserInfo].nickName Uid:[UserModel instance].myUid Url:myAvatarUrl];
                 }
             }
+        }
+        else {
+            [self presentMessageTips:@"拉取用户信息失败"];
         }
     }];
 
