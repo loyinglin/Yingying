@@ -15,6 +15,7 @@
 		FD1EE52E1C3A5E040098812F /* LoginFindPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1EE52D1C3A5E040098812F /* LoginFindPasswordController.m */; };
 		FD1EE5311C3A64640098812F /* LoginResetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1EE5301C3A64640098812F /* LoginResetPasswordController.m */; };
 		FD1EE5331C3A6AF10098812F /* login_button_free_register@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1EE5321C3A6AF10098812F /* login_button_free_register@2x.png */; };
+		FD1EE5361C3AC3310098812F /* XCTestCase+LYBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1EE5351C3AC3310098812F /* XCTestCase+LYBlock.m */; };
 		FD21CFA31C1BBFCC00CF8550 /* CDUserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFA01C1BBFCC00CF8550 /* CDUserFactory.m */; };
 		FD21CFA61C1BC09200CF8550 /* ChatListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFA51C1BC09200CF8550 /* ChatListController.m */; };
 		FD21CFAC1C1C04A300CF8550 /* ChatDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFAB1C1C04A300CF8550 /* ChatDetailController.m */; };
@@ -292,6 +293,8 @@
 		FD1EE52F1C3A64640098812F /* LoginResetPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginResetPasswordController.h; sourceTree = "<group>"; };
 		FD1EE5301C3A64640098812F /* LoginResetPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginResetPasswordController.m; sourceTree = "<group>"; };
 		FD1EE5321C3A6AF10098812F /* login_button_free_register@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_button_free_register@2x.png"; sourceTree = "<group>"; };
+		FD1EE5341C3AC3310098812F /* XCTestCase+LYBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+LYBlock.h"; sourceTree = "<group>"; };
+		FD1EE5351C3AC3310098812F /* XCTestCase+LYBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+LYBlock.m"; sourceTree = "<group>"; };
 		FD21CF9F1C1BBFCC00CF8550 /* CDUserFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserFactory.h; sourceTree = "<group>"; };
 		FD21CFA01C1BBFCC00CF8550 /* CDUserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserFactory.m; sourceTree = "<group>"; };
 		FD21CFA41C1BC09200CF8550 /* ChatListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatListController.h; path = list/ChatListController.h; sourceTree = "<group>"; };
@@ -791,6 +794,8 @@
 			children = (
 				FD29B3291C111B9100B68C6C /* YingyingTests.m */,
 				FD29B32B1C111B9100B68C6C /* Info.plist */,
+				FD1EE5341C3AC3310098812F /* XCTestCase+LYBlock.h */,
+				FD1EE5351C3AC3310098812F /* XCTestCase+LYBlock.m */,
 			);
 			path = YingyingTests;
 			sourceTree = "<group>";
@@ -1946,6 +1951,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD29B32A1C111B9100B68C6C /* YingyingTests.m in Sources */,
+				FD1EE5361C3AC3310098812F /* XCTestCase+LYBlock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

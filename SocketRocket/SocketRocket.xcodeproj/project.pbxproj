@@ -72,7 +72,7 @@
 		F62417EE14D52F3C003CE997 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F62417F014D52F3C003CE997 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F62417F214D52F3C003CE997 /* TestChat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestChat-Prefix.pch"; sourceTree = "<group>"; };
-		F62417F314D52F3C003CE997 /* TCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAppDelegate.h; sourceTree = "<group>"; };
+		F62417F314D52F3C003CE997 /* TCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TCAppDelegate.h; path = ../TestChat/TCAppDelegate.h; sourceTree = "<group>"; };
 		F62417F414D52F3C003CE997 /* TCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAppDelegate.m; sourceTree = "<group>"; };
 		F62417F714D52F3C003CE997 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		F62417F914D52F3C003CE997 /* TCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCViewController.h; sourceTree = "<group>"; };
@@ -177,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				F62417EB14D52F3C003CE997 /* Supporting Files */,
-				F62417F314D52F3C003CE997 /* TCAppDelegate.h */,
 				F62417F414D52F3C003CE997 /* TCAppDelegate.m */,
 				F62417F614D52F3C003CE997 /* MainStoryboard.storyboard */,
 				F62417F914D52F3C003CE997 /* TCViewController.h */,
@@ -293,6 +292,7 @@
 			children = (
 				F6BDA808145900D200FE3253 /* Supporting Files */,
 				F6BDA8151459016900FE3253 /* SRTAutobahnTests.m */,
+				F62417F314D52F3C003CE997 /* TCAppDelegate.h */,
 				F6BDA810145900D200FE3253 /* SRWebSocketTests-Prefix.pch */,
 				F6AE4526145907D30022AF3C /* SenTestCase+SRTAdditions.h */,
 				F6AE4527145907D30022AF3C /* SenTestCase+SRTAdditions.m */,

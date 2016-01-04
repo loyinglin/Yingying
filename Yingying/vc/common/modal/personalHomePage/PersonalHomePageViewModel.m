@@ -9,6 +9,7 @@
 #import "BaseMessage.h"
 #import "YingYingUserModel.h"
 #import "UserModel.h"
+#import <CoreGraphics/CoreGraphics.h>
 #import <MBProgressHUD.h>
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
