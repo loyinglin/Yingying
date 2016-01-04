@@ -8,6 +8,7 @@
 
 #import "MineViewController.h"
 #import "NSObject+LYUITipsView.h"
+#import "MineViewModel.h"
 #import <AVFoundation/AVFoundation.h>
 #import "UIViewController+YingyingNavigationItem.h"
 
@@ -17,6 +18,8 @@
 @property (nonatomic , strong) IBOutlet UIImageView*            myMiningImageView;
 @property (nonatomic , strong) IBOutlet NSLayoutConstraint*     myProgressConstraint;
 
+
+@property (nonatomic , strong) MineViewModel*                   myViewModel;
 //@property (nonatomic , strong) IBOutlet ;
 
 @end
@@ -26,6 +29,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    self.myViewModel = [MineViewModel new];
+    
     [self prepareToPlay];
 //    [self playRecord];
     [self customView];

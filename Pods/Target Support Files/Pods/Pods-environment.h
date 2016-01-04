@@ -128,3 +128,9 @@
 #define COCOAPODS_VERSION_MINOR_ReactiveCocoa_no_arc 1
 #define COCOAPODS_VERSION_PATCH_ReactiveCocoa_no_arc 8
 
+// SocketRocket
+#define COCOAPODS_POD_AVAILABLE_SocketRocket
+#define COCOAPODS_VERSION_MAJOR_SocketRocket 0
+#define COCOAPODS_VERSION_MINOR_SocketRocket 4
+#define COCOAPODS_VERSION_PATCH_SocketRocket 2
+

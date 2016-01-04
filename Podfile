@@ -6,3 +6,4 @@ pod 'MBProgressHUD'
 pod 'BaiduMapKit'
 
 pod 'LeanChatLib' , :path => './'
+pod 'SocketRocket' , :path => './SocketRocket/'

@@ -44,6 +44,7 @@ PODS:
   - ReactiveCocoa/Core (2.1.8):
     - ReactiveCocoa/no-arc
   - ReactiveCocoa/no-arc (2.1.8)
+  - SocketRocket (0.4.2)
 
 DEPENDENCIES:
   - AFNetworking
@@ -51,10 +52,13 @@ DEPENDENCIES:
   - LeanChatLib (from `./`)
   - MBProgressHUD
   - ReactiveCocoa
+  - SocketRocket (from `./SocketRocket/`)
 
 EXTERNAL SOURCES:
   LeanChatLib:
     :path: ./
+  SocketRocket:
+    :path: ./SocketRocket/
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -67,5 +71,6 @@ SPEC CHECKSUMS:
   LeanChatLib: 9aa6b483a955dac006e042cbb6caca39d5826888
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   ReactiveCocoa: f89f2e009a87951b50321bf9feb958823fcc617e
+  SocketRocket: ffe08119b00ef982f6c37052a4705a057c8494ad
 
 COCOAPODS: 0.37.2
