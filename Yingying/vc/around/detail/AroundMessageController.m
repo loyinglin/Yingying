@@ -77,18 +77,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AroundMoodTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    MoodInfo* info = [self.myViewModel getMoodInfoByIndex:indexPath.row];
-    if (info) {
-        cell.myMoodContent.text = info.moodContent;
-        cell.myImagesArr = info.attachs;
-        if (info.headUrl) {
-            [cell.myAvatarImageview setImageWithURL:[NSURL URLWithString:[LY_MSG_BASE_URL stringByAppendingString:info.headUrl]]];
-        }
-        cell.myCommentCountLabel.text = [NSString stringWithFormat:@"%@", info.comment_size];
-        cell.myForwardCountLabel.text = [NSString stringWithFormat:@"%@", info.forward_size];
-        cell.mySendDateLabel.text = info.sendDate;
-        cell.myUsernameLabel.text = info.username;
-    }
+    [cell customCellWithMoodInfo:[self.myViewModel getMoodInfoByIndex:indexPath.row]];
     return cell;
 }
 

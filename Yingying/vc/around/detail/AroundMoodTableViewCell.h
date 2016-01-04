@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Yingying.h"
 
 @interface AroundMoodTableViewCell : UITableViewCell
 
@@ -16,8 +17,10 @@
 @property (nonatomic , strong) IBOutlet UILabel*    myForwardCountLabel;
 @property (nonatomic , strong) IBOutlet UILabel*    mySendDateLabel;
 @property (nonatomic , strong) IBOutlet UIImageView* myAvatarImageview;
+@property (nonatomic , strong) IBOutlet UIImageView* myTypeImageView;
 
 @property (nonatomic , strong) NSArray* myImagesArr;
 
+- (void)customCellWithMoodInfo:(MoodInfo *)info;
 
 @end

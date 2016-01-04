@@ -8,9 +8,12 @@
 
 #import "LYBaseImageViewController.h"
 #import "LYNotifyCenter.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface LYBaseImageViewController ()
 
+@property (nonatomic , strong) NSString*    myImageUrlString;
+@property (nonatomic , assign) BOOL         myHideRightBarButton;
 @property (nonatomic , strong) IBOutlet UIImageView* myImageView;
 
 @end
@@ -25,6 +28,13 @@
         
         [self setupGes];
     }
+    else if (self.myImageUrlString) {
+        [self.myImageView setImageWithURL:[NSURL URLWithString:self.myImageUrlString]];
+    }
+    
+    if (self.myHideRightBarButton) {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +45,12 @@
 
 #pragma mark - view init
 
+- (void)customFromAroundDetailWith:(NSString *)imageUrlString HideRightBarButton:(BOOL)hideAble{
+    self.myImageUrlString = imageUrlString;
+    self.myHideRightBarButton = YES;
+}
+
+
 - (void)setupGes {
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
     [self.view addGestureRecognizer:tap];
@@ -43,8 +59,10 @@
 #pragma mark - ibaction
 
 - (IBAction)onDelete:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_DELETE_PHOTO object:nil userInfo:@{NOTIFY_UI_DELETE_PHOTO:self.myImage}];
-    [self.navigationController popViewControllerAnimated:YES];
+    if (self.myImage) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_DELETE_PHOTO object:nil userInfo:@{NOTIFY_UI_DELETE_PHOTO:self.myImage}];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - ui

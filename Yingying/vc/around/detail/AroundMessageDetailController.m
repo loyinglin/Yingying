@@ -10,6 +10,8 @@
 #import "AroundMessageDetailController.h"
 #import "AroundMoodDetailCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "UIViewController+YingyingModalViewController.h"
+#import "LYNotifyCenter.h"
 #import "AllMessage.h"
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
@@ -167,13 +169,15 @@
         else {
             item.myResHeight.constant = 0;
         }
+        
+        [item customWithMoodInfo:self.myViewModel.myMoodInfo];
     }
     else {
         if (indexPath.row == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"head" forIndexPath:indexPath];
             UILabel* commentTitleLabel = (UILabel *)[cell viewWithTag:10];
             if (commentTitleLabel) {
-                commentTitleLabel.text = [NSString stringWithFormat:@"评论（%d）", [self tableView:self.myTableView numberOfRowsInSection:1] - 1];
+                commentTitleLabel.text = [NSString stringWithFormat:@"评论（%ld）", [self tableView:self.myTableView numberOfRowsInSection:1] - 1];
             }
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"comment" forIndexPath:indexPath];
@@ -192,8 +196,6 @@
             }
         }
     }
-    
-    // Configure the cell...
     
     return cell;
 }
@@ -219,13 +221,11 @@
 #define INTERVAL_KEYBOARD 10
 
 - (void)setupNotify {
+    @weakify(self);
     [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillShowNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-        
+        @strongify(self);
         //获取键盘高度，在不同设备上，以及中英文下是不同的
         CGFloat kbHeight = [[note.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
-//        LYLog(@"kb height %f", kbHeight); 
-        
-        
         //计算出键盘顶端到inputTextView panel底端的距离(加上自定义的缓冲距离INTERVAL_KEYBOARD)
 //        CGFloat offset = (self.myInputView.frame.origin.y + self.myInputView.frame.size.height + INTERVAL_KEYBOARD) - (self.view.frame.size.height - kbHeight);
         
@@ -242,14 +242,18 @@
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillHideNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-        
         double duration = [[note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
         
         //视图下沉恢复原状
         [UIView animateWithDuration:duration animations:^{
+            @strongify(self);
             self.myConstraint.constant = 0;
-//            self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
         }];
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_SHOW_PHOTO object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        [self lyModalImageViewWithUrlString:[note.userInfo objectForKey:NOTIFY_UI_SHOW_PHOTO]];
     }];
 }
 

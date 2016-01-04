@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Yingying.h"
 
 @interface AroundMoodDetailCell : UITableViewCell
 
@@ -17,7 +18,11 @@
 @property (nonatomic , strong) IBOutlet UILabel*    myPriceLabel;
 @property (nonatomic , strong) IBOutlet UILabel*    myResNameLabel;
 @property (nonatomic , strong) IBOutlet NSLayoutConstraint*     myResHeight;
+@property (nonatomic , strong) IBOutlet UIImageView*    myTypeImageView;
 
 @property (nonatomic , strong) NSArray* myImagesArr;
+
+
+- (void)customWithMoodInfo:(MoodInfo *)info;
 
 @end

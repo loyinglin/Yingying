@@ -10,6 +10,7 @@
 		97C4B00BAF4207E79EA7381E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2A61BE728174A0287C24BD /* libPods.a */; };
 		FD1EE5231C38F1940098812F /* YingYingUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1EE5221C38F1940098812F /* YingYingUserModel.m */; };
 		FD1EE5261C3969000098812F /* UIViewController+YingYingImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1EE5251C3969000098812F /* UIViewController+YingYingImagePickerController.m */; };
+		FD1EE5281C3A1C020098812F /* base_status_mood.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1EE5271C3A1C020098812F /* base_status_mood.png */; };
 		FD21CFA31C1BBFCC00CF8550 /* CDUserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFA01C1BBFCC00CF8550 /* CDUserFactory.m */; };
 		FD21CFA61C1BC09200CF8550 /* ChatListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFA51C1BC09200CF8550 /* ChatListController.m */; };
 		FD21CFAC1C1C04A300CF8550 /* ChatDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD21CFAB1C1C04A300CF8550 /* ChatDetailController.m */; };
@@ -279,6 +280,7 @@
 		FD1EE5221C38F1940098812F /* YingYingUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YingYingUserModel.m; sourceTree = "<group>"; };
 		FD1EE5241C3969000098812F /* UIViewController+YingYingImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YingYingImagePickerController.h"; sourceTree = "<group>"; };
 		FD1EE5251C3969000098812F /* UIViewController+YingYingImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YingYingImagePickerController.m"; sourceTree = "<group>"; };
+		FD1EE5271C3A1C020098812F /* base_status_mood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base_status_mood.png; sourceTree = "<group>"; };
 		FD21CF9F1C1BBFCC00CF8550 /* CDUserFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserFactory.h; sourceTree = "<group>"; };
 		FD21CFA01C1BBFCC00CF8550 /* CDUserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserFactory.m; sourceTree = "<group>"; };
 		FD21CFA41C1BC09200CF8550 /* ChatListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatListController.h; path = list/ChatListController.h; sourceTree = "<group>"; };
@@ -1169,6 +1171,7 @@
 		FD41BB231C1D87FA00B4A074 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				FD1EE5271C3A1C020098812F /* base_status_mood.png */,
 				FD7A9A001C37A0A5009A05F5 /* button_contact.png */,
 				FD54DDAA1C217828009A8AD5 /* base_avatar.png */,
 				FD54DDAB1C217828009A8AD5 /* base_status_esay.png */,
@@ -1648,6 +1651,7 @@
 				FD41BAE21C1D13A600B4A074 /* icon-1押.png in Resources */,
 				FDD6D7FB1C27930900B03DF8 /* chat_add_face.png in Resources */,
 				FDEC5E621C30CD3800D85E3F /* around_mine_message_board.png in Resources */,
+				FD1EE5281C3A1C020098812F /* base_status_mood.png in Resources */,
 				FD41BB0A1C1D13CE00B4A074 /* my_icon_message.png in Resources */,
 				FD41BA911C1C250400B4A074 /* finance_bet.png in Resources */,
 				FD41BB371C1D87FA00B4A074 /* icon_message_detail_comment.png in Resources */,

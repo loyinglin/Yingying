@@ -18,6 +18,7 @@
 #import "ChatDetailController.h"
 #import "UIImageView+AFNetworking.h"
 #import "AroundMoodTableViewCell.h"
+#import "UIViewController+YingYingImagePickerController.h"
 #import "UIViewController+YingyingNavigationItem.h"
 
 typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
@@ -199,96 +200,6 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
     [self presentViewController:controller animated:YES completion:nil];
     
 }
-
-- (void)onAdd {
-    UIAlertController* controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    @weakify(self);
-    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        LYLog(@"cancel");
-    }];
-    [controller addAction:cancel];
-    
-    UIAlertAction* takePhoto = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        @strongify(self);
-        [self takePhoto];
-    }];
-    [controller addAction:takePhoto];
-    
-    UIAlertAction* localPhoto = [UIAlertAction actionWithTitle:@"从手机相册中选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        @strongify(self);
-        [self LocalPhoto];
-    }];
-    [controller addAction:localPhoto];
-    
-    [self presentViewController:controller animated:YES completion:nil];
-    
-}
-
-
--(void)takePhoto
-{
-    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
-    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
-    {
-        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-        picker.delegate = self;
-        //设置拍照后的图片可被编辑
-        picker.allowsEditing = YES;
-        picker.sourceType = sourceType;
-        [self presentViewController:picker animated:YES completion:nil];
-    }else
-    {
-        LYLog(@"模拟其中无法打开照相机,请在真机中使用");
-    }
-}
-
--(void)LocalPhoto
-{
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    //    picker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    picker.delegate = self;
-    //设置选择后的图片可被编辑
-    picker.allowsEditing = YES;
-    [self presentViewController:picker animated:YES completion:nil];
-}
-
-//当选择一张图片后进入这里
--(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-
-{
-    NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
-    
-    //当选择的类型是图片
-    if ([type isEqualToString:@"public.image"])
-    {
-        //先把图片转成NSData
-        UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-        [picker dismissViewControllerAnimated:YES completion:nil];
-        
-        @weakify(self);
-        if (self.isAvatar) {
-            [[self.myViewModel requestUploadAvatarWithImage:image] subscribeCompleted:^{
-                @strongify(self);
-                [self.myViewModel requestGetUserInfo];
-            }];
-        }
-        else {
-            [[self.myViewModel requestAddPhotoWithImage:image] subscribeCompleted:^{
-                @strongify(self);
-                [self.myViewModel requestGetUserInfo];
-            }];
-        }
-    }
-    //    [picker dismissViewControllerAnimated:NO completion:nil];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    LYLog(@"您取消了选择图片");
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
 #pragma mark - delegate
 
 
@@ -400,18 +311,8 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
                 AroundMoodTableViewCell* ret = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
                 cell = ret;
                 
-                MoodInfo* info = [self.myViewModel getMoodInfoByIndex:indexPath.row - 1];
-                if (info) {
-                    ret.myMoodContent.text = info.moodContent;
-                    ret.myImagesArr = info.attachs;
-                    if (info.headUrl) {
-                        [ret.myAvatarImageview setImageWithURL:[NSURL URLWithString:[LY_MSG_BASE_URL stringByAppendingString:info.headUrl]]];
-                    }
-                    ret.myCommentCountLabel.text = [NSString stringWithFormat:@"%@", info.comment_size];
-                    ret.myForwardCountLabel.text = [NSString stringWithFormat:@"%@", info.forward_size];
-                    ret.mySendDateLabel.text = info.sendDate;
-                    ret.myUsernameLabel.text = info.username;
-                }
+                [ret customCellWithMoodInfo:[self.myViewModel getMoodInfoByIndex:indexPath.row - 1]];
+                
             }
             break;
             
@@ -429,7 +330,7 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
     }
     if (indexPath.section == ly_information && indexPath.row == ly_avatar) {
         self.isAvatar = YES;
-        [self onAdd];
+        [self lyModalChoosePicker];
     }
     
     return nil;
@@ -448,10 +349,35 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
         NSNumber* index = [note.userInfo objectForKey:NOTIFY_UI_PERSONAL_HOMEPAGE_ADD_PHOTO];
         if (index.integerValue < 0) {
             self.isAvatar = NO;
-            [self onAdd];
+            [self lyModalChoosePicker];
         }
         else {
             [self onDeletePhotoWith:[self.myViewModel getImageIdbyIndex:index.integerValue]];
+        }
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_IMAGE_PICKER_DONE object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        if (self.myPickImage) {
+            if (self.isAvatar) {
+                [[self.myViewModel requestUploadAvatarWithImage:self.myPickImage] subscribeCompleted:^{
+                    @strongify(self);
+                    [[self.myViewModel requestGetUserInfo] subscribeCompleted:^{
+                        @strongify(self);
+                        [self.myTableView reloadData];
+                    }];
+                }];
+            }
+            else {
+                [[self.myViewModel requestAddPhotoWithImage:self.myPickImage] subscribeCompleted:^{
+                    @strongify(self);
+                    [[self.myViewModel requestGetUserInfo] subscribeCompleted:^{
+                        @strongify(self);
+                        [self.myTableView reloadData];
+                    }];
+                }];
+            }
+
         }
     }];
 }

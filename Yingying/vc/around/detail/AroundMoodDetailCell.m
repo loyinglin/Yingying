@@ -8,6 +8,7 @@
 
 #import "AroundMoodDetailCell.h"
 #import "AllMessage.h"
+#import "LYNotifyCenter.h"
 #import "UIImageView+AFNetworking.h"
 #import <ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
@@ -48,6 +49,16 @@
 
 #pragma mark - view init
 
+- (void)customWithMoodInfo:(MoodInfo *)info {
+    if (info) {
+        if (info.type.boolValue) {
+            [self.myTypeImageView setImage:[UIImage imageNamed:@"base_status_esay"]];
+        }
+        else {
+            [self.myTypeImageView setImage:[UIImage imageNamed:@"base_status_mood"]];
+        }
+    }
+}
 
 #pragma mark - ibaction
 
@@ -89,6 +100,13 @@
     return size;
 }
 
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_SHOW_PHOTO object:nil userInfo:@{NOTIFY_UI_SHOW_PHOTO:[LY_MSG_BASE_URL stringByAppendingString:self.myImagesArr[indexPath.row]]}];
+}
 #pragma mark - notify
 
 - (void)customNotify {

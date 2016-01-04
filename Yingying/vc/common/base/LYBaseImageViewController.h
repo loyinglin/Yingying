@@ -13,4 +13,6 @@
 
 @property (nonatomic , strong) UIImage* myImage;
 
+- (void)customFromAroundDetailWith:(NSString *)imageUrlString HideRightBarButton:(BOOL)hideAble;
+
 @end

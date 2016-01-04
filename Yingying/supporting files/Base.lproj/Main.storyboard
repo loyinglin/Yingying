@@ -1078,6 +1078,7 @@
                                             <outlet property="myImagesCollectionView" destination="gb6-ef-z6C" id="9ep-XX-gha"/>
                                             <outlet property="myMoodContent" destination="PIu-RL-MOn" id="aXf-52-STP"/>
                                             <outlet property="mySendDateLabel" destination="E3o-wh-dXz" id="cZx-yd-d0s"/>
+                                            <outlet property="myTypeImageView" destination="eKw-Ul-Cvr" id="wGq-UF-ZVR"/>
                                             <outlet property="myUsernameLabel" destination="muF-tM-BO5" id="kRM-GT-wB1"/>
                                         </connections>
                                     </tableViewCell>
@@ -1750,6 +1751,7 @@
                                             <outlet property="myImagesCollectionView" destination="pnz-b0-TTV" id="2IC-Nx-6mU"/>
                                             <outlet property="myMoodContent" destination="Hs4-Gw-b8y" id="wAw-y2-U2J"/>
                                             <outlet property="mySendDateLabel" destination="Ncq-8d-kUv" id="WTO-xn-3NE"/>
+                                            <outlet property="myTypeImageView" destination="aFH-D8-EHE" id="scP-oT-27m"/>
                                             <outlet property="myUsernameLabel" destination="Cav-Gl-Axw" id="QtY-bQ-Z3M"/>
                                         </connections>
                                     </tableViewCell>
@@ -1935,7 +1937,7 @@
         <!--图片详情-->
         <scene sceneID="IdA-bf-pnb">
             <objects>
-                <viewController storyboardIdentifier="image_view_controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="paP-qB-HyW" customClass="LYBaseImageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="image_view_controller" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="paP-qB-HyW" customClass="LYBaseImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z0h-Eb-7HN"/>
                         <viewControllerLayoutGuide type="bottom" id="WKI-lU-hqX"/>
@@ -1944,16 +1946,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="dbg-WG-FVf">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcM-Rp-wYI">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                            </imageView>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="dbg-WG-FVf">
+                                        <rect key="frame" x="0.0" y="0.0" width="321" height="505"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="dbg-WG-FVf" secondAttribute="trailing" id="4lG-iO-RJN"/>
+                                    <constraint firstItem="dbg-WG-FVf" firstAttribute="width" relation="greaterThanOrEqual" secondItem="fcM-Rp-wYI" secondAttribute="width" constant="1" id="Luk-M1-LR5"/>
+                                    <constraint firstAttribute="bottom" secondItem="dbg-WG-FVf" secondAttribute="bottom" id="RHK-WD-T3w"/>
+                                    <constraint firstItem="dbg-WG-FVf" firstAttribute="leading" secondItem="fcM-Rp-wYI" secondAttribute="leading" id="Uwy-AL-Y5X"/>
+                                    <constraint firstItem="dbg-WG-FVf" firstAttribute="height" relation="greaterThanOrEqual" secondItem="fcM-Rp-wYI" secondAttribute="height" constant="1" id="ZmV-ef-w2D"/>
+                                    <constraint firstItem="dbg-WG-FVf" firstAttribute="top" secondItem="fcM-Rp-wYI" secondAttribute="top" id="cd1-SY-Y21"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dbg-WG-FVf" firstAttribute="top" secondItem="z0h-Eb-7HN" secondAttribute="bottom" id="T4c-Sx-uAh"/>
-                            <constraint firstAttribute="trailing" secondItem="dbg-WG-FVf" secondAttribute="trailing" id="TJl-1B-abX"/>
-                            <constraint firstItem="WKI-lU-hqX" firstAttribute="top" secondItem="dbg-WG-FVf" secondAttribute="bottom" id="cKO-gN-hdO"/>
-                            <constraint firstItem="dbg-WG-FVf" firstAttribute="leading" secondItem="ILg-v3-rSU" secondAttribute="leading" id="h2J-iN-Hp4"/>
+                            <constraint firstItem="fcM-Rp-wYI" firstAttribute="top" secondItem="z0h-Eb-7HN" secondAttribute="bottom" id="IFf-2W-8ub"/>
+                            <constraint firstItem="WKI-lU-hqX" firstAttribute="top" secondItem="fcM-Rp-wYI" secondAttribute="bottom" id="Q5v-7m-HdD"/>
+                            <constraint firstAttribute="trailing" secondItem="fcM-Rp-wYI" secondAttribute="trailing" id="WT9-Iw-EZp"/>
+                            <constraint firstItem="fcM-Rp-wYI" firstAttribute="leading" secondItem="ILg-v3-rSU" secondAttribute="leading" id="wSo-YX-lW8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="图片详情" id="TtO-ki-yCg">
@@ -2281,7 +2296,7 @@
                                                         <constraint firstAttribute="height" constant="25" id="a7k-gj-Ke4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rO1-VB-efg">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rO1-VB-efg">
                                                     <rect key="frame" x="8" y="102" width="304" height="103"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -2386,6 +2401,7 @@
                                             <outlet property="myPriceLabel" destination="Qwx-sc-HEy" id="1w4-qK-9yf"/>
                                             <outlet property="myResHeight" destination="BpB-b6-AaV" id="NaE-Xb-ucd"/>
                                             <outlet property="myResNameLabel" destination="9ZO-2z-lkg" id="f5R-zi-kzl"/>
+                                            <outlet property="myTypeImageView" destination="tUI-NH-gyj" id="atC-KN-k8A"/>
                                             <outlet property="myUserNameLabel" destination="FPb-pk-5ke" id="G6T-0K-Oc3"/>
                                         </connections>
                                     </tableViewCell>

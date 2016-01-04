@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+YingyingModalViewController.h"
+#import "LYBaseImageViewController.h"
 #import "PersonalHomePageController.h"
 
 @implementation UIViewController (YingyingModalViewController)
@@ -24,4 +25,20 @@
     }
 }
 
+- (void)lyModalImageViewWithUrlString:(NSString *)urlString {
+    LYBaseImageViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"image_view_controller"];
+    if ([controller isKindOfClass:[LYBaseImageViewController class]] && [urlString isKindOfClass:[NSString class]]) {
+        [controller customFromAroundDetailWith:urlString HideRightBarButton:YES];
+        if (self.navigationController) {
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+        else {
+            [self presentViewController:controller animated:NO completion:nil];
+        }
+    }
+    else {
+        LYLog(@"error");
+    }
+
+}
 @end

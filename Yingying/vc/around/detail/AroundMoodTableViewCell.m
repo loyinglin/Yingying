@@ -52,6 +52,25 @@
 
 #pragma mark - ui
 
+- (void)customCellWithMoodInfo:(MoodInfo *)info {
+    if (info) {
+        self.myMoodContent.text = info.moodContent;
+        self.myImagesArr = info.attachs;
+        if (info.headUrl) {
+            [self.myAvatarImageview setImageWithURL:[NSURL URLWithString:[LY_MSG_BASE_URL stringByAppendingString:info.headUrl]]];
+        }
+        if (info.type.boolValue) {
+            [self.myTypeImageView setImage:[UIImage imageNamed:@"base_status_esay"]];
+        }
+        else {
+            [self.myTypeImageView setImage:[UIImage imageNamed:@"base_status_mood"]];
+        }
+        self.myCommentCountLabel.text = [NSString stringWithFormat:@"%@", info.comment_size];
+        self.myForwardCountLabel.text = [NSString stringWithFormat:@"%@", info.forward_size];
+        self.mySendDateLabel.text = info.sendDate;
+        self.myUsernameLabel.text = info.username;
+    }
+}
 
 
 #pragma mark - delegate

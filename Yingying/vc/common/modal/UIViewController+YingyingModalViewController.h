@@ -15,6 +15,6 @@
 
 - (void)lyModalPersonalHomePageWith:(NSString *)userphone;
 
-
+- (void)lyModalImageViewWithUrlString:(NSString *)urlString;
 
 @end

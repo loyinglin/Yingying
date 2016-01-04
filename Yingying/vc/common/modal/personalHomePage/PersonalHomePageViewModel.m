@@ -124,8 +124,8 @@
         
         BaseMessage* uploadMessage = [BaseMessage instance];
         [uploadMessage sendUploadWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_UPLOAD] Param:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-            NSData *imageData = UIImagePNGRepresentation(image);
-            [formData appendPartWithFileData:imageData name:@"upload" fileName:@"test.png" mimeType:@"image/png"];
+            NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+            [formData appendPartWithFileData:imageData name:@"upload" fileName:@"test.jpg" mimeType:@"image/jpg"];
         } Progress:^(NSProgress *uploadProgress) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 HUD.progress = uploadProgress.fractionCompleted;
@@ -169,8 +169,9 @@
         
         BaseMessage* uploadMessage = [BaseMessage instance];
         [uploadMessage sendUploadWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_UPLOAD] Param:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-            NSData *imageData = UIImagePNGRepresentation(image);
-            [formData appendPartWithFileData:imageData name:@"upload" fileName:@"test.png" mimeType:@"image/png"];
+            NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+            [formData appendPartWithFileData:imageData name:@"upload" fileName:@"test.jpg" mimeType:@"image/jpg"];
+            
         } Progress:^(NSProgress *uploadProgress) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 HUD.progress = uploadProgress.fractionCompleted;
