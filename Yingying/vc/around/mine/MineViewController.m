@@ -29,10 +29,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
     self.myViewModel = [MineViewModel instance];
     [self.myViewModel customSocket];
+
+    @weakify(self);
+    [RACObserve(self.myViewModel, myGameStatus) subscribeNext:^(NSNumber* status) {
+        LYLog(@"ABCABC %@", status);
+        if (status && status.integerValue >= 0) {
+            @strongify(self);
+            NSArray* arr = @[@"around_mine_mining0",
+                             @"around_mine_mining0",
+                             @"around_mine_mining0",
+                             @"around_mine_mining1",
+                             @"around_mine_mining2",
+                             @"around_mine_mining2",
+                             @"around_mine_mining2",
+                             ];
+            NSMutableArray* imgs = [NSMutableArray array];
+            for (NSString* name in arr) {
+                [imgs addObject:[UIImage imageNamed:name]];
+            }
+            UIImage* mining = [UIImage animatedImageWithImages:imgs duration:0.7];
+            [self.myMiningImageView setImage:mining];
+        }
+        else {
+            [self.myMiningImageView setImage:[UIImage imageNamed:@"around_mine_init"]];
+        }
+    }];
+    
+    [RACObserve(self.myViewModel, myGameManual) subscribeNext:^(id x) {
+        
+    }];
+    
+    
     [self prepareToPlay];
 //    [self playRecord];
     [self customView];
@@ -66,32 +95,13 @@
 #pragma mark - ibaction
 
 - (IBAction)onMine:(UIButton *)sender {
-//    [self presentMessageTips:@"挖空了"];
-//    UIImage* mining = [UIImage animatedImageNamed:@"around_mine_mining" duration:1];
-    NSArray* arr = @[@"around_mine_mining0",
-                     @"around_mine_mining0",
-                     @"around_mine_mining0",
-                     @"around_mine_mining1",
-                     @"around_mine_mining2",
-                     @"around_mine_mining2",
-                     @"around_mine_mining2",
-                     ];
-    NSMutableArray* imgs = [NSMutableArray array];
-    for (NSString* name in arr) {
-        [imgs addObject:[UIImage imageNamed:name]];
-    }
-    UIImage* mining = [UIImage animatedImageWithImages:imgs duration:0.7];
-    [self.myMiningImageView setImage:mining];
     
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        <#code#>
-//    });
+    [self.myViewModel sendStartGame];
     [UIView animateWithDuration:3.0 animations:^{
         self.myProgressConstraint.constant = 270;
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
         self.myProgressConstraint.constant = 30;
-        [self.myMiningImageView setImage:[UIImage imageNamed:@"around_mine_init"]];
         [self performSegueWithIdentifier:@"open_mine_pop_board" sender:nil];
     }];
 }
@@ -100,6 +110,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark - ui
+
+- (void)customProgressWithManual:(NSNumber *)manual {
+
+}
 
 - (void)prepareToPlay {
     [self stopPlay];

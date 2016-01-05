@@ -22,6 +22,8 @@ typedef NS_ENUM(NSInteger, LY_MINE) {
 
 @interface MineViewModel : LYBaseViewModel
 
+@property (nonatomic , strong) NSNumber* myGameStatus;
+@property (nonatomic , strong) NSNumber* myGameManual;
 
 #pragma mark - init
 
@@ -31,6 +33,7 @@ typedef NS_ENUM(NSInteger, LY_MINE) {
 #pragma mark - update
 - (void)customSocket;
 
+- (void)sendStartGame;
 
 #pragma mark - get
 

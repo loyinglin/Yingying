@@ -22,6 +22,7 @@ return NSClassFromString( [NSString stringWithUTF8String:#__class] ); \
 
 #pragma mark -
 
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
 
 - (id)objectForClass:(Class)clazz;
 

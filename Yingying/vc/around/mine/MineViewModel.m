@@ -35,12 +35,14 @@
 
 - (instancetype)init {
     self = [super init];
+//    self.myGameStatus = @(0);
     return self;
     
 }
 
 
 - (void)customSocket {
+//    self.myGameStatus = @(0);
     if (self.myWebSocket) {
         return ;
     }
@@ -99,21 +101,40 @@
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
     LYLog(@"socket back:%@", message);
+    NSDictionary* dict = [NSDictionary dictionaryWithJsonString:message];
+    if (dict) {
+        NSNumber* manual = [dict objectForKey:ly_key_msg_manual];
+        NSNumber* status = [dict objectForKey:ly_key_game_status];
+        NSNumber* code = [dict objectForKey:ly_key_msg_code];
+        
+        if (manual) {
+            self.myGameManual = manual;
+        }
+        if (status) {
+            self.myGameStatus = status;
+        }
+        if (code) {
+            
+        }
+        
+//        LYLog(@"%@", manual);
+    }
 }
-
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
     LYLog(@"open");
-    [self sendDataWithDict:@{@"game_status":@(0)}];
 }
+
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
     LYLog(@"fail %@", error);
     self.myWebSocket = nil;
 }
+
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
     LYLog(@"close %@", reason);
     self.myWebSocket = nil;
 }
+
 - (void)webSocket:(SRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload {
     LYLog(@"pong %@", pongPayload);
 }
