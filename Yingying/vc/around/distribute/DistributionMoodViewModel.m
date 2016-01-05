@@ -8,7 +8,6 @@
 
 #import "DistributionMoodViewModel.h"
 #import "UserModel.h"
-#import "MoodMessage.h"
 #import "MapInfoModel.h"
 #import "NSObject+LYUITipsView.h"
 #import <MBProgressHUD.h>
@@ -102,10 +101,27 @@
     }] flattenMap:^RACStream *(id value) {
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
             @strongify(self);
-            MoodMessage* mood = [MoodMessage new];
-            [mood requestSendMoodWithToken:[[UserModel instance] getMyAccessToken] MoodContent:self.myMoodConent ThumbsUrl:self.myImagesUrlArr Longitude:@([MapInfoModel instance].myPosition.longitude) Latitude:@([MapInfoModel instance].myPosition.latitude) LocName:self.myLocName];
-            [subscriber sendNext:@"second ok"];
-            [subscriber sendCompleted];
+            BaseMessage* message = [BaseMessage instance];
+            message.myLoadingStrings = @"发布中...";
+            
+            NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                         [[UserModel instance] getMyAccessToken], @"access_token",
+                                         self.myMoodConent, @"moodContent",
+                                         @(0),  @"type",
+                                         nil];
+            if (self.myImagesUrlArr) {
+                [dict setObject:self.myImagesUrlArr forKey:@"thumbsurl"];
+            }
+            if (self.myLocName.length > 0) {
+                [dict setObject:@([MapInfoModel instance].myPosition.longitude) forKey:@"x"];
+                [dict setObject:@([MapInfoModel instance].myPosition.latitude) forKey:@"y"];
+                [dict setObject:self.myLocName forKey:@"locName"];
+            }
+            
+            [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_SEND_MOOD] Param:dict success:^(id responseObject) {
+                [subscriber sendCompleted];
+            }];
+            
             return nil;
         }];
 

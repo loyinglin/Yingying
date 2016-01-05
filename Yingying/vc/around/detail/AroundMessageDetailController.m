@@ -157,10 +157,11 @@
         }
         else {
             item.myPriceLabel.hidden = item.myResNameLabel.hidden = NO;
-            item.myPriceLabel.text = [NSString stringWithFormat:@"%@", self.myViewModel.myMoodInfo.price];
+            item.myPriceLabel.text = [NSString stringWithFormat:@"%@元", self.myViewModel.myMoodInfo.price];
             item.myResNameLabel.text = self.myViewModel.myMoodInfo.name;
         }
         item.myImagesArr = self.myViewModel.myMoodInfo.attachs;
+        item.myUserNameLabel.text = self.myViewModel.myMoodInfo.username;
         item.myDateLabel.text = self.myViewModel.myMoodInfo.sendDate;
         item.myMoodContentLabel.text = self.myViewModel.myMoodInfo.moodContent;
         if (self.myViewModel.myMoodInfo.type && self.myViewModel.myMoodInfo.type.boolValue) {

@@ -10,7 +10,6 @@
 #import "LYNotifyCenter.h"
 #import "LYColor.h"
 #import "UserModel.h"
-#import "AddressMessage.h"
 #import "UserMessage.h"
 #import "AroundMessageDetailController.h"
 #import "UIViewController+YingyingNavigationItem.h"

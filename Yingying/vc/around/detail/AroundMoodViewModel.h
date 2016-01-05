@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Yingying.h"
+#import "LYBaseViewModel.h"
 
-@interface AroundMoodViewModel : NSObject
+@interface AroundMoodViewModel : LYBaseViewModel
 
 @property (nonatomic , strong) NSArray<MoodInfo *>* myMoodsArr;
 

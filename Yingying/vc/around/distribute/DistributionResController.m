@@ -51,6 +51,10 @@
     RAC(self.myViewModel, myName) = self.myNameTextField.rac_textSignal;
     self.myViewModel.myView = self.view;
     
+    if ([MapInfoModel instance].myAddress.length > 0) {
+        self.myViewModel.myLocName = self.myAddressTextField.text = [MapInfoModel instance].myAddress;
+    }
+    
     [self.myImages rac_valuesForKeyPath:@"contentSize" observer:self];
     [RACObserve(self.myImages, contentSize) subscribeNext:^(id x) {
         @strongify(self);
@@ -99,6 +103,7 @@
         NSLog(@"eror");
     } completed:^{
         @strongify(self);
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_REFRESH_AROUND_MOOD object:nil];
         [self.navigationController popViewControllerAnimated:YES];
     }];
 

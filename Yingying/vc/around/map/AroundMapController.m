@@ -151,7 +151,7 @@
             long index = [myPoints indexOfObject:annotation];
             MapUserInfo* info = [self.myViewModel getMapUserInfoByIndex:index];
             if (info) {
-                [annotationView customViewWithGenderIsMalf:[info.gender isEqualToString:@"m"] AvatarUrl:[LY_MSG_BASE_URL stringByAppendingString:info.thumbUrl]];
+                [annotationView customViewWithGenderIsMalf:[info.gender isEqualToString:@"m"] AvatarUrl:info.thumbUrl];
             }
             // 设置颜色
             //            annotationView.pinColor = BMKPinAnnotationColorPurple;

@@ -7,6 +7,7 @@
 //
 
 #import "LYAnnotationView.h"
+#import "AllMessage.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface LYAnnotationView()
@@ -44,8 +45,10 @@
         [self.genderImageView setImage:[UIImage imageNamed:@"map_woman_location"]];
     }
     if (avatarStr) {
-        NSURL* url = [NSURL URLWithString:avatarStr];
-        [self.avatarImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"finance_avatar"]];
+        [self.avatarImageView setImageWithURL:[NSURL URLWithString:[LY_MSG_BASE_URL stringByAppendingString:avatarStr]] placeholderImage:[UIImage imageNamed:@"base_avatar"]];
+    }
+    else {
+        [self.avatarImageView setImage:[UIImage imageNamed:@"base_avatar"]];
     }
     
 }

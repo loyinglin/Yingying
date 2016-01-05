@@ -101,7 +101,7 @@
             [avatarImageView setImageWithURL:[NSURL URLWithString:[LY_MSG_BASE_URL stringByAppendingString:item.thumburl]]];
         }
         else {
-            [avatarImageView setImage:[UIImage imageNamed:@"finance_avatar"]];
+            [avatarImageView setImage:[UIImage imageNamed:@"base_avatar"]];
         }
     }
     

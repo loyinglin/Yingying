@@ -27,6 +27,8 @@
 
 #define NOTIFY_UI_REQUEST_TO_CHAT               @"NOTIFY_UI_REQUEST_TO_CHAT"
 
+#define NOTIFY_UI_REFRESH_AROUND_MOOD           @"NOTIFY_UI_REFRESH_AROUND_MOOD"
+
 
 typedef NS_ENUM(NSInteger, NOTIFY_ENUM_MAP_FILTER) {
     notify_enum_map_filter_all,

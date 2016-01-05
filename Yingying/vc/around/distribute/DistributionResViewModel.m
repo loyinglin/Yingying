@@ -8,7 +8,6 @@
 
 #import "DistributionResViewModel.h"
 #import "UserModel.h"
-#import "MoodMessage.h"
 #import "MapInfoModel.h"
 #import "NSObject+LYUITipsView.h"
 #import <MBProgressHUD.h>
@@ -126,10 +125,9 @@
             }
             
             [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_SEND_MOOD] Param:dict success:^(id responseObject) {
-                
+                [subscriber sendCompleted];
             }];
             
-            [subscriber sendCompleted];
             return nil;
         }];
     }];

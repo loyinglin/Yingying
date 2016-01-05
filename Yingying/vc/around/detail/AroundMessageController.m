@@ -53,6 +53,7 @@
     
 
     [self.myViewModel updateRequestInitMoods];
+    [self customNotify];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,5 +91,12 @@
 }
 #pragma mark - notify
 
+- (void)customNotify {
+    @weakify(self);
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_REFRESH_AROUND_MOOD object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        [self.myViewModel updateRequestInitMoods];
+    }];
+}
 
 @end

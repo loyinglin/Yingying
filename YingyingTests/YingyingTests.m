@@ -42,7 +42,7 @@
         [expectation fulfill];
     }];
     
-    [self waitForExpectationsWithTimeout:3 handler:^(NSError * _Nullable error) {
+    [self waitForExpectationsWithTimeout:13 handler:^(NSError * _Nullable error) {
         
     }];
 }

@@ -279,7 +279,7 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
                         [avatarImageView setImageWithURL:[NSURL URLWithString:self.myViewModel.myAvatarUrl]];
                     }
                     else {
-                        [avatarImageView setImage:[UIImage imageNamed:@"finance_avatar"]];
+                        [avatarImageView setImage:[UIImage imageNamed:@"base_avatar"]];
                     }
                     break;
                 }

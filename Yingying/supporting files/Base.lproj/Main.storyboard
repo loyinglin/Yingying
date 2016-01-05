@@ -1946,10 +1946,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcM-Rp-wYI">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.5" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="fcM-Rp-wYI">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="dbg-WG-FVf">
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_pop_icon_coupon.png" translatesAutoresizingMaskIntoConstraints="NO" id="dbg-WG-FVf">
                                         <rect key="frame" x="0.0" y="0.0" width="321" height="505"/>
                                     </imageView>
                                 </subviews>
@@ -1961,6 +1961,9 @@
                                     <constraint firstItem="dbg-WG-FVf" firstAttribute="height" relation="greaterThanOrEqual" secondItem="fcM-Rp-wYI" secondAttribute="height" constant="1" id="ZmV-ef-w2D"/>
                                     <constraint firstItem="dbg-WG-FVf" firstAttribute="top" secondItem="fcM-Rp-wYI" secondAttribute="top" id="cd1-SY-Y21"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="paP-qB-HyW" id="x4W-QP-yK6"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -11,7 +11,6 @@
 #import "DistributionMoodViewModel.h"
 #import "NSObject+LYUITipsView.h"
 #import "MapInfoModel.h"
-#import "DataModel.h"
 #import "LYColor.h"
 #import "UIViewController+YingYingImagePickerController.h"
 #import "UIViewController+YingyingNavigationItem.h"
@@ -45,6 +44,9 @@
     
     RAC(self.myViewModel, myMoodConent) = self.myMoodContentTextView.rac_textSignal;
     RAC(self.myViewModel, myLocName) = self.myAddressTextField.rac_textSignal;
+    if ([MapInfoModel instance].myAddress.length > 0) {
+        self.myViewModel.myLocName = self.myAddressTextField.text = [MapInfoModel instance].myAddress;
+    }
     self.myViewModel.myView = self.view;
 
     [self.myImages rac_valuesForKeyPath:@"contentSize" observer:self];
@@ -94,6 +96,7 @@
         
     } completed:^{
         @strongify(self);
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_REFRESH_AROUND_MOOD object:nil];
         [self.navigationController popViewControllerAnimated:YES];
     }];
 }

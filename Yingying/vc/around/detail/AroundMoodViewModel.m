@@ -8,7 +8,6 @@
 
 #import "AroundMoodViewModel.h"
 #import "UserModel.h"
-#import "MoodMessage.h"
 #import "NSObject+LYUITipsView.h"
 #import "MapInfoModel.h"
 #import <ReactiveCocoa/RACEXTScope.h>
@@ -36,7 +35,7 @@
 }
 
 - (void)updateRequestInitMoods {
-    [self requestGetMoodNearMoodWithLongitude:@([MapInfoModel instance].myPosition.longitude) Latitude:@([MapInfoModel instance].myPosition.latitude) PageIndex:nil];
+    [self requestGetMoodNearMoodWithLongitude:@([MapInfoModel instance].myPosition.longitude) Latitude:@([MapInfoModel instance].myPosition.latitude) PageIndex:self.myLastIndex = nil];
 }
 
 - (void)updateRequestMoreMoods {

@@ -10,7 +10,7 @@
 #import "LYNotifyCenter.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface LYBaseImageViewController ()
+@interface LYBaseImageViewController ()<UIScrollViewDelegate>
 
 @property (nonatomic , strong) NSString*    myImageUrlString;
 @property (nonatomic , assign) BOOL         myHideRightBarButton;
@@ -72,6 +72,10 @@
 }
 
 #pragma mark - delegate
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.myImageView;
+}
 
 #pragma mark - notify
 

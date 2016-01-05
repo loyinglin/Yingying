@@ -31,8 +31,8 @@
     // Do any additional setup after loading the view.
     
     
-    self.myViewModel = [MineViewModel new];
-    
+    self.myViewModel = [MineViewModel instance];
+    [self.myViewModel customSocket];
     [self prepareToPlay];
 //    [self playRecord];
     [self customView];
@@ -45,6 +45,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    LYLog(@"dealloc");
+}
 #pragma mark - view init
 
 - (void)customView {

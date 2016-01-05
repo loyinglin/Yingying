@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <ReactiveCocoa.h>
-#import <ReactiveCocoa/RACEXTScope.h>
+#import "LYBaseViewModel.h"
 
-@interface DistributionMoodViewModel : NSObject
+@interface DistributionMoodViewModel : LYBaseViewModel
 
 @property (nonatomic , strong) NSArray*     myImagesArr;
 @property (nonatomic , strong) NSString*    myMoodConent;
