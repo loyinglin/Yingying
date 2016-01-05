@@ -33,7 +33,7 @@
 - (void)customSocket {
     if ([[UserModel instance] getMyAccessToken].length > 0) {
         NSString* urlString = [NSString stringWithFormat:@"ws://120.25.101.195/YinYin/game?access_token=%@", [[UserModel instance] getMyAccessToken]];
-        urlString = @"ws://echo.websocket.org";
+//        urlString = @"ws://echo.websocket.org";
         LYLog(@"%@", urlString);
         self.myWebSocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:urlString]];
         self.myWebSocket.delegate = self;

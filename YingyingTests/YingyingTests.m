@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "XCTestCase+LYBlock.h"
 #import "UserModel.h"
+#import "BaseMessage.h"
 
 @interface YingyingTests : XCTestCase
 
@@ -32,6 +33,18 @@
     [self lyRunCurrentRunLoopUntilTestPasses:^BOOL{
         return YES;
     } timeout:3];
+    
+}
+
+- (void)testExpectations {
+    XCTestExpectation* expectation = [self expectationWithDescription:@"ly_test"];
+    [[BaseMessage instance] sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_USER_GET_USER_INFO] Param:@{@"access_token":[[UserModel instance] getMyAccessToken], @"userphone":[[UserModel instance] getMyUserphone]} success:^(id responseObject) {
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:3 handler:^(NSError * _Nullable error) {
+        
+    }];
 }
 
 - (void)testPerformanceExample {
