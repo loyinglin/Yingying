@@ -82,6 +82,15 @@
     [self presentViewController:controller animated:YES completion:nil];
 }
 
+- (IBAction)onLeading:(id)sender {
+    if ([MapInfoModel instance].myPosition.latitude) {
+        [self.myMapView setCenterCoordinate:[MapInfoModel instance].myPosition animated:YES];
+    }
+    else {
+        [self presentMessageTips:@"尚未定位"];
+    }
+}
+
 #pragma mark - ui
 
 - (void)updateMapAnnotation {
@@ -116,7 +125,7 @@
     param.locationViewImgName = @"map_myself_location";
     //    param.isAccuracyCircleShow = YES;
     //
-    //    self.myMapView.showsUserLocation = YES;
+    self.myMapView.showsUserLocation = YES;
     [self.myMapView updateLocationViewWithParam:param];
     [self.myMapView updateLocationData:userLocation];
     

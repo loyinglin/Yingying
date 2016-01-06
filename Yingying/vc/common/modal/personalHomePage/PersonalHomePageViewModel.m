@@ -17,6 +17,7 @@
 
 @interface PersonalHomePageViewModel()
 
+@property (nonatomic , strong) NSArray*     myMoodsArr;
 @property (nonatomic , strong) NSArray* myImagesUrlArr;
 
 @end
@@ -28,6 +29,14 @@
 
 
 #pragma mark - update
+
+- (void)updateDeleteMoodByIndex:(long)index {
+    NSMutableArray* array = [NSMutableArray arrayWithArray:self.myMoodsArr];
+    if (index >= 0 && index < self.myMoodsArr.count) {
+        [array removeObjectAtIndex:index];
+    }
+    self.myMoodsArr = array;
+}
 
 
 #pragma mark - get
@@ -53,6 +62,14 @@
 }
 
 
+- (long)getMoodInfoCount {
+    long ret = 0;
+    if (self.myMoodsArr) {
+        ret = self.myMoodsArr.count;
+    }
+    return ret;
+}
+
 - (MoodInfo *)getMoodInfoByIndex:(long)index {
     MoodInfo* ret;
     if (index >= 0 && index < self.myMoodsArr.count) {
@@ -75,7 +92,17 @@
             return nil;
         }
         [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_DELETE_MOOD_BY_SID] Param:@{@"access_token":[[UserModel instance] getMyAccessToken], @"sid":info.sid} success:^(id responseObject) {
+            
+            [self updateDeleteMoodByIndex:index];
             [subscriber sendCompleted];
+//            NSDictionary* dict = responseObject;
+//            if ([dict isKindOfClass:[NSDictionary class]]) {
+//                NSNumber* code = [dict objectForKey:@"msg_code"];
+//                if (code && code.integerValue == LY_MSG_CODE_SUCCESS) {
+//                    [self updateDeleteMoodByIndex:index];
+//                    [subscriber sendCompleted];
+//                }
+//            }
         }];
         
         return nil;

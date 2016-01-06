@@ -20,7 +20,6 @@
 @property (nonatomic , strong) UserInfo*    myUserInfo;
 @property (nonatomic , strong) NSString*    myAvatarUrl;
 @property (nonatomic , strong) NSArray*     myPhotosArr;
-@property (nonatomic , strong) NSArray*     myMoodsArr;
 
 @property (nonatomic , strong) UIView*      myView;
 
@@ -36,6 +35,8 @@
 
 - (NSNumber *)getImageIdbyIndex:(long)index;
 
+
+- (long)getMoodInfoCount;
 - (MoodInfo *)getMoodInfoByIndex:(long)index;
 
 #pragma mark - message

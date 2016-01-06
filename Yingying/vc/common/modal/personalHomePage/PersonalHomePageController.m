@@ -222,7 +222,7 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
             break;
             
         case ly_message:
-            ret = self.myViewModel.myMoodsArr.count + 1;
+            ret = [self.myViewModel getMoodInfoCount] + 1;
             break;
             
         default:
@@ -253,6 +253,11 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
         
         // Delete the row from the data source.
         
+        @weakify(self);
+        [[self.myViewModel requestDeleteMoodByIndex:indexPath.row - 1] subscribeCompleted:^{
+            @strongify(self);
+            [self.myTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }];
 //        if ([[DataModel instance] deleteRecordByIndex:indexPath.row]) {
 //            [self.myRecordTable deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 //        }
