@@ -76,7 +76,7 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
         return value != nil;
     }] subscribeNext:^(NSNumber* isFriend) {
         @strongify(self);
-//        LYLog(@"is frined %@", isFriend);
+//        LYLog(@"is friend %@", isFriend);
         if (!isFriend.boolValue) {
             self.navigationItem.rightBarButtonItem = nil;
             self.myFriendView.hidden = YES;
@@ -233,6 +233,35 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 }
 
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    if (indexPath.section == ly_message && indexPath.row > 0 && self.isSelf) {
+        return YES;
+    }
+    return NO;
+}
+
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        // Delete the row from the data source.
+        
+//        if ([[DataModel instance] deleteRecordByIndex:indexPath.row]) {
+//            [self.myRecordTable deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        }
+        
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     

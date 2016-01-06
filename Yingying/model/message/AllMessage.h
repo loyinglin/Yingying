@@ -45,6 +45,7 @@
 #define LY_MSG_MOOD_GET_COMMENT_BY_SID      @"/mood/getCommentBySid"
 #define LY_MSG_MOOD_FAVORITE                @"/mood/zan"
 #define LY_MSG_MOOD_GET_MOODLIST_BY_UID     @"/mood/getmoodlistbyuid"
+#define LY_MSG_MOOD_DELETE_MOOD_BY_SID      @"/mood/deleteMsgById"
 
 
 //friend

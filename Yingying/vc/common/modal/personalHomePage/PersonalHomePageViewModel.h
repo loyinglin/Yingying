@@ -40,6 +40,7 @@
 
 #pragma mark - message
 
+- (RACSignal *)requestDeleteMoodByIndex:(long)index;
 - (RACSignal *)requestGetUserInfo;
 - (RACSignal *)requestGetMoodList;
 - (RACSignal *)requestAddPhotoWithImage:(UIImage *)image;

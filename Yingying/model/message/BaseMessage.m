@@ -75,9 +75,8 @@
         }
         LYLog(@"Error: %@", error);
         LYLog(@"opertaion %@ error", [task description]);
-        if (error.code == kCFURLErrorDNSLookupFailed) {
-//            [self lyModalLoginViewController];
-            
+        if (error.code == kCFURLErrorBadServerResponse) {
+            [self lyModalLoginViewController];
         }
     }];
 }

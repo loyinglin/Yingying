@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
+    
     @weakify(self);
     RAC(self.myViewModel, myCommentString) = self.myInputTextField.rac_textSignal;
     [RACObserve(self.myViewModel, myCommentInfoArr) subscribeNext:^(id x) {
@@ -119,6 +119,34 @@
             [self.myViewModel updateGetMoodComment];
         }];
     }
+}
+
+
+- (IBAction)onRightButton:(id)sender {
+    UIAlertController* controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    @weakify(self);
+    if (self.myViewModel.myMoodInfo.isSelf && self.myViewModel.myMoodInfo.isSelf.boolValue == NO) {
+        UIAlertAction* delete = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            @strongify(self);
+            LYLog(@"delete mood");
+        }];
+        [controller addAction:delete];
+    }
+    
+    UIAlertAction* transfer = [UIAlertAction actionWithTitle:@"转发到聊天" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
+        [self performSegueWithIdentifier:@"open_transfer_mood_friend_list_board" sender:self];
+    }];
+    [controller addAction:transfer];
+    
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//        @strongify(self);
+        LYLog(@"cancel");
+    }];
+    [controller addAction:cancel];
+    
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 #pragma mark - ui
@@ -228,17 +256,17 @@
         //获取键盘高度，在不同设备上，以及中英文下是不同的
         CGFloat kbHeight = [[note.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
         //计算出键盘顶端到inputTextView panel底端的距离(加上自定义的缓冲距离INTERVAL_KEYBOARD)
-//        CGFloat offset = (self.myInputView.frame.origin.y + self.myInputView.frame.size.height + INTERVAL_KEYBOARD) - (self.view.frame.size.height - kbHeight);
+        //        CGFloat offset = (self.myInputView.frame.origin.y + self.myInputView.frame.size.height + INTERVAL_KEYBOARD) - (self.view.frame.size.height - kbHeight);
         
         // 取得键盘的动画时间，这样可以在视图上移的时候更连贯
-//        double duration = [[note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        //        double duration = [[note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
         
         //将视图上移计算好的偏移
         if(kbHeight > 0) {
-//            [UIView animateWithDuration:duration animations:^{
-                self.myConstraint.constant = kbHeight;
-//                self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
-//            }];
+            //            [UIView animateWithDuration:duration animations:^{
+            self.myConstraint.constant = kbHeight;
+            //                self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
+            //            }];
         }
     }];
     

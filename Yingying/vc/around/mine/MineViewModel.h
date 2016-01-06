@@ -17,6 +17,7 @@ typedef NS_ENUM(NSInteger, LY_MINE) {
 
 typedef NS_ENUM(NSInteger, LY_MINE_STATUS) {
     ly_mine_status_not_start = -1,
+    ly_mine_status_pause = 0,
     ly_mine_status_started  = 1
 };
 

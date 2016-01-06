@@ -94,6 +94,7 @@
 @property (nonatomic , strong) NSNumber* price;
 @property (nonatomic , strong) NSString* name;
 @property (nonatomic , strong) NSNumber* isZan;
+@property (nonatomic , strong) NSNumber* isSelf;
 @property (nonatomic , strong) NSString* headUrl;
 @property (nonatomic , strong) NSString* username;
 @end

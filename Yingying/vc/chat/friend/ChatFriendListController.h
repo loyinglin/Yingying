@@ -6,8 +6,8 @@
 //  Copyright © 2015年 林伟池. All rights reserved.
 //
 
-#import "MyTransferTableViewController.h"
+#import "YingYingFriendListController.h"
 
-@interface ChatFriendListController : MyTransferTableViewController
+@interface ChatFriendListController : YingYingFriendListController
 
 @end

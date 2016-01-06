@@ -63,6 +63,25 @@
 
 #pragma mark - message
 
+- (RACSignal *)requestDeleteMoodByIndex:(long)index {
+    @weakify(self);
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self);
+        MoodInfo* info = [self getMoodInfoByIndex:index];
+        BaseMessage* message = [BaseMessage instance];
+        message.myLoadingStrings = @"删除动态...";
+        if (!info.sid) {
+            [subscriber sendError:nil];
+            return nil;
+        }
+        [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_DELETE_MOOD_BY_SID] Param:@{@"access_token":[[UserModel instance] getMyAccessToken], @"sid":info.sid} success:^(id responseObject) {
+            [subscriber sendCompleted];
+        }];
+        
+        return nil;
+    }];
+}
+
 - (RACSignal *)requestGetMoodList {
     
     @weakify(self);

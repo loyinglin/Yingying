@@ -40,7 +40,7 @@ typedef NS_ENUM(NSInteger, LY_MINE_UI) {
 
     @weakify(self);
     [RACObserve(self.myViewModel, myGameStatus) subscribeNext:^(NSNumber* status) {
-        if (status && status.integerValue >= 0) { //开始游戏，显示动画
+        if (status && status.integerValue == ly_mine_status_started) { //开始游戏，显示动画
             @strongify(self);
             NSArray* arr = @[@"around_mine_mining0",
                              @"around_mine_mining0",

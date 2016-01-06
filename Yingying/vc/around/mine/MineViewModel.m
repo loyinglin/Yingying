@@ -96,7 +96,7 @@
 }
 
 - (void)sendUserOperation:(LY_MINE_USER_OPERATION)operation {
-    if (self.myGameStatus) {
+    if (self.myGameStatus && self.myGameStatus.integerValue) {
         [self sendDataWithDict:@{ly_key_game_status:self.myGameStatus, ly_key_uer_operation:@(operation)}];
     }
 }
@@ -118,7 +118,14 @@
             self.myGameStatus = status;
         }
         if (code) {
-            
+            switch (code.integerValue) {
+                case ly_mine_back_coupon:
+                    
+                    break;
+                    
+                default:
+                    break;
+            }
         }
         
 //        LYLog(@"%@", manual);

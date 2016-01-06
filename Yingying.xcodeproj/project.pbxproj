@@ -204,6 +204,9 @@
 		FD9686DB1C1AE42800D7F778 /* AroundPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9686DA1C1AE42800D7F778 /* AroundPayController.m */; };
 		FD9686E11C1AEA8600D7F778 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9686E01C1AEA8600D7F778 /* MineViewController.m */; };
 		FD9A8EF01C193B5B00D9EC9C /* LYAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8EEF1C193B5B00D9EC9C /* LYAnnotationView.m */; };
+		FD9E1B2F1C3D10EA00C94AA3 /* YingYingFriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E1B2E1C3D10EA00C94AA3 /* YingYingFriendListController.m */; };
+		FD9E1B321C3D113E00C94AA3 /* YingYingFriendListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E1B311C3D113E00C94AA3 /* YingYingFriendListViewModel.m */; };
+		FD9E1B361C3D13C900C94AA3 /* TransferMoodFriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E1B351C3D13C900C94AA3 /* TransferMoodFriendListController.m */; };
 		FDA679BD1C1A7D5100FC8D9F /* DistributionResViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA679BC1C1A7D5100FC8D9F /* DistributionResViewModel.m */; };
 		FDD6D7CB1C24F4E400B03DF8 /* MyCashSwitchAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7CA1C24F4E400B03DF8 /* MyCashSwitchAccountController.m */; };
 		FDD6D7D21C25A41100B03DF8 /* SettingPayPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7D11C25A41100B03DF8 /* SettingPayPasswordController.m */; };
@@ -573,6 +576,12 @@
 		FD9686E01C1AEA8600D7F778 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		FD9A8EEE1C193B5B00D9EC9C /* LYAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYAnnotationView.h; sourceTree = "<group>"; };
 		FD9A8EEF1C193B5B00D9EC9C /* LYAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYAnnotationView.m; sourceTree = "<group>"; };
+		FD9E1B2D1C3D10EA00C94AA3 /* YingYingFriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YingYingFriendListController.h; sourceTree = "<group>"; };
+		FD9E1B2E1C3D10EA00C94AA3 /* YingYingFriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YingYingFriendListController.m; sourceTree = "<group>"; };
+		FD9E1B301C3D113E00C94AA3 /* YingYingFriendListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YingYingFriendListViewModel.h; sourceTree = "<group>"; };
+		FD9E1B311C3D113E00C94AA3 /* YingYingFriendListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YingYingFriendListViewModel.m; sourceTree = "<group>"; };
+		FD9E1B341C3D13C900C94AA3 /* TransferMoodFriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransferMoodFriendListController.h; sourceTree = "<group>"; };
+		FD9E1B351C3D13C900C94AA3 /* TransferMoodFriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransferMoodFriendListController.m; sourceTree = "<group>"; };
 		FDA679BB1C1A7D5100FC8D9F /* DistributionResViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionResViewModel.h; sourceTree = "<group>"; };
 		FDA679BC1C1A7D5100FC8D9F /* DistributionResViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionResViewModel.m; sourceTree = "<group>"; };
 		FDD6D7C91C24F4E400B03DF8 /* MyCashSwitchAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCashSwitchAccountController.h; sourceTree = "<group>"; };
@@ -955,6 +964,7 @@
 		FD29B3BB1C1159D800B68C6C /* detail */ = {
 			isa = PBXGroup;
 			children = (
+				FD9E1B331C3D13A000C94AA3 /* transfer */,
 				FD29B3BC1C1159D800B68C6C /* AroundMessageController.h */,
 				FD29B3BD1C1159D800B68C6C /* AroundMessageController.m */,
 				FD69A1B61C337812002A458F /* AroundMoodViewModel.h */,
@@ -1274,6 +1284,10 @@
 				FD7A99FB1C3762E6009A05F5 /* LYBaseViewModel.m */,
 				FD1EE5241C3969000098812F /* UIViewController+YingYingImagePickerController.h */,
 				FD1EE5251C3969000098812F /* UIViewController+YingYingImagePickerController.m */,
+				FD9E1B2D1C3D10EA00C94AA3 /* YingYingFriendListController.h */,
+				FD9E1B2E1C3D10EA00C94AA3 /* YingYingFriendListController.m */,
+				FD9E1B301C3D113E00C94AA3 /* YingYingFriendListViewModel.h */,
+				FD9E1B311C3D113E00C94AA3 /* YingYingFriendListViewModel.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -1393,6 +1407,15 @@
 				FDEC5E751C31239D00D85E3F /* MinePopController.m */,
 			);
 			path = mine;
+			sourceTree = "<group>";
+		};
+		FD9E1B331C3D13A000C94AA3 /* transfer */ = {
+			isa = PBXGroup;
+			children = (
+				FD9E1B341C3D13C900C94AA3 /* TransferMoodFriendListController.h */,
+				FD9E1B351C3D13C900C94AA3 /* TransferMoodFriendListController.m */,
+			);
+			path = transfer;
 			sourceTree = "<group>";
 		};
 		FDD6D7CF1C25A41100B03DF8 /* password */ = {
@@ -1897,8 +1920,10 @@
 				FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */,
 				FD41BAB71C1D09A400B4A074 /* YingLoanController.m in Sources */,
 				FD405F701C1917C100DB6F0A /* LYColor.m in Sources */,
+				FD9E1B321C3D113E00C94AA3 /* YingYingFriendListViewModel.m in Sources */,
 				FDD6D7DF1C26533900B03DF8 /* ChatFriendListController.m in Sources */,
 				FD90EF561C158975005545DF /* LoginRegisterController.m in Sources */,
+				FD9E1B2F1C3D10EA00C94AA3 /* YingYingFriendListController.m in Sources */,
 				FD29B35B1C111C4A00B68C6C /* main.m in Sources */,
 				FD54DDEC1C23B923009A8AD5 /* LYBaseTabBarController.m in Sources */,
 				FD8068601C20F27700111A0A /* AroundAddressController.m in Sources */,
@@ -1937,6 +1962,7 @@
 				FDEC5E4A1C2E3E7400D85E3F /* LYDebug.m in Sources */,
 				FD29B3751C112FDC00B68C6C /* LYTypeEncoding.m in Sources */,
 				FDEC5E7B1C315DB200D85E3F /* MyCenterTotalCell.m in Sources */,
+				FD9E1B361C3D13C900C94AA3 /* TransferMoodFriendListController.m in Sources */,
 				FD54DDBD1C22960B009A8AD5 /* UserModel.m in Sources */,
 				FD4BA8CF1C12841700A69F90 /* MyLoanDetailController.m in Sources */,
 				FD29B3591C111C4A00B68C6C /* FirstViewController.m in Sources */,
