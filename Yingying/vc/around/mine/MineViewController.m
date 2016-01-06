@@ -12,11 +12,17 @@
 #import <AVFoundation/AVFoundation.h>
 #import "UIViewController+YingyingNavigationItem.h"
 
+typedef NS_ENUM(NSInteger, LY_MINE_UI) {
+    ly_mine_ui_progress_length = 270,
+    ly_mine_server_max_manual = 60
+};
+
 @interface MineViewController () <AVAudioPlayerDelegate>
 
 @property (nonatomic , strong) AVAudioPlayer*                   myPlayer;
 @property (nonatomic , strong) IBOutlet UIImageView*            myMiningImageView;
 @property (nonatomic , strong) IBOutlet NSLayoutConstraint*     myProgressConstraint;
+@property (nonatomic , strong) IBOutlet UILabel*                myManualLabel;
 
 
 @property (nonatomic , strong) MineViewModel*                   myViewModel;
@@ -34,8 +40,7 @@
 
     @weakify(self);
     [RACObserve(self.myViewModel, myGameStatus) subscribeNext:^(NSNumber* status) {
-        LYLog(@"ABCABC %@", status);
-        if (status && status.integerValue >= 0) {
+        if (status && status.integerValue >= 0) { //开始游戏，显示动画
             @strongify(self);
             NSArray* arr = @[@"around_mine_mining0",
                              @"around_mine_mining0",
@@ -52,18 +57,25 @@
             UIImage* mining = [UIImage animatedImageWithImages:imgs duration:0.7];
             [self.myMiningImageView setImage:mining];
         }
-        else {
+        else {  //暂停、游戏，停止动画
             [self.myMiningImageView setImage:[UIImage imageNamed:@"around_mine_init"]];
         }
     }];
     
-    [RACObserve(self.myViewModel, myGameManual) subscribeNext:^(id x) {
-        
+    [[RACObserve(self.myViewModel, myGameManual) map:^id(id value) {
+        if (!value) {
+            return @(0);
+        }
+        return value;
+    }]subscribeNext:^(NSNumber* manual) {
+        @strongify(self);
+        float constant = manual.floatValue / ly_mine_server_max_manual * ly_mine_ui_progress_length;
+        self.myProgressConstraint.constant = constant;
+        self.myManualLabel.text = [NSString stringWithFormat:@"体力:%@", manual];
     }];
     
     
     [self prepareToPlay];
-//    [self playRecord];
     [self customView];
     
 
@@ -82,10 +94,14 @@
 - (void)customView {
     [self lySetupLeftItem];
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.myViewModel sendUserOperation:ly_mine_operation_enter];
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self stopPlay];
+    [self.myViewModel sendUserOperation:ly_mine_operation_left];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -97,6 +113,7 @@
 - (IBAction)onMine:(UIButton *)sender {
     
     [self.myViewModel sendStartGame];
+    /*
     [UIView animateWithDuration:3.0 animations:^{
         self.myProgressConstraint.constant = 270;
         [self.view layoutIfNeeded];
@@ -104,6 +121,7 @@
         self.myProgressConstraint.constant = 30;
         [self performSegueWithIdentifier:@"open_mine_pop_board" sender:nil];
     }];
+     */
 }
 
 - (IBAction)onBack:(id)sender {

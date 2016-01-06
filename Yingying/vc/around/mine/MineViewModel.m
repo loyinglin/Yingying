@@ -35,11 +35,14 @@
 
 - (instancetype)init {
     self = [super init];
-//    self.myGameStatus = @(0);
+    [self customNotify];
     return self;
     
 }
 
+- (void)dealloc {
+    NSLog(@"dealloc");
+}
 
 - (void)customSocket {
 //    self.myGameStatus = @(0);
@@ -57,12 +60,17 @@
 
 #pragma mark - update
 
+
+
+
 - (void)sendDataWithDict:(NSDictionary *)dict {
     if ([NSJSONSerialization isValidJSONObject:dict]) {
         NSData* data= [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
         NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         LYLog(@"send %@", str);
-        [self.myWebSocket send:str];
+        if (self.myWebSocket) {
+            [self.myWebSocket send:str];
+        }
     }
     else {
         LYLog(@"dict error");
@@ -78,23 +86,19 @@
 #pragma mark - message
 
 - (void)sendStartGame {
-    [self sendDataWithDict:@{ly_key_game_status:@(0)}];
+    if (self.myGameStatus && self.myGameStatus.integerValue == ly_mine_status_started) { //暂停游戏
+        [self sendDataWithDict:@{ly_key_game_status:@(ly_mine_status_started), ly_key_uer_operation:@(ly_mine_operation_pause)}];
+    }
+    else {
+        //开始游戏
+        [self sendDataWithDict:@{ly_key_game_status:@(0)}];
+    }
 }
 
-- (void)sendLeftInGame {
-    [self sendDataWithDict:@{ly_key_game_status:@(1), ly_key_uer_operation:@(2)}];
-}
-
-- (void)sendEnterInGame {
-    [self sendDataWithDict:@{ly_key_game_status:@(1), ly_key_uer_operation:@(3)}];
-}
-
-- (void)sendPauseInGame {
-    [self sendDataWithDict:@{ly_key_game_status:@(1), ly_key_uer_operation:@(4)}];
-}
-
-- (void)sendExitInGame {
-    [self sendDataWithDict:@{ly_key_game_status:@(1), ly_key_uer_operation:@(5)}];
+- (void)sendUserOperation:(LY_MINE_USER_OPERATION)operation {
+    if (self.myGameStatus) {
+        [self sendDataWithDict:@{ly_key_game_status:self.myGameStatus, ly_key_uer_operation:@(operation)}];
+    }
 }
 
 #pragma mark - delgate
@@ -137,5 +141,24 @@
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload {
     LYLog(@"pong %@", pongPayload);
+}
+
+
+#pragma mark - notify
+
+- (void)customNotify {
+    @weakify(self);
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidBecomeActiveNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        [self sendUserOperation:ly_mine_operation_enter];
+    }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillResignActiveNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        [self sendUserOperation:ly_mine_operation_left];
+    }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillTerminateNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        [self sendUserOperation:ly_mine_operation_exit];
+    }];
 }
 @end

@@ -902,6 +902,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="myManualLabel" destination="DcB-Lp-6i7" id="zvX-4g-9sR"/>
                         <outlet property="myMiningImageView" destination="TE3-TC-UTM" id="InR-gU-2es"/>
                         <outlet property="myProgressConstraint" destination="hfC-mR-g7o" id="MjD-x0-0Jb"/>
                         <segue destination="8iQ-7S-u9q" kind="modal" identifier="open_mine_pop_board" animates="NO" id="5Ld-un-d90"/>
