@@ -389,6 +389,9 @@
 		70F589851B425045008C2C36 /* CDMessageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F589831B425045008C2C36 /* CDMessageHelper.m */; };
 		FD41BB781C1E71BE00B4A074 /* weChatBubble_Receiving_Yingying@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41BB761C1E71BE00B4A074 /* weChatBubble_Receiving_Yingying@2x.png */; };
 		FD41BB791C1E71BE00B4A074 /* weChatBubble_Sending_Yingying@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD41BB771C1E71BE00B4A074 /* weChatBubble_Sending_Yingying@2x.png */; };
+		FDF3DA791C3CBDFD00BB2833 /* YingYingMoodView.h in Headers */ = {isa = PBXBuildFile; fileRef = FDF3DA761C3CBDFD00BB2833 /* YingYingMoodView.h */; };
+		FDF3DA7A1C3CBDFD00BB2833 /* YingYingMoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3DA771C3CBDFD00BB2833 /* YingYingMoodView.m */; };
+		FDF3DA7B1C3CBDFD00BB2833 /* YingYingMoodView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDF3DA781C3CBDFD00BB2833 /* YingYingMoodView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -784,6 +787,9 @@
 		D436797F4699DACEE94063D4 /* libPods-LeanChatLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LeanChatLib.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD41BB761C1E71BE00B4A074 /* weChatBubble_Receiving_Yingying@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weChatBubble_Receiving_Yingying@2x.png"; sourceTree = "<group>"; };
 		FD41BB771C1E71BE00B4A074 /* weChatBubble_Sending_Yingying@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weChatBubble_Sending_Yingying@2x.png"; sourceTree = "<group>"; };
+		FDF3DA761C3CBDFD00BB2833 /* YingYingMoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YingYingMoodView.h; sourceTree = "<group>"; };
+		FDF3DA771C3CBDFD00BB2833 /* YingYingMoodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YingYingMoodView.m; sourceTree = "<group>"; };
+		FDF3DA781C3CBDFD00BB2833 /* YingYingMoodView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YingYingMoodView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1402,6 +1408,9 @@
 		706E0C081B31F52500F9C891 /* MessageContentViews */ = {
 			isa = PBXGroup;
 			children = (
+				FDF3DA761C3CBDFD00BB2833 /* YingYingMoodView.h */,
+				FDF3DA771C3CBDFD00BB2833 /* YingYingMoodView.m */,
+				FDF3DA781C3CBDFD00BB2833 /* YingYingMoodView.xib */,
 				706E0C091B31F52500F9C891 /* XHBubblePhotoImageView.h */,
 				706E0C0A1B31F52500F9C891 /* XHBubblePhotoImageView.m */,
 				706E0C0B1B31F52500F9C891 /* XHMessageBubbleView.h */,
@@ -1650,6 +1659,7 @@
 				706E0D0D1B31F52600F9C891 /* XHEmotion.h in Headers */,
 				706E0D381B31F52600F9C891 /* SETextSelectionView.h in Headers */,
 				706E0D2E1B31F52600F9C891 /* SETextInput.h in Headers */,
+				FDF3DA791C3CBDFD00BB2833 /* YingYingMoodView.h in Headers */,
 				706E0CF61B31F52600F9C891 /* XHHTTPClient.h in Headers */,
 				706E0D581B31F52600F9C891 /* XHMessageInputView.h in Headers */,
 				706E0D141B31F52600F9C891 /* XHShareMenuItem.h in Headers */,
@@ -1849,6 +1859,7 @@
 				703607081B7DD2320044C81A /* rabbit_20_cover@2x.png in Resources */,
 				703607321B7DD2320044C81A /* tusiji_5_cover@2x.png in Resources */,
 				706E0DA71B31F52600F9C891 /* RecordingSignal006@2x.png in Resources */,
+				FDF3DA7B1C3CBDFD00BB2833 /* YingYingMoodView.xib in Resources */,
 				703606EF1B7DD2320044C81A /* rabbit_0_cover@2x.png in Resources */,
 				706E0DCA1B31F52600F9C891 /* sharemore_wxtalk@2x.png in Resources */,
 				7036072D1B7DD2320044C81A /* tusiji_3.gif in Resources */,
@@ -2051,6 +2062,7 @@
 				706E0D531B31F52600F9C891 /* XHMessageStatusView.m in Sources */,
 				706E0D251B31F52600F9C891 /* SELinkText.m in Sources */,
 				706E0D651B31F52600F9C891 /* XHEmotionSectionBar.m in Sources */,
+				FDF3DA7A1C3CBDFD00BB2833 /* YingYingMoodView.m in Sources */,
 				706E0CFF1B31F52600F9C891 /* XHMessageVideoConverPhotoFactory.m in Sources */,
 				706E0CE11B31F52600F9C891 /* XHBaseNavigationController.m in Sources */,
 				706E0D311B31F52600F9C891 /* SETextLayout.m in Sources */,

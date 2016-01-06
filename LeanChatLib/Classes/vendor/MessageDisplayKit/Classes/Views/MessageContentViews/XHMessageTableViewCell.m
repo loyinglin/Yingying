@@ -216,6 +216,7 @@ static const CGFloat kXHBubbleMessageViewPadding = 8;
             self.messageBubbleView.voiceDurationLabel.text = durationStr;
 //            break;
         }
+        case XHBubbleMessageMediaTypeYingyingMood:
         case XHBubbleMessageMediaTypeEmotion: {
             UITapGestureRecognizer *tapGestureRecognizer;
             if (currentMediaType == XHBubbleMessageMediaTypeText) {

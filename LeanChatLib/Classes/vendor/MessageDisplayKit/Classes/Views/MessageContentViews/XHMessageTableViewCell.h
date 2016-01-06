@@ -64,6 +64,7 @@
  */
 @property (nonatomic, weak, readonly) XHMessageBubbleView *messageBubbleView;
 
+
 /**
  *  头像按钮
  */

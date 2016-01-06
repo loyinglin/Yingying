@@ -35,6 +35,12 @@
 
 #define kXHTextLineSpacing 3.0
 
+typedef NS_ENUM(NSInteger, yingying_mood_tag) {
+    yingying_mood_tag_title = 10,
+    yingying_mood_tag_content = 20,
+    yingying_mood_tag_image = 30,
+};
+
 @interface XHMessageBubbleView : UIView
 
 /**
@@ -51,6 +57,11 @@
  *  用于显示气泡的ImageView控件
  */
 @property (nonatomic, weak, readonly) UIImageView *bubbleImageView;
+
+/**
+ *  盈盈的分享
+ */
+@property (nonatomic, weak, readonly) UIView* yingyingMoodView;
 
 /**
  *  专门用于gif表情显示控件

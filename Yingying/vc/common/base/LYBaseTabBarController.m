@@ -39,6 +39,22 @@
             else {
                 LYLog(@"chat init success id:%@", uid);
                 [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_CHAT_LOGIN_WITH_UID_SUCCESS object:nil];
+//                [[CDChatManager manager] fecthConvWithConvid:@"5689d4f39accde5e1980635b" callback:^(AVIMConversation *conversation, NSError *error) {
+//                    LYLog(@"back %@", [conversation description]);
+//                    NSDictionary* dict = @{@"yingying":@{
+//                                                   yingying_msg_key_mood_image_url:@"http://120.25.101.195/YinYin/img/12c5e37a-ccdc-43ea-a1bf-23655f686683.jpg",
+//                                                         yingying_msg_key_mood_content:@"test_content"
+//                                                         , yingying_msg_key_mood_title:@"test_title" ,
+//                                                   yingying_msg_key_mood_sid:@(33)
+//                                                         }};
+//                    AVIMTextMessage* message = [AVIMTextMessage messageWithText:@"这条带四个属性的测试文本" attributes:dict];
+//                    
+//                    [conversation sendMessage:message callback:^(BOOL succeeded, NSError *error) {
+//                        if (succeeded) {
+//                            LYLog(@"测试成功");
+//                        }
+//                    }];
+//                }];
             }
         }];
     }];

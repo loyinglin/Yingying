@@ -44,6 +44,10 @@ typedef NS_ENUM(NSInteger, XHMessageStatus){
 
 - (UIImage *)avator;
 - (NSString *)avatorUrl;
+- (NSString *)yingyingMoodConent;
+- (NSString *)yingyingMoodTitle;
+- (NSString *)yingyingImageUrl;
+- (NSNumber *)yingyingSid;
 
 - (XHBubbleMessageMediaType)messageMediaType;
 

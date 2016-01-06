@@ -7,6 +7,7 @@
 //
 
 #import "XHMessageBubbleView.h"
+#import "UIView+XHRemoteImage.h"
 
 #import "XHMessageBubbleHelper.h"
 
@@ -107,6 +108,9 @@
             // 固定大小，必须的
             bubbleSize = CGSizeMake(119, 119);
             break;
+        case XHBubbleMessageMediaTypeYingyingMood:
+            bubbleSize = CGSizeMake(160, 80);
+            break;
         default:
             break;
     }
@@ -153,6 +157,7 @@
     XHBubbleMessageMediaType currentType = message.messageMediaType;
     
     _voiceDurationLabel.hidden = YES;
+    _yingyingMoodView.hidden = YES;
     switch (currentType) {
         case XHBubbleMessageMediaTypeVoice: {
             _voiceDurationLabel.hidden = NO;
@@ -161,6 +166,7 @@
             }
         }
         case XHBubbleMessageMediaTypeText:
+        case XHBubbleMessageMediaTypeYingyingMood:
         case XHBubbleMessageMediaTypeEmotion: {
             _bubbleImageView.image = [XHMessageBubbleFactory bubbleImageViewForType:message.bubbleMessageType style:XHBubbleImageViewStyleWeChat meidaType:message.messageMediaType];
             // 只要是文本、语音、第三方表情，背景的气泡都不能隐藏
@@ -169,8 +175,14 @@
             // 只要是文本、语音、第三方表情，都需要把显示尖嘴图片的控件隐藏了
             _bubblePhotoImageView.hidden = YES;
             
-            
-            if (currentType == XHBubbleMessageMediaTypeText) {
+            if (currentType == XHBubbleMessageMediaTypeYingyingMood) {
+                _yingyingMoodView.hidden = NO;
+                
+                //同下
+                _animationVoiceImageView.hidden = YES;
+                _emotionImageView.hidden = YES;
+            }
+            else if (currentType == XHBubbleMessageMediaTypeText) {
                 // 如果是文本消息，那文本消息的控件需要显示
                 _displayTextView.hidden = NO;
                 // 那语言的gif动画imageView就需要隐藏了
@@ -209,12 +221,13 @@
             _geolocationsLabel.hidden = (currentType != XHBubbleMessageMediaTypeLocalPosition);
             
             // 那其他的控件都必须隐藏
-            _displayTextView.hidden = YES;
             _bubbleImageView.hidden = YES;
+            _displayTextView.hidden = YES;
             _animationVoiceImageView.hidden = YES;
             _emotionImageView.hidden = YES;
             break;
         }
+            
         default:
             break;
     }
@@ -246,6 +259,22 @@
             
             _geolocationsLabel.text = message.geolocations;
             break;
+        case XHBubbleMessageMediaTypeYingyingMood:{
+            UILabel* titleLabel = (UILabel *)[self.yingyingMoodView viewWithTag:yingying_mood_tag_title];
+            UILabel* contentLabel = (UILabel *)[self.yingyingMoodView viewWithTag:yingying_mood_tag_content];
+            UIImageView* contentImageView = (UIImageView *)[self.yingyingMoodView viewWithTag:yingying_mood_tag_image];
+            
+            titleLabel.text = self.message.yingyingMoodTitle;
+            contentLabel.text = self.message.yingyingMoodConent;
+            if (self.message.yingyingImageUrl) {
+                [contentImageView setImageWithURL:[NSURL URLWithString:self.message.yingyingImageUrl] placeholer:[UIImage imageNamed:@"first"]];
+            }
+            else {
+                [contentImageView setImage:[UIImage imageNamed:@"second"]];
+            }
+            
+            break;
+        }
         default:
             break;
     }
@@ -334,6 +363,32 @@
             [self addSubview:voiceUnreadDotImageView];
             _voiceUnreadDotImageView = voiceUnreadDotImageView;
         }
+        // 7，初始化盈盈的
+        if (!self.yingyingMoodView) {
+            UIView* moodView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 75)];
+            [moodView setBackgroundColor:[UIColor clearColor]];
+            UILabel* titleLabel =[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
+            titleLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
+            titleLabel.textColor = [UIColor whiteColor];
+            titleLabel.text = @"测试的标题";
+            titleLabel.tag = yingying_mood_tag_title;
+            [moodView addSubview:titleLabel];
+            UIImageView* contentImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"base_avatar"]];
+            [contentImageView setFrame:CGRectMake(0, 20, 50, 50)];
+            contentImageView.tag = yingying_mood_tag_image;
+            [moodView addSubview:contentImageView];
+            UILabel* contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 20, 70, 40)];
+            contentLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
+            contentLabel.textColor = [UIColor whiteColor];
+            contentLabel.text = @"我是测试的label content";
+            contentLabel.tag = yingying_mood_tag_content;
+            [moodView addSubview:contentLabel];
+            
+            moodView.userInteractionEnabled = NO;
+            [self addSubview:moodView];
+            _yingyingMoodView = moodView;
+            
+        }
     }
     return self;
 }
@@ -359,6 +414,8 @@
     
     _geolocationsLabel = nil;
     
+    _yingyingMoodView = nil;
+    
     _font = nil;
     
 }
@@ -372,6 +429,7 @@
     switch (currentType) {
         case XHBubbleMessageMediaTypeText:
         case XHBubbleMessageMediaTypeVoice:
+        case XHBubbleMessageMediaTypeYingyingMood:
         case XHBubbleMessageMediaTypeEmotion: {
             self.bubbleImageView.frame = bubbleFrame;
             
@@ -387,6 +445,9 @@
                                           bubbleFrame.size.height - kMarginTop - kMarginBottom);
             
             self.displayTextView.frame = CGRectIntegral(textFrame);
+            
+            CGRect moodFrame = CGRectMake(textX, CGRectGetMinY(bubbleFrame) + kPaddingTop, 130, 70);
+            self.yingyingMoodView.frame = CGRectIntegral(moodFrame);
             
             CGRect animationVoiceImageViewFrame = self.animationVoiceImageView.frame;
             animationVoiceImageViewFrame.origin = CGPointMake((self.message.bubbleMessageType == XHBubbleMessageTypeReceiving ? (bubbleFrame.origin.x + kVoiceMargin) : (bubbleFrame.origin.x + CGRectGetWidth(bubbleFrame) - kVoiceMargin - CGRectGetWidth(animationVoiceImageViewFrame))), 17);

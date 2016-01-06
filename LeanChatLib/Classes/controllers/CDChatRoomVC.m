@@ -159,6 +159,10 @@ static NSInteger const kOnePageSize = 10;
             break;
         }
             break;
+        case XHBubbleMessageMediaTypeYingyingMood:{
+            NSLog(@"bubble Click %@", message.yingyingSid);
+            break;
+        }
             
         case XHBubbleMessageMediaTypeVoice: {
             // Mark the voice as read and hide the red dot.
@@ -531,8 +535,14 @@ static NSInteger const kOnePageSize = 10;
     XHMessage *xhMessage;
     NSDate *time = [self getTimestampDate:msg.sendTimestamp];
     if (msg.mediaType == kAVIMMessageMediaTypeText) {
+        if (msg.attributes && [[msg.attributes objectForKey:@"yingying"] isKindOfClass:[NSDictionary class]]) {
+            NSLog(@"盈盈的分享");
+            xhMessage = [[XHMessage alloc] initWithAttribute:[msg.attributes objectForKey:@"yingying"] sender:fromUser.username timestamp:time];
+        }
+        else {
         AVIMTextMessage *textMsg = (AVIMTextMessage *)msg;
         xhMessage = [[XHMessage alloc] initWithText:[CDEmotionUtils emojiStringFromString:textMsg.text] sender:fromUser.username timestamp:time];
+        }
     }
     else if (msg.mediaType == kAVIMMessageMediaTypeAudio) {
         AVIMAudioMessage *audioMsg = (AVIMAudioMessage *)msg;

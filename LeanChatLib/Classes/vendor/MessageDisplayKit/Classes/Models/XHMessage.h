@@ -10,6 +10,11 @@
 #import <CoreLocation/CoreLocation.h>
 #import "XHMessageModel.h"
 
+#define yingying_msg_key_mood_image_url     @"yingying_msg_key_mood_image_url"
+#define yingying_msg_key_mood_content       @"yingying_msg_key_mood_content"
+#define yingying_msg_key_mood_title         @"yingying_msg_key_mood_title"
+#define yingying_msg_key_mood_sid           @"yingying_msg_key_mood_sid"
+
 @interface XHMessage : NSObject <XHMessageModel, NSCoding, NSCopying>
 
 @property (nonatomic, copy) NSString *text;
@@ -40,6 +45,12 @@
 @property (nonatomic, strong) NSDate *timestamp;
 
 @property (nonatomic, assign) BOOL sended;
+@property (nonatomic, strong) NSString* yingyingMoodConent;
+@property (nonatomic, strong) NSString* yingyingMoodTitle;
+@property (nonatomic, strong) NSString* yingyingImageUrl;
+@property (nonatomic, strong) NSNumber* yingyingSid;
+
+
 
 @property (nonatomic, assign) XHBubbleMessageMediaType messageMediaType;
 
@@ -53,6 +64,18 @@
                       sender:(NSString *)sender
                    timestamp:(NSDate *)timestamp;
 
+/**
+ *  初始化盈盈的分享
+ *
+ *  @param dict      yingying对应的字典
+ *  @param sender    发送者
+ *  @param timestamp 发送时间
+ *
+ *  @return 具体类型
+ */
+- (instancetype)initWithAttribute:(NSDictionary *)dict
+                           sender:(NSString *)sender
+                        timestamp:(NSDate *)timestamp;
 /**
  *  初始化图片类型的消息
  *

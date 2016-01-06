@@ -45,6 +45,7 @@
             break;
         case XHBubbleMessageMediaTypeText:
         case XHBubbleMessageMediaTypeVoice:
+        case XHBubbleMessageMediaTypeYingyingMood:
             messageTypeString = [messageTypeString stringByAppendingString:@"_Yingying"];
             break;
         default:
@@ -54,7 +55,8 @@
     
     UIImage *bublleImage = [UIImage imageNamed:messageTypeString];
     UIEdgeInsets bubbleImageEdgeInsets = [self bubbleImageEdgeInsetsWithStyle:style];
-    return XH_STRETCH_IMAGE(bublleImage, bubbleImageEdgeInsets);
+    return [bublleImage resizableImageWithCapInsets:bubbleImageEdgeInsets];
+  //  return XH_STRETCH_IMAGE(bublleImage, bubbleImageEdgeInsets);
 }
 
 + (UIEdgeInsets)bubbleImageEdgeInsetsWithStyle:(XHBubbleImageViewStyle)style {
@@ -62,7 +64,7 @@
     switch (style) {
         case XHBubbleImageViewStyleWeChat:
             // 类似微信的
-            edgeInsets = UIEdgeInsetsMake(30, 28, 85, 28);
+            edgeInsets = UIEdgeInsetsMake(35, 10, 10, 20);
             break;
         default:
             break;

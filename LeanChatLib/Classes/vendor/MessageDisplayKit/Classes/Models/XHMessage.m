@@ -25,6 +25,23 @@
     return self;
 }
 
+- (instancetype)initWithAttribute:(NSDictionary *)dict sender:(NSString *)sender timestamp:(NSDate *)timestamp {
+    self = [super init];
+    if (self) {
+        self.text = @"";
+        self.sender = sender;
+        self.timestamp = timestamp;
+        
+        self.yingyingImageUrl = [dict objectForKey:yingying_msg_key_mood_image_url];
+        self.yingyingMoodConent = [dict objectForKey:yingying_msg_key_mood_content];
+        self.yingyingMoodTitle = [dict objectForKey:yingying_msg_key_mood_title];
+        self.yingyingSid = [dict objectForKey:yingying_msg_key_mood_sid];
+        
+        self.messageMediaType = XHBubbleMessageMediaTypeYingyingMood;
+    }
+    return self;
+}
+
 /**
  *  初始化图片类型的消息
  *
