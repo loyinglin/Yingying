@@ -33,6 +33,8 @@
 
 #pragma mark - message
 
+- (RACSignal *)requestDeleteMood;
+
 - (RACSignal *)requestCommentWithSourceCommentId:(NSNumber *)source_comment_id;
 
 - (RACSignal *)requestMoodZan;

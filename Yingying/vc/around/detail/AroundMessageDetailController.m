@@ -127,10 +127,14 @@
     UIAlertController* controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     @weakify(self);
-    if (self.myViewModel.myMoodInfo.isSelf && self.myViewModel.myMoodInfo.isSelf.boolValue == NO) {
-        UIAlertAction* delete = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    if (self.myViewModel.myMoodInfo.isOwn && self.myViewModel.myMoodInfo.isOwn.boolValue == YES) {
+        UIAlertAction* delete = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
             @strongify(self);
-            LYLog(@"delete mood");
+            [[self.myViewModel requestDeleteMood] subscribeCompleted:^{
+                @strongify(self);
+                [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_REFRESH_AROUND_MOOD object:nil];
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
         }];
         [controller addAction:delete];
     }
@@ -290,6 +294,11 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_SHOW_PHOTO object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         @strongify(self);
         [self lyModalImageViewWithUrlString:[note.userInfo objectForKey:NOTIFY_UI_SHOW_PHOTO]];
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_MOOD_DETAIL_TAP_AVATAR object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        [self lyModalPersonalHomePageWithUserphone:nil];
     }];
 }
 

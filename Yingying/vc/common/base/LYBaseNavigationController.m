@@ -21,11 +21,16 @@
     [self.navigationBar setBarTintColor:[UIColor blackColor]];
     [self.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationBar setTitleTextAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil]];
+    LYLog(@"%@", self);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    LYLog(@"dealloc");
 }
 
 /*

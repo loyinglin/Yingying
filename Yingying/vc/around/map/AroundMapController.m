@@ -221,13 +221,13 @@
 - (void)mapView:(BMKMapView *)mapView annotationViewForBubble:(BMKAnnotationView *)view {
     LYLog(@"paopaoclick");
     if (![view.reuseIdentifier isEqualToString:@"renameMark"]) {
-        [self lyModalPersonalHomePageWith:[[UserModel instance] getMyUserphone]];
+        [self lyModalPersonalHomePageWithUserphone:[[UserModel instance] getMyUserphone]];
     }
     else {
         long index = [myPoints indexOfObject:view.annotation];
         MapUserInfo* info = [self.myViewModel getMapUserInfoByIndex:index];
         if (info) {
-            [self lyModalPersonalHomePageWith:info.userphone];
+            [self lyModalPersonalHomePageWithUserphone:info.userphone];
         }
     }
 }

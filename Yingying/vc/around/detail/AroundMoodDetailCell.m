@@ -39,6 +39,10 @@
         [self.myImagesCollectionView reloadData];
         [self layoutIfNeeded];
     }];
+    
+    self.myAvatarImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapAvatar:)];
+    [self.myAvatarImageView addGestureRecognizer:tap];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -58,13 +62,22 @@
             [self.myTypeImageView setImage:[UIImage imageNamed:@"base_status_mood"]];
         }
     }
+    
+    if (info.headUrl) {
+        [self.myAvatarImageView setImageWithURL:[NSURL URLWithString:[LY_MSG_BASE_URL stringByAppendingString:info.headUrl]] placeholderImage:[UIImage imageNamed:@"base_avatar"]];
+    }
+    else {
+        [self.myAvatarImageView setImage:[UIImage imageNamed:@"base_avatar"]];
+    }
 }
 
 #pragma mark - ibaction
 
 #pragma mark - ui
 
-
+- (void)onTapAvatar:(UITapGestureRecognizer *)tap {
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_MOOD_DETAIL_TAP_AVATAR object:nil];
+}
 
 #pragma mark - delegate
 

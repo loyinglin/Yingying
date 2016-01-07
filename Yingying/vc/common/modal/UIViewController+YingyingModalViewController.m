@@ -13,7 +13,7 @@
 @implementation UIViewController (YingyingModalViewController)
 
 
-- (void)lyModalPersonalHomePageWith:(NSString *)userphone {
+- (void)lyModalPersonalHomePageWithUserphone:(NSString *)userphone {
     UINavigationController* navigatonController = [self.storyboard instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
     PersonalHomePageController* controller = navigatonController.viewControllers[0];
     if ([controller isKindOfClass:[PersonalHomePageController class]]) {
@@ -21,7 +21,7 @@
         [self presentViewController:navigatonController animated:YES completion:nil];
     }
     else {
-        LYLog(@"error here");
+        LYLog(@"error");
     }
 }
 
@@ -53,6 +53,12 @@
         if (self.navigationController) {
             [self.navigationController pushViewController:controller animated:YES];
         }
+        else {
+            LYLog(@"error");
+        }
+    }
+    else {
+        LYLog(@"error");
     }
 }
 @end

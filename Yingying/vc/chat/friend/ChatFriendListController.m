@@ -59,7 +59,7 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.mySearchController setActive:NO];
-//    [self lyModalPersonalHomePageWith:@"abc"];
+//    [self lyModalPersonalHomePageWithUserphone:@"abc"];
     
     Friend* info;
     if (self.mySearchController.active) {
@@ -70,7 +70,7 @@
     }
 
     if (info && info.phone) {
-        [self.navigationController lyModalPersonalHomePageWith:info.phone];
+        [self.navigationController lyModalPersonalHomePageWithUserphone:info.phone];
     }
     
 //    [[CDChatManager manager] fetchConvWithOtherId:[self.myViewModel getFriendByIndex:indexPath.row Section:indexPath.section].nickname callback : ^(AVIMConversation *conversation, NSError *error) {

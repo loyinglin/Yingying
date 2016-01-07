@@ -77,7 +77,7 @@
             
         case LY_MY_CENTER_TOTAL_HEAD:
         {
-            [self lyModalPersonalHomePageWith:[[UserModel instance] getMyUserphone]];
+            [self lyModalPersonalHomePageWithUserphone:[[UserModel instance] getMyUserphone]];
             break;
         }
             

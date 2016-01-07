@@ -15,7 +15,7 @@
 //回调通过notify 
 
 
-- (void)lyModalPersonalHomePageWith:(NSString *)userphone;
+- (void)lyModalPersonalHomePageWithUserphone:(NSString *)userphone;
 
 - (void)lyModalImageViewWithUrlString:(NSString *)urlString CallBack:(OnImageDeleteCallBack)callback;
 

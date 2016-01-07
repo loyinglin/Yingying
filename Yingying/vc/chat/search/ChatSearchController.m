@@ -114,7 +114,7 @@
     FriendInfo* info = [self.myViewModel getFriendInfoByIndex:indexPath.row];
     
     if (info && info.phone) {
-        [self lyModalPersonalHomePageWith:info.phone];
+        [self lyModalPersonalHomePageWithUserphone:info.phone];
     }
 
     
