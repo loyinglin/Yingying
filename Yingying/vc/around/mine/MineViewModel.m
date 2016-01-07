@@ -13,6 +13,7 @@
 @interface MineViewModel() <SRWebSocketDelegate>
 @property (nonatomic , strong) SRWebSocket* myWebSocket;
 
+@property (nonatomic , strong) NSArray* myMineTips;
 @end
 
 
@@ -68,7 +69,7 @@
         NSData* data= [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
         NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         LYLog(@"send %@", str);
-        if (self.myWebSocket) {
+        if (self.myWebSocket && self.myWebSocket.readyState == SR_OPEN) {
             [self.myWebSocket send:str];
         }
     }
@@ -80,7 +81,16 @@
 
 #pragma mark - get
 
-
+- (NSString *)getRandTips {
+    NSString* ret = @"";
+    if (self.myMineTips && self.myMineTips.count > 0) {
+        long randIndex = rand() % self.myMineTips.count;
+        if ([self.myMineTips[randIndex] isKindOfClass:[NSString class]]) {
+            ret = self.myMineTips[randIndex];
+        }
+    }
+    return ret;
+}
 
 
 #pragma mark - message
@@ -119,10 +129,32 @@
         }
         if (code) {
             switch (code.integerValue) {
-                case ly_mine_back_coupon:
+                case ly_mine_back_tips: {
+                    NSArray* tips = [dict objectForKey:@"bundles"];
+                    if ([tips isKindOfClass:[NSArray class]]) {
+                        self.myMineTips = tips;
+                    }
+                    break;
+                }
+                case ly_mine_back_end: {
                     
                     break;
+                }
+                case ly_mine_back_coupon: {
                     
+                    break;
+                }
+                case ly_mine_back_finance: {
+                    
+                    break;
+                }
+                case ly_mine_back_harvest: {
+                    NSArray* ticketsArr = [dict objectForKey:@"tickets"];
+                    if ([ticketsArr isKindOfClass:[NSArray class]]) {
+                        self.myTicketsArray = ticketsArr;
+                    }
+                    break;
+                }
                 default:
                     break;
             }

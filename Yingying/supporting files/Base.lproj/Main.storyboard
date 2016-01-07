@@ -6,6 +6,7 @@
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--聊天-->
@@ -814,7 +815,7 @@
                                     <constraint firstAttribute="width" constant="260" id="uSv-uy-c8t"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="left" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yok-tn-OMI">
+                            <button opaque="NO" contentMode="left" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yok-tn-OMI" userLabel="挖矿">
                                 <rect key="frame" x="233" y="388" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="b4Q-dF-Oym"/>
@@ -830,6 +831,24 @@
                                 <state key="focused" title="foc" backgroundImage="around_mine_button_highlighted.png"/>
                                 <connections>
                                     <action selector="onMine:" destination="c6Y-3q-HDf" eventType="touchUpInside" id="P3e-y8-Yob"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="left" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFs-kO-WZ6" userLabel="暂停">
+                                <rect key="frame" x="233" y="388" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Jda-09-0FH"/>
+                                    <constraint firstAttribute="height" constant="60" id="h7X-XB-r8Y"/>
+                                </constraints>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="AA" image="around_mine_pause_button_normal.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected" title="sele"/>
+                                <state key="highlighted" image="around_mine_pause_button_highlighted.png"/>
+                                <state key="focused" title="foc" backgroundImage="around_mine_button_highlighted.png"/>
+                                <connections>
+                                    <action selector="onMine:" destination="c6Y-3q-HDf" eventType="touchUpInside" id="JEg-1U-v0f"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="around_mine_progress_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Poq-Cx-ZlD">
@@ -863,8 +882,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主人，还差一点。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqi-mJ-EPO">
-                                <rect key="frame" x="108" y="492" width="104" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主人，还差一点。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqi-mJ-EPO">
+                                <rect key="frame" x="64" y="492" width="192" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -875,6 +894,8 @@
                             <constraint firstItem="TE3-TC-UTM" firstAttribute="centerX" secondItem="jnZ-gp-Olu" secondAttribute="centerX" id="BQv-VV-Ztf"/>
                             <constraint firstItem="DcB-Lp-6i7" firstAttribute="centerY" secondItem="Poq-Cx-ZlD" secondAttribute="centerY" constant="18" id="Ea8-bs-cRG"/>
                             <constraint firstItem="yok-tn-OMI" firstAttribute="leading" secondItem="TE3-TC-UTM" secondAttribute="trailing" constant="-87" id="G5z-mr-1eK"/>
+                            <constraint firstItem="hFs-kO-WZ6" firstAttribute="centerY" secondItem="yok-tn-OMI" secondAttribute="centerY" id="Jwy-rz-VVI"/>
+                            <constraint firstItem="cqi-mJ-EPO" firstAttribute="width" secondItem="jnZ-gp-Olu" secondAttribute="width" multiplier="0.6" id="Mke-bT-0eP"/>
                             <constraint firstItem="05w-TP-T4d" firstAttribute="leading" secondItem="TE3-TC-UTM" secondAttribute="leading" constant="13" id="OAa-lr-z44"/>
                             <constraint firstItem="yok-tn-OMI" firstAttribute="top" secondItem="TE3-TC-UTM" secondAttribute="bottom" constant="-76" id="RYb-bC-gsT"/>
                             <constraint firstItem="Poq-Cx-ZlD" firstAttribute="top" secondItem="2D8-Pr-IzW" secondAttribute="bottom" constant="10" id="Sq7-tB-bb7"/>
@@ -887,6 +908,7 @@
                             <constraint firstItem="Poq-Cx-ZlD" firstAttribute="centerX" secondItem="dMh-w3-h98" secondAttribute="centerX" id="gf9-j3-tsC"/>
                             <constraint firstItem="i4p-rW-MjU" firstAttribute="centerX" secondItem="dMh-w3-h98" secondAttribute="centerX" id="h1s-5e-MKr"/>
                             <constraint firstAttribute="trailing" secondItem="dMh-w3-h98" secondAttribute="trailing" id="mMg-md-GcE"/>
+                            <constraint firstItem="hFs-kO-WZ6" firstAttribute="centerX" secondItem="yok-tn-OMI" secondAttribute="centerX" id="mbe-HT-P3X"/>
                             <constraint firstItem="DcB-Lp-6i7" firstAttribute="centerX" secondItem="Poq-Cx-ZlD" secondAttribute="centerX" id="mg9-Ki-9Zf"/>
                             <constraint firstItem="cqi-mJ-EPO" firstAttribute="centerY" secondItem="i4p-rW-MjU" secondAttribute="centerY" id="s73-D0-Cgp"/>
                             <constraint firstItem="dMh-w3-h98" firstAttribute="top" secondItem="2D8-Pr-IzW" secondAttribute="bottom" id="xrj-Ts-xHi"/>
@@ -903,7 +925,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="myManualLabel" destination="DcB-Lp-6i7" id="zvX-4g-9sR"/>
+                        <outlet property="myMineTipsLabel" destination="cqi-mJ-EPO" id="vmh-GS-bwA"/>
                         <outlet property="myMiningImageView" destination="TE3-TC-UTM" id="InR-gU-2es"/>
+                        <outlet property="myPauseButton" destination="hFs-kO-WZ6" id="7vX-yU-zhN"/>
                         <outlet property="myProgressConstraint" destination="hfC-mR-g7o" id="MjD-x0-0Jb"/>
                         <segue destination="8iQ-7S-u9q" kind="modal" identifier="open_mine_pop_board" animates="NO" id="5Ld-un-d90"/>
                     </connections>
@@ -7631,6 +7655,8 @@
         <image name="around_mine_init.png" width="640" height="454"/>
         <image name="around_mine_message_board.png" width="527" height="216"/>
         <image name="around_mine_mountain.png" width="306" height="305"/>
+        <image name="around_mine_pause_button_highlighted.png" width="148" height="147"/>
+        <image name="around_mine_pause_button_normal.png" width="153" height="153"/>
         <image name="around_mine_progress.png" width="533" height="46"/>
         <image name="around_mine_progress_background.png" width="587" height="166"/>
         <image name="around_my_coupon.png" width="616" height="185"/>

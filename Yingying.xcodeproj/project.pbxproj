@@ -259,6 +259,8 @@
 		FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532241C13C5F900B779E6 /* DistributionResController.m */; };
 		FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */; };
 		FDF727AF1C3E0BEF00879753 /* ChatDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727AE1C3E0BEF00879753 /* ChatDetailViewModel.m */; };
+		FDF727B21C3ECD6100879753 /* around_mine_pause_button_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = FDF727B01C3ECD6100879753 /* around_mine_pause_button_highlighted.png */; };
+		FDF727B31C3ECD6100879753 /* around_mine_pause_button_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FDF727B11C3ECD6100879753 /* around_mine_pause_button_normal.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -658,6 +660,8 @@
 		FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionMoodViewModel.m; sourceTree = "<group>"; };
 		FDF727AD1C3E0BEF00879753 /* ChatDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatDetailViewModel.h; sourceTree = "<group>"; };
 		FDF727AE1C3E0BEF00879753 /* ChatDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatDetailViewModel.m; sourceTree = "<group>"; };
+		FDF727B01C3ECD6100879753 /* around_mine_pause_button_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = around_mine_pause_button_highlighted.png; sourceTree = "<group>"; };
+		FDF727B11C3ECD6100879753 /* around_mine_pause_button_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = around_mine_pause_button_normal.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1501,6 +1505,8 @@
 		FDEC5E521C30CD3800D85E3F /* mine */ = {
 			isa = PBXGroup;
 			children = (
+				FDF727B01C3ECD6100879753 /* around_mine_pause_button_highlighted.png */,
+				FDF727B11C3ECD6100879753 /* around_mine_pause_button_normal.png */,
 				FDEC5E691C30F81E00D85E3F /* pop */,
 				FDEC5E531C30CD3800D85E3F /* around_mine_background.png */,
 				FDEC5E541C30CD3800D85E3F /* around_mine_button_highlighted.png */,
@@ -1673,6 +1679,7 @@
 				FD7A9A011C37A0A5009A05F5 /* button_contact.png in Resources */,
 				FDD6D7FC1C27930900B03DF8 /* chat_add_photo.png in Resources */,
 				FD41BB321C1D87FA00B4A074 /* icon_distribution_res.png in Resources */,
+				FDF727B21C3ECD6100879753 /* around_mine_pause_button_highlighted.png in Resources */,
 				FD41BB471C1D87FA00B4A074 /* tab_finance_normal@2x.png in Resources */,
 				FDD6D7FE1C27930900B03DF8 /* chat_bubble_self.png in Resources */,
 				FD41BB311C1D87FA00B4A074 /* icon_distribution_mood.png in Resources */,
@@ -1721,6 +1728,7 @@
 				FD41BAF91C1D13A600B4A074 /* 启动键2.png in Resources */,
 				FD29B3C41C1159D800B68C6C /* CustomMapView.xib in Resources */,
 				FD80684F1C1FCF5C00111A0A /* my_total_balance.png in Resources */,
+				FDF727B31C3ECD6100879753 /* around_mine_pause_button_normal.png in Resources */,
 				FDEC5E701C30F81E00D85E3F /* mine_pop_button_highlighted.png in Resources */,
 				FDEC5E681C30CD3800D85E3F /* around_mine_progress_background.png in Resources */,
 				FD41BAF61C1D13A600B4A074 /* 启动.png in Resources */,

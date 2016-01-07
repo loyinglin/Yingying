@@ -9,10 +9,12 @@
 #import "LYBaseViewModel.h"
 
 typedef NS_ENUM(NSInteger, LY_MINE) {
-    ly_mine_back_cost =     100,
-    ly_mine_back_end =      101,
-    ly_mine_back_coupon =   102,
-    ly_mine_back_finance =  103
+    ly_mine_back_cost =     100, //体力变化
+    ly_mine_back_end =      101, //体力耗尽
+    ly_mine_back_coupon =   102, //购物券
+    ly_mine_back_finance =  103, //理财券
+    ly_mine_back_tips =     104, //挖矿tips
+    ly_mine_back_harvest =  105, //离线到现在挖到的东西
 };
 
 typedef NS_ENUM(NSInteger, LY_MINE_STATUS) {
@@ -28,6 +30,7 @@ typedef NS_ENUM(NSInteger, LY_MINE_USER_OPERATION) {
     ly_mine_operation_exit = 5
 };
 
+
 #define ly_key_game_status      @"game_statue"
 #define ly_key_uer_operation    @"usr_opt"
 #define ly_key_msg_code         @"code"
@@ -38,6 +41,7 @@ typedef NS_ENUM(NSInteger, LY_MINE_USER_OPERATION) {
 @property (nonatomic , strong) NSNumber* myGameStatus;
 @property (nonatomic , strong) NSNumber* myGameManual;
 
+@property (nonatomic , strong) NSArray*  myTicketsArray;
 #pragma mark - init
 
 + (instancetype)instance;
@@ -53,7 +57,7 @@ typedef NS_ENUM(NSInteger, LY_MINE_USER_OPERATION) {
 #pragma mark - get
 
 
-
+- (NSString *)getRandTips;
 
 #pragma mark - message
 

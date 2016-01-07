@@ -9,6 +9,7 @@
 #import "MineViewController.h"
 #import "NSObject+LYUITipsView.h"
 #import "MineViewModel.h"
+#import "MinePopController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "UIViewController+YingyingNavigationItem.h"
 
@@ -23,8 +24,10 @@ typedef NS_ENUM(NSInteger, LY_MINE_UI) {
 @property (nonatomic , strong) IBOutlet UIImageView*            myMiningImageView;
 @property (nonatomic , strong) IBOutlet NSLayoutConstraint*     myProgressConstraint;
 @property (nonatomic , strong) IBOutlet UILabel*                myManualLabel;
+@property (nonatomic , strong) IBOutlet UILabel*                myMineTipsLabel;
+@property (nonatomic , strong) IBOutlet UIButton*               myPauseButton;
 
-
+@property (nonatomic , strong) NSTimer*                         myTipsTimer;
 @property (nonatomic , strong) MineViewModel*                   myViewModel;
 //@property (nonatomic , strong) IBOutlet ;
 
@@ -56,9 +59,11 @@ typedef NS_ENUM(NSInteger, LY_MINE_UI) {
             }
             UIImage* mining = [UIImage animatedImageWithImages:imgs duration:0.7];
             [self.myMiningImageView setImage:mining];
+            self.myPauseButton.hidden = NO;
         }
         else {  //暂停、游戏，停止动画
             [self.myMiningImageView setImage:[UIImage imageNamed:@"around_mine_init"]];
+            self.myPauseButton.hidden = YES;
         }
     }];
     
@@ -74,11 +79,16 @@ typedef NS_ENUM(NSInteger, LY_MINE_UI) {
         self.myManualLabel.text = [NSString stringWithFormat:@"体力:%@", manual];
     }];
     
+    [RACObserve(self.myViewModel, myTicketsArray) subscribeNext:^(NSArray* array) {
+        if (array) {
+            @strongify(self);
+            [self performSegueWithIdentifier:@"open_mine_pop_board" sender:array];
+            self.myViewModel.myTicketsArray = nil;
+        }
+    }];
     
     [self prepareToPlay];
     [self customView];
-    
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,7 +103,10 @@ typedef NS_ENUM(NSInteger, LY_MINE_UI) {
 
 - (void)customView {
     [self lySetupLeftItem];
+    self.myTipsTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(onTimer:) userInfo:nil repeats:YES];
 }
+
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.myViewModel sendUserOperation:ly_mine_operation_enter];
@@ -102,6 +115,8 @@ typedef NS_ENUM(NSInteger, LY_MINE_UI) {
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.myViewModel sendUserOperation:ly_mine_operation_left];
+    [self.myTipsTimer invalidate];
+    self.myTipsTimer = nil;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -119,7 +134,6 @@ typedef NS_ENUM(NSInteger, LY_MINE_UI) {
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
         self.myProgressConstraint.constant = 30;
-        [self performSegueWithIdentifier:@"open_mine_pop_board" sender:nil];
     }];
      */
 }
@@ -129,8 +143,15 @@ typedef NS_ENUM(NSInteger, LY_MINE_UI) {
 }
 #pragma mark - ui
 
-- (void)customProgressWithManual:(NSNumber *)manual {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"open_mine_pop_board"]) {
+        MinePopController* controller = segue.destinationViewController;
+        controller.myHarvestArray = sender;
+    }
+}
 
+- (void)onTimer:(id)sender {
+    self.myMineTipsLabel.text = [self.myViewModel getRandTips];
 }
 
 - (void)prepareToPlay {

@@ -10,4 +10,6 @@
 
 @interface MinePopController : UIViewController
 
+@property (nonatomic , strong) NSArray* myHarvestArray;
+
 @end

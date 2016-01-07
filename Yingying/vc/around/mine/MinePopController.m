@@ -7,6 +7,7 @@
 //
 
 #import "MinePopController.h"
+#import "MineViewModel.h"
 
 @interface MinePopController ()
 
@@ -16,7 +17,7 @@
 
 @property (nonatomic , strong) IBOutlet NSLayoutConstraint* myConstraint;
 
-@property (nonatomic , assign) long myCount;
+@property (nonatomic , strong) NSArray* myViewsArray;
 @end
 
 #define LY_LAYOUT_ONE   100
@@ -33,9 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.myCount = 3;
-
-    
+    self.myViewsArray = @[self.myView0, self.myView1, self.myView2];
     [self customView];
     [self customNotify];
 }
@@ -43,7 +42,37 @@
 #pragma mark - view init
 
 - (void)customView {
-    
+    if (self.myHarvestArray) {
+        for (int i = 0; i < self.myHarvestArray.count && i < self.myViewsArray.count; ++i) {
+            UIView* view = self.myViewsArray[i];
+            UIImageView* imageView = (UIImageView *)[view viewWithTag:10];
+            UILabel* label = (UILabel *)[view viewWithTag:20];
+            NSDictionary* dict = self.myHarvestArray[i];
+            if ([dict isKindOfClass:[NSDictionary class]]) {
+                NSNumber* sum = [dict objectForKey:@"sum"];
+                NSNumber* code = [dict objectForKey:@"code"];
+                if (code.integerValue == ly_mine_back_coupon) {
+                    [imageView setImage:[UIImage imageNamed:@"mine_pop_icon_coupon"]];
+                }
+                else if (code.integerValue == ly_mine_back_finance){
+                    [imageView setImage:[UIImage imageNamed:@"mine_pop_icon_finance"]];
+                }
+                else {
+                    [imageView setImage:nil];
+                }
+                if (sum) {
+                    label.text = [NSString stringWithFormat:@"%@元", sum];
+                }
+                else {
+                    label.text = nil;
+                }
+            }
+        }
+        [self initWithCount:self.myHarvestArray.count];
+    }
+    else {
+        [self initWithCount:0];
+    }
 }
 
 #pragma mark - ibaction
@@ -59,15 +88,17 @@
 #pragma mark - ui
 
 - (void)initWithCount:(long)count {
+    self.myView0.hidden = self.myView1.hidden = self.myView2.hidden = YES;
     if (count == 1) {
-        self.myView1.hidden = self.myView2.hidden = YES;
+        self.myView0.hidden = NO;
         self.myConstraint.constant = LY_LAYOUT_ONE;
     }
     if (count == 2) {
-        self.myView2.hidden = YES;
+        self.myView0.hidden = self.myView1.hidden = NO;
         self.myConstraint.constant = LY_LAYOUT_TWO;
     }
     if (count == 3) {
+        self.myView0.hidden = self.myView1.hidden = self.myView2.hidden = NO;
         self.myConstraint.constant = LY_LAYOUT_THREE;
     }
 }
