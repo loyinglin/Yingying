@@ -6,6 +6,7 @@
 //  Copyright © 2015年 林伟池. All rights reserved.
 //
 
+#import "TransferMoodFriendListController.h"
 #import "AroundMoodDetailViewModel.h"
 #import "AroundMessageDetailController.h"
 #import "AroundMoodDetailCell.h"
@@ -151,6 +152,12 @@
 
 #pragma mark - ui
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"open_transfer_mood_friend_list_board"]) {
+        TransferMoodFriendListController* controller = segue.destinationViewController;
+        [controller customWithMoodInfo:self.myViewModel.myMoodInfo];
+    }
+}
 #pragma mark - delegate
 
 #pragma mark - Table view data source

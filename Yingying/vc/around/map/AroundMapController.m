@@ -84,6 +84,7 @@
 
 - (IBAction)onLeading:(id)sender {
     if ([MapInfoModel instance].myPosition.latitude) {
+        self.myMapView.showsUserLocation = !self.myMapView.showsUserLocation;
         [self.myMapView setCenterCoordinate:[MapInfoModel instance].myPosition animated:YES];
     }
     else {

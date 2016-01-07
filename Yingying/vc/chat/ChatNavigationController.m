@@ -14,6 +14,7 @@
 
 @interface ChatNavigationController ()
 @property (nonatomic , strong) NSNumber* uid;
+@property (nonatomic , strong) MoodInfo* myMoodInfo;
 @end
 
 @implementation ChatNavigationController
@@ -36,6 +37,11 @@
     self.uid = uid;
 }
 
+- (void)setChatWithUid:(NSNumber *)uid MoodInfo:(id)info {
+    self.uid = uid;
+    self.myMoodInfo = info;
+}
+
 - (void)customView {
     
 }
@@ -45,6 +51,11 @@
 //    NSLog(@"did");
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
+        
+        
+        /**
+         *  从其他页面跳转过来的聊天
+         */
         if (self.uid) {
             @weakify(self);
             [[CDChatManager manager] fetchConvWithOtherId:[NSString stringWithFormat:@"%@", self.uid] callback : ^(AVIMConversation *conversation, NSError *error) {
@@ -52,6 +63,10 @@
                     LYLog(@"%@", error);
                 }
                 else {
+                    /**
+                     *  初始化对话的attribute
+                     *  因为这个fetchConvWithOtherId函数重置会 属性
+                     */
                     if (conversation.attributes) {
                         AVIMConversationUpdateBuilder* builder = [conversation newUpdateBuilder];
                         builder.attributes = conversation.attributes;
@@ -76,7 +91,42 @@
                             NSLog(@"after update %@", [conversation.attributes description]);
                         }];
                     }
-                    
+                    /**
+                     *  如果有要转发的心情
+                     */
+                    if (self.myMoodInfo) {
+                        
+                        NSString* thumbUrl = @"";
+                        NSString* moodContent = @"";
+                        NSString* moodTitle = @"";
+                        NSNumber* moodSid = @(0);
+                        if (self.myMoodInfo.headUrl) {
+                            thumbUrl = self.myMoodInfo.headUrl;
+                        }
+                        if (self.myMoodInfo.moodContent) {
+                            moodContent = self.myMoodInfo.moodContent;
+                        }
+                        if (self.myMoodInfo.name) {
+                            moodTitle = self.myMoodInfo.name;
+                        }
+                        if (self.myMoodInfo.sid) {
+                            moodSid = self.myMoodInfo.sid;
+                        }
+                        NSDictionary* dict = @{@"yingying":@{
+                                                       yingying_msg_key_mood_image_url:[LY_MSG_BASE_URL stringByAppendingString:thumbUrl],
+                                                       yingying_msg_key_mood_content:moodContent
+                                                       , yingying_msg_key_mood_title:moodTitle,
+                                                       yingying_msg_key_mood_sid:moodSid
+                                                       }};
+                        AVIMTextMessage* message = [AVIMTextMessage messageWithText:[NSString stringWithFormat:@"转发动态"] attributes:dict];
+                        
+                        [conversation sendMessage:message callback:^(BOOL succeeded, NSError *error) {
+                            if (succeeded) {
+                                LYLog(@"转发成功");
+                            }
+                        }];
+
+                    }
                     ChatDetailController *chatRoomVC = [[ChatDetailController alloc] initWithConv:conversation];
                     chatRoomVC.hidesBottomBarWhenPushed = YES;
                     

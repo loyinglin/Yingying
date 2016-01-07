@@ -7,9 +7,11 @@
 //
 
 #import "LYBaseNavigationController.h"
+#import "Yingying.h"
 
 @interface ChatNavigationController : LYBaseNavigationController
 
 - (void)setChatWithUid:(NSNumber *)uid;
 
+- (void)setChatWithUid:(NSNumber *)uid MoodInfo:(MoodInfo *)info;
 @end

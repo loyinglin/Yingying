@@ -9,6 +9,7 @@
 #import "UIViewController+YingyingModalViewController.h"
 #import "LYBaseImageViewController.h"
 #import "PersonalHomePageController.h"
+#import "AroundMessageDetailController.h"
 
 @implementation UIViewController (YingyingModalViewController)
 
@@ -40,5 +41,16 @@
         LYLog(@"error");
     }
 
+}
+
+- (void)lyPushMoodDetailControllerWithMoodInfo:(id)info {
+    UIStoryboard* board = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    AroundMessageDetailController* controller = [board instantiateViewControllerWithIdentifier:@"around_mood_detail_controller"];
+    if ([controller isKindOfClass:[AroundMessageDetailController class]]) {
+        [controller setMoodInfo:info];
+        if (self.navigationController) {
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+    }
 }
 @end

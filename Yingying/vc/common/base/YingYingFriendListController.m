@@ -32,6 +32,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [self.mySearchController.view removeFromSuperview];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

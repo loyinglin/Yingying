@@ -19,6 +19,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "AroundMoodTableViewCell.h"
 #import "UIViewController+YingYingImagePickerController.h"
+#import "UIViewController+YingyingModalViewController.h"
 #import "UIViewController+YingyingNavigationItem.h"
 
 typedef NS_ENUM(NSInteger, LYHOMEPAGE) {
@@ -359,10 +360,13 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (!self.myViewModel || !self.isSelf) {
+    if (indexPath.section == ly_message && indexPath.row > 0) {
+        [self lyPushMoodDetailControllerWithMoodInfo:[self.myViewModel getMoodInfoByIndex:indexPath.row - 1]];
+    }
+    else if (!self.myViewModel || !self.isSelf) {
         return nil;
     }
-    if (indexPath.section == ly_information && indexPath.row == ly_avatar) {
+    else if (indexPath.section == ly_information && indexPath.row == ly_avatar) {
         self.isAvatar = YES;
         [self lyModalChoosePicker];
     }

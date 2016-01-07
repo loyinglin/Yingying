@@ -536,7 +536,6 @@ static NSInteger const kOnePageSize = 10;
     NSDate *time = [self getTimestampDate:msg.sendTimestamp];
     if (msg.mediaType == kAVIMMessageMediaTypeText) {
         if (msg.attributes && [[msg.attributes objectForKey:@"yingying"] isKindOfClass:[NSDictionary class]]) {
-            NSLog(@"盈盈的分享");
             xhMessage = [[XHMessage alloc] initWithAttribute:[msg.attributes objectForKey:@"yingying"] sender:fromUser.username timestamp:time];
         }
         else {

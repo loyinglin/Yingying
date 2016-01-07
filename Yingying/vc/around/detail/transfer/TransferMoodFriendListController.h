@@ -10,4 +10,6 @@
 
 @interface TransferMoodFriendListController : YingYingFriendListController
 
+- (void)customWithMoodInfo:(MoodInfo *)info;
+
 @end

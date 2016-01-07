@@ -94,7 +94,7 @@
             NSNumber* uid = [note.userInfo objectForKey:NOTIFY_UI_REQUEST_TO_CHAT];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [navigationController popToRootViewControllerAnimated:NO];
-                [navigationController setChatWithUid:uid];
+                [navigationController setChatWithUid:uid MoodInfo:[note.userInfo objectForKey:@"MoodInfo"]];
             });
         }
 

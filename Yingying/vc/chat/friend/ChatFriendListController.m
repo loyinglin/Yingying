@@ -29,7 +29,6 @@
 
 - (void)dealloc {
 //    LYLog(@"%@ dea", self);
-    [self.mySearchController.view removeFromSuperview];
 }
 
 #pragma mark - view init
@@ -62,7 +61,14 @@
     [self.mySearchController setActive:NO];
 //    [self lyModalPersonalHomePageWith:@"abc"];
     
-    Friend* info = [self.myViewModel getFriendByIndex:indexPath.row Section:indexPath.section];
+    Friend* info;
+    if (self.mySearchController.active) {
+        info = [self.myViewModel getSearchFriendByIndex:indexPath.row Section:indexPath.section];
+    }
+    else {
+        info = [self.myViewModel getFriendByIndex:indexPath.row Section:indexPath.section];
+    }
+
     if (info && info.phone) {
         [self.navigationController lyModalPersonalHomePageWith:info.phone];
     }

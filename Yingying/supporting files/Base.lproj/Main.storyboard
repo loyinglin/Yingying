@@ -2251,7 +2251,7 @@
         <!--详情-->
         <scene sceneID="JRC-C7-Uc1">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="Jpn-VL-JZ6" customClass="AroundMessageDetailController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="around_mood_detail_controller" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jpn-VL-JZ6" customClass="AroundMessageDetailController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Her-Su-42p"/>
                         <viewControllerLayoutGuide type="bottom" id="Xpi-g1-TtZ"/>

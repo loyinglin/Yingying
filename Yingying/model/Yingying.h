@@ -10,6 +10,21 @@
 #import "LYCoding.h"
 #import <Foundation/Foundation.h>
 
+
+/**
+ *  这里的属性名字和下面的XHMessage.H 对应
+ *  ！不能随便修改
+ */
+//@interface MoodTransferToChatInfo : LYCoding
+//@property (nonatomic , strong) NSString* yingying_msg_key_mood_image_url;
+//@property (nonatomic , strong) NSString* yingying_msg_key_mood_content;
+//@property (nonatomic , strong) NSString* yingying_msg_key_mood_title;
+//@property (nonatomic , strong) NSString* yingying_msg_key_mood_sid;
+//
+//
+//@end
+
+
 /**
  *  每个对话携带的内容，name是昵称，uid是用户id，avatarUrl是头像链接（完整链接）
  *  每次新建对话的时候，必须把六个信息填入对话的附带的字典。

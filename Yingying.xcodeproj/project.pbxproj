@@ -258,6 +258,7 @@
 		FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532221C13C5F900B779E6 /* DistributionMoodController.m */; };
 		FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532241C13C5F900B779E6 /* DistributionResController.m */; };
 		FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */; };
+		FDF727AF1C3E0BEF00879753 /* ChatDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727AE1C3E0BEF00879753 /* ChatDetailViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -655,6 +656,8 @@
 		FDF532241C13C5F900B779E6 /* DistributionResController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionResController.m; sourceTree = "<group>"; };
 		FDF532271C1435C000B779E6 /* DistributionMoodViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionMoodViewModel.h; sourceTree = "<group>"; };
 		FDF532281C1435C000B779E6 /* DistributionMoodViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionMoodViewModel.m; sourceTree = "<group>"; };
+		FDF727AD1C3E0BEF00879753 /* ChatDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatDetailViewModel.h; sourceTree = "<group>"; };
+		FDF727AE1C3E0BEF00879753 /* ChatDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatDetailViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -741,8 +744,10 @@
 		FD21CFA11C1BBFCC00CF8550 /* detail */ = {
 			isa = PBXGroup;
 			children = (
-				FD21CFAB1C1C04A300CF8550 /* ChatDetailController.m */,
 				FD21CFAA1C1C04A300CF8550 /* ChatDetailController.h */,
+				FD21CFAB1C1C04A300CF8550 /* ChatDetailController.m */,
+				FDF727AD1C3E0BEF00879753 /* ChatDetailViewModel.h */,
+				FDF727AE1C3E0BEF00879753 /* ChatDetailViewModel.m */,
 			);
 			path = detail;
 			sourceTree = "<group>";
@@ -1903,6 +1908,7 @@
 				FDD6D7E61C26566100B03DF8 /* UIViewController+YingyingModalViewController.m in Sources */,
 				FD95AF361C36309100B6DD4F /* AroundMoodDetailCell.m in Sources */,
 				FDEC5E761C31239D00D85E3F /* MinePopController.m in Sources */,
+				FDF727AF1C3E0BEF00879753 /* ChatDetailViewModel.m in Sources */,
 				FD8BB0791C351C2600BC36E6 /* AroundMoodTableViewCell.m in Sources */,
 				FD29B3791C112FDC00B68C6C /* MJRefreshBaseView.m in Sources */,
 				FD1EE52B1C3A3D8E0098812F /* MineViewModel.m in Sources */,

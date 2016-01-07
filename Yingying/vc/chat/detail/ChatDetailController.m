@@ -7,10 +7,13 @@
 //
 
 #import "ChatDetailController.h"
+#import "ChatDetailViewModel.h"
+#import "UIViewController+YingyingModalViewController.h"
+#import "BaseMessage.h"
 #import "UIViewController+YingyingNavigationItem.h"
 
 @interface ChatDetailController ()
-
+@property (nonatomic , strong) ChatDetailViewModel* myViewModel;
 @end
 
 @implementation ChatDetailController
@@ -22,6 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.myViewModel = [ChatDetailViewModel new];
     
     [self lySetupLeftItem];
     [self customView];
@@ -42,6 +47,18 @@
 
 #pragma mark - delegate
 
+- (void)multiMediaMessageDidSelectedOnMessage:(id<XHMessageModel>)message atIndexPath:(NSIndexPath *)indexPath onMessageTableViewCell:(XHMessageTableViewCell *)messageTableViewCell {
+    [super multiMediaMessageDidSelectedOnMessage:message atIndexPath:indexPath onMessageTableViewCell:messageTableViewCell];
+    if (message.messageMediaType == XHBubbleMessageMediaTypeYingyingMood) {
+        [[self.myViewModel requestGetMoodInfoBySid:message.yingyingSid] subscribeNext:^(id x) {
+            MoodInfo* info = [MoodInfo new];
+            info.sid = message.yingyingSid;
+            info.moodContent = message.yingyingMoodConent;
+            info.name = message.yingyingMoodTitle;
+            [self lyPushMoodDetailControllerWithMoodInfo:info];
+        }];
+    }
+}
 #pragma mark - notify
 
 - (void)customNotify {
