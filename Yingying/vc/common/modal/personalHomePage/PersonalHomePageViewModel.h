@@ -28,6 +28,7 @@
 
 #pragma mark - update
 
+- (void)updateDeletePhotoByIndex:(long)index;
 
 #pragma mark - get
 

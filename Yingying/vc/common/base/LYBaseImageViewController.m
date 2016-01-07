@@ -45,9 +45,15 @@
 
 #pragma mark - view init
 
-- (void)customFromAroundDetailWith:(NSString *)imageUrlString HideRightBarButton:(BOOL)hideAble{
+- (void)customFromAroundDetailWith:(NSString *)imageUrlString CallBack:(OnImageDeleteCallBack)callBack {
     self.myImageUrlString = imageUrlString;
-    self.myHideRightBarButton = YES;
+    self.myDeleteCallBack = callBack;
+    if (callBack) {
+        self.myHideRightBarButton = NO;
+    }
+    else {
+        self.myHideRightBarButton = YES;
+    }
 }
 
 
@@ -61,8 +67,12 @@
 - (IBAction)onDelete:(id)sender {
     if (self.myImage) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_DELETE_PHOTO object:nil userInfo:@{NOTIFY_UI_DELETE_PHOTO:self.myImage}];
-        [self.navigationController popViewControllerAnimated:YES];
     }
+    if (self.myDeleteCallBack) {
+        self.myDeleteCallBack();
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 #pragma mark - ui

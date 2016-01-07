@@ -143,17 +143,6 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 - (IBAction)onContact:(id)sender {
     if (self.myViewModel.myUid && [CDChatManager manager].selfId) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_UI_REQUEST_TO_CHAT object:nil userInfo:@{NOTIFY_UI_REQUEST_TO_CHAT:self.myViewModel.myUid}];
-//
-//        [[CDChatManager manager] fetchConvWithOtherId:[NSString stringWithFormat:@"%@", self.myViewModel.myUid] callback : ^(AVIMConversation *conversation, NSError *error) {
-//            if (error) {
-//                LYLog(@"%@", error);
-//            }
-//            else {
-//                ChatDetailController *chatRoomVC = [[ChatDetailController alloc] initWithConv:conversation];
-//                [self.navigationController pushViewController:chatRoomVC animated:YES];
-//            }
-//        }];
-//        
     }
     [self dismissViewControllerAnimated:NO completion:nil];
 }
@@ -181,26 +170,6 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 
 #pragma mark - ui
 
-- (void)onDeletePhotoWith:(NSNumber *)photoId {
-    UIAlertController* controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    @weakify(self);
-    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        LYLog(@"cancel");
-    }];
-    [controller addAction:cancel];
-    
-    UIAlertAction* delete = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        @strongify(self);
-        [[self.myViewModel requestDeletePhoteWithPhotoId:photoId] subscribeNext:^(id x) {
-            @strongify(self);
-            [self.myViewModel requestGetUserInfo];
-        }];
-    }];
-    [controller addAction:delete];
-    
-    [self presentViewController:controller animated:YES completion:nil];
-    
-}
 #pragma mark - delegate
 
 
@@ -360,10 +329,11 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section == ly_message && indexPath.row > 0) {
+    
+    if (indexPath.section == ly_message && indexPath.row > 0) { //查看心情详情
         [self lyPushMoodDetailControllerWithMoodInfo:[self.myViewModel getMoodInfoByIndex:indexPath.row - 1]];
     }
-    else if (!self.myViewModel || !self.isSelf) {
+    else if (!self.myViewModel || !self.isSelf) { //以下是关于自己的功能
         return nil;
     }
     else if (indexPath.section == ly_information && indexPath.row == ly_avatar) {
@@ -379,18 +349,27 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
 
 - (void)customNotify {
     @weakify(self);
-    if (!self.isSelf) {
-        return ;
-    }
     [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_PERSONAL_HOMEPAGE_ADD_PHOTO object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         @strongify(self);
-        NSNumber* index = [note.userInfo objectForKey:NOTIFY_UI_PERSONAL_HOMEPAGE_ADD_PHOTO];
-        if (index.integerValue < 0) {
+        NSNumber* index = [note.userInfo objectForKey:NOTIFY_UI_PERSONAL_HOMEPAGE_ADD_PHOTO]; //索引
+        if (index.integerValue < 0 && self.isSelf) { //点击的是添加图片
             self.isAvatar = NO;
             [self lyModalChoosePicker];
         }
         else {
-            [self onDeletePhotoWith:[self.myViewModel getImageIdbyIndex:index.integerValue]];
+            if (self.isSelf) {
+                [self lyModalImageViewWithUrlString:[self.myViewModel getImageUrlbyIndex:index.integerValue] CallBack:^{
+                    @strongify(self);
+                    [[self.myViewModel requestDeletePhoteWithPhotoId:[self.myViewModel getImageIdbyIndex:index.integerValue]] subscribeNext:^(id x) {
+                        @strongify(self);
+                        [self.myViewModel updateDeletePhotoByIndex:index.integerValue];
+                        [self.myTableView reloadData];
+                    }];
+                }];
+            }
+            else {
+                [self lyModalImageViewWithUrlString:[self.myViewModel getImageUrlbyIndex:index.integerValue]];
+            }
         }
     }];
     

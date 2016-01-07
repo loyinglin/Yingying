@@ -18,7 +18,7 @@
 @interface PersonalHomePageViewModel()
 
 @property (nonatomic , strong) NSArray*     myMoodsArr;
-@property (nonatomic , strong) NSArray* myImagesUrlArr;
+@property (nonatomic , strong) NSArray* myImagesUrlArr; //上传用的
 
 @end
 
@@ -29,6 +29,15 @@
 
 
 #pragma mark - update
+
+- (void)updateDeletePhotoByIndex:(long)index {
+    NSMutableArray* array = [NSMutableArray arrayWithArray:self.myPhotosArr];
+    if (index >= 0 && index < self.myPhotosArr.count) {
+        [array removeObjectAtIndex:index];
+    }
+    self.myPhotosArr = array;
+}
+
 
 - (void)updateDeleteMoodByIndex:(long)index {
     NSMutableArray* array = [NSMutableArray arrayWithArray:self.myMoodsArr];

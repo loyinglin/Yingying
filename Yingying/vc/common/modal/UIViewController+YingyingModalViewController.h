@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Yingying.h"
+#import "LYBaseImageViewController.h"
 
 @interface UIViewController (YingyingModalViewController)
 
@@ -15,6 +16,8 @@
 
 
 - (void)lyModalPersonalHomePageWith:(NSString *)userphone;
+
+- (void)lyModalImageViewWithUrlString:(NSString *)urlString CallBack:(OnImageDeleteCallBack)callback;
 
 - (void)lyModalImageViewWithUrlString:(NSString *)urlString;
 

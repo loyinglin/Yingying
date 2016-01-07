@@ -7,7 +7,6 @@
 //
 
 #import "UIViewController+YingyingModalViewController.h"
-#import "LYBaseImageViewController.h"
 #import "PersonalHomePageController.h"
 #import "AroundMessageDetailController.h"
 
@@ -26,10 +25,10 @@
     }
 }
 
-- (void)lyModalImageViewWithUrlString:(NSString *)urlString {
+- (void)lyModalImageViewWithUrlString:(NSString *)urlString CallBack:(OnImageDeleteCallBack)callback {
     LYBaseImageViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"image_view_controller"];
     if ([controller isKindOfClass:[LYBaseImageViewController class]] && [urlString isKindOfClass:[NSString class]]) {
-        [controller customFromAroundDetailWith:urlString HideRightBarButton:YES];
+        [controller customFromAroundDetailWith:urlString CallBack:callback];
         if (self.navigationController) {
             [self.navigationController pushViewController:controller animated:YES];
         }
@@ -40,7 +39,10 @@
     else {
         LYLog(@"error");
     }
+}
 
+- (void)lyModalImageViewWithUrlString:(NSString *)urlString {
+    [self lyModalImageViewWithUrlString:urlString CallBack:nil];
 }
 
 - (void)lyPushMoodDetailControllerWithMoodInfo:(id)info {

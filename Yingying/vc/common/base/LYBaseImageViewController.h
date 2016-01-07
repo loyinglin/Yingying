@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^OnImageDeleteCallBack)(void);
 
 @interface LYBaseImageViewController : UIViewController
 
-@property (nonatomic , strong) UIImage* myImage;
+@property (nonatomic , strong) UIImage*     myImage;
+@property (nonatomic , strong) OnImageDeleteCallBack myDeleteCallBack;
 
 - (void)customFromAroundDetailWith:(NSString *)imageUrlString HideRightBarButton:(BOOL)hideAble;
+
+- (void)customFromAroundDetailWith:(NSString *)imageUrlString CallBack:(OnImageDeleteCallBack)callBack;
 
 @end
