@@ -33,7 +33,7 @@
 
 - (IBAction)onSelectCoupon:(id)sender {
     LYLog(@"selected coupon");
-    [self performSegueWithIdentifier:@"open_my_coupon_board" sender:self];
+    
 }
 
 - (IBAction)onSelectAddress:(id)sender {

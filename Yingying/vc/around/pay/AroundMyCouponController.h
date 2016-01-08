@@ -10,4 +10,6 @@
 
 @interface AroundMyCouponController : UITableViewController
 
+@property (nonatomic , strong) NSNumber* myType;
+
 @end

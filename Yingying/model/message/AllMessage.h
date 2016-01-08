@@ -10,6 +10,7 @@
 
 #define LY_MSG_BASE_URL                     @"http://120.25.101.195/YinYin"
 #define LY_MSG_CODE_SUCCESS                 20000
+#define LY_MSG_KEY_TOKEN                    @"access_token"
 
 //login
 #define LY_MSG_GET_CODE                     @"/sendCode"
@@ -27,6 +28,7 @@
 #define LY_MSG_USER_ADD_PHOTO               @"/user/addPhoto"
 #define LY_MSG_USER_REMOVE_PHOTO            @"/user/deletePhoto"
 #define LY_MSG_USER_CHANGE_PASSWORD         @"/user/changepassword"
+#define LY_MSG_USER_GET_TICKETS             @"/user/getTicketById"
 
 
 //upload

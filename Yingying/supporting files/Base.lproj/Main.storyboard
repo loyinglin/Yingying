@@ -3059,7 +3059,6 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myPlaceholderLabel" destination="gey-Wv-u7c" id="iRn-mF-t0a"/>
-                        <segue destination="rCx-Eh-AQp" kind="push" identifier="open_my_coupon_board" id="4Ym-CK-Mes"/>
                         <segue destination="CI6-fP-tT7" kind="push" identifier="open_around_address_board" id="rFA-Wv-1XD"/>
                     </connections>
                 </viewController>
@@ -3076,62 +3075,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1283" y="-2488"/>
-        </scene>
-        <!--我的购物券-->
-        <scene sceneID="g2b-oj-B4H">
-            <objects>
-                <tableViewController id="rCx-Eh-AQp" customClass="AroundMyCouponController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tip-hL-qVw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="120" id="rWd-jv-xYk">
-                                <rect key="frame" x="0.0" y="92" width="320" height="120"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rWd-jv-xYk" id="S6O-aV-bvR">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="around_my_coupon.png" translatesAutoresizingMaskIntoConstraints="NO" id="cMS-7y-yfb">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="120"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhB-Cv-3IB">
-                                            <rect key="frame" x="249" y="25" width="40.5" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有效期至 2015年12月13日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SH-Hr-4kw">
-                                            <rect key="frame" x="25" y="89" width="152.5" height="16"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="cMS-7y-yfb" firstAttribute="leading" secondItem="S6O-aV-bvR" secondAttribute="leading" constant="10" id="Fra-qV-LhB"/>
-                                        <constraint firstAttribute="bottom" secondItem="cMS-7y-yfb" secondAttribute="bottom" id="J30-v5-MEd"/>
-                                        <constraint firstAttribute="trailing" secondItem="cMS-7y-yfb" secondAttribute="trailing" constant="10" id="KcZ-t3-AcZ"/>
-                                        <constraint firstItem="2SH-Hr-4kw" firstAttribute="bottom" secondItem="cMS-7y-yfb" secondAttribute="bottom" constant="-15" id="OP8-h0-by2"/>
-                                        <constraint firstItem="cMS-7y-yfb" firstAttribute="leading" secondItem="2SH-Hr-4kw" secondAttribute="leading" constant="-15" id="PPA-b3-fI1"/>
-                                        <constraint firstItem="rhB-Cv-3IB" firstAttribute="trailing" secondItem="cMS-7y-yfb" secondAttribute="trailing" constant="-20" id="RgE-eZ-Qvw"/>
-                                        <constraint firstItem="cMS-7y-yfb" firstAttribute="top" secondItem="rhB-Cv-3IB" secondAttribute="top" constant="-25" id="efy-vm-eVW"/>
-                                        <constraint firstItem="cMS-7y-yfb" firstAttribute="top" secondItem="S6O-aV-bvR" secondAttribute="top" id="qsR-6k-AP0"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="rCx-Eh-AQp" id="yAR-4v-hU9"/>
-                            <outlet property="delegate" destination="rCx-Eh-AQp" id="KzC-Jf-b5K"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="我的购物券" id="hZw-mF-MtK"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t7x-0R-TF3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1788" y="-2488"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GwT-T6-0Tx">
@@ -7226,13 +7169,13 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="around_my_coupon.png" translatesAutoresizingMaskIntoConstraints="NO" id="gYB-ra-ehT">
                                             <rect key="frame" x="10" y="0.0" width="300" height="120"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9d-P5-nR7">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9d-P5-nR7">
                                             <rect key="frame" x="249" y="25" width="40.5" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有效期至 2015年12月13日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Que-Vg-SsP">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有效期至 2015年12月13日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Que-Vg-SsP">
                                             <rect key="frame" x="25" y="89" width="152.5" height="16"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -7258,10 +7201,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="我的购物券" id="rRA-WJ-GM6"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="myType">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ASk-Io-nbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1742" y="3586"/>
+            <point key="canvasLocation" x="-1744" y="3554"/>
         </scene>
         <!--我的理财金-->
         <scene sceneID="4Om-8I-gi2">
@@ -7282,13 +7230,13 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_total_finance.png" translatesAutoresizingMaskIntoConstraints="NO" id="XxD-ei-epy">
                                             <rect key="frame" x="10" y="0.0" width="300" height="120"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeF-rl-DL5">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeF-rl-DL5">
                                             <rect key="frame" x="249" y="25" width="40.5" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有效期至 2015年12月13日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0I-NQ-z3r">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有效期至 2015年12月13日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0I-NQ-z3r">
                                             <rect key="frame" x="25" y="89" width="152.5" height="16"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -7314,10 +7262,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="我的理财金" id="C5i-73-GQU"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="myType">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hmM-ti-6CD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1335" y="3586"/>
+            <point key="canvasLocation" x="-1351" y="3554"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="UmY-rr-hR0">

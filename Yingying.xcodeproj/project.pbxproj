@@ -10,7 +10,6 @@
 		97C4B00BAF4207E79EA7381E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2A61BE728174A0287C24BD /* libPods.a */; };
 		CBDF95DC605F213F138A1336 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2A61BE728174A0287C24BD /* libPods.a */; };
 		FD1EE5231C38F1940098812F /* YingYingUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1EE5221C38F1940098812F /* YingYingUserModel.m */; };
-		FD1EE5261C3969000098812F /* UIViewController+YingYingImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1EE5251C3969000098812F /* UIViewController+YingYingImagePickerController.m */; };
 		FD1EE5281C3A1C020098812F /* base_status_mood.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1EE5271C3A1C020098812F /* base_status_mood.png */; };
 		FD1EE52B1C3A3D8E0098812F /* MineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1EE52A1C3A3D8E0098812F /* MineViewModel.m */; };
 		FD1EE52E1C3A5E040098812F /* LoginFindPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1EE52D1C3A5E040098812F /* LoginFindPasswordController.m */; };
@@ -155,20 +154,13 @@
 		FD54DDBD1C22960B009A8AD5 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDBC1C22960B009A8AD5 /* UserModel.m */; };
 		FD54DDC01C229847009A8AD5 /* UserMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDBF1C229847009A8AD5 /* UserMessage.m */; };
 		FD54DDDA1C23B073009A8AD5 /* awake.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FD54DDD91C23B073009A8AD5 /* awake.mp3 */; };
-		FD54DDE91C23B923009A8AD5 /* LYBaseImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDDD1C23B923009A8AD5 /* LYBaseImageViewController.m */; };
-		FD54DDEA1C23B923009A8AD5 /* LYBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDDF1C23B923009A8AD5 /* LYBaseNavigationController.m */; };
-		FD54DDEB1C23B923009A8AD5 /* LYBaseSelectImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDE11C23B923009A8AD5 /* LYBaseSelectImageView.m */; };
-		FD54DDEC1C23B923009A8AD5 /* LYBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDE31C23B923009A8AD5 /* LYBaseTabBarController.m */; };
 		FD54DDF21C2413F0009A8AD5 /* MyChargeController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDF11C2413F0009A8AD5 /* MyChargeController.m */; };
 		FD54DDF61C2461EE009A8AD5 /* MyCashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDF51C2461EE009A8AD5 /* MyCashViewController.m */; };
 		FD54DDF91C24E36D009A8AD5 /* ModalConfirmCashController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54DDF81C24E36D009A8AD5 /* ModalConfirmCashController.m */; };
-		FD584FF51C365CEF00276815 /* PersonalHomepagePhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD584FF41C365CEF00276815 /* PersonalHomepagePhotoCell.m */; };
 		FD61602B1C15210E00B73304 /* MapInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD61602A1C15210E00B73304 /* MapInfoModel.m */; };
 		FD69A1B81C337812002A458F /* AroundMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69A1B71C337812002A458F /* AroundMoodViewModel.m */; };
 		FD7A99EE1C369168009A05F5 /* AroundMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A99ED1C369168009A05F5 /* AroundMapViewModel.m */; };
-		FD7A99F11C36B817009A05F5 /* NSObject+LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A99F01C36B817009A05F5 /* NSObject+LoginViewController.m */; };
 		FD7A99F81C376239009A05F5 /* ChatSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A99F71C376239009A05F5 /* ChatSearchViewModel.m */; };
-		FD7A99FC1C3762E6009A05F5 /* LYBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A99FB1C3762E6009A05F5 /* LYBaseViewModel.m */; };
 		FD7A99FF1C3772AB009A05F5 /* ChatSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A99FE1C3772AB009A05F5 /* ChatSearchController.m */; };
 		FD7A9A011C37A0A5009A05F5 /* button_contact.png in Resources */ = {isa = PBXBuildFile; fileRef = FD7A9A001C37A0A5009A05F5 /* button_contact.png */; };
 		FD7A9A041C37A6BF009A05F5 /* FriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7A9A031C37A6BF009A05F5 /* FriendModel.m */; };
@@ -204,19 +196,13 @@
 		FD9686DB1C1AE42800D7F778 /* AroundPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9686DA1C1AE42800D7F778 /* AroundPayController.m */; };
 		FD9686E11C1AEA8600D7F778 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9686E01C1AEA8600D7F778 /* MineViewController.m */; };
 		FD9A8EF01C193B5B00D9EC9C /* LYAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8EEF1C193B5B00D9EC9C /* LYAnnotationView.m */; };
-		FD9E1B2F1C3D10EA00C94AA3 /* YingYingFriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E1B2E1C3D10EA00C94AA3 /* YingYingFriendListController.m */; };
-		FD9E1B321C3D113E00C94AA3 /* YingYingFriendListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E1B311C3D113E00C94AA3 /* YingYingFriendListViewModel.m */; };
 		FD9E1B361C3D13C900C94AA3 /* TransferMoodFriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E1B351C3D13C900C94AA3 /* TransferMoodFriendListController.m */; };
 		FDA679BD1C1A7D5100FC8D9F /* DistributionResViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA679BC1C1A7D5100FC8D9F /* DistributionResViewModel.m */; };
 		FDD6D7CB1C24F4E400B03DF8 /* MyCashSwitchAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7CA1C24F4E400B03DF8 /* MyCashSwitchAccountController.m */; };
 		FDD6D7D21C25A41100B03DF8 /* SettingPayPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7D11C25A41100B03DF8 /* SettingPayPasswordController.m */; };
 		FDD6D7D51C25A45900B03DF8 /* SettingNewPayPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7D41C25A45900B03DF8 /* SettingNewPayPasswordController.m */; };
 		FDD6D7D81C25BE8700B03DF8 /* SettingForgetPayPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7D71C25BE8700B03DF8 /* SettingForgetPayPasswordController.m */; };
-		FDD6D7DB1C25BF3F00B03DF8 /* UIViewController+YingyingNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7DA1C25BF3F00B03DF8 /* UIViewController+YingyingNavigationItem.m */; };
 		FDD6D7DF1C26533900B03DF8 /* ChatFriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7DE1C26533900B03DF8 /* ChatFriendListController.m */; };
-		FDD6D7E61C26566100B03DF8 /* UIViewController+YingyingModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7E51C26566100B03DF8 /* UIViewController+YingyingModalViewController.m */; };
-		FDD6D7EC1C26569600B03DF8 /* PersonalHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7E91C26569600B03DF8 /* PersonalHomePageController.m */; };
-		FDD6D7ED1C26569600B03DF8 /* PersonalHomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D7EB1C26569600B03DF8 /* PersonalHomePageViewModel.m */; };
 		FDD6D7FB1C27930900B03DF8 /* chat_add_face.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD6D7EF1C27930900B03DF8 /* chat_add_face.png */; };
 		FDD6D7FC1C27930900B03DF8 /* chat_add_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD6D7F01C27930900B03DF8 /* chat_add_photo.png */; };
 		FDD6D7FD1C27930900B03DF8 /* chat_bubble_other.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD6D7F11C27930900B03DF8 /* chat_bubble_other.png */; };
@@ -229,7 +215,6 @@
 		FDD6D8041C27930900B03DF8 /* personal_homepage_head.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD6D7F81C27930900B03DF8 /* personal_homepage_head.png */; };
 		FDD6D8051C27930900B03DF8 /* personal_homepage_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD6D7F91C27930900B03DF8 /* personal_homepage_more@2x.png */; };
 		FDD6D8061C27930900B03DF8 /* personal_homepage_transfer.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD6D7FA1C27930900B03DF8 /* personal_homepage_transfer.png */; };
-		FDD6D8091C279FD400B03DF8 /* UIView+LYModify.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D8081C279FD400B03DF8 /* UIView+LYModify.m */; };
 		FDD6D80C1C29A3DF00B03DF8 /* ForAPNs.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D80B1C29A3DF00B03DF8 /* ForAPNs.m */; };
 		FDD6D8101C2A44F500B03DF8 /* MyFavoriteController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD6D80F1C2A44F500B03DF8 /* MyFavoriteController.m */; };
 		FDEC5E4A1C2E3E7400D85E3F /* LYDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEC5E491C2E3E7400D85E3F /* LYDebug.m */; };
@@ -261,6 +246,21 @@
 		FDF727AF1C3E0BEF00879753 /* ChatDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727AE1C3E0BEF00879753 /* ChatDetailViewModel.m */; };
 		FDF727B21C3ECD6100879753 /* around_mine_pause_button_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = FDF727B01C3ECD6100879753 /* around_mine_pause_button_highlighted.png */; };
 		FDF727B31C3ECD6100879753 /* around_mine_pause_button_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FDF727B11C3ECD6100879753 /* around_mine_pause_button_normal.png */; };
+		FDF727D51C3F4E3000879753 /* LYBaseImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727B61C3F4E3000879753 /* LYBaseImageViewController.m */; };
+		FDF727D61C3F4E3000879753 /* LYBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727B81C3F4E3000879753 /* LYBaseNavigationController.m */; };
+		FDF727D71C3F4E3000879753 /* LYBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727BA1C3F4E3000879753 /* LYBaseTabBarController.m */; };
+		FDF727D81C3F4E3000879753 /* LYBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727BC1C3F4E3000879753 /* LYBaseViewModel.m */; };
+		FDF727D91C3F4E3000879753 /* UIView+LYModify.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727BF1C3F4E3000879753 /* UIView+LYModify.m */; };
+		FDF727DA1C3F4E3000879753 /* UIViewController+YingYingImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727C11C3F4E3000879753 /* UIViewController+YingYingImagePickerController.m */; };
+		FDF727DB1C3F4E3000879753 /* UIViewController+YingyingNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727C31C3F4E3000879753 /* UIViewController+YingyingNavigationItem.m */; };
+		FDF727DC1C3F4E3000879753 /* YingYingFriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727C61C3F4E3000879753 /* YingYingFriendListController.m */; };
+		FDF727DD1C3F4E3000879753 /* YingYingFriendListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727C81C3F4E3000879753 /* YingYingFriendListViewModel.m */; };
+		FDF727DE1C3F4E3000879753 /* NSObject+LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727CB1C3F4E3000879753 /* NSObject+LoginViewController.m */; };
+		FDF727DF1C3F4E3000879753 /* PersonalHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727CE1C3F4E3000879753 /* PersonalHomePageController.m */; };
+		FDF727E01C3F4E3000879753 /* PersonalHomepagePhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727D01C3F4E3000879753 /* PersonalHomepagePhotoCell.m */; };
+		FDF727E11C3F4E3000879753 /* PersonalHomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727D21C3F4E3000879753 /* PersonalHomePageViewModel.m */; };
+		FDF727E21C3F4E3000879753 /* UIViewController+YingyingModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727D41C3F4E3000879753 /* UIViewController+YingyingModalViewController.m */; };
+		FDF727E51C3F504000879753 /* AroundMyCouponViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF727E41C3F504000879753 /* AroundMyCouponViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -286,8 +286,6 @@
 		CC2A61BE728174A0287C24BD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1EE5211C38F1940098812F /* YingYingUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YingYingUserModel.h; sourceTree = "<group>"; };
 		FD1EE5221C38F1940098812F /* YingYingUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YingYingUserModel.m; sourceTree = "<group>"; };
-		FD1EE5241C3969000098812F /* UIViewController+YingYingImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YingYingImagePickerController.h"; sourceTree = "<group>"; };
-		FD1EE5251C3969000098812F /* UIViewController+YingYingImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YingYingImagePickerController.m"; sourceTree = "<group>"; };
 		FD1EE5271C3A1C020098812F /* base_status_mood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base_status_mood.png; sourceTree = "<group>"; };
 		FD1EE5291C3A3D8E0098812F /* MineViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewModel.h; sourceTree = "<group>"; };
 		FD1EE52A1C3A3D8E0098812F /* MineViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewModel.m; sourceTree = "<group>"; };
@@ -499,34 +497,20 @@
 		FD54DDBE1C229847009A8AD5 /* UserMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMessage.h; sourceTree = "<group>"; };
 		FD54DDBF1C229847009A8AD5 /* UserMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMessage.m; sourceTree = "<group>"; };
 		FD54DDD91C23B073009A8AD5 /* awake.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = awake.mp3; sourceTree = "<group>"; };
-		FD54DDDC1C23B923009A8AD5 /* LYBaseImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseImageViewController.h; sourceTree = "<group>"; };
-		FD54DDDD1C23B923009A8AD5 /* LYBaseImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseImageViewController.m; sourceTree = "<group>"; };
-		FD54DDDE1C23B923009A8AD5 /* LYBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseNavigationController.h; sourceTree = "<group>"; };
-		FD54DDDF1C23B923009A8AD5 /* LYBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseNavigationController.m; sourceTree = "<group>"; };
-		FD54DDE01C23B923009A8AD5 /* LYBaseSelectImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseSelectImageView.h; sourceTree = "<group>"; };
-		FD54DDE11C23B923009A8AD5 /* LYBaseSelectImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseSelectImageView.m; sourceTree = "<group>"; };
-		FD54DDE21C23B923009A8AD5 /* LYBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseTabBarController.h; sourceTree = "<group>"; };
-		FD54DDE31C23B923009A8AD5 /* LYBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseTabBarController.m; sourceTree = "<group>"; };
 		FD54DDF01C2413F0009A8AD5 /* MyChargeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyChargeController.h; sourceTree = "<group>"; };
 		FD54DDF11C2413F0009A8AD5 /* MyChargeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyChargeController.m; sourceTree = "<group>"; };
 		FD54DDF41C2461EE009A8AD5 /* MyCashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCashViewController.h; sourceTree = "<group>"; };
 		FD54DDF51C2461EE009A8AD5 /* MyCashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCashViewController.m; sourceTree = "<group>"; };
 		FD54DDF71C24E36D009A8AD5 /* ModalConfirmCashController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalConfirmCashController.h; sourceTree = "<group>"; };
 		FD54DDF81C24E36D009A8AD5 /* ModalConfirmCashController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalConfirmCashController.m; sourceTree = "<group>"; };
-		FD584FF31C365CEF00276815 /* PersonalHomepagePhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHomepagePhotoCell.h; sourceTree = "<group>"; };
-		FD584FF41C365CEF00276815 /* PersonalHomepagePhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHomepagePhotoCell.m; sourceTree = "<group>"; };
 		FD6160291C15210E00B73304 /* MapInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapInfoModel.h; sourceTree = "<group>"; };
 		FD61602A1C15210E00B73304 /* MapInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapInfoModel.m; sourceTree = "<group>"; };
 		FD69A1B61C337812002A458F /* AroundMoodViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMoodViewModel.h; sourceTree = "<group>"; };
 		FD69A1B71C337812002A458F /* AroundMoodViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMoodViewModel.m; sourceTree = "<group>"; };
 		FD7A99EC1C369168009A05F5 /* AroundMapViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMapViewModel.h; sourceTree = "<group>"; };
 		FD7A99ED1C369168009A05F5 /* AroundMapViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMapViewModel.m; sourceTree = "<group>"; };
-		FD7A99EF1C36B817009A05F5 /* NSObject+LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LoginViewController.h"; sourceTree = "<group>"; };
-		FD7A99F01C36B817009A05F5 /* NSObject+LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LoginViewController.m"; sourceTree = "<group>"; };
 		FD7A99F61C376239009A05F5 /* ChatSearchViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatSearchViewModel.h; sourceTree = "<group>"; };
 		FD7A99F71C376239009A05F5 /* ChatSearchViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSearchViewModel.m; sourceTree = "<group>"; };
-		FD7A99FA1C3762E6009A05F5 /* LYBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseViewModel.h; sourceTree = "<group>"; };
-		FD7A99FB1C3762E6009A05F5 /* LYBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseViewModel.m; sourceTree = "<group>"; };
 		FD7A99FD1C3772AB009A05F5 /* ChatSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatSearchController.h; sourceTree = "<group>"; };
 		FD7A99FE1C3772AB009A05F5 /* ChatSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSearchController.m; sourceTree = "<group>"; };
 		FD7A9A001C37A0A5009A05F5 /* button_contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_contact.png; sourceTree = "<group>"; };
@@ -579,10 +563,6 @@
 		FD9686E01C1AEA8600D7F778 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		FD9A8EEE1C193B5B00D9EC9C /* LYAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYAnnotationView.h; sourceTree = "<group>"; };
 		FD9A8EEF1C193B5B00D9EC9C /* LYAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYAnnotationView.m; sourceTree = "<group>"; };
-		FD9E1B2D1C3D10EA00C94AA3 /* YingYingFriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YingYingFriendListController.h; sourceTree = "<group>"; };
-		FD9E1B2E1C3D10EA00C94AA3 /* YingYingFriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YingYingFriendListController.m; sourceTree = "<group>"; };
-		FD9E1B301C3D113E00C94AA3 /* YingYingFriendListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YingYingFriendListViewModel.h; sourceTree = "<group>"; };
-		FD9E1B311C3D113E00C94AA3 /* YingYingFriendListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YingYingFriendListViewModel.m; sourceTree = "<group>"; };
 		FD9E1B341C3D13C900C94AA3 /* TransferMoodFriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransferMoodFriendListController.h; sourceTree = "<group>"; };
 		FD9E1B351C3D13C900C94AA3 /* TransferMoodFriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransferMoodFriendListController.m; sourceTree = "<group>"; };
 		FDA679BB1C1A7D5100FC8D9F /* DistributionResViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionResViewModel.h; sourceTree = "<group>"; };
@@ -595,16 +575,8 @@
 		FDD6D7D41C25A45900B03DF8 /* SettingNewPayPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingNewPayPasswordController.m; sourceTree = "<group>"; };
 		FDD6D7D61C25BE8700B03DF8 /* SettingForgetPayPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingForgetPayPasswordController.h; sourceTree = "<group>"; };
 		FDD6D7D71C25BE8700B03DF8 /* SettingForgetPayPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingForgetPayPasswordController.m; sourceTree = "<group>"; };
-		FDD6D7D91C25BF3F00B03DF8 /* UIViewController+YingyingNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YingyingNavigationItem.h"; sourceTree = "<group>"; };
-		FDD6D7DA1C25BF3F00B03DF8 /* UIViewController+YingyingNavigationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YingyingNavigationItem.m"; sourceTree = "<group>"; };
 		FDD6D7DD1C26533900B03DF8 /* ChatFriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatFriendListController.h; sourceTree = "<group>"; };
 		FDD6D7DE1C26533900B03DF8 /* ChatFriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatFriendListController.m; sourceTree = "<group>"; };
-		FDD6D7E41C26566100B03DF8 /* UIViewController+YingyingModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YingyingModalViewController.h"; sourceTree = "<group>"; };
-		FDD6D7E51C26566100B03DF8 /* UIViewController+YingyingModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YingyingModalViewController.m"; sourceTree = "<group>"; };
-		FDD6D7E81C26569600B03DF8 /* PersonalHomePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHomePageController.h; sourceTree = "<group>"; };
-		FDD6D7E91C26569600B03DF8 /* PersonalHomePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHomePageController.m; sourceTree = "<group>"; };
-		FDD6D7EA1C26569600B03DF8 /* PersonalHomePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHomePageViewModel.h; sourceTree = "<group>"; };
-		FDD6D7EB1C26569600B03DF8 /* PersonalHomePageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHomePageViewModel.m; sourceTree = "<group>"; };
 		FDD6D7EF1C27930900B03DF8 /* chat_add_face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_add_face.png; sourceTree = "<group>"; };
 		FDD6D7F01C27930900B03DF8 /* chat_add_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_add_photo.png; sourceTree = "<group>"; };
 		FDD6D7F11C27930900B03DF8 /* chat_bubble_other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_bubble_other.png; sourceTree = "<group>"; };
@@ -617,8 +589,6 @@
 		FDD6D7F81C27930900B03DF8 /* personal_homepage_head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = personal_homepage_head.png; sourceTree = "<group>"; };
 		FDD6D7F91C27930900B03DF8 /* personal_homepage_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "personal_homepage_more@2x.png"; sourceTree = "<group>"; };
 		FDD6D7FA1C27930900B03DF8 /* personal_homepage_transfer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = personal_homepage_transfer.png; sourceTree = "<group>"; };
-		FDD6D8071C279FD400B03DF8 /* UIView+LYModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LYModify.h"; sourceTree = "<group>"; };
-		FDD6D8081C279FD400B03DF8 /* UIView+LYModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LYModify.m"; sourceTree = "<group>"; };
 		FDD6D80A1C29A3DF00B03DF8 /* ForAPNs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForAPNs.h; sourceTree = "<group>"; };
 		FDD6D80B1C29A3DF00B03DF8 /* ForAPNs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForAPNs.m; sourceTree = "<group>"; };
 		FDD6D80E1C2A44F500B03DF8 /* MyFavoriteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFavoriteController.h; sourceTree = "<group>"; };
@@ -662,6 +632,36 @@
 		FDF727AE1C3E0BEF00879753 /* ChatDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatDetailViewModel.m; sourceTree = "<group>"; };
 		FDF727B01C3ECD6100879753 /* around_mine_pause_button_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = around_mine_pause_button_highlighted.png; sourceTree = "<group>"; };
 		FDF727B11C3ECD6100879753 /* around_mine_pause_button_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = around_mine_pause_button_normal.png; sourceTree = "<group>"; };
+		FDF727B51C3F4E3000879753 /* LYBaseImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseImageViewController.h; sourceTree = "<group>"; };
+		FDF727B61C3F4E3000879753 /* LYBaseImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseImageViewController.m; sourceTree = "<group>"; };
+		FDF727B71C3F4E3000879753 /* LYBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseNavigationController.h; sourceTree = "<group>"; };
+		FDF727B81C3F4E3000879753 /* LYBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseNavigationController.m; sourceTree = "<group>"; };
+		FDF727B91C3F4E3000879753 /* LYBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseTabBarController.h; sourceTree = "<group>"; };
+		FDF727BA1C3F4E3000879753 /* LYBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseTabBarController.m; sourceTree = "<group>"; };
+		FDF727BB1C3F4E3000879753 /* LYBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYBaseViewModel.h; sourceTree = "<group>"; };
+		FDF727BC1C3F4E3000879753 /* LYBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYBaseViewModel.m; sourceTree = "<group>"; };
+		FDF727BE1C3F4E3000879753 /* UIView+LYModify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LYModify.h"; sourceTree = "<group>"; };
+		FDF727BF1C3F4E3000879753 /* UIView+LYModify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LYModify.m"; sourceTree = "<group>"; };
+		FDF727C01C3F4E3000879753 /* UIViewController+YingYingImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YingYingImagePickerController.h"; sourceTree = "<group>"; };
+		FDF727C11C3F4E3000879753 /* UIViewController+YingYingImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YingYingImagePickerController.m"; sourceTree = "<group>"; };
+		FDF727C21C3F4E3000879753 /* UIViewController+YingyingNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YingyingNavigationItem.h"; sourceTree = "<group>"; };
+		FDF727C31C3F4E3000879753 /* UIViewController+YingyingNavigationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YingyingNavigationItem.m"; sourceTree = "<group>"; };
+		FDF727C51C3F4E3000879753 /* YingYingFriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YingYingFriendListController.h; sourceTree = "<group>"; };
+		FDF727C61C3F4E3000879753 /* YingYingFriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YingYingFriendListController.m; sourceTree = "<group>"; };
+		FDF727C71C3F4E3000879753 /* YingYingFriendListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YingYingFriendListViewModel.h; sourceTree = "<group>"; };
+		FDF727C81C3F4E3000879753 /* YingYingFriendListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YingYingFriendListViewModel.m; sourceTree = "<group>"; };
+		FDF727CA1C3F4E3000879753 /* NSObject+LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LoginViewController.h"; sourceTree = "<group>"; };
+		FDF727CB1C3F4E3000879753 /* NSObject+LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LoginViewController.m"; sourceTree = "<group>"; };
+		FDF727CD1C3F4E3000879753 /* PersonalHomePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHomePageController.h; sourceTree = "<group>"; };
+		FDF727CE1C3F4E3000879753 /* PersonalHomePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHomePageController.m; sourceTree = "<group>"; };
+		FDF727CF1C3F4E3000879753 /* PersonalHomepagePhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHomepagePhotoCell.h; sourceTree = "<group>"; };
+		FDF727D01C3F4E3000879753 /* PersonalHomepagePhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHomepagePhotoCell.m; sourceTree = "<group>"; };
+		FDF727D11C3F4E3000879753 /* PersonalHomePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHomePageViewModel.h; sourceTree = "<group>"; };
+		FDF727D21C3F4E3000879753 /* PersonalHomePageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHomePageViewModel.m; sourceTree = "<group>"; };
+		FDF727D31C3F4E3000879753 /* UIViewController+YingyingModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YingyingModalViewController.h"; sourceTree = "<group>"; };
+		FDF727D41C3F4E3000879753 /* UIViewController+YingyingModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YingyingModalViewController.m"; sourceTree = "<group>"; };
+		FDF727E31C3F503F00879753 /* AroundMyCouponViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMyCouponViewModel.h; sourceTree = "<group>"; };
+		FDF727E41C3F504000879753 /* AroundMyCouponViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMyCouponViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1070,8 +1070,10 @@
 		FD405F2B1C16C22700DB6F0A /* common */ = {
 			isa = PBXGroup;
 			children = (
-				FDD6D7E31C26566100B03DF8 /* modal */,
-				FD54DDDB1C23B923009A8AD5 /* base */,
+				FDF727B41C3F4E3000879753 /* base */,
+				FDF727BD1C3F4E3000879753 /* category */,
+				FDF727C41C3F4E3000879753 /* friendList */,
+				FDF727C91C3F4E3000879753 /* modal */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -1274,33 +1276,6 @@
 			path = sound;
 			sourceTree = "<group>";
 		};
-		FD54DDDB1C23B923009A8AD5 /* base */ = {
-			isa = PBXGroup;
-			children = (
-				FD54DDDC1C23B923009A8AD5 /* LYBaseImageViewController.h */,
-				FD54DDDD1C23B923009A8AD5 /* LYBaseImageViewController.m */,
-				FD54DDDE1C23B923009A8AD5 /* LYBaseNavigationController.h */,
-				FD54DDDF1C23B923009A8AD5 /* LYBaseNavigationController.m */,
-				FD54DDE01C23B923009A8AD5 /* LYBaseSelectImageView.h */,
-				FD54DDE11C23B923009A8AD5 /* LYBaseSelectImageView.m */,
-				FD54DDE21C23B923009A8AD5 /* LYBaseTabBarController.h */,
-				FD54DDE31C23B923009A8AD5 /* LYBaseTabBarController.m */,
-				FDD6D7D91C25BF3F00B03DF8 /* UIViewController+YingyingNavigationItem.h */,
-				FDD6D7DA1C25BF3F00B03DF8 /* UIViewController+YingyingNavigationItem.m */,
-				FDD6D8071C279FD400B03DF8 /* UIView+LYModify.h */,
-				FDD6D8081C279FD400B03DF8 /* UIView+LYModify.m */,
-				FD7A99FA1C3762E6009A05F5 /* LYBaseViewModel.h */,
-				FD7A99FB1C3762E6009A05F5 /* LYBaseViewModel.m */,
-				FD1EE5241C3969000098812F /* UIViewController+YingYingImagePickerController.h */,
-				FD1EE5251C3969000098812F /* UIViewController+YingYingImagePickerController.m */,
-				FD9E1B2D1C3D10EA00C94AA3 /* YingYingFriendListController.h */,
-				FD9E1B2E1C3D10EA00C94AA3 /* YingYingFriendListController.m */,
-				FD9E1B301C3D113E00C94AA3 /* YingYingFriendListViewModel.h */,
-				FD9E1B311C3D113E00C94AA3 /* YingYingFriendListViewModel.m */,
-			);
-			path = base;
-			sourceTree = "<group>";
-		};
 		FD54DDEF1C2413DB009A8AD5 /* charge */ = {
 			isa = PBXGroup;
 			children = (
@@ -1395,6 +1370,8 @@
 				FD9686DA1C1AE42800D7F778 /* AroundPayController.m */,
 				FD41BB4D1C1D8AA600B4A074 /* AroundMyCouponController.h */,
 				FD41BB4E1C1D8AA600B4A074 /* AroundMyCouponController.m */,
+				FDF727E31C3F503F00879753 /* AroundMyCouponViewModel.h */,
+				FDF727E41C3F504000879753 /* AroundMyCouponViewModel.m */,
 				FD80685E1C20F27700111A0A /* AroundAddressController.h */,
 				FD80685F1C20F27700111A0A /* AroundAddressController.m */,
 				FD8068611C20F59B00111A0A /* AroundModalAddressController.h */,
@@ -1447,31 +1424,6 @@
 				FDD6D7DE1C26533900B03DF8 /* ChatFriendListController.m */,
 			);
 			path = friend;
-			sourceTree = "<group>";
-		};
-		FDD6D7E31C26566100B03DF8 /* modal */ = {
-			isa = PBXGroup;
-			children = (
-				FDD6D7E71C26569600B03DF8 /* personalHomePage */,
-				FDD6D7E41C26566100B03DF8 /* UIViewController+YingyingModalViewController.h */,
-				FDD6D7E51C26566100B03DF8 /* UIViewController+YingyingModalViewController.m */,
-				FD7A99EF1C36B817009A05F5 /* NSObject+LoginViewController.h */,
-				FD7A99F01C36B817009A05F5 /* NSObject+LoginViewController.m */,
-			);
-			path = modal;
-			sourceTree = "<group>";
-		};
-		FDD6D7E71C26569600B03DF8 /* personalHomePage */ = {
-			isa = PBXGroup;
-			children = (
-				FDD6D7E81C26569600B03DF8 /* PersonalHomePageController.h */,
-				FDD6D7E91C26569600B03DF8 /* PersonalHomePageController.m */,
-				FD584FF31C365CEF00276815 /* PersonalHomepagePhotoCell.h */,
-				FD584FF41C365CEF00276815 /* PersonalHomepagePhotoCell.m */,
-				FDD6D7EA1C26569600B03DF8 /* PersonalHomePageViewModel.h */,
-				FDD6D7EB1C26569600B03DF8 /* PersonalHomePageViewModel.m */,
-			);
-			path = personalHomePage;
 			sourceTree = "<group>";
 		};
 		FDD6D7EE1C27930900B03DF8 /* chat */ = {
@@ -1548,6 +1500,70 @@
 				FDA679BC1C1A7D5100FC8D9F /* DistributionResViewModel.m */,
 			);
 			path = distribute;
+			sourceTree = "<group>";
+		};
+		FDF727B41C3F4E3000879753 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				FDF727B51C3F4E3000879753 /* LYBaseImageViewController.h */,
+				FDF727B61C3F4E3000879753 /* LYBaseImageViewController.m */,
+				FDF727B71C3F4E3000879753 /* LYBaseNavigationController.h */,
+				FDF727B81C3F4E3000879753 /* LYBaseNavigationController.m */,
+				FDF727B91C3F4E3000879753 /* LYBaseTabBarController.h */,
+				FDF727BA1C3F4E3000879753 /* LYBaseTabBarController.m */,
+				FDF727BB1C3F4E3000879753 /* LYBaseViewModel.h */,
+				FDF727BC1C3F4E3000879753 /* LYBaseViewModel.m */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		FDF727BD1C3F4E3000879753 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				FDF727BE1C3F4E3000879753 /* UIView+LYModify.h */,
+				FDF727BF1C3F4E3000879753 /* UIView+LYModify.m */,
+				FDF727C01C3F4E3000879753 /* UIViewController+YingYingImagePickerController.h */,
+				FDF727C11C3F4E3000879753 /* UIViewController+YingYingImagePickerController.m */,
+				FDF727C21C3F4E3000879753 /* UIViewController+YingyingNavigationItem.h */,
+				FDF727C31C3F4E3000879753 /* UIViewController+YingyingNavigationItem.m */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		FDF727C41C3F4E3000879753 /* friendList */ = {
+			isa = PBXGroup;
+			children = (
+				FDF727C51C3F4E3000879753 /* YingYingFriendListController.h */,
+				FDF727C61C3F4E3000879753 /* YingYingFriendListController.m */,
+				FDF727C71C3F4E3000879753 /* YingYingFriendListViewModel.h */,
+				FDF727C81C3F4E3000879753 /* YingYingFriendListViewModel.m */,
+			);
+			path = friendList;
+			sourceTree = "<group>";
+		};
+		FDF727C91C3F4E3000879753 /* modal */ = {
+			isa = PBXGroup;
+			children = (
+				FDF727CA1C3F4E3000879753 /* NSObject+LoginViewController.h */,
+				FDF727CB1C3F4E3000879753 /* NSObject+LoginViewController.m */,
+				FDF727CC1C3F4E3000879753 /* personalHomePage */,
+				FDF727D31C3F4E3000879753 /* UIViewController+YingyingModalViewController.h */,
+				FDF727D41C3F4E3000879753 /* UIViewController+YingyingModalViewController.m */,
+			);
+			path = modal;
+			sourceTree = "<group>";
+		};
+		FDF727CC1C3F4E3000879753 /* personalHomePage */ = {
+			isa = PBXGroup;
+			children = (
+				FDF727CD1C3F4E3000879753 /* PersonalHomePageController.h */,
+				FDF727CE1C3F4E3000879753 /* PersonalHomePageController.m */,
+				FDF727CF1C3F4E3000879753 /* PersonalHomepagePhotoCell.h */,
+				FDF727D01C3F4E3000879753 /* PersonalHomepagePhotoCell.m */,
+				FDF727D11C3F4E3000879753 /* PersonalHomePageViewModel.h */,
+				FDF727D21C3F4E3000879753 /* PersonalHomePageViewModel.m */,
+			);
+			path = personalHomePage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1889,11 +1905,11 @@
 			files = (
 				FD41BAAC1C1C604200B4A074 /* FinanceBidController.m in Sources */,
 				FD29B37D1C112FDC00B68C6C /* UIScrollView+MJExtension.m in Sources */,
-				FDD6D7ED1C26569600B03DF8 /* PersonalHomePageViewModel.m in Sources */,
 				FDF532291C1435C000B779E6 /* DistributionMoodViewModel.m in Sources */,
 				FD29B3C71C1161F400B68C6C /* ModelDistributionController.m in Sources */,
 				FD41BB4F1C1D8AA600B4A074 /* AroundMyCouponController.m in Sources */,
 				FD8068691C2107AA00111A0A /* LYCityPicker.m in Sources */,
+				FDF727DD1C3F4E3000879753 /* YingYingFriendListViewModel.m in Sources */,
 				FD29B35C1C111C4A00B68C6C /* SecondViewController.m in Sources */,
 				FD3E336D1C2A46340076E868 /* MyMessageTableViewController.m in Sources */,
 				FD21CFAC1C1C04A300CF8550 /* ChatDetailController.m in Sources */,
@@ -1903,21 +1919,19 @@
 				FD29B3771C112FDC00B68C6C /* NSObject+LYTypeConversion.m in Sources */,
 				FD1EE5231C38F1940098812F /* YingYingUserModel.m in Sources */,
 				FD29B3821C1130BC00B68C6C /* BaseModel.m in Sources */,
-				FD1EE5261C3969000098812F /* UIViewController+YingYingImagePickerController.m in Sources */,
 				FD29B37F1C112FDC00B68C6C /* UIView+MJExtension.m in Sources */,
 				FD8068441C1F1DA000111A0A /* LoginEditUserInfoController.m in Sources */,
 				FD29B37C1C112FDC00B68C6C /* MJRefreshHeaderView.m in Sources */,
+				FDF727E01C3F4E3000879753 /* PersonalHomepagePhotoCell.m in Sources */,
 				FD29B37B1C112FDC00B68C6C /* MJRefreshFooterView.m in Sources */,
-				FDD6D7DB1C25BF3F00B03DF8 /* UIViewController+YingyingNavigationItem.m in Sources */,
-				FDD6D8091C279FD400B03DF8 /* UIView+LYModify.m in Sources */,
 				FD29B3D11C116DF600B68C6C /* FinanceViewController.m in Sources */,
 				FD9686E11C1AEA8600D7F778 /* MineViewController.m in Sources */,
 				FDF532261C13C5F900B779E6 /* DistributionResController.m in Sources */,
-				FDD6D7E61C26566100B03DF8 /* UIViewController+YingyingModalViewController.m in Sources */,
 				FD95AF361C36309100B6DD4F /* AroundMoodDetailCell.m in Sources */,
 				FDEC5E761C31239D00D85E3F /* MinePopController.m in Sources */,
 				FDF727AF1C3E0BEF00879753 /* ChatDetailViewModel.m in Sources */,
 				FD8BB0791C351C2600BC36E6 /* AroundMoodTableViewCell.m in Sources */,
+				FDF727E11C3F4E3000879753 /* PersonalHomePageViewModel.m in Sources */,
 				FD29B3791C112FDC00B68C6C /* MJRefreshBaseView.m in Sources */,
 				FD1EE52B1C3A3D8E0098812F /* MineViewModel.m in Sources */,
 				FD29B3551C111C4A00B68C6C /* AppDelegate.m in Sources */,
@@ -1925,8 +1939,10 @@
 				FDEC5E511C2E7FDA00D85E3F /* LoginViewController.m in Sources */,
 				FD4BA8D31C128F3C00A69F90 /* MySettingTableViewController.m in Sources */,
 				FD7A99EE1C369168009A05F5 /* AroundMapViewModel.m in Sources */,
+				FDF727E21C3F4E3000879753 /* UIViewController+YingyingModalViewController.m in Sources */,
 				FD54DDC01C229847009A8AD5 /* UserMessage.m in Sources */,
 				FD29B38F1C1135DC00B68C6C /* AroundViewController.m in Sources */,
+				FDF727DB1C3F4E3000879753 /* UIViewController+YingyingNavigationItem.m in Sources */,
 				FDD6D7CB1C24F4E400B03DF8 /* MyCashSwitchAccountController.m in Sources */,
 				FDD6D7D81C25BE8700B03DF8 /* SettingForgetPayPasswordController.m in Sources */,
 				FD4BA8E61C13141B00A69F90 /* Yingying.m in Sources */,
@@ -1934,34 +1950,32 @@
 				FD29B3D61C11727600B68C6C /* FinanceBillController.m in Sources */,
 				FD41BAB71C1D09A400B4A074 /* YingLoanController.m in Sources */,
 				FD405F701C1917C100DB6F0A /* LYColor.m in Sources */,
-				FD9E1B321C3D113E00C94AA3 /* YingYingFriendListViewModel.m in Sources */,
 				FDD6D7DF1C26533900B03DF8 /* ChatFriendListController.m in Sources */,
 				FD90EF561C158975005545DF /* LoginRegisterController.m in Sources */,
-				FD9E1B2F1C3D10EA00C94AA3 /* YingYingFriendListController.m in Sources */,
 				FD29B35B1C111C4A00B68C6C /* main.m in Sources */,
-				FD54DDEC1C23B923009A8AD5 /* LYBaseTabBarController.m in Sources */,
 				FD8068601C20F27700111A0A /* AroundAddressController.m in Sources */,
-				FDD6D7EC1C26569600B03DF8 /* PersonalHomePageController.m in Sources */,
 				FD21CFA61C1BC09200CF8550 /* ChatListController.m in Sources */,
 				FD29B3C31C1159D800B68C6C /* AroundMapController.m in Sources */,
 				FDD6D7D51C25A45900B03DF8 /* SettingNewPayPasswordController.m in Sources */,
 				FDD6D7D21C25A41100B03DF8 /* SettingPayPasswordController.m in Sources */,
 				FD29B37E1C112FDC00B68C6C /* UIScrollView+MJRefresh.m in Sources */,
-				FD7A99F11C36B817009A05F5 /* NSObject+LoginViewController.m in Sources */,
 				FD1EE52E1C3A5E040098812F /* LoginFindPasswordController.m in Sources */,
 				FD21CFA31C1BBFCC00CF8550 /* CDUserFactory.m in Sources */,
 				FD4BA8CC1C12834400A69F90 /* MyLoanController.m in Sources */,
 				FD54DDF21C2413F0009A8AD5 /* MyChargeController.m in Sources */,
 				FDF532251C13C5F900B779E6 /* DistributionMoodController.m in Sources */,
+				FDF727DE1C3F4E3000879753 /* NSObject+LoginViewController.m in Sources */,
 				FD29B37A1C112FDC00B68C6C /* MJRefreshConst.m in Sources */,
 				FD9686DB1C1AE42800D7F778 /* AroundPayController.m in Sources */,
 				FD4BA8C51C11C5DE00A69F90 /* MyInvestmentViewController.m in Sources */,
+				FDF727D71C3F4E3000879753 /* LYBaseTabBarController.m in Sources */,
 				FD29B3C21C1159D800B68C6C /* AroundMessageController.m in Sources */,
 				FD9A8EF01C193B5B00D9EC9C /* LYAnnotationView.m in Sources */,
 				FD7A9A041C37A6BF009A05F5 /* FriendModel.m in Sources */,
-				FD584FF51C365CEF00276815 /* PersonalHomepagePhotoCell.m in Sources */,
 				FD4BA8D91C12F5B500A69F90 /* NSObject+LYUITipsView.m in Sources */,
+				FDF727DF1C3F4E3000879753 /* PersonalHomePageController.m in Sources */,
 				FD4BA8DC1C13075A00A69F90 /* AroundMessageDetailController.m in Sources */,
+				FDF727D51C3F4E3000879753 /* LYBaseImageViewController.m in Sources */,
 				FD95AF331C358D0E00B6DD4F /* AroundMoodDetailViewModel.m in Sources */,
 				FD54DDF91C24E36D009A8AD5 /* ModalConfirmCashController.m in Sources */,
 				FD69A1B81C337812002A458F /* AroundMoodViewModel.m in Sources */,
@@ -1970,27 +1984,29 @@
 				FD7A99FF1C3772AB009A05F5 /* ChatSearchController.m in Sources */,
 				FD7A9A071C38B0AE009A05F5 /* ChatNavigationController.m in Sources */,
 				FD8068631C20F59B00111A0A /* AroundModalAddressController.m in Sources */,
-				FD54DDEB1C23B923009A8AD5 /* LYBaseSelectImageView.m in Sources */,
 				FDA679BD1C1A7D5100FC8D9F /* DistributionResViewModel.m in Sources */,
-				FD7A99FC1C3762E6009A05F5 /* LYBaseViewModel.m in Sources */,
+				FDF727DA1C3F4E3000879753 /* UIViewController+YingYingImagePickerController.m in Sources */,
 				FDEC5E4A1C2E3E7400D85E3F /* LYDebug.m in Sources */,
 				FD29B3751C112FDC00B68C6C /* LYTypeEncoding.m in Sources */,
 				FDEC5E7B1C315DB200D85E3F /* MyCenterTotalCell.m in Sources */,
 				FD9E1B361C3D13C900C94AA3 /* TransferMoodFriendListController.m in Sources */,
+				FDF727E51C3F504000879753 /* AroundMyCouponViewModel.m in Sources */,
 				FD54DDBD1C22960B009A8AD5 /* UserModel.m in Sources */,
+				FDF727D81C3F4E3000879753 /* LYBaseViewModel.m in Sources */,
 				FD4BA8CF1C12841700A69F90 /* MyLoanDetailController.m in Sources */,
 				FD29B3591C111C4A00B68C6C /* FirstViewController.m in Sources */,
 				FD7A99F81C376239009A05F5 /* ChatSearchViewModel.m in Sources */,
-				FD54DDE91C23B923009A8AD5 /* LYBaseImageViewController.m in Sources */,
 				FD80686C1C210A0D00111A0A /* AroundAddressViewModel.m in Sources */,
 				FD54DDF61C2461EE009A8AD5 /* MyCashViewController.m in Sources */,
+				FDF727D61C3F4E3000879753 /* LYBaseNavigationController.m in Sources */,
 				FD4BA8E01C13135500A69F90 /* MyTransferTableViewController.m in Sources */,
 				FD29B3761C112FDC00B68C6C /* NSDictionary+LYDictToObject.m in Sources */,
 				FD297DDC1C2D899E007DFFF0 /* LocationMessage.m in Sources */,
-				FD54DDEA1C23B923009A8AD5 /* LYBaseNavigationController.m in Sources */,
 				FD54DDB91C2247D7009A8AD5 /* BaseMessage.m in Sources */,
+				FDF727DC1C3F4E3000879753 /* YingYingFriendListController.m in Sources */,
 				FD1EE5311C3A64640098812F /* LoginResetPasswordController.m in Sources */,
 				FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */,
+				FDF727D91C3F4E3000879753 /* UIView+LYModify.m in Sources */,
 				FD29B3B21C113BC600B68C6C /* ForMap.mm in Sources */,
 				FD4BA8E31C13139C00A69F90 /* MyTransferViewModel.m in Sources */,
 			);

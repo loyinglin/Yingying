@@ -55,3 +55,16 @@
 
 
 @end
+
+@implementation TicketInfo
+
+
+
+@end
+
+
+
+
+
+
+

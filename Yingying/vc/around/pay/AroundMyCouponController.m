@@ -7,8 +7,11 @@
 //
 
 #import "AroundMyCouponController.h"
+#import "AroundMyCouponViewModel.h"
 
 @interface AroundMyCouponController ()
+
+@property (nonatomic , strong) AroundMyCouponViewModel* myViewModel;
 
 @end
 
@@ -17,20 +20,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.myViewModel = [AroundMyCouponViewModel new];
+    self.myViewModel.myType = self.myType;
     
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 10)];
 //    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    @weakify(self);
+    [[self.myViewModel requestGetMyCoupon] subscribeCompleted:^{
+        @strongify(self);
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - UI
+
+
 
 #pragma mark - Table view data source
 
@@ -39,7 +48,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 11;
+    return [self.myViewModel getCouponCount];
 }
 
 
@@ -47,9 +56,23 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
+    TicketInfo* info = [self.myViewModel getCouponbyIndex:indexPath.row];
+    if (info) {
+        UILabel* expireLabel = (UILabel *)[cell viewWithTag:10];
+        UILabel* sumLabel = (UILabel *)[cell viewWithTag:20];
+        expireLabel.text = info.expire_date;
+        if (info.sum) {
+            sumLabel.text = [NSString stringWithFormat:@"%@元", info.sum];
+        }
+        else {
+            sumLabel.text = nil;
+        }
+    }
     
     return cell;
 }
+
+
 
 
 @end

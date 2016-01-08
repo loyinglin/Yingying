@@ -127,3 +127,13 @@
 @end
 
 
+typedef NS_ENUM(NSInteger, LY_TICKET_TYPE) {
+    ly_ticket_type_coupon = 0,
+    ly_ticket_type_finance = 1,
+};
+@interface TicketInfo : LYCoding
+@property (nonatomic , strong) NSString* expire_date;
+@property (nonatomic , strong) NSNumber* lid;
+@property (nonatomic , strong) NSNumber* sum;
+@property (nonatomic , strong) NSNumber* type;
+@end
