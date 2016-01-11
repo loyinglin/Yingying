@@ -8,6 +8,13 @@
 
 #import "ChatDetailViewModel.h"
 
+@interface ChatDetailViewModel()
+
+@property (nonatomic , strong) IBOutlet MoodInfo* myMoodInfo;
+
+@end
+
+
 @implementation ChatDetailViewModel
 
 
@@ -20,7 +27,14 @@
 
 #pragma mark - get
 
-
+- (MoodInfo *)getTransferMoodInfo {
+    MoodInfo* ret = nil;
+    if (self.myMoodInfo) {
+        ret = self.myMoodInfo;
+    }
+    
+    return ret;
+}
 
 
 #pragma mark - message
@@ -35,7 +49,11 @@
             return nil;
         }
         [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_GET_MOOD_INFO_BY_SID] Param:@{@"access_token":[[UserModel instance] getMyAccessToken], @"sid":sid} success:^(id responseObject) {
-            
+            NSDictionary* dict = responseObject;
+            if ([dict isKindOfClass:[NSDictionary class]]) {
+                self.myMoodInfo = [dict objectForClass:[MoodInfo class]];
+            }
+            [subscriber sendCompleted];
         }];
         return nil;
     }];

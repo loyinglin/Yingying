@@ -20,7 +20,7 @@
 
 #pragma mark - get
 
-
+- (MoodInfo *)getTransferMoodInfo;
 
 
 #pragma mark - message

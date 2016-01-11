@@ -14,6 +14,7 @@
 
 //回调通过notify 
 
+- (void)lyModalPersonalHomePageWithUserId:(NSNumber *)uid;
 
 - (void)lyModalPersonalHomePageWithUserphone:(NSString *)userphone;
 

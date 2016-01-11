@@ -103,7 +103,12 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
     self.myViewModel = [PersonalHomePageViewModel new];
     self.myViewModel.myUserphone = userphone;
     self.myViewModel.myUid = uid;
-    self.isSelf = [userphone isEqualToString:[[UserModel instance] getMyUserphone]];
+    if ([userphone isEqualToString:[[UserModel instance] getMyUserphone]] || (uid && uid.integerValue == [UserModel instance].myUid.integerValue)) {
+        self.isSelf = YES;
+    }
+    else {
+        self.isSelf = NO;
+    }
 }
 
 - (void)customView {
@@ -396,6 +401,14 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
             }
 
         }
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_REFRESH_AROUND_MOOD object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self);
+        [[self.myViewModel requestGetMoodList] subscribeCompleted:^{
+            @strongify(self);
+            [self.myTableView reloadData];
+        }];
     }];
 }
 

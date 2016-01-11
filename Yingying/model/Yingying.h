@@ -112,6 +112,7 @@
 @property (nonatomic , strong) NSNumber* isOwn;
 @property (nonatomic , strong) NSString* headUrl;
 @property (nonatomic , strong) NSString* username;
+@property (nonatomic , strong) NSString* userphone;
 @end
 
 

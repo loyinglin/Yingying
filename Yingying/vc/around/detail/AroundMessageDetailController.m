@@ -298,7 +298,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_UI_MOOD_DETAIL_TAP_AVATAR object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         @strongify(self);
-        [self lyModalPersonalHomePageWithUserphone:nil];
+        if (self.view.window) {
+            [self lyModalPersonalHomePageWithUserphone:self.myViewModel.myMoodInfo.userphone];
+        }
     }];
 }
 

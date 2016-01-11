@@ -137,7 +137,7 @@
                     break;
                 }
                 case ly_mine_back_end: {
-                    
+                    self.myGameStatus = @(-1);
                     break;
                 }
                 case ly_mine_back_coupon: {
@@ -171,6 +171,12 @@
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
     LYLog(@"fail %@", error);
     self.myWebSocket = nil;
+    if (error) {
+        NSNumber* code = error.userInfo[@"HTTPResponseStatusCode"];
+        if (code && code.integerValue == 500) {
+            [self presentMessageTips:@"请重新登录"];
+        }
+    }
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {

@@ -126,8 +126,12 @@ typedef NS_ENUM(NSInteger, LY_MINE_UI) {
 #pragma mark - ibaction
 
 - (IBAction)onMine:(UIButton *)sender {
-    
-    [self.myViewModel sendStartGame];
+    if (self.myViewModel.myGameManual && self.myViewModel.myGameManual.integerValue > 0) {
+        [self.myViewModel sendStartGame];
+    }
+    else {
+        [self presentMessageTips:@"体力已用完，稍等体力恢复"];
+    }
     /*
     [UIView animateWithDuration:3.0 animations:^{
         self.myProgressConstraint.constant = 270;

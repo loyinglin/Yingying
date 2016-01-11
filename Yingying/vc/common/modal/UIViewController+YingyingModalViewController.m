@@ -12,6 +12,18 @@
 
 @implementation UIViewController (YingyingModalViewController)
 
+- (void)lyModalPersonalHomePageWithUserId:(NSNumber *)uid {
+    UIStoryboard* board = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UINavigationController* navigatonController = [board instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
+    PersonalHomePageController* controller = navigatonController.viewControllers[0];
+    if ([controller isKindOfClass:[PersonalHomePageController class]]) {
+        [controller initWithUserphone:nil Uid:uid];
+        [self presentViewController:navigatonController animated:YES completion:nil];
+    }
+    else {
+        LYLog(@"error");
+    }
+}
 
 - (void)lyModalPersonalHomePageWithUserphone:(NSString *)userphone {
     UINavigationController* navigatonController = [self.storyboard instantiateViewControllerWithIdentifier:@"personal_home_page_controller"];
@@ -45,7 +57,7 @@
     [self lyModalImageViewWithUrlString:urlString CallBack:nil];
 }
 
-- (void)lyPushMoodDetailControllerWithMoodInfo:(id)info {
+- (void)lyPushMoodDetailControllerWithMoodInfo:(MoodInfo *)info {
     UIStoryboard* board = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     AroundMessageDetailController* controller = [board instantiateViewControllerWithIdentifier:@"around_mood_detail_controller"];
     if ([controller isKindOfClass:[AroundMessageDetailController class]]) {

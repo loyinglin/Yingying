@@ -47,16 +47,39 @@
 
 #pragma mark - delegate
 
+- (void)didSelectedAvatorOnMessage:(id<XHMessageModel>)message atIndexPath:(NSIndexPath *)indexPath {
+    XHMessage *msg = [self.messages objectAtIndex:indexPath.row];
+    if (msg.bubbleMessageType == XHBubbleMessageTypeSending) {
+        NSLog(@"click %@", [CDChatManager manager].selfId);
+        [self lyModalPersonalHomePageWithUserId:@([CDChatManager manager].selfId.integerValue)];
+    }
+    else {
+        NSString* str = @"";
+        for (NSString* item in self.conv.members) {
+            if ([item isEqualToString:[CDChatManager manager].selfId]) {
+                
+            }
+            else {
+                str = item;
+            }
+        }
+        NSLog(@"click %@", str);
+        [self lyModalPersonalHomePageWithUserId:@(str.intValue)];
+    }
+}
+
 - (void)multiMediaMessageDidSelectedOnMessage:(id<XHMessageModel>)message atIndexPath:(NSIndexPath *)indexPath onMessageTableViewCell:(XHMessageTableViewCell *)messageTableViewCell {
     [super multiMediaMessageDidSelectedOnMessage:message atIndexPath:indexPath onMessageTableViewCell:messageTableViewCell];
     if (message.messageMediaType == XHBubbleMessageMediaTypeYingyingMood) {
-        [[self.myViewModel requestGetMoodInfoBySid:message.yingyingSid] subscribeNext:^(id x) {
-            MoodInfo* info = [MoodInfo new];
-            info.sid = message.yingyingSid;
-            info.moodContent = message.yingyingMoodConent;
-            info.name = message.yingyingMoodTitle;
-            [self lyPushMoodDetailControllerWithMoodInfo:info];
-        }];
+        [[self.myViewModel requestGetMoodInfoBySid:message.yingyingSid] subscribeCompleted:^{
+            if ([self.myViewModel getTransferMoodInfo]) {
+                [self lyPushMoodDetailControllerWithMoodInfo:[self.myViewModel getTransferMoodInfo]];
+            }
+            else {
+                [self presentMessageTips:@"分享的链接有误"];
+            }
+        }
+         ];
     }
 }
 #pragma mark - notify

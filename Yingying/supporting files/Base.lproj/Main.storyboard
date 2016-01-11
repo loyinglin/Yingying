@@ -779,7 +779,7 @@
             </objects>
             <point key="canvasLocation" x="-2003" y="-1307"/>
         </scene>
-        <!--挖矿小游戏-->
+        <!--盈盈寻宝-->
         <scene sceneID="Yeo-HM-m7G">
             <objects>
                 <viewController id="c6Y-3q-HDf" customClass="MineViewController" sceneMemberID="viewController">
@@ -797,15 +797,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="around_mine_mountain.png" translatesAutoresizingMaskIntoConstraints="NO" id="05w-TP-T4d">
                                 <rect key="frame" x="13" y="272" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="9xi-De-eMu"/>
-                                    <constraint firstAttribute="height" constant="150" id="FVh-Qb-veM"/>
+                                    <constraint firstAttribute="width" secondItem="05w-TP-T4d" secondAttribute="height" multiplier="1:1" id="XIf-a5-Y6w"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="around_mine_init.png" translatesAutoresizingMaskIntoConstraints="NO" id="TE3-TC-UTM">
                                 <rect key="frame" x="0.0" y="187" width="320" height="277"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="One-qG-2fY"/>
-                                    <constraint firstAttribute="height" constant="277" id="UTK-Zh-hq1"/>
+                                    <constraint firstAttribute="width" secondItem="TE3-TC-UTM" secondAttribute="height" multiplier="320:277" id="Oli-i9-H9h"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="around_mine_message_board.png" translatesAutoresizingMaskIntoConstraints="NO" id="i4p-rW-MjU">
@@ -896,7 +894,9 @@
                             <constraint firstItem="yok-tn-OMI" firstAttribute="leading" secondItem="TE3-TC-UTM" secondAttribute="trailing" constant="-87" id="G5z-mr-1eK"/>
                             <constraint firstItem="hFs-kO-WZ6" firstAttribute="centerY" secondItem="yok-tn-OMI" secondAttribute="centerY" id="Jwy-rz-VVI"/>
                             <constraint firstItem="cqi-mJ-EPO" firstAttribute="width" secondItem="jnZ-gp-Olu" secondAttribute="width" multiplier="0.6" id="Mke-bT-0eP"/>
+                            <constraint firstItem="TE3-TC-UTM" firstAttribute="width" secondItem="jnZ-gp-Olu" secondAttribute="width" id="Mmz-Tp-2gs"/>
                             <constraint firstItem="05w-TP-T4d" firstAttribute="leading" secondItem="TE3-TC-UTM" secondAttribute="leading" constant="13" id="OAa-lr-z44"/>
+                            <constraint firstItem="05w-TP-T4d" firstAttribute="width" secondItem="TE3-TC-UTM" secondAttribute="width" multiplier="150:320" id="OO0-Gc-07E"/>
                             <constraint firstItem="yok-tn-OMI" firstAttribute="top" secondItem="TE3-TC-UTM" secondAttribute="bottom" constant="-76" id="RYb-bC-gsT"/>
                             <constraint firstItem="Poq-Cx-ZlD" firstAttribute="top" secondItem="2D8-Pr-IzW" secondAttribute="bottom" constant="10" id="Sq7-tB-bb7"/>
                             <constraint firstItem="cqi-mJ-EPO" firstAttribute="centerX" secondItem="i4p-rW-MjU" secondAttribute="centerX" id="TiD-2f-dYY"/>
@@ -916,7 +916,7 @@
                             <constraint firstItem="Tor-t0-rFD" firstAttribute="leading" secondItem="Poq-Cx-ZlD" secondAttribute="leading" constant="12" id="zpP-SF-X16"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="挖矿小游戏" id="hf7-2c-sK9">
+                    <navigationItem key="navigationItem" title="盈盈寻宝" id="hf7-2c-sK9">
                         <barButtonItem key="leftBarButtonItem" title="返回" id="cKU-SA-rb0">
                             <connections>
                                 <action selector="onBack:" destination="c6Y-3q-HDf" id="rUq-ZP-qiD"/>

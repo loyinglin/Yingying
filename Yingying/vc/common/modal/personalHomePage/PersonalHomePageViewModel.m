@@ -267,16 +267,23 @@
             [subscriber sendError:nil];
             return nil;
         }
-        if (!self.myUserphone) {
-            [self presentMessageTips:@"用户手机号为空"];
+        if (!self.myUserphone && !self.myUid) {
+            [self presentMessageTips:@"用户信息为空"];
             [subscriber sendError:nil];
             return nil;
         }
         
         BaseMessage* message = [BaseMessage instance];
         message.myLoadingStrings = @"获取个人信息..";
+        NSDictionary* dict;
+        if (self.myUserInfo) {
+            dict = @{LY_MSG_KEY_TOKEN:[[UserModel instance] getMyAccessToken], @"userphone":self.myUserphone};
+        }
+        else if (self.myUid){
+            dict = @{LY_MSG_KEY_TOKEN:[[UserModel instance] getMyAccessToken], @"uid":self.myUid};
+        }
         
-        [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_USER_GET_USER_INFO] Param:@{@"access_token":[[UserModel instance] getMyAccessToken], @"userphone":self.myUserphone} success:^(id responseObject) {
+        [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_USER_GET_USER_INFO] Param:dict success:^(id responseObject) {
             @strongify(self);
             NSDictionary* dict = responseObject;
             NSDictionary* head = [dict objectForKey:@"headImg"];
@@ -288,6 +295,7 @@
             self.myUid = [dict objectForKey:@"id"];
             self.myPhotosArr = [dict objectForKey:@"photos"];
             self.myIsFriend = [dict objectForKey:@"isfriend"];
+            self.myUserphone = [dict objectForKey:@"userphone"];
             
             //下面的赋值会触发UI 先做上面
             if ([dict isKindOfClass:[NSDictionary class]]) {
