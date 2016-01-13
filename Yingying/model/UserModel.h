@@ -11,6 +11,7 @@
 @interface UserModel : BaseModel
 
 @property (nonatomic , strong) NSNumber* myUid;
+@property (nonatomic , strong) NSString* myHeadUrl;
 
 #pragma mark - init
 

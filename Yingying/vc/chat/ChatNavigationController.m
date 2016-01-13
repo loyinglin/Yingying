@@ -132,6 +132,7 @@
                     
                     @strongify(self);
                     [self pushViewController:chatRoomVC animated:YES];
+//                    [self.tabBarController showViewController:chatRoomVC sender:nil];
                 }
                 self.uid = nil;
             }];

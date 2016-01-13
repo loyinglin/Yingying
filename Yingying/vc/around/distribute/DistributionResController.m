@@ -25,7 +25,8 @@
 
 @property (nonatomic , strong) IBOutlet UITextField*        myAddressTextField;
 @property (nonatomic , strong) IBOutlet UITextField*        myPriceTextField;
-@property (nonatomic , strong) IBOutlet UITextField*        myNameTextField;;
+@property (nonatomic , strong) IBOutlet UITextField*        myNameTextField;
+@property (nonatomic , strong) IBOutlet UIView*             myTabBackView;
 
 @property (nonatomic , strong) DistributionResViewModel*    myViewModel;
 @end
@@ -128,6 +129,7 @@
     
     UIAlertAction* edit = [UIAlertAction actionWithTitle:@"自由编辑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         @strongify(self);
+        self.myTabBackView.userInteractionEnabled = NO;
         self.myAddressTextField.userInteractionEnabled = YES;
     }];
     [controller addAction:edit];

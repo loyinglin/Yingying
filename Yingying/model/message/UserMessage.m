@@ -125,17 +125,21 @@
         if ([dict isKindOfClass:[NSDictionary class]] && [dict objectForKey:@"userInfo"]) {
             [UserModel instance].myUid = [dict objectForKey:@"id"]; //先设置
             NSDictionary* userInfo = [dict objectForKey:@"userInfo"];
+            
+            
+            if ([UserModel instance].myUid) {
+                NSDictionary* head = [dict objectForKey:@"headImg"];
+                if (head && [head objectForKey:@"thumbUrl"]) {
+                    NSString* myAvatarUrl = [LY_MSG_BASE_URL stringByAppendingString:[head objectForKey:@"thumbUrl"]];
+                    [UserModel instance].myHeadUrl = myAvatarUrl;
+                    [[YingYingUserModel instance] updateAddUserWithName:[[UserModel instance] getMyUserInfo].nickName Uid:[UserModel instance].myUid Url:myAvatarUrl];
+                }
+            }
+            
             if ([userInfo isKindOfClass:[NSDictionary class]]) {
                 UserInfo* info = [userInfo objectForClass:[UserInfo class]];
                 [[UserModel instance] updateWithUserInfo:info];
                 [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_SERVER_GET_USERINFO_SUCCESS object:nil];
-            }
-            if ([UserModel instance].myUid) {
-                NSDictionary* head = [dict objectForKey:@"headImg"];
-                if (head) {
-                    NSString* myAvatarUrl = [LY_MSG_BASE_URL stringByAppendingString:[head objectForKey:@"thumbUrl"]];
-                    [[YingYingUserModel instance] updateAddUserWithName:[[UserModel instance] getMyUserInfo].nickName Uid:[UserModel instance].myUid Url:myAvatarUrl];
-                }
             }
         }
         else {

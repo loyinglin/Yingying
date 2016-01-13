@@ -56,6 +56,11 @@
     }
     
     self.myUid = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@", [[self class] description], @"uid"]];
+    
+    
+    self.myHeadUrl = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@", [[self class] description], @"headUrl"]];
+    
+    
 }
 
 - (void)saveCache
@@ -68,6 +73,12 @@
     
     
     [[NSUserDefaults standardUserDefaults] setObject:self.myUid forKey:[NSString stringWithFormat:@"%@%@", [[self class] description], @"uid"]];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.myHeadUrl forKey:[NSString stringWithFormat:@"%@%@", [[self class] description], @"headUrl"]];
+    
+    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_MODEL_USER_MODEL_CHANGE object:nil]; 一个函数尽量制作一件事件
+    
 }
 
 -(void)clearCache
@@ -75,6 +86,7 @@
     self.myUserInfo = nil;
     self.myUid = nil;
     self.myLoginInfo = nil;
+    self.myHeadUrl = nil;
     [self saveCache];
 }
 

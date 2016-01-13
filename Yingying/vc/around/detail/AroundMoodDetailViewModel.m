@@ -72,7 +72,7 @@
 - (RACSignal *)requestMoodZan {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         BaseMessage* message = [BaseMessage instance];
-        message.myLoadingStrings = @"点赞中...";
+        message.myLoadingStrings = @"请求中...";
         
         [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_MOOD_FAVORITE] Param:@{@"access_token":[[UserModel instance] getMyAccessToken], @"sid":self.myMoodInfo.sid} success:^(id responseObject) {
             [subscriber sendCompleted];

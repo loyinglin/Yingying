@@ -276,7 +276,7 @@
         BaseMessage* message = [BaseMessage instance];
         message.myLoadingStrings = @"获取个人信息..";
         NSDictionary* dict;
-        if (self.myUserInfo) {
+        if (self.myUserphone) {
             dict = @{LY_MSG_KEY_TOKEN:[[UserModel instance] getMyAccessToken], @"userphone":self.myUserphone};
         }
         else if (self.myUid){

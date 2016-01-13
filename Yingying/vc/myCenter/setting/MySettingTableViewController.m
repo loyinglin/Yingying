@@ -7,6 +7,7 @@
 //
 
 #import "MySettingTableViewController.h"
+#import "NSObject+LoginViewController.h"
 #import "NSObject+LYUITipsView.h"
 #import "CDUserFactory.h"
 #import "UserModel.h"
@@ -41,6 +42,7 @@ typedef NS_ENUM(NSInteger, LY_SWITCH_SETTING) {
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 60;
     
+    [self customNotify];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,10 +77,10 @@ typedef NS_ENUM(NSInteger, LY_SWITCH_SETTING) {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    long ret = 6;
-    if (![[UserModel instance] getNeedLogin]) {
-        ++ret;
-    }
+    long ret = 7;
+//    if (![[UserModel instance] getNeedLogin]) {
+//        ++ret;
+//    }
     return ret;
 }
 
@@ -106,7 +108,13 @@ typedef NS_ENUM(NSInteger, LY_SWITCH_SETTING) {
         }
     }
     else if (indexPath.row == ly_logout) {
-        
+        UILabel* label = (UILabel *)[cell viewWithTag:10];
+        if ([[UserModel instance] getNeedLogin]) {
+            label.text = @"登陆";
+        }
+        else {
+            label.text = @"退出登陆";
+        }
     }
     
     return cell;
@@ -125,9 +133,14 @@ typedef NS_ENUM(NSInteger, LY_SWITCH_SETTING) {
             break;
         case ly_logout:
         {
-            [[UserModel instance] updateWithUserLogout];
-            [self presentMessageTips:@"退出登录"];
-            [self.tableView reloadData];
+            if ([[UserModel instance] getNeedLogin]) {
+                [self lyModalLoginViewController];
+            }
+            else {
+                [[UserModel instance] updateWithUserLogout];
+                [self presentMessageTips:@"退出登录"];
+                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
         }
             
         default:
@@ -139,5 +152,11 @@ typedef NS_ENUM(NSInteger, LY_SWITCH_SETTING) {
 
 #pragma mark - notify
 
+- (void)customNotify {
+    __weak typeof(self) weakSelf = self;
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_MODEL_USER_MODEL_CHANGE object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [weakSelf.tableView reloadData];
+    }];
+}
 
 @end

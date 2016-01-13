@@ -9,6 +9,7 @@
 #import "MyCenterTableViewController.h"
 #import "UIViewController+YingyingNavigationItem.h"
 #import "UIViewController+YingyingModalViewController.h"
+#import "UIImageView+AFNetworking.h"
 #import "LYNotifyCenter.h"
 #import "MyCenterTotalCell.h"
 #import "UserModel.h"
@@ -109,12 +110,20 @@
     
     if (indexPath.row == my_total) {
         UILabel* myName = (UILabel *)[cell viewWithTag:10];
+        UIImageView* avatarImageView = (UIImageView *)[cell viewWithTag:20];
         if ([myName isKindOfClass:[UILabel class]]) {
             UserInfo* myInfo = [[UserModel instance] getMyUserInfo];
             if (myInfo && myInfo.nickName) {
                 myName.text = myInfo.nickName;
             }
         }
+        if ([UserModel instance].myHeadUrl) {
+            [avatarImageView setImageWithURL:[NSURL URLWithString:[UserModel instance].myHeadUrl]];
+        }
+        else {
+            [avatarImageView setImage:[UIImage imageNamed:@"base_avatar"]];
+        }
+             
     }
    
     

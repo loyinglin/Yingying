@@ -25,6 +25,7 @@
 @property (nonatomic , strong) IBOutlet UITextField*        myAddressTextField;
 @property (nonatomic , strong) IBOutlet UITextView*         myMoodContentTextView;
 @property (nonatomic , strong) IBOutlet UILabel*            myPlaceholderLabel;
+@property (nonatomic , strong) IBOutlet UIView*             myTapBackView;
 @property (nonatomic , strong) DistributionMoodViewModel* myViewModel;
 
 @end
@@ -120,6 +121,7 @@
     UIAlertAction* edit = [UIAlertAction actionWithTitle:@"自由编辑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         @strongify(self);
         self.myAddressTextField.userInteractionEnabled = YES;
+        self.myTapBackView.userInteractionEnabled = NO;
     }];
     [controller addAction:edit];
     
