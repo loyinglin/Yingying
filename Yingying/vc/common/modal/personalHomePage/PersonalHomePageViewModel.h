@@ -48,4 +48,6 @@
 - (RACSignal *)requestAddPhotoWithImage:(UIImage *)image;
 - (RACSignal *)requestUploadAvatarWithImage:(UIImage *)image;
 - (RACSignal *)requestDeletePhoteWithPhotoId:(NSNumber *)photoId;
+- (RACSignal *)requestModifyNickName:(NSString *)name;
+- (RACSignal *)requestModifyGender:(NSString *)gender;
 @end

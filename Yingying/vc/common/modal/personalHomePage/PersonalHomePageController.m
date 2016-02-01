@@ -345,11 +345,76 @@ typedef NS_ENUM(NSInteger, LYINFORMATION) {
         self.isAvatar = YES;
         [self lyModalChoosePicker];
     }
+    else if (indexPath.section == ly_information && indexPath.row == ly_nickname) {
+        [self onModifyNickName];
+    }
+    else if (indexPath.section == ly_information && indexPath.row == ly_gender) {
+        [self onModifyGender];
+    }
     
     return nil;
 }
 
+- (void)onModifyNickName {
+    
+    UIAlertController* controller = [UIAlertController alertControllerWithTitle:@"昵称修改" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    @weakify(self);
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        LYLog(@"cancel");
+    }];
+    [controller addAction:cancel];
+    
+    UIAlertAction* sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
+        
+        [[self.myViewModel requestModifyNickName:controller.textFields[0].text] subscribeCompleted:^{
+            @strongify(self);
+            self.myViewModel.myUserInfo.nickName = controller.textFields[0].text;
+            [self.myTableView reloadData];
+        }];
+    }];
+    [controller addAction:sure];
+    
+    [controller addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"请输入新的昵称";
+    }];
+    
+    [self presentViewController:controller animated:YES completion:nil];
+}
 
+
+- (void)onModifyGender {
+    
+    UIAlertController* controller = [UIAlertController alertControllerWithTitle:@"性别修改" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    @weakify(self);
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        LYLog(@"cancel");
+    }];
+    [controller addAction:cancel];
+    
+    UIAlertAction* female = [UIAlertAction actionWithTitle:@"女" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
+        [[self.myViewModel requestModifyGender:@"f"] subscribeCompleted:^{
+            @strongify(self);
+            self.myViewModel.myUserInfo.gender = @"f";
+            [self.myTableView reloadData];
+        }];
+    }];
+    [controller addAction:female];
+    
+    UIAlertAction* male = [UIAlertAction actionWithTitle:@"男" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
+        [[self.myViewModel requestModifyGender:@"m"] subscribeCompleted:^{
+            @strongify(self);
+            self.myViewModel.myUserInfo.gender = @"m";
+            [self.myTableView reloadData];
+        }];
+    }];
+    [controller addAction:male];
+    
+    
+    [self presentViewController:controller animated:YES completion:nil];
+}
 #pragma mark - notify
 
 - (void)customNotify {

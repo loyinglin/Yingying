@@ -59,6 +59,9 @@
         if (info.headUrl) {
             [self.myAvatarImageview setImageWithURL:[NSURL URLWithString:[LY_MSG_BASE_URL stringByAppendingString:info.headUrl]]];
         }
+        else {
+            [self.myAvatarImageview setImage:[UIImage imageNamed:@"base_avatar"]];
+        }
         if (info.type.boolValue) {
             [self.myTypeImageView setImage:[UIImage imageNamed:@"base_status_esay"]];
         }

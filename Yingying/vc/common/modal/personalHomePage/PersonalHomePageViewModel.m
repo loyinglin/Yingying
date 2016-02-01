@@ -316,4 +316,34 @@
         return nil;
     }];
 }
+
+- (RACSignal *)requestModifyNickName:(NSString *)name {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        BaseMessage* message = [BaseMessage instance];
+        message.myLoadingStrings = @"修改中...";
+        if (!name) {
+            [subscriber sendError:nil];
+            return nil;
+        }
+        [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_USER_EDIT_USER_INFO] Param:@{LY_MSG_KEY_TOKEN:[[UserModel instance] getMyAccessToken], @"nickName":name} success:^(id responseObject) {
+            [subscriber sendCompleted];
+        }];
+        return nil;
+    }];
+}
+
+- (RACSignal *)requestModifyGender:(NSString *)gender {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        BaseMessage* message = [BaseMessage instance];
+        message.myLoadingStrings = @"修改中...";
+        if (!gender) {
+            [subscriber sendError:nil];
+            return nil;
+        }
+        [message sendRequestWithPost:[LY_MSG_BASE_URL stringByAppendingString:LY_MSG_USER_EDIT_USER_INFO] Param:@{LY_MSG_KEY_TOKEN:[[UserModel instance] getMyAccessToken], @"gender":gender} success:^(id responseObject) {
+            [subscriber sendCompleted];
+        }];
+        return nil;
+    }];
+}
 @end

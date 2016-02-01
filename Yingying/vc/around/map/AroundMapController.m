@@ -60,7 +60,7 @@
     [super viewWillDisappear:animated];
     self.myMapView.delegate = nil;
     self.myLocationService.delegate = nil;
-    self.mySearchService.delegate = nil;
+//    self.mySearchService.delegate = nil;
 }
 
 - (void)customMap {
@@ -124,6 +124,8 @@
 {
     BMKLocationViewDisplayParam* param = [[BMKLocationViewDisplayParam alloc] init];
     param.locationViewImgName = @"map_myself_location";
+    param.isAccuracyCircleShow = YES;
+    
     //    param.isAccuracyCircleShow = YES;
     //
     self.myMapView.showsUserLocation = YES;
