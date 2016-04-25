@@ -35,8 +35,19 @@
     [self.myTabbarController.tabBar setHidden:YES];
     
     
+    BaseMessage* message = [BaseMessage instance];
+    [message sendRequestWithPost:@"http://baike.baidu.com/api/openapi/BaikeLemmaCardApi?scope=103&format=json&appid=379020&bk_key=ABC&bk_length=600" Param:nil success:^(id responseObject) {
+        NSLog(@"OK");
+    }];
+    
     [self lySetupRightItem];
     [self setupNotify];
+    
+    
+    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+    [manager GET:@"www.baidu.com" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(responseObject);
+    } failure:nil];
 }
 
 - (void)didReceiveMemoryWarning {

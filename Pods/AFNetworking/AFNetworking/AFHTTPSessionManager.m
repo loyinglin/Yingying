@@ -335,6 +335,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [super encodeWithCoder:coder];
+//    NSString* a = PictureWasTakenNotification;
 
     [coder encodeObject:self.baseURL forKey:NSStringFromSelector(@selector(baseURL))];
     if ([self.session.configuration conformsToProtocol:@protocol(NSCoding)]) {

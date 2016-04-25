@@ -190,6 +190,7 @@
 		FD8068691C2107AA00111A0A /* LYCityPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8068681C2107AA00111A0A /* LYCityPicker.m */; };
 		FD80686C1C210A0D00111A0A /* AroundAddressViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD80686B1C210A0D00111A0A /* AroundAddressViewModel.m */; };
 		FD8BB0791C351C2600BC36E6 /* AroundMoodTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8BB0781C351C2600BC36E6 /* AroundMoodTableViewCell.m */; };
+		FD8C72771C8EADAC001A5D46 /* LYhttpAPICenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8C72761C8EADAC001A5D46 /* LYhttpAPICenter.m */; };
 		FD90EF561C158975005545DF /* LoginRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD90EF551C158975005545DF /* LoginRegisterController.m */; };
 		FD95AF331C358D0E00B6DD4F /* AroundMoodDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95AF321C358D0E00B6DD4F /* AroundMoodDetailViewModel.m */; };
 		FD95AF361C36309100B6DD4F /* AroundMoodDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95AF351C36309100B6DD4F /* AroundMoodDetailCell.m */; };
@@ -551,6 +552,8 @@
 		FD80686B1C210A0D00111A0A /* AroundAddressViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundAddressViewModel.m; sourceTree = "<group>"; };
 		FD8BB0771C351C2600BC36E6 /* AroundMoodTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMoodTableViewCell.h; sourceTree = "<group>"; };
 		FD8BB0781C351C2600BC36E6 /* AroundMoodTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMoodTableViewCell.m; sourceTree = "<group>"; };
+		FD8C72751C8EADAC001A5D46 /* LYhttpAPICenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYhttpAPICenter.h; sourceTree = "<group>"; };
+		FD8C72761C8EADAC001A5D46 /* LYhttpAPICenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYhttpAPICenter.m; sourceTree = "<group>"; };
 		FD90EF541C158975005545DF /* LoginRegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegisterController.h; sourceTree = "<group>"; };
 		FD90EF551C158975005545DF /* LoginRegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisterController.m; sourceTree = "<group>"; };
 		FD95AF311C358D0E00B6DD4F /* AroundMoodDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMoodDetailViewModel.h; sourceTree = "<group>"; };
@@ -1264,6 +1267,8 @@
 				FD54DDBF1C229847009A8AD5 /* UserMessage.m */,
 				FD297DDA1C2D899E007DFFF0 /* LocationMessage.h */,
 				FD297DDB1C2D899E007DFFF0 /* LocationMessage.m */,
+				FD8C72751C8EADAC001A5D46 /* LYhttpAPICenter.h */,
+				FD8C72761C8EADAC001A5D46 /* LYhttpAPICenter.m */,
 			);
 			path = message;
 			sourceTree = "<group>";
@@ -2007,6 +2012,7 @@
 				FD1EE5311C3A64640098812F /* LoginResetPasswordController.m in Sources */,
 				FD29B3D91C1173B500B68C6C /* YingPlanTableViewController.m in Sources */,
 				FDF727D91C3F4E3000879753 /* UIView+LYModify.m in Sources */,
+				FD8C72771C8EADAC001A5D46 /* LYhttpAPICenter.m in Sources */,
 				FD29B3B21C113BC600B68C6C /* ForMap.mm in Sources */,
 				FD4BA8E31C13139C00A69F90 /* MyTransferViewModel.m in Sources */,
 			);

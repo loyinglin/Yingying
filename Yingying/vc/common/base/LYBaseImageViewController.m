@@ -35,6 +35,7 @@
     if (self.myHideRightBarButton) {
         self.navigationItem.rightBarButtonItem = nil;
     }
+//    self.myImageUrlString componentsSeparatedByString:<#(nonnull NSString *)#>
 }
 
 - (void)didReceiveMemoryWarning {
