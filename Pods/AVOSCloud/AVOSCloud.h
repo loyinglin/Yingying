@@ -52,7 +52,7 @@
 #import "AVACL.h"
 #import "AVRole.h"
 
-#if AVOS_IOS_ONLY
+#if AVOS_IOS_ONLY && !TARGET_OS_WATCH
 // IM 1.0
 #import "AVSession.h"
 #import "AVSignature.h"
@@ -62,7 +62,7 @@
 #import "AVHistoryMessageQuery.h"
 #endif
 
-#if AVOS_IOS_ONLY
+#if AVOS_IOS_ONLY && !TARGET_OS_WATCH
 // Analytics
 #import "AVAnalytics.h"
 #endif
@@ -139,8 +139,8 @@ typedef enum AVLogLevel : NSUInteger {
 
 /**
  *  开启LastModify支持, 减少流量消耗。默认关闭。
- *
  *  @param enabled 开启
+ *  @attention 该方法并不会修改任何AVQuery的缓存策略，缓存策略以当前AVQuery的设置为准。该方法仅在进行网络请求时生效。如果想发挥该函数的最大作用，建议在查询时，将缓存策略选择为kAVCachePolicyNetworkOnly
  */
 + (void)setLastModifyEnabled:(BOOL)enabled;
 
@@ -198,12 +198,12 @@ typedef enum AVLogLevel : NSUInteger {
  * @param categories A set of UIUserNotificationCategory objects that define the groups of actions a notification may include.
  * NOTE: categories only supported by iOS 8 and later. If application run below iOS 8, categories will be ignored.
  */
-+ (void)registerForRemoteNotificationTypes:(NSUInteger)types categories:(NSSet *)categories;
++ (void)registerForRemoteNotificationTypes:(NSUInteger)types categories:(NSSet *)categories AV_TV_UNAVAILABLE AV_WATCH_UNAVAILABLE;
 
 /**
  * Register remote notification with all types (badge, alert, sound) and empty categories.
  */
-+ (void)registerForRemoteNotification;
++ (void)registerForRemoteNotification AV_TV_UNAVAILABLE AV_WATCH_UNAVAILABLE;
 
 /**
  *  get the query cache expired days

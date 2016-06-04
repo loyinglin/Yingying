@@ -20,8 +20,8 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - AVOSCloud (3.1.6.8)
-  - AVOSCloudIM (3.1.6.8):
+  - AVOSCloud (3.1.7.1)
+  - AVOSCloudIM (3.1.7.1):
     - AVOSCloud
   - BaiduMapKit (2.9.1)
   - DateTools (1.5.0)
@@ -37,6 +37,7 @@ PODS:
     - DateTools (= 1.5.0)
     - FMDB (= 2.5)
     - JSBadgeView (= 1.4.1)
+  - LYFramework (1.0.1)
   - MBProgressHUD (0.9.1)
   - ReactiveCocoa (2.1.8):
     - ReactiveCocoa/Core (= 2.1.8)
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - AFNetworking
   - BaiduMapKit
   - LeanChatLib (from `./`)
+  - LYFramework
   - MBProgressHUD
   - ReactiveCocoa
   - SocketRocket (from `./SocketRocket/`)
@@ -62,15 +64,16 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  AVOSCloud: 4b06ec4444ca0ee0543e6cf729b11e5f3f956977
-  AVOSCloudIM: a32d9d66d09eff110b3b29f371e7ef2979b11c9c
+  AVOSCloud: 142b7cef3c0bc059dfb73739e02cf9487e65ff66
+  AVOSCloudIM: 4ea51fcce5e9f971140b1784055286fe987c8593
   BaiduMapKit: 97d2d44b41a876de2371fb91ddf78cdf84dafa05
   DateTools: b93a2c2017747329c6077c7d7e8a75106e23d0d7
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   JSBadgeView: 3861ddee41094284d9468e6d0af5107f703aaac5
   LeanChatLib: 9aa6b483a955dac006e042cbb6caca39d5826888
+  LYFramework: 6322f9d2c90ae975fd7f74460dfe45887a1a4b1c
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   ReactiveCocoa: f89f2e009a87951b50321bf9feb958823fcc617e
   SocketRocket: ffe08119b00ef982f6c37052a4705a057c8494ad
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.39.0
