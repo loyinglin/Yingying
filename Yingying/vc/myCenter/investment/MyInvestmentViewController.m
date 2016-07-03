@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view.
     self.myTabbarController= self.childViewControllers[0];
     self.myTabbarController.tabBar.hidden = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning {
